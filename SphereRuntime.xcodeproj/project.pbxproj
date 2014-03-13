@@ -100,6 +100,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8024954118D228F70071F3C4 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		8024954218D228F70071F3C4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		804111D518D144A100F7974F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		80477BCC18D1313100B16692 /* SphereRuntime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SphereRuntime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80477BCF18D1313100B16692 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -231,9 +233,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8024954018D228E80071F3C4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8024954118D228F70071F3C4 /* LICENSE */,
+				8024954218D228F70071F3C4 /* README.md */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		80477BC318D1313100B16692 = {
 			isa = PBXGroup;
 			children = (
+				8024954018D228E80071F3C4 /* Supporting Files */,
 				80477BD518D1313100B16692 /* SphereRuntime */,
 				80B5FE6618D133AD0035C62B /* SphereRuntimeKit */,
 				80B5FE7A18D133AD0035C62B /* SphereRuntimeKitTests */,
