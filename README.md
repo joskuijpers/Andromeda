@@ -1,11 +1,10 @@
 SphereRuntime
-=======
+=============
 
 Sphere RPG Engine for Mac OSX. Not created by the developers 
 and maintainers of the original Sphere.
 
-Project setup
-===
+## Project setup ##
 
 The SphereRuntimeKit framework contains common code for the Sphere IDE
 and the Sphere Runtime. This includes reading and manipulating of
@@ -14,8 +13,7 @@ Sphere filetypes, animations and sound.
 The SphereRuntime.app is the actual runtime. It uses the L8Framework for
 using V8 with Objective-C.
 
-License
-===
+## License ##
 
 This software is released under the 2 clause BSD license. See LICENSE.
 
