@@ -28,7 +28,7 @@
 
 @implementation SPRNetwork
 
-+ (void)installIntoContext:(L8Runtime *)context
++ (void)installIntoContext:(L8Context *)context
 {
 	context[@"Network"] = [SPRNetwork class];
 	context[@"Network"][@"bonjour"] = [SPRBonjour class];

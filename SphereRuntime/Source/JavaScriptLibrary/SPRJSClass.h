@@ -32,9 +32,9 @@
  * must add all classes, function, etc to the context
  * needed for your class.
  *
- * @param context the L8Runtime to install into
+ * @param context the L8Context to install into
  */
-+ (void)installIntoContext:(L8Runtime *)context;
++ (void)installIntoContext:(L8Context *)context;
 
 @end
 
@@ -42,6 +42,6 @@
  * Install all JS Lib classes into given context.
  * A JS Lib class conforms to SPRJSClass.
  *
- * @param context the L8Runtime to install into
+ * @param context the L8Context to install into
  */
-extern void spr_install_js_lib(L8Runtime *context);
+extern void spr_install_js_lib(L8Context *context);

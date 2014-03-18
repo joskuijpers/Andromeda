@@ -75,9 +75,9 @@
 @interface SRKSpriteSetFrame : NSObject
 
 /// Index of the image used in this frame
-@property (assign) int index;
+@property (assign) unsigned int index;
 
 /// Animation delay to the next frame. Delay in Frames
-@property (assign) int animationDelay;
+@property (assign) unsigned int animationDelay;
 
 @end

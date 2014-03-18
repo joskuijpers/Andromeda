@@ -36,7 +36,7 @@
 
 @synthesize connected=_connected;
 
-+ (void)installIntoContext:(L8Runtime *)context
++ (void)installIntoContext:(L8Context *)context
 {
 	context[@"Socket"] = [SPRSocket class];
 }
@@ -45,7 +45,7 @@
 {
 	self = [super init];
 	if(self) {
-		NSArray *arguments = [L8Runtime currentArguments];
+		NSArray *arguments = [L8Context currentArguments];
 
 		if(arguments.count >= 2) {
 			NSString *host = [arguments[0] toString];

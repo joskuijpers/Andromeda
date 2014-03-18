@@ -252,7 +252,7 @@ _Static_assert(sizeof(srk_rss_frame_v3_t) == 8,"wrong struct size");
 					   && img.rawData.length == imgData.length
 					   && memcmp(img.rawData.bytes, imgData.bytes, img.rawData.length) == 0) {
 						// Found a match
-						frame.index = idx;
+						frame.index = (unsigned int)idx;
 						*stop = YES;
 					}
 				}];
@@ -266,7 +266,7 @@ _Static_assert(sizeof(srk_rss_frame_v3_t) == 8,"wrong struct size");
 															 format:SRKImageFormatRGBA];
 
 					[images addObject:image];
-					frame.index = images.count - 1;
+					frame.index = (unsigned int)(images.count - 1);
 				}
 
 				frame.animationDelay = frame_header->delay;

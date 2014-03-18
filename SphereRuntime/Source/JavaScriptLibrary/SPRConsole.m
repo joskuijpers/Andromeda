@@ -31,7 +31,7 @@
 {
 	NSArray *arguments;
 
-	arguments = [L8Runtime currentArguments];
+	arguments = [L8Context currentArguments];
 
 	// If the string does not contain any formatting elements,
 	// assume the function just received a variable number of objects to log

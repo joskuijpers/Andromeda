@@ -42,7 +42,7 @@
 	NSNetService *_service;
 }
 
-+ (void)installIntoContext:(L8Runtime *)context
++ (void)installIntoContext:(L8Context *)context
 {
 	context[@"Bonjour"] = [SPRBonjour class];
 }

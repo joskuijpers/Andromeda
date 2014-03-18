@@ -27,7 +27,7 @@
 
 @implementation SPRModule
 
-+ (void)installIntoContext:(L8Runtime *)context
++ (void)installIntoContext:(L8Context *)context
 {
 
 }

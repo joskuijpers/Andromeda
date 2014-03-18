@@ -29,7 +29,7 @@
 	NSMutableData *_data;
 }
 
-+ (void)installIntoContext:(L8Runtime *)context
++ (void)installIntoContext:(L8Context *)context
 {
 	context[@"ByteArray"] = [SPRByteArray class];
 }
@@ -38,7 +38,7 @@
 {
 	self = [super init];
 	if(self) {
-		NSArray *arguments = [L8Runtime currentArguments];
+		NSArray *arguments = [L8Context currentArguments];
 		if(arguments.count >= 1) {
 			L8Value *val = arguments[0];
 			if([val isNumber]) {

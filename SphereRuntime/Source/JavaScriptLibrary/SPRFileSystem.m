@@ -27,7 +27,7 @@
 
 @implementation SPRFileSystem
 
-+ (void)installIntoContext:(L8Runtime *)context
++ (void)installIntoContext:(L8Context *)context
 {
 	context[@"FileSystem"] = [SPRFileSystem class];
 }

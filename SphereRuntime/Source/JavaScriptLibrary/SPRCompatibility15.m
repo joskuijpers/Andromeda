@@ -27,7 +27,7 @@
 
 @implementation SPRCompatibility15
 
-+ (void)makeContextCompatible:(L8Runtime *)context
++ (void)makeContextCompatible:(L8Context *)context
 {
 
 }

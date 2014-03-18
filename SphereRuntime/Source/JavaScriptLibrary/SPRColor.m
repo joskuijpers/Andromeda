@@ -29,7 +29,7 @@
 
 @synthesize red=_red, green=_green, blue=_blue, alpha=_alpha;
 
-+ (void)installIntoContext:(L8Runtime *)context
++ (void)installIntoContext:(L8Context *)context
 {
 	context[@"Color"] = [SPRColor class];
 }
@@ -38,7 +38,7 @@
 {
 	self = [super init];
 	if(self) {
-		NSArray *args = [L8Runtime currentArguments];
+		NSArray *args = [L8Context currentArguments];
 		size_t count = args.count;
 
 		_red = (count >= 1)?[args[0] toUInt32]:0;
@@ -106,7 +106,8 @@
 	w2 = (w2 < 0.0)?-w2:w2;
 
 	if(w1+w2 == 0.0)
-		[[L8Value valueWithObject:@"Invalid arguments: (w1+w2) must be > 0.0"] throwValue];
+		[[L8Value valueWithObject:@"Invalid arguments: (w1+w2) must be > 0.0"
+						inContext:[L8Context currentContext]] throwValue];
 
 	return [[SPRColor alloc] initWithRed:(other.red*w2+_red*w1)/(w1+w2)
 								   green:(other.green*w2+_green*w1)/(w1+w2)

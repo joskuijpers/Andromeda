@@ -34,7 +34,7 @@
 @synthesize size=_size, position=_position;
 @synthesize path=_path, writable=_writable;
 
-+ (void)installIntoContext:(L8Runtime *)context
++ (void)installIntoContext:(L8Context *)context
 {
 	context[@"RawFile"] = [SPRRawFile class];
 }
@@ -43,7 +43,7 @@
 {
 	self = [super init];
 	if(self) {
-		NSArray *arguments = [L8Runtime currentArguments];
+		NSArray *arguments = [L8Context currentArguments];
 
 		if(arguments.count >= 1)
 			_path = [arguments[0] toString];
@@ -153,7 +153,8 @@
 - (void)flush
 {
 	if(![self saveToFile:_path])
-		[[L8Value valueWithObject:@"Failed to write file"] throwValue];
+		[[L8Value valueWithObject:@"Failed to write file"
+						inContext:[L8Context currentContext]] throwValue];
 }
 
 - (void)close

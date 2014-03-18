@@ -32,7 +32,7 @@
 
 @synthesize path=_path;
 
-+ (void)installIntoContext:(L8Runtime *)context
++ (void)installIntoContext:(L8Context *)context
 {
 	context[@"File"] = [SPRFile class];
 }
@@ -41,7 +41,7 @@
 {
 	self = [super init];
 	if(self) {
-		NSArray *arguments = [L8Runtime currentArguments];
+		NSArray *arguments = [L8Context currentArguments];
 
 		if(arguments.count >= 1) {
 			_path = [[(L8Value *)arguments[0] toString] copy];

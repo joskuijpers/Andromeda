@@ -62,11 +62,11 @@ typedef struct {
 @end
 
 @implementation SPRAppDelegate {
-	L8Runtime *_runtime;
+	L8Context *_context;
 	NSMutableArray *_comboOptions;
 }
 
-void load_bundle_script(L8Runtime *context, NSString *name)
+void load_bundle_script(L8Context *context, NSString *name)
 {
 	@try {
 		[context loadScriptAtPath:[[NSBundle mainBundle] pathForResource:name ofType:@"js"]];
@@ -77,18 +77,18 @@ void load_bundle_script(L8Runtime *context, NSString *name)
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-	_runtime = [[L8Runtime alloc] init];
+	_context = [[L8Context alloc] init];
 
 
-	[_runtime executeBlockInRuntime:^(L8Runtime *runtime) {
-		spr_install_js_lib(_runtime);
+	[_context executeBlockInContext:^(L8Context *context) {
+		spr_install_js_lib(context);
 
-		_runtime[@"console"] = [[SPRConsole alloc] init];
+		context[@"console"] = [[SPRConsole alloc] init];
 
-		_runtime[@"ClassA"] = [ClassA class];
-		_runtime[@"ClassB"] = [ClassB class];
+		context[@"ClassA"] = [ClassA class];
+		context[@"ClassB"] = [ClassB class];
 
-		load_bundle_script(_runtime, @"test");
+		load_bundle_script(context, @"test");
 	}];
 
 }

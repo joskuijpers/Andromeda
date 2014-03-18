@@ -23,10 +23,10 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@import ObjectiveC.runtime;
+#include <objc/runtime.h>
 #import "SPRJSClass.h"
 
-void spr_install_js_lib(L8Runtime *context) {
+void spr_install_js_lib(L8Context *context) {
 	Class *classes;
 	unsigned int count;
 

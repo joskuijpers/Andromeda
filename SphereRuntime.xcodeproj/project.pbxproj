@@ -80,6 +80,8 @@
 		80B5FEDC18D135940035C62B /* endian.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FEDB18D135940035C62B /* endian.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		80B5FEDF18D1359A0035C62B /* SRKGame.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FEDD18D1359A0035C62B /* SRKGame.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		80B5FEE018D1359A0035C62B /* SRKGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FEDE18D1359A0035C62B /* SRKGame.m */; };
+		80B682AF18D8FF7300445BF9 /* L8Framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80B682AE18D8FF7300445BF9 /* L8Framework.framework */; };
+		80B682B118D908B300445BF9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80477BCF18D1313100B16692 /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -201,6 +203,7 @@
 		80B5FEDB18D135940035C62B /* endian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = endian.h; path = Source/endian.h; sourceTree = "<group>"; };
 		80B5FEDD18D1359A0035C62B /* SRKGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRKGame.h; path = Source/SRKGame.h; sourceTree = "<group>"; };
 		80B5FEDE18D1359A0035C62B /* SRKGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRKGame.m; path = Source/SRKGame.m; sourceTree = "<group>"; };
+		80B682AE18D8FF7300445BF9 /* L8Framework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = L8Framework.framework; path = Frameworks/L8Framework.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +211,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80B682B118D908B300445BF9 /* Cocoa.framework in Frameworks */,
+				80B682AF18D8FF7300445BF9 /* L8Framework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,13 +247,62 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		8024964F18D3E9B60071F3C4 /* Compatibility */ = {
+			isa = PBXGroup;
+			children = (
+				80477C1818D1320800B16692 /* SPRCompatibility.h */,
+				80477C1918D1320800B16692 /* SPRCompatibility15.h */,
+				80477C1A18D1320800B16692 /* SPRCompatibility15.m */,
+				80477C1B18D1320800B16692 /* SPRCompatibility16.h */,
+				80477C1C18D1320800B16692 /* SPRCompatibility16.m */,
+			);
+			name = Compatibility;
+			sourceTree = "<group>";
+		};
+		8024965018D3E9C40071F3C4 /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				80477C1618D1320800B16692 /* SPRColor.h */,
+				80477C1718D1320800B16692 /* SPRColor.m */,
+				80477C2318D1320800B16692 /* SPRImage.h */,
+				80477C2418D1320800B16692 /* SPRImage.m */,
+			);
+			name = Graphics;
+			sourceTree = "<group>";
+		};
+		8024965118D3E9D30071F3C4 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				80477C1218D1320800B16692 /* SPRBonjour.h */,
+				80477C1318D1320800B16692 /* SPRBonjour.m */,
+				80477C2918D1320900B16692 /* SPRNetwork.h */,
+				80477C2A18D1320900B16692 /* SPRNetwork.m */,
+				80477C2D18D1320900B16692 /* SPRSocket.h */,
+				80477C2E18D1320900B16692 /* SPRSocket.m */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		8024965218D3E9DE0071F3C4 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				80477C1F18D1320800B16692 /* SPRFile.h */,
+				80477C2018D1320800B16692 /* SPRFile.m */,
+				80477C2118D1320800B16692 /* SPRFileSystem.h */,
+				80477C2218D1320800B16692 /* SPRFileSystem.m */,
+				80477C2B18D1320900B16692 /* SPRRawFile.h */,
+				80477C2C18D1320900B16692 /* SPRRawFile.m */,
+			);
+			name = Files;
+			sourceTree = "<group>";
+		};
 		80477BC318D1313100B16692 = {
 			isa = PBXGroup;
 			children = (
-				8024954018D228E80071F3C4 /* Supporting Files */,
 				80477BD518D1313100B16692 /* SphereRuntime */,
 				80B5FE6618D133AD0035C62B /* SphereRuntimeKit */,
 				80B5FE7A18D133AD0035C62B /* SphereRuntimeKitTests */,
+				8024954018D228E80071F3C4 /* Supporting Files */,
 				80477BCE18D1313100B16692 /* Frameworks */,
 				80477BCD18D1313100B16692 /* Products */,
 			);
@@ -267,6 +321,7 @@
 		80477BCE18D1313100B16692 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				80B682AE18D8FF7300445BF9 /* L8Framework.framework */,
 				804111D518D144A100F7974F /* CoreGraphics.framework */,
 				80477BCF18D1313100B16692 /* Cocoa.framework */,
 				80477BEE18D1313100B16692 /* XCTest.framework */,
@@ -343,35 +398,18 @@
 		80477C0F18D131E100B16692 /* JavaScript Library */ = {
 			isa = PBXGroup;
 			children = (
-				80477C1218D1320800B16692 /* SPRBonjour.h */,
-				80477C1318D1320800B16692 /* SPRBonjour.m */,
+				8024965118D3E9D30071F3C4 /* Networking */,
+				8024965018D3E9C40071F3C4 /* Graphics */,
+				8024964F18D3E9B60071F3C4 /* Compatibility */,
+				8024965218D3E9DE0071F3C4 /* Files */,
 				80477C1418D1320800B16692 /* SPRByteArray.h */,
 				80477C1518D1320800B16692 /* SPRByteArray.m */,
-				80477C1618D1320800B16692 /* SPRColor.h */,
-				80477C1718D1320800B16692 /* SPRColor.m */,
-				80477C1818D1320800B16692 /* SPRCompatibility.h */,
-				80477C1918D1320800B16692 /* SPRCompatibility15.h */,
-				80477C1A18D1320800B16692 /* SPRCompatibility15.m */,
-				80477C1B18D1320800B16692 /* SPRCompatibility16.h */,
-				80477C1C18D1320800B16692 /* SPRCompatibility16.m */,
 				80477C1D18D1320800B16692 /* SPRConsole.h */,
 				80477C1E18D1320800B16692 /* SPRConsole.m */,
-				80477C1F18D1320800B16692 /* SPRFile.h */,
-				80477C2018D1320800B16692 /* SPRFile.m */,
-				80477C2118D1320800B16692 /* SPRFileSystem.h */,
-				80477C2218D1320800B16692 /* SPRFileSystem.m */,
-				80477C2318D1320800B16692 /* SPRImage.h */,
-				80477C2418D1320800B16692 /* SPRImage.m */,
 				80477C2518D1320800B16692 /* SPRJSClass.h */,
 				80477C2618D1320800B16692 /* SPRJSClass.m */,
 				80477C2718D1320800B16692 /* SPRModule.h */,
 				80477C2818D1320900B16692 /* SPRModule.m */,
-				80477C2918D1320900B16692 /* SPRNetwork.h */,
-				80477C2A18D1320900B16692 /* SPRNetwork.m */,
-				80477C2B18D1320900B16692 /* SPRRawFile.h */,
-				80477C2C18D1320900B16692 /* SPRRawFile.m */,
-				80477C2D18D1320900B16692 /* SPRSocket.h */,
-				80477C2E18D1320900B16692 /* SPRSocket.m */,
 			);
 			name = "JavaScript Library";
 			sourceTree = "<group>";
@@ -856,6 +894,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SphereRuntime/Source/SphereRuntime-Prefix.pch";
 				INFOPLIST_FILE = "SphereRuntime/SphereRuntime-Info.plist";
@@ -869,6 +911,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SphereRuntime/Source/SphereRuntime-Prefix.pch";
 				INFOPLIST_FILE = "SphereRuntime/SphereRuntime-Info.plist";
