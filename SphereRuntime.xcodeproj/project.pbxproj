@@ -82,6 +82,7 @@
 		80B5FEE018D1359A0035C62B /* SRKGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FEDE18D1359A0035C62B /* SRKGame.m */; };
 		80B682AF18D8FF7300445BF9 /* L8Framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80B682AE18D8FF7300445BF9 /* L8Framework.framework */; };
 		80B682B118D908B300445BF9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80477BCF18D1313100B16692 /* Cocoa.framework */; };
+		80B682B318D90E6D00445BF9 /* L8Framework.framework in Copy Private Frameworks */ = {isa = PBXBuildFile; fileRef = 80B682AE18D8FF7300445BF9 /* L8Framework.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,20 @@
 			remoteInfo = SphereRuntimeKit;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		80B682B218D90E4A00445BF9 /* Copy Private Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				80B682B318D90E6D00445BF9 /* L8Framework.framework in Copy Private Frameworks */,
+			);
+			name = "Copy Private Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		8024954118D228F70071F3C4 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -605,6 +620,7 @@
 				80477BC818D1313100B16692 /* Sources */,
 				80477BC918D1313100B16692 /* Frameworks */,
 				80477BCA18D1313100B16692 /* Resources */,
+				80B682B218D90E4A00445BF9 /* Copy Private Frameworks */,
 			);
 			buildRules = (
 			);
@@ -897,10 +913,17 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"\"$(SRCROOT)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SphereRuntime/Source/SphereRuntime-Prefix.pch";
 				INFOPLIST_FILE = "SphereRuntime/SphereRuntime-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = (
+					"-rpath",
+					"@executable_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -914,10 +937,17 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"\"$(SRCROOT)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SphereRuntime/Source/SphereRuntime-Prefix.pch";
 				INFOPLIST_FILE = "SphereRuntime/SphereRuntime-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = (
+					"-rpath",
+					"@executable_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
