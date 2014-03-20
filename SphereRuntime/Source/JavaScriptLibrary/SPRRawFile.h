@@ -43,11 +43,11 @@
 
 - (instancetype)init;
 
-L8ExportAs(read,
+L8_EXPORT_AS(read,
 - (SPRByteArray *)readBytes:(size_t)len
 );
 
-L8ExportAs(write,
+L8_EXPORT_AS(write,
 - (void)writeByteArray:(SPRByteArray *)byteArray
 );
 
@@ -65,6 +65,12 @@ L8ExportAs(write,
  * Creates an MD5 hash from the file
  */
 - (NSString *)md5hash;
+
+L8_EXPORT_AS(rename,
+- (void)renameTo:(NSString *)newName
+);
+
+- (void)remove;
 
 @end
 

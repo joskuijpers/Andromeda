@@ -38,7 +38,7 @@
 
 - (SPRColor *)blend:(SPRColor *)other;
 
-L8ExportAs(blendWeighted,
+L8_EXPORT_AS(blendWeighted,
 - (SPRColor *)blend:(SPRColor *)other
 		 withLeftWeight:(double)w1
 			rightWeight:(double)w2

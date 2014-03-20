@@ -30,6 +30,10 @@
 		80477C3F18D1321500B16692 /* SPRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C3E18D1321500B16692 /* SPRAppDelegate.m */; };
 		80477C4218D1321A00B16692 /* SPRGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C4118D1321A00B16692 /* SPRGame.m */; };
 		80477C4518D1321F00B16692 /* SPRResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C4418D1321F00B16692 /* SPRResource.m */; };
+		8049F80818DA49AA00B454F8 /* SPRDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8049F80718DA49AA00B454F8 /* SPRDirectory.m */; };
+		80A3C76F18DA891B002EEF8C /* NSString+Hashing.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A3C76E18DA891B002EEF8C /* NSString+Hashing.m */; };
+		80A3C77218DA8925002EEF8C /* NSData+Hashing.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A3C77118DA8925002EEF8C /* NSData+Hashing.m */; };
+		80A3C77818DA8FDD002EEF8C /* SPRFileHashing.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A3C77718DA8FDD002EEF8C /* SPRFileHashing.m */; };
 		80B5FE5A18D1332B0035C62B /* sphere15.js in Resources */ = {isa = PBXBuildFile; fileRef = 80477C4618D1325C00B16692 /* sphere15.js */; };
 		80B5FE5B18D1332B0035C62B /* sphere16.js in Resources */ = {isa = PBXBuildFile; fileRef = 80477C4718D1325C00B16692 /* sphere16.js */; };
 		80B5FE5C18D1332B0035C62B /* test_module.js in Resources */ = {isa = PBXBuildFile; fileRef = 80477C4818D1325C00B16692 /* test_module.js */; };
@@ -172,6 +176,14 @@
 		80477C4718D1325C00B16692 /* sphere16.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = sphere16.js; path = Resources/sphere16.js; sourceTree = "<group>"; };
 		80477C4818D1325C00B16692 /* test_module.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = test_module.js; path = Resources/test_module.js; sourceTree = "<group>"; };
 		80477C4918D1325C00B16692 /* test.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = test.js; path = Resources/test.js; sourceTree = "<group>"; };
+		8049F80618DA49AA00B454F8 /* SPRDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRDirectory.h; path = Source/JavaScriptLibrary/SPRDirectory.h; sourceTree = "<group>"; };
+		8049F80718DA49AA00B454F8 /* SPRDirectory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRDirectory.m; path = Source/JavaScriptLibrary/SPRDirectory.m; sourceTree = "<group>"; };
+		80A3C76D18DA891B002EEF8C /* NSString+Hashing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Hashing.h"; path = "Source/Categories/NSString+Hashing.h"; sourceTree = "<group>"; };
+		80A3C76E18DA891B002EEF8C /* NSString+Hashing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Hashing.m"; path = "Source/Categories/NSString+Hashing.m"; sourceTree = "<group>"; };
+		80A3C77018DA8925002EEF8C /* NSData+Hashing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Hashing.h"; sourceTree = "<group>"; };
+		80A3C77118DA8925002EEF8C /* NSData+Hashing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Hashing.m"; sourceTree = "<group>"; };
+		80A3C77618DA8FDD002EEF8C /* SPRFileHashing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRFileHashing.h; path = Source/SPRFileHashing.h; sourceTree = "<group>"; };
+		80A3C77718DA8FDD002EEF8C /* SPRFileHashing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRFileHashing.m; path = Source/SPRFileHashing.m; sourceTree = "<group>"; };
 		80B5FE6418D133AD0035C62B /* SphereRuntimeKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SphereRuntimeKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80B5FE6818D133AD0035C62B /* SphereRuntimeKit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SphereRuntimeKit-Info.plist"; sourceTree = "<group>"; };
 		80B5FE7418D133AD0035C62B /* SphereRuntimeKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SphereRuntimeKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -298,7 +310,7 @@
 			name = Networking;
 			sourceTree = "<group>";
 		};
-		8024965218D3E9DE0071F3C4 /* Files */ = {
+		8024965218D3E9DE0071F3C4 /* File System */ = {
 			isa = PBXGroup;
 			children = (
 				80477C1F18D1320800B16692 /* SPRFile.h */,
@@ -307,8 +319,10 @@
 				80477C2218D1320800B16692 /* SPRFileSystem.m */,
 				80477C2B18D1320900B16692 /* SPRRawFile.h */,
 				80477C2C18D1320900B16692 /* SPRRawFile.m */,
+				8049F80618DA49AA00B454F8 /* SPRDirectory.h */,
+				8049F80718DA49AA00B454F8 /* SPRDirectory.m */,
 			);
-			name = Files;
+			name = "File System";
 			sourceTree = "<group>";
 		};
 		80477BC318D1313100B16692 = {
@@ -358,6 +372,7 @@
 		80477BD518D1313100B16692 /* SphereRuntime */ = {
 			isa = PBXGroup;
 			children = (
+				80A3C76C18DA88DA002EEF8C /* Categories */,
 				80477C0C18D1317D00B16692 /* App */,
 				80477C0D18D1318300B16692 /* Resources */,
 				80477C0E18D1318A00B16692 /* Assets */,
@@ -416,7 +431,7 @@
 				8024965118D3E9D30071F3C4 /* Networking */,
 				8024965018D3E9C40071F3C4 /* Graphics */,
 				8024964F18D3E9B60071F3C4 /* Compatibility */,
-				8024965218D3E9DE0071F3C4 /* Files */,
+				8024965218D3E9DE0071F3C4 /* File System */,
 				80477C1418D1320800B16692 /* SPRByteArray.h */,
 				80477C1518D1320800B16692 /* SPRByteArray.m */,
 				80477C1D18D1320800B16692 /* SPRConsole.h */,
@@ -434,6 +449,8 @@
 			children = (
 				80477C4318D1321F00B16692 /* SPRResource.h */,
 				80477C4418D1321F00B16692 /* SPRResource.m */,
+				80A3C77618DA8FDD002EEF8C /* SPRFileHashing.h */,
+				80A3C77718DA8FDD002EEF8C /* SPRFileHashing.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -445,6 +462,17 @@
 				80477C4118D1321A00B16692 /* SPRGame.m */,
 			);
 			name = Game;
+			sourceTree = "<group>";
+		};
+		80A3C76C18DA88DA002EEF8C /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				80A3C76D18DA891B002EEF8C /* NSString+Hashing.h */,
+				80A3C76E18DA891B002EEF8C /* NSString+Hashing.m */,
+				80A3C77018DA8925002EEF8C /* NSData+Hashing.h */,
+				80A3C77118DA8925002EEF8C /* NSData+Hashing.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 		80B5FE6618D133AD0035C62B /* SphereRuntimeKit */ = {
@@ -740,6 +768,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80A3C77818DA8FDD002EEF8C /* SPRFileHashing.m in Sources */,
 				80477C2F18D1320900B16692 /* SPRBonjour.m in Sources */,
 				80477C3018D1320900B16692 /* SPRByteArray.m in Sources */,
 				80477C3918D1320900B16692 /* SPRModule.m in Sources */,
@@ -752,8 +781,11 @@
 				80477C4518D1321F00B16692 /* SPRResource.m in Sources */,
 				80477C3118D1320900B16692 /* SPRColor.m in Sources */,
 				80477C3718D1320900B16692 /* SPRImage.m in Sources */,
+				8049F80818DA49AA00B454F8 /* SPRDirectory.m in Sources */,
 				80477C3518D1320900B16692 /* SPRFile.m in Sources */,
+				80A3C76F18DA891B002EEF8C /* NSString+Hashing.m in Sources */,
 				80477BDC18D1313100B16692 /* main.m in Sources */,
+				80A3C77218DA8925002EEF8C /* NSData+Hashing.m in Sources */,
 				80477C3418D1320900B16692 /* SPRConsole.m in Sources */,
 				80477C4218D1321A00B16692 /* SPRGame.m in Sources */,
 				80477C3A18D1320900B16692 /* SPRNetwork.m in Sources */,

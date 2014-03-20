@@ -31,7 +31,7 @@
 // + NSString *localName
 // + NSString *localAddress
 
-L8ExportAs(listen,
+L8_EXPORT_AS(listen,
 + (BOOL)listenOnPort:(uint16_t)port
 );
 

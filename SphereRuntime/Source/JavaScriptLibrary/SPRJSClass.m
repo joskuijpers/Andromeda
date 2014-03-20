@@ -37,7 +37,8 @@ void spr_install_js_lib(L8Context *context) {
 			continue;
 
 		// Install...
-		[classes[i] installIntoContext:context];
+		if([classes[i] respondsToSelector:@selector(installIntoContext:)])
+			[classes[i] installIntoContext:context];
 	}
 
 	free(classes);

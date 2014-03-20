@@ -23,6 +23,8 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#import <L8Framework/L8Export.h>
+
 @protocol SPRConsole <L8Export>
 
 /**

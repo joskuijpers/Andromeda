@@ -25,12 +25,40 @@
 
 #import "SPRJSClass.h"
 
-@class SPRFileSystem;
+@class SPRDirectory;
 
 @protocol SPRFileSystem <L8Export>
 
-L8ExportAs(createDirectory,
-+ (BOOL)createDirectoryAtPath:(NSString *)path
+L8_EXPORT_AS(list,
++ (NSArray *)contentsOfDirectoryAtPath:(NSString *)path
+);
+
+L8_EXPORT_AS(createDirectory, // TODO find a shorter name or do create() for both files and dirs
++ (SPRDirectory *)createDirectoryAtPath:(NSString *)path
+);
+
+L8_EXPORT_AS(remove,
++ (BOOL)removeItemAtPath:(NSString *)path
+);
+
+L8_EXPORT_AS(move,
++ (BOOL)moveItemAtPath:(NSString *)from toPath:(NSString *)to
+);
+
+L8_EXPORT_AS(exists,
++ (BOOL)itemExistsAtPath:(NSString *)path
+);
+
+L8_EXPORT_AS(md5,
++ (NSString *)md5ForFileAtPath:(NSString *)path
+);
+
+L8_EXPORT_AS(sha1,
++ (NSString *)sha1ForFileAtPath:(NSString *)path
+);
+
+L8_EXPORT_AS(sha256,
++ (NSString *)sha256ForFileAtPath:(NSString *)path
 );
 
 @end

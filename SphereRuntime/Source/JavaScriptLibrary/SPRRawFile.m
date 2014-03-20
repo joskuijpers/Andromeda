@@ -25,6 +25,7 @@
 
 #import "SPRRawFile.h"
 #import "SPRByteArray.h"
+#import "SPRFileSystem.h"
 
 @implementation SPRRawFile {
 	NSMutableData *_data;
@@ -33,11 +34,6 @@
 
 @synthesize size=_size, position=_position;
 @synthesize path=_path, writable=_writable;
-
-+ (void)installIntoContext:(L8Context *)context
-{
-	context[@"RawFile"] = [SPRRawFile class];
-}
 
 - (instancetype)init
 {
@@ -174,7 +170,19 @@
 
 - (NSString *)md5hash
 {
-	return nil;
+	return nil; // TODO
+}
+
+- (void)renameTo:(NSString *)newName
+{
+	[SPRFileSystem moveItemAtPath:_path
+						   toPath:newName];
+	_path = newName;
+}
+
+- (void)remove
+{
+	[SPRFileSystem removeItemAtPath:_path];
 }
 
 @end

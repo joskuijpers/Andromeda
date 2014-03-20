@@ -25,6 +25,7 @@
 
 #import "SPRFile.h"
 #import "NSString+SRKUtilities.h"
+#import "SPRFileSystem.h"
 
 @implementation SPRFile {
 	NSMutableDictionary *_storage;
@@ -32,25 +33,25 @@
 
 @synthesize path=_path;
 
-+ (void)installIntoContext:(L8Context *)context
+- (instancetype)init
 {
-	context[@"File"] = [SPRFile class];
+	NSArray *arguments = [L8Context currentArguments];
+
+	if(arguments.count < 1)
+		return nil;
+
+	return [self initWithPath:[(L8Value *)arguments[0] toString]];
 }
 
-- (instancetype)init
+- (instancetype)initWithPath:(NSString *)path
 {
 	self = [super init];
 	if(self) {
-		NSArray *arguments = [L8Context currentArguments];
+		_path = [path copy];
 
-		if(arguments.count >= 1) {
-			_path = [[(L8Value *)arguments[0] toString] copy];
-
-			// TODO: use some resource manager to find the correct path
-			if(![self loadFileAtPath:_path])
-				return nil;
-		} else
-			return nil; // TODO: exception instead?
+		// TODO: use some resource manager to find the correct path
+		if(![self loadFileAtPath:_path])
+			return nil;
 	}
 	return self;
 }
@@ -151,6 +152,11 @@
 	_storage[key] = value;
 }
 
+- (NSArray *)keys
+{
+	return [_storage allKeys];
+}
+
 - (void)flush
 {
 	[self saveFileToPath:_path];
@@ -163,7 +169,19 @@
 
 - (NSString *)md5hash
 {
-	return nil;
+	return nil; // TODO
+}
+
+- (void)renameTo:(NSString *)newName
+{
+	[SPRFileSystem moveItemAtPath:_path
+						   toPath:newName];
+	_path = newName;
+}
+
+- (void)remove
+{
+	[SPRFileSystem removeItemAtPath:_path];
 }
 
 @end

@@ -31,11 +31,11 @@
 
 - (instancetype)init;
 
-L8ExportAs(concat,
+L8_EXPORT_AS(concat,
 - (SPRByteArray *)byteArrayByAppendingByteArray:(SPRByteArray *)byteArray
 );
 
-L8ExportAs(slice,
+L8_EXPORT_AS(slice,
 - (SPRByteArray *)subArrayWithStart:(size_t)start end:(size_t)end
 );
 

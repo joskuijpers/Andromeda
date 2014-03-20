@@ -1,5 +1,35 @@
 console.log("Hello World!");
+/*
+var files = FileSystem.list('/Applications');
+for(i = 0; i < files.length;i++) {
+	console.log(files[i]);
+}
 
+for(var x in FileSystem) {
+	console.log(x);
+}
+
+console.log(FileSystem.Directory);
+var d = new FileSystem.Directory("/Applications");
+console.log(d.name);
+
+var dir = FileSystem.Directory.Create();
+*/
+
+var d = new FileSystem.Directory('/Applications');
+
+var l = d.list();
+for(i = 0; i < l.length; i++)
+	console.log(l[i]);
+
+//Dir rename
+//Dir remove
+//Dir list
+
+//new File('path')
+//File.create
+//File.rename
+//File.remove
 
 //var s = new __Socket("www.google.com",80);
 //console.log(String(s));

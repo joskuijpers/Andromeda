@@ -24,6 +24,7 @@
  */
 
 #import "SPRCompatibility15.h"
+#import <L8Framework/L8.h>
 
 @implementation SPRCompatibility15
 

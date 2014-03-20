@@ -24,6 +24,7 @@
  */
 
 #import "SPRConsole.h"
+#import <L8Framework/L8.h>
 
 @implementation SPRConsole
 

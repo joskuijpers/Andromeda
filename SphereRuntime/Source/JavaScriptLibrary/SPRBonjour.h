@@ -33,7 +33,7 @@
 
 // publish
 //: name, type, domain, port
-L8ExportAs(publish,
+L8_EXPORT_AS(publish,
 - (BOOL)publishWithName:(NSString *)name
 				   type:(NSString *)type
 				   port:(uint16_t)port
@@ -42,7 +42,7 @@ L8ExportAs(publish,
 
 // discover
 //: type, domain => name (+ port?)
-L8ExportAs(discover,
+L8_EXPORT_AS(discover,
 - (void)discoverPeersWithType:(NSString *)type
 		   domain:(NSString *)domain
 		   callback:(void (^)(NSString *name))callback
@@ -50,7 +50,7 @@ L8ExportAs(discover,
 
 // resolve -> toSocket
 //: name => addr + port
-L8ExportAs(resolve,
+L8_EXPORT_AS(resolve,
 - (SPRSocket *)resolvePeerWithName:(NSString *)name
 );
 

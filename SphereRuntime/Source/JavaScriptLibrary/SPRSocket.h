@@ -36,11 +36,11 @@
 
 // something with getPendingReadSize()
 
-L8ExportAs(read,
+L8_EXPORT_AS(read,
 - (SPRByteArray *)readBytes:(size_t)size
 );
 
-L8ExportAs(write,
+L8_EXPORT_AS(write,
 - (void)writeByteArray:(SPRByteArray *)byteArray
 );
 

@@ -40,13 +40,15 @@
 
 - (instancetype)init;
 
-L8ExportAs(read,
+L8_EXPORT_AS(read,
 - (NSString *)readKey:(NSString *)key withDefault:(NSString *)def
 );
 
-L8ExportAs(write,
+L8_EXPORT_AS(write,
 - (void)writeKey:(NSString *)key value:(NSString *)value
 );
+
+- (NSArray *)keys;
 
 /**
  * Creates an MD5 hash from the file
@@ -63,7 +65,11 @@ L8ExportAs(write,
  */
 - (void)close;
 
-// TODO: Object subscription. But that has to be made to work with JSC
+L8_EXPORT_AS(rename,
+- (void)renameTo:(NSString *)newName
+);
+
+- (void)remove;
 
 @end
 
@@ -71,4 +77,7 @@ L8ExportAs(write,
  * A key-value coding file
  */
 @interface SPRFile : NSObject <SPRFile, SPRJSClass>
+
+- (instancetype)initWithPath:(NSString *)path;
+
 @end

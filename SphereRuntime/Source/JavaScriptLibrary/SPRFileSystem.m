@@ -24,18 +24,119 @@
  */
 
 #import "SPRFileSystem.h"
+#import "SPRDirectory.h"
+#import "SPRFile.h"
+#import "SPRRawFile.h"
+#import "SPRFileHashing.h"
 
 @implementation SPRFileSystem
 
 + (void)installIntoContext:(L8Context *)context
 {
 	context[@"FileSystem"] = [SPRFileSystem class];
+	context[@"FileSystem"][@"Directory"] = [SPRDirectory class];
+	context[@"FileSystem"][@"RawFile"] = [SPRRawFile class];
+	context[@"FileSystem"][@"File"] = [SPRFile class];
 }
 
-+ (BOOL)createDirectoryAtPath:(NSString *)path
++ (NSArray *)contentsOfDirectoryAtPath:(NSString *)path
 {
-	NSLog(@"Create dir %@ (%@)",path,NSStringFromClass([self class]));
-	return NO;
+	NSFileManager *fileManager;
+	NSError *error = NULL;
+	NSArray *contents;
+
+	fileManager = [NSFileManager defaultManager];
+
+	contents = [fileManager contentsOfDirectoryAtPath:path // TODO resolve
+									 error:&error];
+	if(contents == nil) {
+		// TODO translate error to exception or @[]
+		NSLog(@"ERROR %@",error);
+		return nil;
+	}
+
+	return contents;
+}
+
++ (SPRDirectory *)createDirectoryAtPath:(NSString *)path
+{
+	NSFileManager *fileManager;
+	NSError *error = NULL;
+
+	fileManager = [NSFileManager defaultManager];
+
+	if(![fileManager createDirectoryAtPath:path // TODO resolve
+		   withIntermediateDirectories:YES
+							attributes:nil
+								 error:&error]) {
+		// TODO translate error to exception or @[]
+		NSLog(@"ERROR %@",error);
+		return nil;
+	}
+
+	return [[SPRDirectory alloc] initWithPath:path];
+}
+
++ (BOOL)removeItemAtPath:(NSString *)path
+{
+	NSFileManager *fileManager;
+	NSError *error = NULL;
+
+	fileManager = [NSFileManager defaultManager];
+
+	if(![fileManager removeItemAtPath:path // TODO resolve
+							error:&error]) {
+		// TODO translate error to exception or @[]
+		NSLog(@"ERROR %@",error);
+		return NO;
+	}
+
+	return YES;
+}
+
++ (BOOL)moveItemAtPath:(NSString *)from toPath:(NSString *)to
+{
+	NSFileManager *fileManager;
+	NSError *error = NULL;
+
+	fileManager = [NSFileManager defaultManager];
+
+	if(![fileManager moveItemAtPath:from // TODO resolve
+							 toPath:to // TODO resolve
+								error:&error]) {
+		// TODO translate error to exception or @[]
+		NSLog(@"ERROR %@",error);
+		return NO;
+	}
+
+	return YES;
+}
+
++ (BOOL)itemExistsAtPath:(NSString *)path
+{
+	NSFileManager *fileManager;
+
+	fileManager = [NSFileManager defaultManager];
+
+	return [fileManager fileExistsAtPath:path]; // TODO resolve
+}
+
++ (NSString *)md5ForFileAtPath:(NSString *)path
+{
+	// TODO resolve path
+	return [SPRFileHashing md5HashOfFileAtPath:path];
+}
+
++ (NSString *)sha1ForFileAtPath:(NSString *)path
+{
+	// TODO resolve path
+	return [SPRFileHashing sha1HashOfFileAtPath:path];
+}
+
++ (NSString *)sha256ForFileAtPath:(NSString *)path
+{
+	// TODO resolve path
+	return [SPRFileHashing sha256HashOfFileAtPath:path];
 }
 
 @end

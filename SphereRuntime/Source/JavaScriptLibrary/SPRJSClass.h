@@ -23,9 +23,11 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#import <L8Framework/L8.h>
+
 @protocol SPRJSClass <NSObject>
 
-@required
+@optional
 
 /**
  * Called at creation of a context. In this method you
