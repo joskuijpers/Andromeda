@@ -169,7 +169,17 @@
 
 - (NSString *)md5hash
 {
-	return nil; // TODO
+	return nil;
+}
+
+- (NSString *)sha1hash
+{
+	return nil;
+}
+
+- (NSString *)sha256hash
+{
+	return nil;
 }
 
 - (void)renameTo:(NSString *)newName

@@ -26,6 +26,7 @@
 #import "SPRRawFile.h"
 #import "SPRByteArray.h"
 #import "SPRFileSystem.h"
+#import "NSData+Hashing.h"
 
 @implementation SPRRawFile {
 	NSMutableData *_data;
@@ -170,7 +171,17 @@
 
 - (NSString *)md5hash
 {
-	return nil; // TODO
+	return [_data md5];
+}
+
+- (NSString *)sha1hash
+{
+	return [_data sha1];
+}
+
+- (NSString *)sha256hash
+{
+	return [_data sha256];
 }
 
 - (void)renameTo:(NSString *)newName

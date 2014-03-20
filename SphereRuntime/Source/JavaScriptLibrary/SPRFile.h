@@ -56,6 +56,16 @@ L8_EXPORT_AS(write,
 - (NSString *)md5hash;
 
 /**
+ * Creates an SHA1 hash from the file
+ */
+- (NSString *)sha1hash;
+
+/**
+ * Creates an SHA256 hash from the file
+ */
+- (NSString *)sha256hash;
+
+/**
  * Writes all data to the output
  */
 - (void)flush;
