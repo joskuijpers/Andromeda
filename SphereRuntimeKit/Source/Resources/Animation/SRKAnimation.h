@@ -25,6 +25,9 @@
 
 #import "SRKResource.h"
 
+/**
+ * @brief An animation
+ */
 @interface SRKAnimation : SRKResource
 
 @end

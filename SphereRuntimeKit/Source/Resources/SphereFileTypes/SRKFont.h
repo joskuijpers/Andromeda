@@ -26,7 +26,7 @@
 #import <SphereRuntimeKit/SphereRuntimeKit.h>
 
 /**
- * A font. Also the representation of .rfn files
+ * @brief A font. Also the representation of .rfn files
  */
 @interface SRKFont : SRKFile
 

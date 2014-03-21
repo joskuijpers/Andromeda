@@ -131,7 +131,7 @@
 
 	dstBytes = [_data mutableBytes];
 	srcBytes = [[byteArray data] bytes];
-	srcSize = [byteArray size];
+	srcSize = byteArray.length;
 
 	// First overwrite bytes
 	writeSize = MIN(srcSize,_data.length - _position);

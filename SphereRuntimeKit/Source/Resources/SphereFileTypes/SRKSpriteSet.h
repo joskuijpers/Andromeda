@@ -30,7 +30,7 @@
 @class SRKImage;
 
 /**
- * A sprite set. Also the representation of .rss files
+ * @brief A sprite set. Also the representation of .rss files
  */
 @interface SRKSpriteSet : SRKFile
 
@@ -57,7 +57,7 @@
 @end
 
 /**
- * A direction within a sprite set. Contains animation frames.
+ * @brief A direction within a sprite set. Contains animation frames.
  */
 @interface SRKSpriteSetDirection : NSObject
 
@@ -70,7 +70,7 @@
 @end
 
 /**
- * A frame within the direction of a sprite set. Contains image-references.
+ * @brief A frame within the direction of a sprite set. Contains image-references.
  */
 @interface SRKSpriteSetFrame : NSObject
 

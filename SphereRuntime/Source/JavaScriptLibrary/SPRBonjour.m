@@ -42,11 +42,6 @@
 	NSNetService *_service;
 }
 
-+ (void)installIntoContext:(L8Context *)context
-{
-	context[@"Bonjour"] = [SPRBonjour class];
-}
-
 - (instancetype)init
 {
 	self = [super init];

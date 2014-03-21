@@ -24,6 +24,7 @@
  */
 
 #import "SPRByteArray.h"
+#import "NSData+SPRHashing.h"
 
 @implementation SPRByteArray {
 	NSMutableData *_data;
@@ -87,7 +88,7 @@
 	return [[SPRByteArray alloc] initWithData:data];
 }
 
-- (size_t)size
+- (size_t)length
 {
 	return _data.length;
 }
@@ -100,7 +101,17 @@
 
 - (NSString *)md5hash
 {
-	return nil;
+	return [_data md5];
+}
+
+- (NSString *)sha1hash
+{
+	return [_data sha1];
+}
+
+- (NSString *)sha256hash
+{
+	return [_data sha256];
 }
 
 @end

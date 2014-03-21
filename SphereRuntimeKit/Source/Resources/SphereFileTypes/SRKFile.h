@@ -26,7 +26,7 @@
 #import "SRKResource.h"
 
 /**
- * Any file with special format for Sphere.
+ * @brief Any file with special format for Sphere.
  */
 @protocol SRKFile <SRKResource>
 
@@ -48,7 +48,7 @@
 @end
 
 /**
- * Any file with special format for Sphere.
+ * @brief Any file with special format for Sphere.
  */
 @interface SRKFile : SRKResource <SRKFile>
 

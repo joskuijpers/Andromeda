@@ -27,31 +27,92 @@
 
 @class SPRByteArray;
 
+/**
+ * @brief Typed array for bytes: JavaScript exports.
+ */
 @protocol SPRByteArray <L8Export>
 
+/// The length of the byte array.
+@property (nonatomic,readonly) size_t length;
+
+/**
+ * Create a new byte array.
+ *
+ * @!param size Size of the new byte array. [optional]
+ * @!param string String used to create the byte array. [optional]
+ * @return A new byte array.
+ */
 - (instancetype)init;
 
+/**
+ * Concatenate with another byte array.
+ *
+ * @param byteArray The byte array to append.
+ * @return A byte array with the other byte array appended.
+ */
 L8_EXPORT_AS(concat,
 - (SPRByteArray *)byteArrayByAppendingByteArray:(SPRByteArray *)byteArray
 );
 
+/**
+ * Get a sub-byte array with specified range.
+ *
+ * @param start Start of the range.
+ * @param end End of the range.
+ * @return A byte array, or nil on failure.
+ */
 L8_EXPORT_AS(slice,
 - (SPRByteArray *)subArrayWithStart:(size_t)start end:(size_t)end
 );
 
-- (size_t)size;
+/**
+ * Get a string representation of the raw data.
+ *
+ * @return A string, or nil on failure.
+ */
 - (NSString *)makeString;
 
 /**
- * Creates an MD5 hash from the byte array
+ * Create the MD5 hash of the byte array.
+ *
+ * @return A string with the MD5 hash.
  */
 - (NSString *)md5hash;
 
+/**
+ * Create the SHA1 hash of the byte array.
+ *
+ * @return A string with the SHA1 hash.
+ */
+- (NSString *)sha1hash;
+
+/**
+ * Create the SHA256 hash of the byte array.
+ *
+ * @return A string with the SHA256 hash.
+ */
+- (NSString *)sha256hash;
+
 @end
 
+/**
+ * @brief Typed array for bytes.
+ */
 @interface SPRByteArray : NSObject <SPRByteArray, SPRJSClass>
 
+/**
+ * Create a new byte array with contents.
+ *
+ * @param data An NSData object.
+ * @return A new byte array.
+ */
 - (instancetype)initWithData:(NSData *)data;
+
+/**
+ * Get the raw data in this byte array.
+ *
+ * @return The raw data in an NSMutableData object.
+ */
 - (NSMutableData *)data;
 
 @end

@@ -71,7 +71,8 @@ L8_EXPORT_AS(remove,
 /**
  * Rename or move an item.
  *
- * @param newName The new path of the item.
+ * @param from The path of the old item.
+ * @param to The new path of the item.
  * @return YES on success, NO on failure.
  */
 L8_EXPORT_AS(rename,

@@ -25,10 +25,16 @@
 
 #import "SPRJSClass.h"
 
+/**
+ * @brief JavaScript script module: JavaScript exports.
+ */
 @protocol SPRModule <L8Export>
 
 @end
 
+/**
+ * @brief JavaScript script module.
+ */
 @interface SPRModule : NSObject <SPRModule, SPRJSClass>
 
 @end

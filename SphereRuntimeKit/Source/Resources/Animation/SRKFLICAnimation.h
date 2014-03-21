@@ -25,6 +25,9 @@
 
 #import "SRKAnimation.h"
 
+/**
+ * @brief An animation in the FLIC format.
+ */
 @interface SRKFLICAnimation : SRKAnimation
 
 @end

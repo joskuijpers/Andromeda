@@ -24,7 +24,7 @@
  */
 
 /**
- * Any file loadable by the engine.
+ * @brief Any file loadable by the engine.
  */
 @protocol SRKResource <NSObject>
 
@@ -42,7 +42,7 @@
 @end
 
 /**
- * Any file loadable by the engine.
+ * @brief Any file loadable by the engine.
  */
 @interface SRKResource : NSObject <SRKResource>
 

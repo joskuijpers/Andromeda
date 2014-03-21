@@ -25,6 +25,9 @@
 
 #import "SPRJSClass.h"
 
+/**
+ * @brief Networking class: JavaScript exports.
+ */
 @protocol SPRNetwork <L8Export>
 
 // Properties:
@@ -37,6 +40,9 @@ L8_EXPORT_AS(listen,
 
 @end
 
+/**
+ * @brief Networking class.
+ */
 @interface SPRNetwork : NSObject <SPRNetwork, SPRJSClass>
 
 + (NSString *)localName;

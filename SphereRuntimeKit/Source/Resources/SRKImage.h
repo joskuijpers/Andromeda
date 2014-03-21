@@ -26,41 +26,66 @@
 #import "SRKFile.h"
 #include <stdint.h>
 
+/// RGB color structure.
 typedef struct {
+	/// Red color, ranging 0 to 255.
 	uint8_t red;
+	/// Green color, ranging 0 to 255.
 	uint8_t green;
+	/// Blue color, ranging 0 to 255.
 	uint8_t blue;
 } srk_rgb_t;
 
+/// RGBA color structure.
 typedef struct {
+	/// Red color, ranging 0 to 255.
 	uint8_t red;
+	/// Green color, ranging 0 to 255.
 	uint8_t green;
+	/// Blue color, ranging 0 to 255.
 	uint8_t blue;
+	/// Alpha value, ranging 0 to 255.
 	uint8_t alpha;
 } srk_rgba_t;
 
+/// BGR color structure.
 typedef struct {
 #ifdef __LITTLE_ENDIAN__
+	/// Blue color, ranging 0 to 255.
 	uint8_t blue;
+	/// Green color, ranging 0 to 255.
 	uint8_t green;
+	/// Red color, ranging 0 to 255.
 	uint8_t red;
 #else
+	/// Red color, ranging 0 to 255.
 	uint8_t red;
+	/// Green color, ranging 0 to 255.
 	uint8_t green;
+	/// Blue color, ranging 0 to 255.
 	uint8_t blue;
 #endif
 } srk_bgr_t;
 
+/// BGRA color structure.
 typedef struct {
 #ifdef __LITTLE_ENDIAN__
+	/// Blue color, ranging 0 to 255.
 	uint8_t blue;
+	/// Green color, ranging 0 to 255.
 	uint8_t green;
+	/// Red color, ranging 0 to 255.
 	uint8_t red;
+	/// Alpha value, ranging 0 to 255.
 	uint8_t alpha;
 #else
+	/// Alpha value, ranging 0 to 255.
 	uint8_t alpha;
+	/// Red color, ranging 0 to 255.
 	uint8_t red;
+	/// Green color, ranging 0 to 255.
 	uint8_t green;
+	/// Blue color, ranging 0 to 255.
 	uint8_t blue;
 #endif
 } srk_bgra_t;
@@ -75,8 +100,10 @@ typedef enum {
 } SRKImageFormat;
 
 /**
- * An NSImage subclass with bitmap related additions, such as
- * easy initializing with raw bitmap data, and writing of such data.
+ * @brief An NSImage subclass with bitmap related additions.
+ *
+ * Bitmap related additions, such as easy initializing with,
+ * raw bitmap data, and writing of such data.
  */
 @interface SRKImage : NSImage <SRKFile>
 

@@ -28,7 +28,7 @@
 @class SRKImage, SRKObstructionMap;
 
 /**
- * A tile set. Also the representation of .rts files
+ * @brief A tile set. Also the representation of .rts files.
  */
 @interface SRKTileSet : SRKFile
 
@@ -41,7 +41,7 @@
 @end
 
 /**
- * Representation of a tile
+ * @brief Representation of a tile in a tileset.
  */
 @interface SRKTile : NSObject
 
@@ -64,4 +64,3 @@
 @property (strong) SRKObstructionMap *obstructionMap;
 
 @end
-

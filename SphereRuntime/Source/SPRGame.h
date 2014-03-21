@@ -23,8 +23,6 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <Foundation/Foundation.h>
-
 @interface SPRGame : NSObject
 
 // Game dictionary should have more info than other sphere engines

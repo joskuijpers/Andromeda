@@ -23,10 +23,33 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
 
+/**
+ * @brief Methods for hashing files efficiently.
+ */
 @interface SPRFileHashing : NSObject
 
+/**
+ * Get the MD5 hash of a file.
+ *
+ * @param path Path of the file.
+ * @return The MD5 hash, or nil if file can't be read.
+ */
 + (NSString *)md5HashOfFileAtPath:(NSString *)path;
+
+/**
+ * Get the SHA1 hash of a file.
+ *
+ * @param path Path of the file.
+ * @return The SHA1 hash, or nil if file can't be read.
+ */
 + (NSString *)sha1HashOfFileAtPath:(NSString *)path;
+
+/**
+ * Get the SHA256 hash of a file.
+ *
+ * @param path Path of the file.
+ * @return The SHA256 hash, or nil if file can't be read.
+ */
 + (NSString *)sha256HashOfFileAtPath:(NSString *)path;
 
 @end

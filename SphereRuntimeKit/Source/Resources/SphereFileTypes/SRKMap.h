@@ -36,7 +36,7 @@ typedef enum {
 @class SRKObstructionMap, SRKTileSet, SRKImage;
 
 /**
- * A map. Also the representation of .rmp files
+ * @brief A map. Also the representation of .rmp files
  */
 @interface SRKMap : SRKFile
 
@@ -86,7 +86,9 @@ typedef enum {
 
 @end
 
-
+/**
+ * @brief Layer in a Map.
+ */
 @interface SRKMapLayer : NSObject
 
 @property (assign) NSSize size;
@@ -102,7 +104,9 @@ typedef enum {
 
 @end
 
-
+/**
+ * @brief Zone in a map.
+ */
 @interface SRKMapZone : NSObject
 
 @property (assign) NSRect area;
@@ -112,6 +116,9 @@ typedef enum {
 
 @end
 
+/**
+ * @brief Entity in map.
+ */
 @interface SRKMapEntity : NSObject
 
 @property (assign) NSPoint location;
@@ -119,6 +126,9 @@ typedef enum {
 
 @end
 
+/**
+ * @brief Person entity in a map.
+ */
 @interface SRKMapPerson : SRKMapEntity
 
 @property (copy) NSString *name;
@@ -132,6 +142,9 @@ typedef enum {
 
 @end
 
+/**
+ * @brief Trigger entity in a map.
+ */
 @interface SRKMapTrigger : SRKMapEntity
 
 @property (strong) NSString *script;

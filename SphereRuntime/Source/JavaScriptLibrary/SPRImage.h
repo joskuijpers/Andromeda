@@ -23,14 +23,22 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#import "SRKImage.h"
+
 @protocol L8Export;
+
+/**
+ * @brief Graphical image: JavaScript exports.
+ */
 @protocol SPRImage <L8Export>
 
 - (instancetype)init;
 
 @end
 
-
-@interface SPRImage : NSObject <SPRImage>
+/**
+ * @brief Graphical image.
+ */
+@interface SPRImage : SRKImage <SPRImage>
 
 @end

@@ -27,6 +27,9 @@
 
 @class SPRByteArray;
 
+/**
+ * @brief Network communication using a TCP socket: JavaScript exports.
+ */
 @protocol SPRSocket <L8Export>
 
 /// Whether the socket is (still) connected
@@ -51,6 +54,9 @@ L8_EXPORT_AS(write,
 
 @end
 
+/**
+ * @brief Network communication using a TCP socket.
+ */
 @interface SPRSocket : NSObject <SPRSocket, SPRJSClass>
 
 - (instancetype)initWithAddress:(NSString *)address

@@ -25,6 +25,9 @@
 
 #import "SRKResource.h"
 
+/**
+ * @brief Sound representation.
+ */
 @interface SRKSound : SRKResource
 
 @end

@@ -62,7 +62,7 @@ typedef enum {
 @class SRKImage;
 
 /**
- * A window style. Also the representation of .rws files
+ * @brief A window style. Also the representation of .rws files
  */
 @interface SRKWindowStyle : SRKFile
 

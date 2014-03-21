@@ -25,6 +25,11 @@
 
 #import "SRKSound.h"
 
+/**
+ * @brief Sound-effect representation.
+ *
+ * A sound effect is a sound with special properties.
+ */
 @interface SRKSoundEffect : SRKSound
 
 @end

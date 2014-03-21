@@ -26,7 +26,7 @@
 #import "SRKFile.h"
 
 /**
- * Game information file. Also the representation of .rmp files
+ * @brief Game information file. Also the representation of .rmp files
  */
 @interface SRKFileSGM : SRKFile
 

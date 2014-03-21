@@ -25,13 +25,16 @@
 
 #import "SPRNetwork.h"
 #import "SPRBonjour.h"
+#import "SPRSocket.h"
 
 @implementation SPRNetwork
 
 + (void)installIntoContext:(L8Context *)context
 {
 	context[@"Network"] = [SPRNetwork class];
-	context[@"Network"][@"bonjour"] = [SPRBonjour class];
+	context[@"Network"][@"Bonjour"] = [SPRBonjour class];
+	context[@"Network"][@"Socket"] = [SPRSocket class];
+
 #if 0
 	NSDictionary *property;
 	// localName property on Network

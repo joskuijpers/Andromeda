@@ -26,7 +26,7 @@
 #import <SphereRuntimeKit/SphereRuntimeKit.h>
 
 /**
- * A playlist, usable within the game
+ * @brief A playlist, usable within the game
  */
 @interface SRKPlayList : SRKFile
 

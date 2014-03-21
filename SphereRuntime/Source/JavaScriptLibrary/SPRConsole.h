@@ -25,6 +25,9 @@
 
 #import <L8Framework/L8Export.h>
 
+/**
+ * @brief JavaScript console class: JavaScript exports.
+ */
 @protocol SPRConsole <L8Export>
 
 /**
@@ -47,5 +50,8 @@
 
 @end
 
+/**
+ * @brief JavaScript console class.
+ */
 @interface SPRConsole : NSObject <SPRConsole>
 @end

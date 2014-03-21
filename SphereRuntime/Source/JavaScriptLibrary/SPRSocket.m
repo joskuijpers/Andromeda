@@ -36,11 +36,6 @@
 
 @synthesize connected=_connected;
 
-+ (void)installIntoContext:(L8Context *)context
-{
-	context[@"Socket"] = [SPRSocket class];
-}
-
 - (instancetype)init
 {
 	self = [super init];

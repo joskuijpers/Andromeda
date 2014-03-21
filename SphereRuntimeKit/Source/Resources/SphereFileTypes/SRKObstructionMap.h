@@ -24,7 +24,7 @@
  */
 
 /**
- * A set containing segments of obstruction rectangles.
+ * @brief A set containing segments of obstruction rectangles.
  */
 @interface SRKObstructionMap : NSObject
 

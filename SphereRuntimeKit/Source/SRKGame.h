@@ -23,8 +23,9 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <Foundation/Foundation.h>
-
+/**
+ * @brief Game information.
+ */
 @interface SRKGame : NSObject
 
 @end

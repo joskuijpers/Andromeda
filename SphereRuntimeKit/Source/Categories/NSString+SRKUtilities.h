@@ -23,8 +23,16 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/**
+ * @brief NSString additions for the SphereRuntimeKit.
+ */
 @interface NSString (SRKUtilities)
 
+/**
+ * Get a string by trimming whitespace from the current string.
+ *
+ * @return A new string with whitespace trimmed.
+ */
 - (NSString *)srk_stringByTrimmingWhitespace;
 
 @end

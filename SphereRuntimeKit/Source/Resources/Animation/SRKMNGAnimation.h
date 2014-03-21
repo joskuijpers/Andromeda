@@ -25,6 +25,9 @@
 
 #import "SRKAnimation.h"
 
+/**
+ * @brief An animation in the MNG format.
+ */
 @interface SRKMNGAnimation : SRKAnimation
 
 @end

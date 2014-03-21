@@ -27,6 +27,9 @@
 
 @class SPRSocket;
 
+/**
+ * @brief Bonjour networking: JavaScript exports.
+ */
 @protocol SPRBonjour <L8Export>
 
 - (instancetype)init;
@@ -56,6 +59,9 @@ L8_EXPORT_AS(resolve,
 
 @end
 
+/**
+ * @brief Bonjour networking.
+ */
 @interface SPRBonjour : NSObject <SPRBonjour, SPRJSClass>
 
 @end
