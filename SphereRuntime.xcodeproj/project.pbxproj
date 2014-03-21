@@ -34,6 +34,7 @@
 		80A3C76F18DA891B002EEF8C /* NSString+SPRHashing.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A3C76E18DA891B002EEF8C /* NSString+SPRHashing.m */; };
 		80A3C77218DA8925002EEF8C /* NSData+SPRHashing.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A3C77118DA8925002EEF8C /* NSData+SPRHashing.m */; };
 		80A3C77818DA8FDD002EEF8C /* SPRFileHashing.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A3C77718DA8FDD002EEF8C /* SPRFileHashing.m */; };
+		80A3C77B18DBD5C0002EEF8C /* SphereRuntimeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80B5FE6418D133AD0035C62B /* SphereRuntimeKit.framework */; };
 		80B5FE5A18D1332B0035C62B /* sphere15.js in Resources */ = {isa = PBXBuildFile; fileRef = 80477C4618D1325C00B16692 /* sphere15.js */; };
 		80B5FE5B18D1332B0035C62B /* sphere16.js in Resources */ = {isa = PBXBuildFile; fileRef = 80477C4718D1325C00B16692 /* sphere16.js */; };
 		80B5FE5C18D1332B0035C62B /* test_module.js in Resources */ = {isa = PBXBuildFile; fileRef = 80477C4818D1325C00B16692 /* test_module.js */; };
@@ -239,6 +240,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80A3C77B18DBD5C0002EEF8C /* SphereRuntimeKit.framework in Frameworks */,
 				80B682B118D908B300445BF9 /* Cocoa.framework in Frameworks */,
 				80B682AF18D8FF7300445BF9 /* L8Framework.framework in Frameworks */,
 			);
