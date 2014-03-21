@@ -25,6 +25,9 @@
 
 #import <L8Framework/L8.h>
 
+/**
+ * @brief A protocol used by auto-installed JavaScript classes.
+ */
 @protocol SPRJSClass <NSObject>
 
 @optional

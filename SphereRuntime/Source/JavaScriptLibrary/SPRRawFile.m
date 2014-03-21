@@ -26,7 +26,7 @@
 #import "SPRRawFile.h"
 #import "SPRByteArray.h"
 #import "SPRFileSystem.h"
-#import "NSData+Hashing.h"
+#import "NSData+SPRHashing.h"
 
 @implementation SPRRawFile {
 	NSMutableData *_data;
@@ -184,16 +184,20 @@
 	return [_data sha256];
 }
 
-- (void)renameTo:(NSString *)newName
+- (BOOL)renameTo:(NSString *)newName
 {
-	[SPRFileSystem moveItemAtPath:_path
-						   toPath:newName];
-	_path = newName;
+	if(SPR_LIKELY([SPRFileSystem renameItemAtPath:_path
+										   toPath:newName])) {
+		_path = newName;
+		return YES;
+	}
+
+	return NO;
 }
 
-- (void)remove
+- (BOOL)remove
 {
-	[SPRFileSystem removeItemAtPath:_path];
+	return [SPRFileSystem removeItemAtPath:_path];
 }
 
 @end

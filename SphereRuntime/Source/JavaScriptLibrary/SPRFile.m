@@ -26,6 +26,7 @@
 #import "SPRFile.h"
 #import "NSString+SRKUtilities.h"
 #import "SPRFileSystem.h"
+#import "NSString+SPRHashing.h"
 
 @implementation SPRFile {
 	NSMutableDictionary *_storage;
@@ -110,14 +111,10 @@
 
 - (BOOL)saveFileToPath:(NSString *)path
 {
-	NSMutableString *fileContents;
+	NSString *fileContents;
 	NSError *error = NULL;
 
-	fileContents = [NSMutableString string];
-
-	[_storage enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSObject *obj, BOOL *stop) {
-		[fileContents appendFormat:@"%@=%@\n",key,obj];
-	}];
+	fileContents = [self stringForContents];
 
 	/*if(![[NSFileManager defaultManager] fileExistsAtPath:path]) {
 		return [[NSFileManager defaultManager] createFileAtPath:path
@@ -134,6 +131,19 @@
 	}
 
 	return YES;
+}
+
+- (NSString *)stringForContents
+{
+	NSMutableString *fileContents;
+
+	fileContents = [NSMutableString string];
+
+	[_storage enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSObject *obj, BOOL *stop) {
+		[fileContents appendFormat:@"%@=%@\n",key,obj];
+	}];
+
+	return fileContents;
 }
 
 - (size_t)size
@@ -157,6 +167,11 @@
 	return [_storage allKeys];
 }
 
+- (BOOL)hasKey:(NSString *)key
+{
+	return _storage[key] != nil;
+}
+
 - (void)flush
 {
 	[self saveFileToPath:_path];
@@ -169,29 +184,33 @@
 
 - (NSString *)md5hash
 {
-	return nil;
+	return [[self stringForContents] md5];
 }
 
 - (NSString *)sha1hash
 {
-	return nil;
+	return [[self stringForContents] sha1];
 }
 
 - (NSString *)sha256hash
 {
-	return nil;
+	return [[self stringForContents] sha256];
 }
 
-- (void)renameTo:(NSString *)newName
+- (BOOL)renameTo:(NSString *)newName
 {
-	[SPRFileSystem moveItemAtPath:_path
-						   toPath:newName];
-	_path = newName;
+	if([SPRFileSystem renameItemAtPath:_path
+								toPath:newName]) {
+		_path = newName;
+		return YES;
+	}
+
+	return NO;
 }
 
-- (void)remove
+- (BOOL)remove
 {
-	[SPRFileSystem removeItemAtPath:_path];
+	return [SPRFileSystem removeItemAtPath:_path];
 }
 
 @end

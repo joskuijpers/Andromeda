@@ -28,7 +28,7 @@
 @class SPRFile;
 
 /**
- * A key-value coding file
+ * @brief A key-value coding file: JavaScript exports.
  */
 @protocol SPRFile <L8Export>
 
@@ -38,30 +38,69 @@
 /// Path of the file
 @property (readonly) NSString *path;
 
+/**
+ * Open a file.
+ *
+ * @!param path Path of the file.
+ * @return An initialized SPRFile object or nil on failure.
+ */
 - (instancetype)init;
 
+/**
+ * Get the value for specified key, or the default value
+ * if the value is not found.
+ *
+ * @param key The key to look for.
+ * @param def The value used when no key is found.
+ * @return The value for given key, or the default.
+ */
 L8_EXPORT_AS(read,
 - (NSString *)readKey:(NSString *)key withDefault:(NSString *)def
 );
 
+/**
+ * Set a key-value combination.
+ *
+ * @param key The key.
+ * @param value The value.
+ */
 L8_EXPORT_AS(write,
 - (void)writeKey:(NSString *)key value:(NSString *)value
 );
 
+/**
+ * Get all the keys in the file.
+ *
+ * @return An array of keys
+ */
 - (NSArray *)keys;
 
 /**
- * Creates an MD5 hash from the file
+ * Get whether the file contains specified key.
+ * 
+ * @param key The key to look for.
+ * @return YES when the key is in the file, NO otherwise.
+ */
+- (BOOL)hasKey:(NSString *)key;
+
+/**
+ * Create the MD5 hash of the file
+ *
+ * @return A string with the MD5 hash.
  */
 - (NSString *)md5hash;
 
 /**
- * Creates an SHA1 hash from the file
+ * Create the SHA1 hash of the file
+ *
+ * @return A string with the SHA1 hash.
  */
 - (NSString *)sha1hash;
 
 /**
- * Creates an SHA256 hash from the file
+ * Create the SHA256 hash of the file
+ *
+ * @return A string with the SHA256 hash.
  */
 - (NSString *)sha256hash;
 
@@ -75,19 +114,36 @@ L8_EXPORT_AS(write,
  */
 - (void)close;
 
+/**
+ * Rename or move the file.
+ *
+ * @param newName The new path of the file.
+ * @return YES on success, NO on failure.
+ */
 L8_EXPORT_AS(rename,
-- (void)renameTo:(NSString *)newName
+- (BOOL)renameTo:(NSString *)newName
 );
 
-- (void)remove;
+/**
+ * Remove the file from the file system.
+ *
+ * @return YES on success, NO on failure.
+ */
+- (BOOL)remove;
 
 @end
 
 /**
- * A key-value coding file
+ * @brief A key-value coding file.
  */
 @interface SPRFile : NSObject <SPRFile, SPRJSClass>
 
-- (instancetype)initWithPath:(NSString *)path;
+/**
+ * Open a file.
+ *
+ * @param path Path of the file.
+ * @return An initialized SPRFile object or nil on failure.
+ */
+- (instancetype)initWithPath:(NSString *)path SPR_DESIGNATED_INITIALIZER;
 
 @end

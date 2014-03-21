@@ -56,16 +56,20 @@
 	return [SPRFileSystem contentsOfDirectoryAtPath:_path];
 }
 
-- (void)renameTo:(NSString *)newName
+- (BOOL)renameTo:(NSString *)newName
 {
-	[SPRFileSystem moveItemAtPath:_path
-						   toPath:newName];
-	_path = newName;
+	if (SPR_LIKELY([SPRFileSystem renameItemAtPath:_path
+											toPath:newName])) {
+		_path = newName;
+		return YES;
+	}
+
+	return NO;
 }
 
-- (void)remove
+- (BOOL)remove
 {
-	[SPRFileSystem removeItemAtPath:_path];
+	return [SPRFileSystem removeItemAtPath:_path];
 }
 
 @end

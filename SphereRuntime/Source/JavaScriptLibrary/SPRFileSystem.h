@@ -27,42 +27,102 @@
 
 @class SPRDirectory;
 
+/**
+ * @brief A class for manipulating the native file
+ * system: JavaScript exports.
+ */
 @protocol SPRFileSystem <L8Export>
 
+/**
+ * Get a list of items at specified path.
+ *
+ * @param path Path of the directory to look in.
+ * @return An array with the names of each item in the directory.
+ */
 L8_EXPORT_AS(list,
 + (NSArray *)contentsOfDirectoryAtPath:(NSString *)path
 );
 
+/**
+ * Create a directory at given path.
+ *
+ * If the directory already exists, nil will be returned.
+ *
+ * @param path Path of the new directory.
+ * @return An SPRDirectory initialized with the path on
+ * success, or nil on failure.
+ */
 L8_EXPORT_AS(createDirectory, // TODO find a shorter name or do create() for both files and dirs
 + (SPRDirectory *)createDirectoryAtPath:(NSString *)path
 );
 
+/**
+ * Remove an item on the file system.
+ *
+ * Directories will be removed recursively. This action can't be undone.
+ *
+ * @param path Path of the item to remove.
+ * @return YES on success, NO on failure.
+ */
 L8_EXPORT_AS(remove,
 + (BOOL)removeItemAtPath:(NSString *)path
 );
 
-L8_EXPORT_AS(move,
-+ (BOOL)moveItemAtPath:(NSString *)from toPath:(NSString *)to
+/**
+ * Rename or move an item.
+ *
+ * @param newName The new path of the item.
+ * @return YES on success, NO on failure.
+ */
+L8_EXPORT_AS(rename,
++ (BOOL)renameItemAtPath:(NSString *)from toPath:(NSString *)to
 );
 
+/**
+ * Check whether an item at specified path exists.
+ *
+ * @param path The path to check.
+ * @return YES if the item exists, NO otherwise.
+ */
 L8_EXPORT_AS(exists,
 + (BOOL)itemExistsAtPath:(NSString *)path
 );
 
+/**
+ * Get the MD5 hash for a file.
+ *
+ * @param path The path of the file.
+ * @return The MD5 hash of the file, or nil on failure.
+ */
 L8_EXPORT_AS(md5,
 + (NSString *)md5ForFileAtPath:(NSString *)path
 );
 
+/**
+ * Get the SHA1 hash for a file.
+ *
+ * @param path The path of the file.
+ * @return The SHA1 hash of the file, or nil on failure.
+ */
 L8_EXPORT_AS(sha1,
 + (NSString *)sha1ForFileAtPath:(NSString *)path
 );
 
+/**
+ * Get the SHA256 hash for a file.
+ *
+ * @param path The path of the file.
+ * @return The SHA256 hash of the file, or nil on failure.
+ */
 L8_EXPORT_AS(sha256,
 + (NSString *)sha256ForFileAtPath:(NSString *)path
 );
 
 @end
 
+/**
+ * @brief A class for manipulating the native file system.
+ */
 @interface SPRFileSystem : NSObject <SPRFileSystem, SPRJSClass>
 
 @end

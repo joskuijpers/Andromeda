@@ -23,12 +23,30 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <Foundation/Foundation.h>
+/**
+ * @brief Hashing of NSData objects.
+ */
+@interface NSData (SPRHashing)
 
-@interface NSString (Hashing)
-
+/**
+ * Create the MD5 hash for the data.
+ *
+ * @return An NSString containing the MD5 hash.
+ */
 - (NSString *)md5;
+
+/**
+ * Create the SHA256 hash for the data.
+ *
+ * @return An NSString containing the SHA1 hash.
+ */
 - (NSString *)sha1;
+
+/**
+ * Create the SHA256 hash for the data.
+ *
+ * @return An NSString containing the SHA256 hash.
+ */
 - (NSString *)sha256;
 
 @end

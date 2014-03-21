@@ -16,11 +16,18 @@ console.log(d.name);
 var dir = FileSystem.Directory.Create();
 */
 
-var d = new FileSystem.Directory('/Applications');
+var d = new FileSystem.Directory('/Applications/Adobe Reader.app/Contents/MacOS');
 
 var l = d.list();
 for(i = 0; i < l.length; i++)
 	console.log(l[i]);
+
+// WHEN CONSTRUCTING NON_EXISTING FUNCTION
+//2014-03-20 04:31:38.782 SphereRuntime[41878:303] -[L8Exception toString]: unrecognized selector sent to instance 0x6080000840b0
+//2014-03-20 04:31:38.782 SphereRuntime[41878:303] -[L8Exception toString]: unrecognized selector sent to instance 0x6080000840b0
+
+var f = new FileSystem.			RawFile("/Users/jos/Desktop/rawtest.txt");
+console.log(f.sha256hash());
 
 //Dir rename
 //Dir remove

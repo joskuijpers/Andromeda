@@ -27,6 +27,9 @@
 
 @class SPRRawFile, SPRByteArray;
 
+/**
+ * @brief A file with raw data: JavaScript exports.
+ */
 @protocol SPRRawFile <L8Export>
 
 /// Path of the file
@@ -41,51 +44,98 @@
 /// Whether the file is writeable
 @property (readonly,getter=isWriteable) BOOL writable;
 
+/**
+ * Opens a file.
+ *
+ * @!param path Path of the file.
+ * @!param writeable Boolean containing the writeability of the file:
+ * YES to open writeable, NO to open in read-only mode.
+ * @return An initialized SPRRawFile object or nil on failure.
+ */
 - (instancetype)init;
 
+/**
+ * Read data from the file.
+ *
+ * @param len Length of the data to read.
+ * @return A byte array containing the data.
+ */
 L8_EXPORT_AS(read,
 - (SPRByteArray *)readBytes:(size_t)len
 );
 
+/**
+ * Write data to the file at current seek position.
+ *
+ * @param byteArray The data to write.
+ */
 L8_EXPORT_AS(write,
 - (void)writeByteArray:(SPRByteArray *)byteArray
 );
 
 /**
- * Writes all data to the output
+ * Write all data to the output
  */
 - (void)flush;
 
 /**
- * Closes the file handle
+ * Close the file handle
  */
 - (void)close;
 
 /**
- * Creates an MD5 hash from the file
+ * Create the MD5 hash of the file
+ *
+ * @return A string with the MD5 hash.
  */
 - (NSString *)md5hash;
 
 /**
- * Creates an SHA1 hash from the file
+ * Create the SHA1 hash of the file
+ *
+ * @return A string with the SHA1 hash.
  */
 - (NSString *)sha1hash;
 
 /**
- * Creates an SHA256 hash from the file
+ * Create the SHA256 hash of the file
+ *
+ * @return A string with the SHA256 hash.
  */
 - (NSString *)sha256hash;
 
+/**
+ * Rename or move the file.
+ *
+ * @param newName The new path of the file.
+ * @return YES on success, NO on failure.
+ */
 L8_EXPORT_AS(rename,
-- (void)renameTo:(NSString *)newName
+- (BOOL)renameTo:(NSString *)newName
 );
 
-- (void)remove;
+/**
+ * Remove the file from the file system.
+ *
+ * @return YES on success, NO on failure.
+ */
+- (BOOL)remove;
 
 @end
 
+/**
+ * @brief A file with raw data.
+ */
 @interface SPRRawFile : NSObject <SPRRawFile, SPRJSClass>
 
+/**
+ * Opens a file.
+ *
+ * @param path Path of the file.
+ * @param writeable Boolean containing the writeability of the file:
+ * YES to open writeable, NO to open in read-only mode.
+ * @return An initialized SPRRawFile object or nil on failure.
+ */
 - (instancetype)initWithPath:(NSString *)path
 				   writeable:(BOOL)writeable;
 

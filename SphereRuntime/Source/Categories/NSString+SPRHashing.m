@@ -23,12 +23,57 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <Foundation/Foundation.h>
+#import "NSString+SPRHashing.h"
+#import <CommonCrypto/CommonDigest.h>
 
-@interface NSData (Hashing)
+@implementation NSString (SPRHashing)
 
-- (NSString *)md5;
-- (NSString *)sha1;
-- (NSString *)sha256;
+- (NSString *)md5
+{
+	unsigned char digest[CC_MD5_DIGEST_LENGTH];
+	char hash[2 * sizeof(digest) + 1];
+
+    CC_MD5(self.UTF8String,
+		   (unsigned int)[self lengthOfBytesUsingEncoding:NSUTF8StringEncoding],
+		   digest);
+
+	for(size_t i = 0; i < sizeof(digest); ++i)
+		snprintf(hash + (2 * i), 3, "%02x", (int)digest[i]);
+	hash[2 * sizeof(digest)] = '\0';
+
+	return [NSString stringWithUTF8String:hash];
+}
+
+- (NSString *)sha1
+{
+	unsigned char digest[CC_SHA1_DIGEST_LENGTH];
+	char hash[2 * sizeof(digest) + 1];
+
+    CC_SHA1(self.UTF8String,
+			(unsigned int)[self lengthOfBytesUsingEncoding:NSUTF8StringEncoding],
+			digest);
+
+	for(size_t i = 0; i < sizeof(digest); ++i)
+		snprintf(hash + (2 * i), 3, "%02x", (int)digest[i]);
+	hash[2 * sizeof(digest)] = '\0';
+
+	return [NSString stringWithUTF8String:hash];
+}
+
+- (NSString *)sha256
+{
+	unsigned char digest[CC_SHA256_DIGEST_LENGTH];
+	char hash[2 * sizeof(digest) + 1];
+
+    CC_SHA256(self.UTF8String,
+			  (unsigned int)[self lengthOfBytesUsingEncoding:NSUTF8StringEncoding],
+			  digest);
+
+	for(size_t i = 0; i < sizeof(digest); ++i)
+		snprintf(hash + (2 * i), 3, "%02x", (int)digest[i]);
+	hash[2 * sizeof(digest)] = '\0';
+
+	return [NSString stringWithUTF8String:hash];
+}
 
 @end

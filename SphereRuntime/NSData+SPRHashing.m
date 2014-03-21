@@ -23,10 +23,10 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
 
-#import "NSData+Hashing.h"
+#import "NSData+SPRHashing.h"
 #import <CommonCrypto/CommonDigest.h>
 
-@implementation NSData (Hashing)
+@implementation NSData (SPRHashing)
 
 - (NSString *)md5
 {

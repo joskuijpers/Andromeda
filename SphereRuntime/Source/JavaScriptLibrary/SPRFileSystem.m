@@ -49,11 +49,8 @@
 
 	contents = [fileManager contentsOfDirectoryAtPath:path // TODO resolve
 									 error:&error];
-	if(contents == nil) {
-		// TODO translate error to exception or @[]
-		NSLog(@"ERROR %@",error);
-		return nil;
-	}
+	if(contents == nil)
+		return @[];
 
 	return contents;
 }
@@ -68,11 +65,8 @@
 	if(![fileManager createDirectoryAtPath:path // TODO resolve
 		   withIntermediateDirectories:YES
 							attributes:nil
-								 error:&error]) {
-		// TODO translate error to exception or @[]
-		NSLog(@"ERROR %@",error);
+								 error:&error])
 		return nil;
-	}
 
 	return [[SPRDirectory alloc] initWithPath:path];
 }
@@ -85,16 +79,13 @@
 	fileManager = [NSFileManager defaultManager];
 
 	if(![fileManager removeItemAtPath:path // TODO resolve
-							error:&error]) {
-		// TODO translate error to exception or @[]
-		NSLog(@"ERROR %@",error);
+							error:&error])
 		return NO;
-	}
 
 	return YES;
 }
 
-+ (BOOL)moveItemAtPath:(NSString *)from toPath:(NSString *)to
++ (BOOL)renameItemAtPath:(NSString *)from toPath:(NSString *)to
 {
 	NSFileManager *fileManager;
 	NSError *error = NULL;
@@ -103,11 +94,8 @@
 
 	if(![fileManager moveItemAtPath:from // TODO resolve
 							 toPath:to // TODO resolve
-								error:&error]) {
-		// TODO translate error to exception or @[]
-		NSLog(@"ERROR %@",error);
+								error:&error])
 		return NO;
-	}
 
 	return YES;
 }

@@ -25,27 +25,61 @@
 
 #import "SPRJSClass.h"
 
+/**
+ * @brief A directory in the native file system: JavaScript exports.
+ */
 @protocol SPRDirectory <L8Export>
 
-/// Path of the file
+/// Path of the directory.
 @property (readonly) NSString *path;
 
+/**
+ * Open a directory.
+ *
+ * @!param path Path of the directory.
+ * @return An initialized SPRDirectory object or nil on failure.
+ */
 - (instancetype)init;
 
+/**
+ * Get a list of items in the directory.
+ *
+ * @return An array with the names of each item in the directory.
+ */
 L8_EXPORT_AS_NO_ARGS(list,
 - (NSArray *)contents
 );
 
+/**
+ * Rename or move the directory.
+ *
+ * @param newName The new path of the directory.
+ * @return YES on success, NO on failure.
+ */
 L8_EXPORT_AS(rename,
-- (void)renameTo:(NSString *)newName
+- (BOOL)renameTo:(NSString *)newName
 );
 
-- (void)remove;
+/**
+ * Remove the directory and its contents from the file system.
+ *
+ * @return YES on success, NO on failure.
+ */
+- (BOOL)remove;
 
 @end
 
+/**
+ * @brief A directory in the native file system.
+ */
 @interface SPRDirectory : NSObject <SPRDirectory,SPRJSClass>
 
+/**
+ * Open a directory.
+ *
+ * @param path Path of the directory.
+ * @return An initialized SPRDirectory object or nil on failure.
+ */
 - (instancetype)initWithPath:(NSString *)path;
 
 @end
