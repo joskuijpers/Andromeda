@@ -32,12 +32,13 @@
  */
 @protocol SPRSocket <L8Export>
 
-/// Whether the socket is (still) connected
+/// Whether the socket is (still) connected.
 @property (readonly,getter=isConnected) BOOL connected;
 
-- (instancetype)init;
+/// Bytes remaining to be read currently.
+@property (readonly) size_t pendingReadSize;
 
-// something with getPendingReadSize()
+- (instancetype)init;
 
 L8_EXPORT_AS(read,
 - (SPRByteArray *)readBytes:(size_t)size

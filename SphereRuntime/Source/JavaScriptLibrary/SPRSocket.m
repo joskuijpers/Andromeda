@@ -86,8 +86,10 @@
 									   &writeStreamRef);
 
 	if(readStreamRef == NULL || writeStreamRef == NULL) {
-		CFRelease(readStreamRef);
-		CFRelease(writeStreamRef);
+		if(readStreamRef)
+			CFRelease(readStreamRef);
+		if(writeStreamRef)
+			CFRelease(writeStreamRef);
 		return NO;
 	}
 
@@ -122,8 +124,10 @@
 											 &writeStreamRef);
 
 	if(readStreamRef == NULL || writeStreamRef == NULL) {
-		CFRelease(readStreamRef);
-		CFRelease(writeStreamRef);
+		if(readStreamRef)
+			CFRelease(readStreamRef);
+		if(writeStreamRef)
+			CFRelease(writeStreamRef);
 		return NO;
 	}
 
@@ -150,6 +154,11 @@
 	   && _outputStream.streamStatus == NSStreamStatusOpen)
 		return YES;
 	return NO;
+}
+
+- (size_t)pendingReadSize
+{
+	return 0;
 }
 
 - (SPRByteArray *)readBytes:(size_t)size

@@ -38,6 +38,9 @@
 /// Path of the file
 @property (readonly) NSString *path;
 
+/// Get all the keys in the file.
+@property (readonly) NSString *keys;
+
 /**
  * Open a file.
  *
@@ -67,13 +70,6 @@ L8_EXPORT_AS(read,
 L8_EXPORT_AS(write,
 - (void)writeKey:(NSString *)key value:(NSString *)value
 );
-
-/**
- * Get all the keys in the file.
- *
- * @return An array of keys
- */
-- (NSArray *)keys;
 
 /**
  * Get whether the file contains specified key.
