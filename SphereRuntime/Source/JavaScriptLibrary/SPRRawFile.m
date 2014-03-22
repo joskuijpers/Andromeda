@@ -186,8 +186,8 @@
 
 - (BOOL)renameTo:(NSString *)newName
 {
-	if(SPR_LIKELY([SPRFileSystem renameItemAtPath:_path
-										   toPath:newName])) {
+	if SPR_LIKELY ([SPRFileSystem renameItemAtPath:_path
+										   toPath:newName]) {
 		_path = newName;
 		return YES;
 	}

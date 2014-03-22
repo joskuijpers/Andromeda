@@ -25,37 +25,97 @@
 
 #import "SPRJSClass.h"
 
-@class SPRSocket;
+@class SPRSocket, SPRBonjourPeer;
 
 /**
  * @brief Bonjour networking: JavaScript exports.
  */
 @protocol SPRBonjour <L8Export>
 
+/// Type of the service. Defaults to _game._tcp.
+@property NSString *type;
+
+/// Domain of the service. Defaults to local.
+@property NSString *domain;
+
+/**
+ * Create a new Bonjour class
+ *
+ * @!param type Type to be used in the Bonjour identifier. [optional,default="_game._tcp"]
+ * @!param domain Domain to be used in the Bonjour identifier. [optional,default="local"]
+ * @return An initialized SPRBonjour object.
+ */
 - (instancetype)init;
 
-// publish
-//: name, type, domain, port
+/**
+ * Public a Bonjour service.
+ *
+ * @param port Port on which the service is reachable.
+ * @param name Name of the service.
+ * @param callback Status callback. Callback parameters are
+ * [NSString *status].
+ * @return YES when publish-initialization succeeded, NO otherwise.
+ */
 L8_EXPORT_AS(publish,
-- (BOOL)publishWithName:(NSString *)name
-				   type:(NSString *)type
-				   port:(uint16_t)port
-			   inDomain:(NSString *)domain
+- (BOOL)publishWithPort:(uint16_t)port
+				   name:(NSString *)name
+               callback:(L8Value *)callback
 );
 
-// discover
-//: type, domain => name (+ port?)
+/**
+ * Discover peers with the same type and domain as this Bonjour object.
+ *
+ * @param callback Callback used to notify a discovered peer.
+ * Callback parameters are [NSString *error, SPRBonjourPeer *peer].
+ */
 L8_EXPORT_AS(discover,
-- (void)discoverPeersWithType:(NSString *)type
-		   domain:(NSString *)domain
-		   callback:(void (^)(NSString *name))callback
+- (void)discoverPeersWithCallback:(L8Value *)callback
 );
 
-// resolve -> toSocket
-//: name => addr + port
+/**
+ * Resolve the name of a peer to a host and port.
+ *
+ * @param name Name of the peer.
+ * @param callback Callback used to return the peer information.
+ * Callback parameters are [NSString *error, NSString *host, uint16_t port].
+ */
 L8_EXPORT_AS(resolve,
-- (SPRSocket *)resolvePeerWithName:(NSString *)name
+- (void)resolvePeerWithName:(NSString *)name callback:(L8Value *)callback
 );
+
+/**
+ * Stop the current action.
+ *
+ * Publishing will be turned of, discovering is stopped,
+ * and any unresolved servcices are cancelled.
+ */
+- (void)stop;
+
+@end
+
+/**
+ * @brief A peer host in Bonjour: JavaScript exports.
+ */
+@protocol SPRBonjourPeer <L8Export>
+
+/// Name of the peer.
+@property (nonatomic,readonly) NSString *name;
+
+/**
+ * Resolve the peer to a host and port.
+ *
+ * @param callback Callback used when information is found.
+ */
+L8_EXPORT_AS(resolve,
+- (void)resolveWithCallback:(L8Value *)callback //void (^)(NSString *error, NSString *host, uint16_t port)
+);
+
+/**
+ * Get a socket for to the peer.
+ *
+ * @return A socket.
+ */
+- (SPRSocket *)getSocket;
 
 @end
 
@@ -63,5 +123,28 @@ L8_EXPORT_AS(resolve,
  * @brief Bonjour networking.
  */
 @interface SPRBonjour : NSObject <SPRBonjour, SPRJSClass>
+
+@end
+
+/**
+ * @brief A peer host in Bonjour.
+ */
+@interface SPRBonjourPeer : NSObject <SPRBonjourPeer, SPRJSClass>
+
+/// NSNetService of the peer.
+@property (readonly) NSNetService *service;
+
+/// Bonjour service that discovered this peer.
+@property (readonly) SPRBonjour *bonjour;
+
+/**
+ * Create a new Peer object with specified name and service.
+ *
+ * @param name Name of the peer.
+ * @param service Service that discovered the peer.
+ * @return An initialized Peer object.
+ */
+- (instancetype)initWithService:(NSNetService *)service
+						bonjour:(SPRBonjour *)bonjour;
 
 @end

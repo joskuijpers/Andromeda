@@ -245,20 +245,20 @@ _Static_assert(sizeof(srk_rss_frame_v3_t) == 8,"wrong struct size");
 				filePos += size;
 
 				// Find the image in the existing image list, or add it to the list
-				frame.index = -1;
+				__block int indexToFind = -1;
 				[images enumerateObjectsUsingBlock:^(SRKImage *img, NSUInteger idx, BOOL *stop) {
 					if(img.size.width == frame_header->width
 					   && img.size.height == frame_header->height
 					   && img.rawData.length == imgData.length
 					   && memcmp(img.rawData.bytes, imgData.bytes, img.rawData.length) == 0) {
 						// Found a match
-						frame.index = (unsigned int)idx;
+						indexToFind = (unsigned int)idx;
 						*stop = YES;
 					}
 				}];
 
 				// No image found yet: add one
-				if(frame.index == -1) {
+				if(indexToFind == -1) {
 					SRKImage *image;
 
 					image = [[SRKImage alloc] initWithRawBitmapData:imgData
@@ -267,7 +267,8 @@ _Static_assert(sizeof(srk_rss_frame_v3_t) == 8,"wrong struct size");
 
 					[images addObject:image];
 					frame.index = (unsigned int)(images.count - 1);
-				}
+				} else
+					frame.index = indexToFind;
 
 				frame.animationDelay = frame_header->delay;
 

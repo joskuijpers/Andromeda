@@ -132,9 +132,6 @@ CGImageRef cgimage_from_raw_bitmap(NSSize size, NSData *data, SRKImageFormat for
 			numComponents = 4;
 			bitmapInfo = kCGBitmapByteOrder32Little | kCGImageAlphaFirst;
 			break;
-		default:
-			NSLog(@"Failed to create image from data: %d is an invalid format.",format);
-			return NULL;
 	}
 
 	if(format == SRKImageFormatGrayscale) {

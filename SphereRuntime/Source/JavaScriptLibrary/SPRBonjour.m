@@ -29,59 +29,101 @@
 @interface SPRBonjour () <NSNetServiceDelegate, NSNetServiceBrowserDelegate>
 @end
 
-/*
- Make some kind of singleton
- Make it handle more than one NSNetService
-	for publishing
-	and for resolving
- Use javascript callbacks and keep lists of visible peers (browse)
- 
- */
-
 @implementation SPRBonjour {
 	NSNetService *_service;
+	NSNetServiceBrowser *_browser;
+
+	L8Context *_context;
+	L8ManagedValue *_publishCallback;	// NSString *status
+	L8ManagedValue *_discoverCallback;	// NSString *error, SPRBonjourPeer *peer
+	L8ManagedValue *_resolveCallback;	// NSString *error, NSString *host, uint16_t port
 }
+
+@synthesize type=_type, domain=_domain;
 
 - (instancetype)init
 {
 	self = [super init];
 	if(self) {
+		NSArray *arguments;
 
+		arguments = [L8Context currentArguments];
+		_context = [L8Context currentContext];
+
+		if(arguments.count >= 1)
+			_type = [arguments[0] toString];
+		else
+			_type = @"_game._tcp";
+
+		if(arguments.count >= 2)
+			_domain = [arguments[1] toString];
+		else
+			_domain = @"local";
 	}
 	return self;
 }
 
-- (BOOL)publishWithName:(NSString *)name
-				   type:(NSString *)type
-				   port:(uint16_t)port
-			   inDomain:(NSString *)domain
+- (BOOL)publishWithPort:(uint16_t)port name:(NSString *)name callback:(L8Value *)callback
 {
+	if([name isKindOfClass:[L8Value class]] && [(L8Value *)name isUndefined])
+		name = @"";
 
-	_service = [[NSNetService alloc] initWithDomain:@"local"
-											   type:@"_game._tcp"
-											   name:@""
+	if(_publishCallback) {
+		L8VirtualMachine *vm;
+
+		vm = [_context virtualMachine];
+		[vm removeManagedReference:_publishCallback withOwner:self];
+
+		_publishCallback = nil;
+	}
+
+	if([callback isFunction])
+		_publishCallback = [L8ManagedValue managedValueWithValue:callback
+														 andOwner:self];
+
+	_service = [[NSNetService alloc] initWithDomain:_domain
+											   type:_type
+											   name:name
 											   port:port];
 	_service.delegate = self;
 
 	[_service publish];
 
-	return NO;
+	return YES;
 }
 
-- (void)discoverPeersWithType:(NSString *)type
-					   domain:(NSString *)domain
-					 callback:(void (^)(NSString *name))callback
+- (void)discoverPeersWithCallback:(L8Value *)callback
 {
-	NSLog(@"Find peers with type %@ in domain %@",type,domain);
-	callback(@"Joking!");
+	if(_discoverCallback) {
+		L8VirtualMachine *vm;
 
-//	NSNetServiceBrowser *br = [[NSNetServiceBrowser alloc] init];
-//	br.delegate = self;
+		vm = [_context virtualMachine];
+		[vm removeManagedReference:_discoverCallback withOwner:self];
+
+		_discoverCallback = nil;
+	}
+
+	if SPR_LIKELY ([callback isFunction])
+		_discoverCallback = [L8ManagedValue managedValueWithValue:callback
+														andOwner:self];
+	else
+		@throw [NSException exceptionWithName:NSInvalidArgumentException
+									   reason:@"Argument 0 must be function."
+									 userInfo:nil];
+
+	_browser = [[NSNetServiceBrowser alloc] init];
+	_browser.delegate = self;
+
+	[_browser searchForServicesOfType:_type inDomain:_domain];
 }
 
-- (SPRSocket *)resolvePeerWithName:(NSString *)name
+- (void)resolvePeerWithName:(NSString *)name callback:(L8Value *)callback
 {
-	return nil;
+	_service = [[NSNetService alloc] initWithDomain:_domain
+											   type:_type
+											   name:name];
+//	_service.delegate = self;
+//	[_service resolveWithTimeout:<#(NSTimeInterval)#>];
 }
 
 - (void)stop
@@ -89,19 +131,94 @@
 	[_service stop];
 }
 
+#pragma mark - NSNetServiceDelegate implementation
+
 - (void)netServiceDidPublish:(NSNetService *)sender
 {
-	NSLog(@"Did publish");
+	[_context executeBlockInContext:^(L8Context *context) {
+		[[_publishCallback value] callWithArguments:@[@"published"]];
+	}];
 }
 
 - (void)netServiceWillPublish:(NSNetService *)sender
 {
-	NSLog(@"Will publish");
+	[_context executeBlockInContext:^(L8Context *context) {
+		[[_publishCallback value] callWithArguments:@[@"publishing"]];
+	}];
 }
 
 - (void)netServiceDidStop:(NSNetService *)sender
 {
+	[_context executeBlockInContext:^(L8Context *context) {
+		[[_publishCallback value] callWithArguments:@[@"stopped"]];
+	}];
+}
+
+#pragma mark - NSNetServiceBrowserDelegate implementation
+
+- (void)netServiceBrowserWillSearch:(NSNetServiceBrowser *)aNetServiceBrowser
+{
+	NSLog(@"WillSearch");
+}
+
+- (void)netServiceBrowserDidStopSearch:(NSNetServiceBrowser *)aNetServiceBrowser
+{
 	NSLog(@"Stopped");
+}
+
+- (void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser
+			 didNotSearch:(NSDictionary *)errorDict
+{
+	NSLog(@"Didnot %@",errorDict);
+}
+
+- (void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser
+		   didFindService:(NSNetService *)aNetService
+			   moreComing:(BOOL)moreComing
+{
+	NSLog(@"Found %@, more %d",aNetService,moreComing);
+	[_context executeBlockInContext:^(L8Context *context) {
+		SPRBonjourPeer *peer;
+
+		peer = [[SPRBonjourPeer alloc] initWithService:aNetService
+											   bonjour:self];
+
+		[[_discoverCallback value] callWithArguments:@[[NSNull null],peer]];
+	}];
+}
+
+- (void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser
+		 didRemoveService:(NSNetService *)aNetService
+			   moreComing:(BOOL)moreComing
+{
+	NSLog(@"Removed %@, more %d",aNetService,moreComing);
+}
+
+@end
+
+@implementation SPRBonjourPeer
+
+@synthesize name=_name;
+
+- (instancetype)initWithService:(NSNetService *)service bonjour:(SPRBonjour *)bonjour
+{
+	self = [super init];
+	if(self) {
+		_name = [service.name copy];
+		_service = service;
+		_bonjour = bonjour;
+	}
+	return self;
+}
+
+- (void)resolveWithCallback:(L8Value *)callback
+{
+
+}
+
+- (SPRSocket *)getSocket
+{
+	return [[SPRSocket alloc] initWithService:_service];
 }
 
 @end

@@ -223,7 +223,7 @@ _Static_assert(sizeof(srk_rmp_zone_header_t) == 16,"wrong struct size");
 		layer.tileData = [layerData mutableCopy];
 
 		// Load obstruction map
-		for(int j = 0; j < layer_header->num_segments; j++) {
+		for(unsigned int j = 0; j < layer_header->num_segments; ++j) {
 			srk_rmp_layer_obstruction_segment_t *segment;
 
 			if((segment = srk_file_read_struct(fileContents,
@@ -394,12 +394,12 @@ _Static_assert(sizeof(srk_rmp_zone_header_t) == 16,"wrong struct size");
 	image = [[SRKImage alloc] initWithSize:imageSize];
 	[image lockFocus];
 
-	for(int y = 0; y < mapSize.width; y++) {
-		for(int x = 0; x < mapSize.height; x++) {
-			for(int l = 0; l < _layers.count; l++) {
+	for(unsigned int y = 0; y < mapSize.width; ++y) {
+		for(unsigned int x = 0; x < mapSize.height; ++x) {
+			for(unsigned int l = 0; l < _layers.count; ++l) {
 				SRKTile *tile;
 				SRKMapLayer *layer;
-				int tileIndex;
+				unsigned int tileIndex;
 
 				layer = _layers[l];
 				if(!layer.visible)

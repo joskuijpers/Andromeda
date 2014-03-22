@@ -33,6 +33,7 @@
 {
 	context[@"Network"] = [SPRNetwork class];
 	context[@"Network"][@"Bonjour"] = [SPRBonjour class];
+	context[@"Network"][@"Bonjour"][@"Peer"] = [SPRBonjourPeer class];
 	context[@"Network"][@"Socket"] = [SPRSocket class];
 
 #if 0
