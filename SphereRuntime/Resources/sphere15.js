@@ -22,3 +22,59 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+
+function OpenFile(path) {
+	return new FileSystem.File(path);
+}
+
+function HashFromFile(file) {
+	return file.md5hash();
+}
+
+function CreateColor(r,g,b,a) {
+	return new Color(r,g,b,a);
+}
+
+function BlendColors(c1,c2) {
+	return c1.blend(c2);
+}
+
+function BlendColorsWeighted(c1,c2,w1,w2) {
+	return c1.blend(c2,w1,w2);
+}
+
+function CreateByteArray(length) {
+	return new ByteArray(length);
+}
+
+function CreateByteArrayFromString(string) {
+	return new ByteArray(string);
+}
+
+function CreateStringFromByteArray(byte_array) {
+	return byte_array.makeString();
+}
+
+function HashByteArray(byte_array) {
+	return byte_array.md5hash();
+}
+
+function LoadImage(filename) {
+	return new Image(filename);
+}
+
+function GetLocalAddress() {
+	return Network.localAddress;
+}
+
+function GetLocalName() {
+	return Network.localName;
+}
+
+function ListenOnPort(port) {
+	return Network.listen(port);
+}
+
+function OpenAddress(address, port) {
+	return new Network.Socket(address, port);
+}

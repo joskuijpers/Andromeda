@@ -1,43 +1,23 @@
 console.log("Hello World!");
+
+
+
 /*
-var files = FileSystem.list('/Applications');
-for(i = 0; i < files.length;i++) {
-	console.log(files[i]);
-}
+var bonj1 = new Network.Bonjour();
+bonj1.publish(12345,"Some Peer",function(status) {
+    console.log("Publish status: "+status);
+});
 
-for(var x in FileSystem) {
-	console.log(x);
-}
+var bonj2 = new Network.Bonjour();
+//bonj2.publish(12345);
 
-console.log(FileSystem.Directory);
-var d = new FileSystem.Directory("/Applications");
-console.log(d.name);
-
-var dir = FileSystem.Directory.Create();
+bonj2.discover(function(error, peer) {
+   if(error)
+	  console.log("Error with discover: "+error);
+   else
+	console.log("Found peer: "+peer.name);
+});
 */
-
-var d = new FileSystem.Directory('/Applications/Adobe Reader.app/Contents/MacOS');
-
-var l = d.list();
-for(i = 0; i < l.length; i++)
-	console.log(l[i]);
-
-// WHEN CONSTRUCTING NON_EXISTING FUNCTION
-//2014-03-20 04:31:38.782 SphereRuntime[41878:303] -[L8Exception toString]: unrecognized selector sent to instance 0x6080000840b0
-//2014-03-20 04:31:38.782 SphereRuntime[41878:303] -[L8Exception toString]: unrecognized selector sent to instance 0x6080000840b0
-
-var f = new FileSystem.			RawFile("/Users/jos/Desktop/rawtest.txt");
-console.log(f.sha256hash());
-
-//Dir rename
-//Dir remove
-//Dir list
-
-//new File('path')
-//File.create
-//File.rename
-//File.remove
-
 //var s = new __Socket("www.google.com",80);
 //console.log(String(s));
 //console.log(s.connected);
