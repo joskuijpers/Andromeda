@@ -28,43 +28,28 @@
 #import "SPRJSClass.h"
 #import "SPRConsole.h"
 
-
-@protocol ClassA <L8Export>
-- (void)mySuperClassMethod;
-@end
-@interface ClassA : NSObject <ClassA>
-@end
-@implementation ClassA
-- (void)mySuperClassMethod
-{
-	NSLog(@"Superclass calling. Class is %@",[self className]);
-}
-@end
-
-typedef struct {
-	int a;
-	char b;
-	long c;
-	char *d;
-} my_struct_t;
-
-@protocol ClassB <L8Export>
-- (my_struct_t)myMethod;
-@end
-@interface ClassB : ClassA <ClassB>
-@end
-@implementation ClassB
-- (my_struct_t)myMethod
-{
-	NSLog(@"Just another method. Class is %@",[self className]);
-	return (my_struct_t){1,'c',3,"hello"};
-}
-@end
+void load_bundle_script(L8Context *context, NSString *name);
 
 @implementation SPRAppDelegate {
-	L8Context *_context;
-	NSMutableArray *_comboOptions;
+	L8Context *_javaScriptContext;
 }
+
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
+{
+	_javaScriptContext = [[L8Context alloc] init];
+
+
+	[_javaScriptContext executeBlockInContext:^(L8Context *context) {
+		spr_install_js_lib(context);
+
+		context[@"console"] = [[SPRConsole alloc] init];
+
+
+		load_bundle_script(context, @"test");
+	}];
+}
+
+@end
 
 void load_bundle_script(L8Context *context, NSString *name)
 {
@@ -74,28 +59,3 @@ void load_bundle_script(L8Context *context, NSString *name)
 		printf("[EXC ] %s\n",[[ex toString] UTF8String]);
 	}
 }
-
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{
-	_context = [[L8Context alloc] init];
-
-
-	[_context executeBlockInContext:^(L8Context *context) {
-		spr_install_js_lib(context);
-
-		context[@"console"] = [[SPRConsole alloc] init];
-
-		context[@"ClassA"] = [ClassA class];
-		context[@"ClassB"] = [ClassB class];
-
-		load_bundle_script(context, @"test");
-	}];
-
-}
-
-- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender
-{
-	return YES;
-}
-
-@end
