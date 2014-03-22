@@ -345,9 +345,9 @@ _Static_assert(sizeof(srk_rmp_zone_header_t) == 16,"wrong struct size");
 	}
 
 	// Read the tilemap, if no file specified
-	if(tileSetName.length > 0) {
-		NSLog(@"TileSet in image! %@",tileSetName);
-	} else {
+	if(tileSetName.length > 0)
+		_tileSet = [[SRKTileSet alloc] initWithPath:tileSetName];
+	else {
 		_tileSet = [[SRKTileSet alloc] init];
 		if(![_tileSet loadFromFile:fileContents
 						atPosition:&filePos
