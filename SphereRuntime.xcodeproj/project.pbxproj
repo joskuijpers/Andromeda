@@ -23,7 +23,6 @@
 		80477C3618D1320900B16692 /* SPRFileSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2218D1320800B16692 /* SPRFileSystem.m */; };
 		80477C3718D1320900B16692 /* SPRImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2418D1320800B16692 /* SPRImage.m */; };
 		80477C3818D1320900B16692 /* SPRJSClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2618D1320800B16692 /* SPRJSClass.m */; };
-		80477C3918D1320900B16692 /* SPRModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2818D1320900B16692 /* SPRModule.m */; };
 		80477C3A18D1320900B16692 /* SPRNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2A18D1320900B16692 /* SPRNetwork.m */; };
 		80477C3B18D1320900B16692 /* SPRRawFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2C18D1320900B16692 /* SPRRawFile.m */; };
 		80477C3C18D1320900B16692 /* SPRSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2E18D1320900B16692 /* SPRSocket.m */; };
@@ -37,6 +36,7 @@
 		80A3C77B18DBD5C0002EEF8C /* SphereRuntimeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80B5FE6418D133AD0035C62B /* SphereRuntimeKit.framework */; };
 		80AAD8CC18DD1B9800805E3D /* SPRGraphicsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 80AAD8CB18DD1B9800805E3D /* SPRGraphicsView.m */; };
 		80AAD8CF18DD254300805E3D /* SPRScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 80AAD8CE18DD254300805E3D /* SPRScreen.m */; };
+		80AAD8D218DE68A500805E3D /* SPRSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 80AAD8D118DE68A500805E3D /* SPRSystem.m */; };
 		80B5FE5A18D1332B0035C62B /* sphere15.js in Resources */ = {isa = PBXBuildFile; fileRef = 80477C4618D1325C00B16692 /* sphere15.js */; };
 		80B5FE5B18D1332B0035C62B /* sphere16.js in Resources */ = {isa = PBXBuildFile; fileRef = 80477C4718D1325C00B16692 /* sphere16.js */; };
 		80B5FE5C18D1332B0035C62B /* test_module.js in Resources */ = {isa = PBXBuildFile; fileRef = 80477C4818D1325C00B16692 /* test_module.js */; };
@@ -161,8 +161,6 @@
 		80477C2418D1320800B16692 /* SPRImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRImage.m; path = Source/JavaScriptLibrary/SPRImage.m; sourceTree = "<group>"; };
 		80477C2518D1320800B16692 /* SPRJSClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRJSClass.h; path = Source/JavaScriptLibrary/SPRJSClass.h; sourceTree = "<group>"; };
 		80477C2618D1320800B16692 /* SPRJSClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRJSClass.m; path = Source/JavaScriptLibrary/SPRJSClass.m; sourceTree = "<group>"; };
-		80477C2718D1320800B16692 /* SPRModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRModule.h; path = Source/JavaScriptLibrary/SPRModule.h; sourceTree = "<group>"; };
-		80477C2818D1320900B16692 /* SPRModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRModule.m; path = Source/JavaScriptLibrary/SPRModule.m; sourceTree = "<group>"; };
 		80477C2918D1320900B16692 /* SPRNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRNetwork.h; path = Source/JavaScriptLibrary/SPRNetwork.h; sourceTree = "<group>"; };
 		80477C2A18D1320900B16692 /* SPRNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRNetwork.m; path = Source/JavaScriptLibrary/SPRNetwork.m; sourceTree = "<group>"; };
 		80477C2B18D1320900B16692 /* SPRRawFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRRawFile.h; path = Source/JavaScriptLibrary/SPRRawFile.h; sourceTree = "<group>"; };
@@ -192,6 +190,8 @@
 		80AAD8CB18DD1B9800805E3D /* SPRGraphicsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRGraphicsView.m; path = Source/SPRGraphicsView.m; sourceTree = "<group>"; };
 		80AAD8CD18DD254300805E3D /* SPRScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRScreen.h; path = Source/JavaScriptLibrary/SPRScreen.h; sourceTree = "<group>"; };
 		80AAD8CE18DD254300805E3D /* SPRScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRScreen.m; path = Source/JavaScriptLibrary/SPRScreen.m; sourceTree = "<group>"; };
+		80AAD8D018DE68A500805E3D /* SPRSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRSystem.h; path = Source/JavaScriptLibrary/SPRSystem.h; sourceTree = "<group>"; };
+		80AAD8D118DE68A500805E3D /* SPRSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRSystem.m; path = Source/JavaScriptLibrary/SPRSystem.m; sourceTree = "<group>"; };
 		80B5FE6418D133AD0035C62B /* SphereRuntimeKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SphereRuntimeKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80B5FE6818D133AD0035C62B /* SphereRuntimeKit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SphereRuntimeKit-Info.plist"; sourceTree = "<group>"; };
 		80B5FE7418D133AD0035C62B /* SphereRuntimeKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SphereRuntimeKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -441,18 +441,15 @@
 		80477C0F18D131E100B16692 /* JavaScript Library */ = {
 			isa = PBXGroup;
 			children = (
+				80AAD8D518DE7B9F00805E3D /* Input */,
 				8024965118D3E9D30071F3C4 /* Networking */,
 				8024965018D3E9C40071F3C4 /* Graphics */,
 				8024964F18D3E9B60071F3C4 /* Compatibility */,
 				8024965218D3E9DE0071F3C4 /* File System */,
 				80477C1418D1320800B16692 /* SPRByteArray.h */,
 				80477C1518D1320800B16692 /* SPRByteArray.m */,
-				80477C1D18D1320800B16692 /* SPRConsole.h */,
-				80477C1E18D1320800B16692 /* SPRConsole.m */,
-				80477C2518D1320800B16692 /* SPRJSClass.h */,
-				80477C2618D1320800B16692 /* SPRJSClass.m */,
-				80477C2718D1320800B16692 /* SPRModule.h */,
-				80477C2818D1320900B16692 /* SPRModule.m */,
+				80AAD8D418DE68B400805E3D /* System */,
+				80AAD8D318DE68AA00805E3D /* Internal */,
 			);
 			name = "JavaScript Library";
 			sourceTree = "<group>";
@@ -511,6 +508,33 @@
 			children = (
 			);
 			name = Graphics;
+			sourceTree = "<group>";
+		};
+		80AAD8D318DE68AA00805E3D /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				80477C2518D1320800B16692 /* SPRJSClass.h */,
+				80477C2618D1320800B16692 /* SPRJSClass.m */,
+			);
+			name = Internal;
+			sourceTree = "<group>";
+		};
+		80AAD8D418DE68B400805E3D /* System */ = {
+			isa = PBXGroup;
+			children = (
+				80AAD8D018DE68A500805E3D /* SPRSystem.h */,
+				80AAD8D118DE68A500805E3D /* SPRSystem.m */,
+				80477C1D18D1320800B16692 /* SPRConsole.h */,
+				80477C1E18D1320800B16692 /* SPRConsole.m */,
+			);
+			name = System;
+			sourceTree = "<group>";
+		};
+		80AAD8D518DE7B9F00805E3D /* Input */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Input;
 			sourceTree = "<group>";
 		};
 		80B5FE6618D133AD0035C62B /* SphereRuntimeKit */ = {
@@ -809,7 +833,6 @@
 				80A3C77818DA8FDD002EEF8C /* SPRFileHashing.m in Sources */,
 				80477C2F18D1320900B16692 /* SPRBonjour.m in Sources */,
 				80477C3018D1320900B16692 /* SPRByteArray.m in Sources */,
-				80477C3918D1320900B16692 /* SPRModule.m in Sources */,
 				80477C3618D1320900B16692 /* SPRFileSystem.m in Sources */,
 				80477C3C18D1320900B16692 /* SPRSocket.m in Sources */,
 				80477C3218D1320900B16692 /* SPRCompatibility15.m in Sources */,
@@ -823,6 +846,7 @@
 				80477C3718D1320900B16692 /* SPRImage.m in Sources */,
 				8049F80818DA49AA00B454F8 /* SPRDirectory.m in Sources */,
 				80477C3518D1320900B16692 /* SPRFile.m in Sources */,
+				80AAD8D218DE68A500805E3D /* SPRSystem.m in Sources */,
 				80A3C76F18DA891B002EEF8C /* NSString+SPRHashing.m in Sources */,
 				80477BDC18D1313100B16692 /* main.m in Sources */,
 				80A3C77218DA8925002EEF8C /* NSData+SPRHashing.m in Sources */,
