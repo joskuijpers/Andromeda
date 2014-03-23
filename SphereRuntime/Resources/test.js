@@ -1,6 +1,30 @@
 console.log("Hello World!");
 
 
+/** TEST 1: Blue rectangle with red border, full window size */
+var Red = CreateColor(255, 0, 0, 255);
+var Blue = CreateColor(0, 0, 255, 255);
+
+//Rectangle(0, 0, GetScreenWidth(), GetScreenHeight(), Red);
+//Rectangle(20, 20, GetScreenWidth()-40, GetScreenHeight()-40, Blue);
+
+FlipScreen();
+
+console.log(Input.Mouse.x);
+console.log(GetMouseY());
+console.log(Input.gamepads.length);
+
+/** TEST 1: OO code */
+/*
+var red = new Color(255, 0, 0);
+var blue = new Color(0, 0, 255);
+
+Screen.drawRect(0, 0, Screen.width, Screen.height, red);
+Screen.drawRect(20, 20, Screen.width-40, Screen.height-40, blue);
+
+Screen.flip();
+*/
+
 
 /*
 var bonj1 = new Network.Bonjour();

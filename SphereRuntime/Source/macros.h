@@ -67,6 +67,12 @@
 # define SPR_ROOT_CLASS
 #endif
 
+#if __has_attribute(objc_requires_super)
+# define SPR_REQUIRES_SUPER __attribute__((objc_requires_super))
+#else
+# define SPR_REQUIRES_SUPER
+#endif
+
 #if __has_attribute(const)
 # define SPR_CONST __attribute__((const))
 #else
