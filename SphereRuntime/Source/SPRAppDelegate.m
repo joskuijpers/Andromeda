@@ -46,6 +46,29 @@ void load_bundle_script(L8Context *context, NSString *name);
 		load_bundle_script(context, @"sphere15");
 
 		load_bundle_script(context, @"test");
+
+		if(![context.globalObject hasProperty:@"Game"])
+			NSLog(@"No game found.");
+		else {
+			L8Value *game = context[@"Game"];
+
+			[game invokeMethod:@"init" withArguments:@[]];
+
+			[NSTimer scheduledTimerWithTimeInterval:1.0/2.0
+											 target:self
+										   selector:@selector(doLoop:)
+										   userInfo:context
+											repeats:YES];
+		}
+	}];
+}
+
+- (void)doLoop:(NSTimer *)timer
+{
+	L8Context *context = timer.userInfo;
+
+	[context executeBlockInContext:^(L8Context *context) {
+		[context[@"Game"] invokeMethod:@"loop" withArguments:@[]];
 	}];
 }
 

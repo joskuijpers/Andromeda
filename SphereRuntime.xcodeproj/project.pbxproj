@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		800FB73E18DF57A900AEB582 /* NSMutableArray+SPRQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 800FB73D18DF57A900AEB582 /* NSMutableArray+SPRQueue.m */; };
 		800FB74118DF588900AEB582 /* NSMutableArray+SPRStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 800FB74018DF588900AEB582 /* NSMutableArray+SPRStack.m */; };
+		800FB74418DF8D3400AEB582 /* SPRCoordinateUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 800FB74318DF8D3400AEB582 /* SPRCoordinateUtilities.m */; };
 		804111D618D144A100F7974F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 804111D518D144A100F7974F /* CoreGraphics.framework */; };
 		804111D718D144B100F7974F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80477BCF18D1313100B16692 /* Cocoa.framework */; };
 		80477BDA18D1313100B16692 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 80477BD818D1313100B16692 /* InfoPlist.strings */; };
@@ -135,6 +136,8 @@
 		800FB73D18DF57A900AEB582 /* NSMutableArray+SPRQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SPRQueue.m"; sourceTree = "<group>"; };
 		800FB73F18DF588900AEB582 /* NSMutableArray+SPRStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SPRStack.h"; sourceTree = "<group>"; };
 		800FB74018DF588900AEB582 /* NSMutableArray+SPRStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SPRStack.m"; sourceTree = "<group>"; };
+		800FB74218DF8D3400AEB582 /* SPRCoordinateUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRCoordinateUtilities.h; path = Source/SPRCoordinateUtilities.h; sourceTree = "<group>"; };
+		800FB74318DF8D3400AEB582 /* SPRCoordinateUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRCoordinateUtilities.m; path = Source/SPRCoordinateUtilities.m; sourceTree = "<group>"; };
 		8024954118D228F70071F3C4 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		8024954218D228F70071F3C4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		804111D518D144A100F7974F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -482,6 +485,8 @@
 				80477C4418D1321F00B16692 /* SPRResource.m */,
 				80A3C77618DA8FDD002EEF8C /* SPRFileHashing.h */,
 				80A3C77718DA8FDD002EEF8C /* SPRFileHashing.m */,
+				800FB74218DF8D3400AEB582 /* SPRCoordinateUtilities.h */,
+				800FB74318DF8D3400AEB582 /* SPRCoordinateUtilities.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -878,6 +883,7 @@
 				80AAD8DE18DE7C6000805E3D /* SPRGamepad.m in Sources */,
 				80AAD8DB18DE7C5500805E3D /* SPRMouse.m in Sources */,
 				80477C3B18D1320900B16692 /* SPRRawFile.m in Sources */,
+				800FB74418DF8D3400AEB582 /* SPRCoordinateUtilities.m in Sources */,
 				80477C3F18D1321500B16692 /* SPRAppDelegate.m in Sources */,
 				80477C4518D1321F00B16692 /* SPRResource.m in Sources */,
 				80AAD8CF18DD254300805E3D /* SPRScreen.m in Sources */,

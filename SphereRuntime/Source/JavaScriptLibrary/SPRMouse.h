@@ -91,6 +91,11 @@ L8_EXPORT_AS(setPosition,
  */
 - (spr_mouse_wheel_event_t)getEvent;
 
+/**
+ * Empty the queue. For example, when new user input will start.
+ */
+- (void)clearQueue;
+
 @end
 
 /**

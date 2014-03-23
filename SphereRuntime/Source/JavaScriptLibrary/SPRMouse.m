@@ -25,6 +25,7 @@
 
 #import "SPRMouse.h"
 #import "NSMutableArray+SPRQueue.h"
+#import "SPRCoordinateUtilities.h"
 
 @implementation SPRMouse {
 	id _monitor;
@@ -88,20 +89,25 @@
 {
 	NSPoint location;
 
-	location = [NSEvent mouseLocation];
-
-	return location.x;
+	location = [[NSApp mainWindow] mouseLocationOutsideOfEventStream];
+	return spr_coord_translate_screen(location).x;
 }
 
 - (float)y
 {
 	NSPoint location;
 
-	location = [NSEvent mouseLocation];
-
-	return location.y;
+	location = [[NSApp mainWindow] mouseLocationOutsideOfEventStream];
+	return spr_coord_translate_screen(location).y;
 }
 
+/*
+ * Using IOKit, see http://stackoverflow.com/questions/1828672/osx-number-of-buttons-on-attached-mouse
+ * the number of mouse buttons can be found (the useless upper bound).
+ * As this number is quite useless, and because almost all macs either have
+ * a Magic Mouse (2 buttons), a trackpad (2 click gestures) or a Apple Mouse (2 buttons),
+ * the number of buttons is hardcoded to 2.
+ */
 - (size_t)numberOfButtons
 {
 	return 2;
@@ -124,7 +130,11 @@
 
 - (void)setPositionToX:(float)x y:(float)y
 {
-	
+	//CGPoint location;
+
+	//Need to translate to screen coordinates
+
+	//CGWarpMouseCursorPosition(location);
 }
 
 @end
@@ -204,6 +214,11 @@
 		return [event unsignedIntValue];
 
 	return SPR_MOUSE_WHEEL_NONE;
+}
+
+- (void)clearQueue
+{
+	[_queue removeAllObjects];
 }
 
 @end

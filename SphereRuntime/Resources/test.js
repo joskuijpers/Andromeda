@@ -1,28 +1,42 @@
 console.log("Hello World!");
 
 
-/** TEST 1: Blue rectangle with red border, full window size */
-var Red = CreateColor(255, 0, 0, 255);
-var Blue = CreateColor(0, 0, 255, 255);
+Game.init = function() {
+	console.log("INIT");
 
-//Rectangle(0, 0, GetScreenWidth(), GetScreenHeight(), Red);
-//Rectangle(20, 20, GetScreenWidth()-40, GetScreenHeight()-40, Blue);
+	/** TEST 1: Blue rectangle with red border, full window size */
+	var Red = CreateColor(255, 0, 0, 255);
+	var Blue = CreateColor(0, 0, 255, 255);
 
-FlipScreen();
+	//Rectangle(0, 0, GetScreenWidth(), GetScreenHeight(), Red);
+	//Rectangle(20, 20, GetScreenWidth()-40, GetScreenHeight()-40, Blue);
 
-console.log("MX: "+Input.Mouse.x);
-console.log("MY: "+GetMouseY());
-console.log("NGP: "+Input.gamepads.length);
+	FlipScreen();
 
-console.log("GK: "+Input.Keyboard.getKey());
-console.log("GKS: "+Input.Keyboard.getKeyString(Input.Keyboard.getKey()));
+	console.log("MX: "+Input.Mouse.x);
+	console.log("MY: "+GetMouseY());
+	console.log("NGP: "+Input.gamepads.length);
 
-console.log("AXIS_Y: "+Input.Gamepad.AXIS_Y);
+	console.log("GK: "+Input.Keyboard.getKey());
+	console.log("GKS: "+Input.Keyboard.getKeyString(Input.Keyboard.getKey()));
 
-console.log("BUTTON_RIGHT: "+Input.Mouse.BUTTON_RIGHT);
-console.log("KEY_A: "+Input.Keyboard.KEY_A);
-console.log("WHEEL_LEFT: "+Input.Mouse.Wheel.LEFT);
-console.log("ISB: "+Input.Mouse.isButtonPressed(Input.Mouse.BUTTON_LEFT));
+	console.log("AXIS_Y: "+Input.Gamepad.AXIS_Y);
+
+	console.log("BUTTON_RIGHT: "+Input.Mouse.BUTTON_RIGHT);
+	console.log("KEY_A: "+Input.Keyboard.KEY_A);
+	console.log("WHEEL_LEFT: "+Input.Mouse.Wheel.LEFT);
+	console.log("ISB: "+Input.Mouse.isButtonPressed(Input.Mouse.BUTTON_LEFT));
+
+}
+
+Game.exit = function() {
+	console.log("EXIT");
+}
+
+Game.loop = function() {
+	//console.log("[MS] "+Input.Mouse.x+","+Input.Mouse.y);
+}
+
 
 /** TEST 1: OO code */
 /*

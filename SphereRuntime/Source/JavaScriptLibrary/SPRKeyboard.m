@@ -170,6 +170,11 @@
 	return SPR_KEY_NONE;
 }
 
+- (void)clearQueue
+{
+	[_queue removeAllObjects];
+}
+
 - (BOOL)isKeyPressed
 {
 	return NO;

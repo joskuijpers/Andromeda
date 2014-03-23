@@ -174,6 +174,11 @@ L8_EXPORT_AS(getKeyString,
 - (NSString *)getKeyString:(spr_keyboard_key_t)key
 );
 
+/**
+ * Empty the queue. For example, when new user input will start.
+ */
+- (void)clearQueue;
+
 @end
 
 /**
