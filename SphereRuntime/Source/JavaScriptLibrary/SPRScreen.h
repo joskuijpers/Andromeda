@@ -20,56 +20,39 @@
  * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
- * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
 
-#import "SPRAppDelegate.h"
-
 #import "SPRJSClass.h"
-#import "SPRConsole.h"
-#import "SPRGraphicsView.h"
 
-void load_bundle_script(L8Context *context, NSString *name);
+@class SPRColor;
 
-@implementation SPRAppDelegate {
-	L8Context *_javaScriptContext;
-}
+/**
+ * @brief The game screen: JavaScript exports.
+ */
+@protocol SPRScreen <L8Export>
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{
-	_javaScriptContext = [[L8Context alloc] init];
+// TODO: change to class properties
++ (float)width;
++ (float)height;
 
+/**
+ * Flip the screen.
+ */
++ (void)flip;
 
-	[_javaScriptContext executeBlockInContext:^(L8Context *context) {
-		spr_install_js_lib(context);
-		load_bundle_script(context, @"sphere15");
-
-		context[@"console"] = [[SPRConsole alloc] init];
-
-		load_bundle_script(context, @"test");
-	}];
-}
+/**
+ * Fill the whole screen with specified color.
+ *
+ * @param color The color to fill the screen with.
+ */
++ (void)applyColorMask:(SPRColor *)color;
 
 @end
 
-void load_bundle_script(L8Context *context, NSString *name)
-{
-	@try {
-		[context loadScriptAtPath:[[NSBundle mainBundle] pathForResource:name ofType:@"js"]];
-	} @catch(id ex) {
-		printf("[EXC ] %s\n",[[ex toString] UTF8String]);
-	}
-}
-
-@interface L8Exception (Ext)
-- (NSString *)toString;
-@end
-
-@implementation L8Exception (Ext)
-
-- (NSString *)toString
-{
-	return [self description];
-}
+/**
+ * @brief The game screen.
+ */
+@interface SPRScreen : NSObject <SPRScreen, SPRJSClass>
 
 @end

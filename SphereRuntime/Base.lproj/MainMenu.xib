@@ -81,7 +81,7 @@
                 </menuItem>
             </items>
         </menu>
-        <window title="Sphere" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="371">
+        <window title="Sphere" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="371">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="429" y="269" width="320" height="240"/>
@@ -89,6 +89,18 @@
             <view key="contentView" id="372">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <openGLView useAuxiliaryDepthBufferStencil="NO" allowOffline="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hfl-bS-AYr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    </openGLView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Hfl-bS-AYr" firstAttribute="leading" secondItem="372" secondAttribute="leading" id="DwS-Gw-sgs"/>
+                    <constraint firstAttribute="bottom" secondItem="Hfl-bS-AYr" secondAttribute="bottom" id="YJ4-Jc-5jl"/>
+                    <constraint firstItem="Hfl-bS-AYr" firstAttribute="top" secondItem="372" secondAttribute="top" id="nR4-s6-jjl"/>
+                    <constraint firstAttribute="trailing" secondItem="Hfl-bS-AYr" secondAttribute="trailing" id="pBD-h4-qr6"/>
+                </constraints>
             </view>
         </window>
         <customObject id="494" customClass="SPRAppDelegate">

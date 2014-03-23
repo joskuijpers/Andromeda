@@ -136,6 +136,11 @@
 									 alpha:_alpha/255.0];
 }
 
+- (CGColorRef)newCGColor
+{
+	return CGColorCreateGenericRGB(_red/255.0, _green/255.0, _blue/255.0, _alpha/255.0);
+}
+
 - (NSString *)description
 {
 	return [NSString stringWithFormat:@"<SPRColor>{red: %d, green: %d, blue: %d, alpha: %d}",

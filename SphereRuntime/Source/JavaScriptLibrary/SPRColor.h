@@ -129,4 +129,11 @@ L8_EXPORT_AS(blendWeighted,
  */
 - (NSColor *)toNSColor;
 
+/**
+ * Get an CGColor representing the same color.
+ *
+ * @return A CGColor object.
+ */
+- (CGColorRef)newCGColor;
+
 @end

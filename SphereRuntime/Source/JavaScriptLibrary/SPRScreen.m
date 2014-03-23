@@ -23,53 +23,34 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "SPRAppDelegate.h"
+#import "SPRScreen.h"
+#import "SPRColor.h"
 
-#import "SPRJSClass.h"
-#import "SPRConsole.h"
-#import "SPRGraphicsView.h"
+@implementation SPRScreen
 
-void load_bundle_script(L8Context *context, NSString *name);
-
-@implementation SPRAppDelegate {
-	L8Context *_javaScriptContext;
++ (void)installIntoContext:(L8Context *)context
+{
+	context[@"Screen"] = [SPRScreen class];
 }
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
++ (float)width
 {
-	_javaScriptContext = [[L8Context alloc] init];
-
-
-	[_javaScriptContext executeBlockInContext:^(L8Context *context) {
-		spr_install_js_lib(context);
-		load_bundle_script(context, @"sphere15");
-
-		context[@"console"] = [[SPRConsole alloc] init];
-
-		load_bundle_script(context, @"test");
-	}];
+	return 100;
 }
 
-@end
-
-void load_bundle_script(L8Context *context, NSString *name)
++ (float)height
 {
-	@try {
-		[context loadScriptAtPath:[[NSBundle mainBundle] pathForResource:name ofType:@"js"]];
-	} @catch(id ex) {
-		printf("[EXC ] %s\n",[[ex toString] UTF8String]);
-	}
+	return 100;
 }
 
-@interface L8Exception (Ext)
-- (NSString *)toString;
-@end
-
-@implementation L8Exception (Ext)
-
-- (NSString *)toString
++ (void)flip
 {
-	return [self description];
+	NSLog(@"Flip screen");
+}
+
++ (void)applyColorMask:(SPRColor *)color
+{
+
 }
 
 @end
