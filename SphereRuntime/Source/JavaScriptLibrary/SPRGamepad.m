@@ -27,24 +27,36 @@
 
 @implementation SPRGamepad
 
-- (instancetype)init
++ (void)installIntoContext:(L8Context *)context
 {
-    self = [super init];
-    if (self) {
-    }
-    return self;
-}
-
-- (void)installInstanceIntoContext:(L8Context *)context
-{
-	[super installInstanceIntoContext:context];
-
 	L8Value *gamepad;
 
-	gamepad = context[@"Input"][@"Gamepad"];
+	gamepad = [L8Value valueWithNewObjectInContext:context];
 
-	gamepad[@"AXIS_X"] = @(0);
-	gamepad[@"AXIS_Y"] = @(1);
+	gamepad[@"AXIS_X"] = @(SPR_GAMEPAD_AXIS_X);
+	gamepad[@"AXIS_Y"] = @(SPR_GAMEPAD_AXIS_Y);
+
+	context[@"Input"][@"Gamepad"] = gamepad;
+}
+
+- (size_t)numberOfButtons
+{
+	return 0;
+}
+
+- (size_t)numberOfAxes
+{
+	return 0;
+}
+
+- (BOOL)isButtonPressed:(int)button
+{
+	return NO;
+}
+
+- (double)getAxis:(spr_gamepad_axis_t)axis
+{
+	return 0.0;
 }
 
 @end

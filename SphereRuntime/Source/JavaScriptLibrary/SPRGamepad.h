@@ -25,10 +25,38 @@
 
 #import "SPRInputDevice.h"
 
+/// Gamepad axes.
+typedef enum spr_gamepad_axis_e : unsigned int {
+	SPR_GAMEPAD_AXIS_X = 0,
+	SPR_GAMEPAD_AXIS_Y = 1
+} spr_gamepad_axis_t;
+
 /**
  * @brief Gamepad input device: JavaScript exports.
  */
 @protocol SPRGamepad <L8Export>
+
+/// Get the number of buttons.
+@property (readonly) size_t numberOfButtons;
+
+/// Get the number of axes available.
+@property (readonly) size_t numberOfAxes;
+
+/**
+ * Get whether specified button is being pressed.
+ *
+ * @param button The button.
+ * @return YES when the button is pressed, NO otherwise.
+ */
+- (BOOL)isButtonPressed:(int)button;
+
+/**
+ * Get the current value of specified axis.
+ *
+ * @param axis The axis.
+ * @return A floating point value for the axis.
+ */
+- (double)getAxis:(spr_gamepad_axis_t)axis;
 
 @end
 

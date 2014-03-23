@@ -25,21 +25,54 @@
 
 #import "SPRInputDevice.h"
 
+/// Mouse buttons.
+typedef enum spr_mouse_button_e : unsigned int {
+	SPR_MOUSE_BUTTON_LEFT		= 0,	// NSLeftMouseDown/Up
+	SPR_MOUSE_BUTTON_MIDDLE		= 1,	// NSOtherMouseDown/Up
+	SPR_MOUSE_BUTTON_RIGHT		= 2,	// NSRightMouseDown/Up
+	SPR_MOUSE_BUTTON_EXTRA_1	= 3,
+	SPR_MOUSE_BUTTON_EXTRA_2	= 4
+} spr_mouse_button_t;
+
+/// Mouse wheel events.
+typedef enum spr_mouse_wheel_event_e : unsigned int {
+	SPR_MOUSE_WHEEL_UP			= 0,
+	SPR_MOUSE_WHEEL_DOWN		= 1,
+	SPR_MOUSE_WHEEL_LEFT		= 2,
+	SPR_MOUSE_WHEEL_RIGHT		= 3
+} spr_mouse_wheel_event_t;
+
 /**
  * @brief Mouse input device: JavaScript exports.
  */
 @protocol SPRMouse <L8Export>
 
+/// The horizontal position of the mouse cursor.
 @property (readonly) float x;
+
+/// The vertical position of the mouse cursor.
 @property (readonly) float y;
 
+/// Get the number of buttons available.
+@property (readonly) size_t numberOfButtons;
+
+/**
+ * Set the position of the mouse cursor, within screen bounds.
+ *
+ * @param x The horizontal position.
+ * @param y The vertical position.
+ */
 L8_EXPORT_AS(setPosition,
 - (void)setPositionToX:(float)x y:(float)y
 );
 
-- (BOOL)isButtonPressed:(int)button;
-
-- (unsigned int)numberOfButtons;
+/**
+ * Get whether specified button is being pressed.
+ *
+ * @param button The button.
+ * @return YES when the button is pressed, NO otherwise.
+ */
+- (BOOL)isButtonPressed:(spr_mouse_button_t)button;
 
 @end
 
@@ -53,7 +86,7 @@ L8_EXPORT_AS(setPosition,
  *
  * @return an event, or NONE when no events happened.
  */
-- (int)getEvent;
+- (spr_mouse_wheel_event_t)getEvent;
 
 @end
 
@@ -67,6 +100,6 @@ L8_EXPORT_AS(setPosition,
 /**
  * @brief Mouse input device, the scroll wheel.
  */
-@interface SPRMouseWheel : NSObject <SPRMouseWheel>
+@interface SPRMouseWheel : SPRInputDevice <SPRMouseWheel>
 
 @end

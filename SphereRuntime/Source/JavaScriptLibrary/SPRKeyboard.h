@@ -25,6 +25,20 @@
 
 #import "SPRInputDevice.h"
 
+/// Keys on a keyboard.
+typedef enum spr_keyboard_key_e : unsigned int {
+	SPR_KEY_ESCAPE
+} spr_keyboard_key_t;
+
+typedef enum spr_keyboard_mod_e : unsigned int {
+	SPR_MOD_SHIFT = 1 << 0,
+	SPR_MOD_CTRL = 1 << 1,
+	SPR_MOD_ALT = 1 << 2,
+	SPR_MOD_CMND = 1 << 3,
+	SPR_MOD_NUM = 1 << 4, // If any num key is pressed!!
+} spr_keyboard_mod_t;
+
+
 /**
  * @brief Keyboard input device: JavaScript exports.
  */
@@ -35,7 +49,7 @@
  *
  * @return A key, or KEY_NONE when queue is empty.
  */
-- (int)getKey;
+- (spr_keyboard_key_t)getKey;
 
 /**
  * Get whether a specific, or any, key is pressed.
@@ -48,7 +62,35 @@
  */
 - (BOOL)isKeyPressed;
 
-- (BOOL)getToggleState:(int)key;
+/**
+ * Get the state of the toggle-able keys: caps-, scrol-, and numlock.
+ *
+ * @param key The toggleable key.
+ * @return YES when the state is active, NO otherwise.
+ */
+- (BOOL)getToggleState:(spr_keyboard_key_t)key;
+
+/**
+ * Get the string for a key.
+ *
+ * Returns "a" for KEY_A when shift is NO. When shift is YES,
+ * it returns "A".
+ *
+ * @param key The key.
+ * @!param shift Whether shift is pressed during this key.
+ * @return The string representing the key. If the key has no representation,
+ * returns undefined.
+ */
+L8_EXPORT_AS(getKeyString,
+- (NSString *)getKeyString:(spr_keyboard_key_t)key
+);
+
+@end
+
+/**
+ * @brief Keyboard input device.
+ */
+@interface SPRKeyboard : SPRInputDevice <SPRKeyboard>
 
 /**
  * Get the string for a key.
@@ -61,15 +103,6 @@
  * @return The string representing the key. If the key has no representation,
  * returns undefined.
  */
-L8_EXPORT_AS(getKeyString,
-- (NSString *)getKeyString:(int)key withShift:(BOOL)shift
-);
-
-@end
-
-/**
- * @brief Keyboard input device.
- */
-@interface SPRKeyboard : SPRInputDevice <SPRKeyboard>
+- (NSString *)getKeyString:(spr_keyboard_key_t)key withShift:(BOOL)shift;
 
 @end

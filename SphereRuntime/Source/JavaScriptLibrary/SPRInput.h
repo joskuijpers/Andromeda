@@ -35,7 +35,6 @@
 
 @property (readonly) SPRMouse *Mouse; // Use a capital to simulate a class
 @property (readonly) SPRKeyboard *Keyboard; // Use a capital to simulate a class
-@property (readonly) SPRGamepad *Gamepad; // Use a capital to simulate a class
 @property (readonly) NSArray<SPRGamepad> *gamepads;
 
 @end

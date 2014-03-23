@@ -30,6 +30,14 @@
 - (void)installInstanceIntoContext:(L8Context *)context
 {
 	[super installInstanceIntoContext:context];
+
+	L8Value *mouse;
+
+	mouse = context[@"Input"][@"Mouse"];
+
+	mouse[@"BUTTON_LEFT"] = @(0);
+	mouse[@"BUTTON_MIDDLE"] = @(1);
+	mouse[@"BUTTON_RIGHT"] = @(2);
 }
 
 - (float)x
@@ -42,12 +50,12 @@
 	return 42.0;
 }
 
-- (unsigned int)numberOfButtons
+- (size_t)numberOfButtons
 {
 	return 0;
 }
 
-- (BOOL)isButtonPressed:(int)button
+- (BOOL)isButtonPressed:(spr_mouse_button_t)button
 {
 	return NO;
 }
@@ -55,6 +63,27 @@
 - (void)setPositionToX:(float)x y:(float)y
 {
 	
+}
+
+@end
+
+@implementation SPRMouseWheel
+
+- (void)installInstanceIntoContext:(L8Context *)context
+{
+	[super installInstanceIntoContext:context];
+
+	L8Value *wheel;
+
+	wheel = context[@"Input"][@"Mouse"][@"Wheel"];
+
+	wheel[@"UP"] = @(3);
+	wheel[@"DOWN"] = @(4);
+}
+
+- (spr_mouse_wheel_event_t)getEvent
+{
+	return 0;
 }
 
 @end

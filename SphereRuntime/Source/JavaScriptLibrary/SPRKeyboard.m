@@ -30,11 +30,21 @@
 - (void)installInstanceIntoContext:(L8Context *)context
 {
 	[super installInstanceIntoContext:context];
+
+	L8Value *keyboard;
+
+	keyboard = context[@"Input"][@"Keyboard"];
+
+#define SET_KEY(key) keyboard[@#key] = @(SPR_##key);
+
+	SET_KEY(KEY_A)
+	SET_KEY(KEY_B)
+	SET_KEY(KEY_C)
 }
 
-- (int)getKey
+- (spr_keyboard_key_t)getKey
 {
-	return 0;
+	return SPR_KEY_A;
 }
 
 - (BOOL)isKeyPressed
@@ -42,13 +52,29 @@
 	return NO;
 }
 
-- (BOOL)getToggleState:(int)key
+- (BOOL)getToggleState:(spr_keyboard_key_t)key
 {
 	return NO;
 }
 
-- (NSString *)getKeyString:(int)key withShift:(BOOL)shift
+- (NSString *)getKeyString:(spr_keyboard_key_t)key
 {
+	NSArray *arguments;
+	BOOL shift = NO;
+
+	arguments = [L8Context currentArguments];
+	if(arguments.count >= 2)
+		shift = [arguments[1] toBool];
+
+	return [self getKeyString:key withShift:shift];
+}
+
+- (NSString *)getKeyString:(spr_keyboard_key_t)key withShift:(BOOL)shift
+{
+	if(key == SPR_KEY_A)
+		return shift?@"A":@"a";
+	if(key == SPR_KEY_B)
+		return shift?@"B":@"c";
 	return nil;
 }
 
