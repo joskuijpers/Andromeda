@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		800FB73E18DF57A900AEB582 /* NSMutableArray+SPRQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 800FB73D18DF57A900AEB582 /* NSMutableArray+SPRQueue.m */; };
+		800FB74118DF588900AEB582 /* NSMutableArray+SPRStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 800FB74018DF588900AEB582 /* NSMutableArray+SPRStack.m */; };
 		804111D618D144A100F7974F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 804111D518D144A100F7974F /* CoreGraphics.framework */; };
 		804111D718D144B100F7974F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80477BCF18D1313100B16692 /* Cocoa.framework */; };
 		80477BDA18D1313100B16692 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 80477BD818D1313100B16692 /* InfoPlist.strings */; };
@@ -129,6 +131,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		800FB73C18DF57A900AEB582 /* NSMutableArray+SPRQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SPRQueue.h"; sourceTree = "<group>"; };
+		800FB73D18DF57A900AEB582 /* NSMutableArray+SPRQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SPRQueue.m"; sourceTree = "<group>"; };
+		800FB73F18DF588900AEB582 /* NSMutableArray+SPRStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SPRStack.h"; sourceTree = "<group>"; };
+		800FB74018DF588900AEB582 /* NSMutableArray+SPRStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SPRStack.m"; sourceTree = "<group>"; };
 		8024954118D228F70071F3C4 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		8024954218D228F70071F3C4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		804111D518D144A100F7974F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -184,10 +190,10 @@
 		80477C4918D1325C00B16692 /* test.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = test.js; path = Resources/test.js; sourceTree = "<group>"; };
 		8049F80618DA49AA00B454F8 /* SPRDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRDirectory.h; path = Source/JavaScriptLibrary/SPRDirectory.h; sourceTree = "<group>"; };
 		8049F80718DA49AA00B454F8 /* SPRDirectory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRDirectory.m; path = Source/JavaScriptLibrary/SPRDirectory.m; sourceTree = "<group>"; };
-		80A3C76D18DA891B002EEF8C /* NSString+SPRHashing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+SPRHashing.h"; path = "Source/Categories/NSString+SPRHashing.h"; sourceTree = "<group>"; };
-		80A3C76E18DA891B002EEF8C /* NSString+SPRHashing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+SPRHashing.m"; path = "Source/Categories/NSString+SPRHashing.m"; sourceTree = "<group>"; };
-		80A3C77018DA8925002EEF8C /* NSData+SPRHashing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+SPRHashing.h"; path = "Source/Categories/NSData+SPRHashing.h"; sourceTree = "<group>"; };
-		80A3C77118DA8925002EEF8C /* NSData+SPRHashing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+SPRHashing.m"; path = "Source/Categories/NSData+SPRHashing.m"; sourceTree = "<group>"; };
+		80A3C76D18DA891B002EEF8C /* NSString+SPRHashing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SPRHashing.h"; sourceTree = "<group>"; };
+		80A3C76E18DA891B002EEF8C /* NSString+SPRHashing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SPRHashing.m"; sourceTree = "<group>"; };
+		80A3C77018DA8925002EEF8C /* NSData+SPRHashing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SPRHashing.h"; sourceTree = "<group>"; };
+		80A3C77118DA8925002EEF8C /* NSData+SPRHashing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SPRHashing.m"; sourceTree = "<group>"; };
 		80A3C77618DA8FDD002EEF8C /* SPRFileHashing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRFileHashing.h; path = Source/SPRFileHashing.h; sourceTree = "<group>"; };
 		80A3C77718DA8FDD002EEF8C /* SPRFileHashing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRFileHashing.m; path = Source/SPRFileHashing.m; sourceTree = "<group>"; };
 		80A3C77918DBB64B002EEF8C /* macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = macros.h; path = Source/macros.h; sourceTree = "<group>"; };
@@ -496,8 +502,13 @@
 				80A3C76E18DA891B002EEF8C /* NSString+SPRHashing.m */,
 				80A3C77018DA8925002EEF8C /* NSData+SPRHashing.h */,
 				80A3C77118DA8925002EEF8C /* NSData+SPRHashing.m */,
+				800FB73C18DF57A900AEB582 /* NSMutableArray+SPRQueue.h */,
+				800FB73D18DF57A900AEB582 /* NSMutableArray+SPRQueue.m */,
+				800FB73F18DF588900AEB582 /* NSMutableArray+SPRStack.h */,
+				800FB74018DF588900AEB582 /* NSMutableArray+SPRStack.m */,
 			);
 			name = Categories;
+			path = Source/Categories;
 			sourceTree = "<group>";
 		};
 		80AAD8C718DD1B4100805E3D /* Engine */ = {
@@ -880,10 +891,12 @@
 				80AAD8D818DE7C4C00805E3D /* SPRKeyboard.m in Sources */,
 				80477BDC18D1313100B16692 /* main.m in Sources */,
 				80A3C77218DA8925002EEF8C /* NSData+SPRHashing.m in Sources */,
+				800FB73E18DF57A900AEB582 /* NSMutableArray+SPRQueue.m in Sources */,
 				80477C3418D1320900B16692 /* SPRConsole.m in Sources */,
 				80477C4218D1321A00B16692 /* SPRGame.m in Sources */,
 				80477C3A18D1320900B16692 /* SPRNetwork.m in Sources */,
 				80477C3818D1320900B16692 /* SPRJSClass.m in Sources */,
+				800FB74118DF588900AEB582 /* NSMutableArray+SPRStack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

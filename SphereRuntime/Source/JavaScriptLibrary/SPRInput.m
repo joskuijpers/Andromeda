@@ -30,7 +30,6 @@
 
 @implementation SPRInput
 
-@synthesize Mouse=_mouse, Keyboard=_keyboard;
 @synthesize gamepads=_gamepads;
 
 + (void)installIntoContext:(L8Context *)context
@@ -40,8 +39,8 @@
 	input = [[SPRInput alloc] initWithContext:context];
 	context[@"Input"] = input;
 
-	[input.Mouse installInstanceIntoContext:context];
-	[input.Keyboard installInstanceIntoContext:context];
+	[input.mouse installInstanceIntoContext:context];
+	[input.keyboard installInstanceIntoContext:context];
 
 	[[SPRGamepad class] installIntoContext:context];
 }

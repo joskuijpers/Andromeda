@@ -24,8 +24,38 @@
  */
 
 #import "SPRMouse.h"
+#import "NSMutableArray+SPRQueue.h"
 
-@implementation SPRMouse
+@implementation SPRMouse {
+	id _monitor;
+	NSMutableArray *_queue;
+}
+
+@synthesize wheel=_wheel;
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+		NSEventMask mask;
+		NSEvent *(^eventHandler)(NSEvent *);
+
+		_wheel = [[SPRMouseWheel alloc] init];
+		_queue = [[NSMutableArray alloc] init];
+
+		eventHandler = ^NSEvent *(NSEvent *event) {
+			NSLog(@"[MS] Got event %@",event);
+
+			return event;
+		};
+
+		mask = NSLeftMouseDownMask | NSLeftMouseUpMask | NSRightMouseDownMask
+			| NSRightMouseUpMask | NSOtherMouseDownMask | NSOtherMouseUpMask;
+        _monitor = [NSEvent addLocalMonitorForEventsMatchingMask:mask
+														 handler:eventHandler];
+    }
+    return self;
+}
 
 - (void)installInstanceIntoContext:(L8Context *)context
 {
@@ -33,30 +63,62 @@
 
 	L8Value *mouse;
 
-	mouse = context[@"Input"][@"Mouse"];
+	mouse = [L8Value valueWithObject:self inContext:context];
 
-	mouse[@"BUTTON_LEFT"] = @(0);
-	mouse[@"BUTTON_MIDDLE"] = @(1);
-	mouse[@"BUTTON_RIGHT"] = @(2);
+	mouse[@"BUTTON_LEFT"] = @(SPR_MOUSE_BUTTON_LEFT);
+	mouse[@"BUTTON_RIGHT"] = @(SPR_MOUSE_BUTTON_RIGHT);
+	mouse[@"BUTTON_MIDDLE"] = @(SPR_MOUSE_BUTTON_MIDDLE);
+	mouse[@"BUTTON_EXTRA_1"] = @(SPR_MOUSE_BUTTON_EXTRA_1);
+	mouse[@"BUTTON_EXTRA_2"] = @(SPR_MOUSE_BUTTON_EXTRA_2);
+
+	context[@"Input"][@"Mouse"] = mouse;
+
+	[_wheel installInstanceIntoContext:context];
+}
+
+- (void)dealloc
+{
+	if(_monitor) {
+		[NSEvent removeMonitor:_monitor];
+		_monitor = nil;
+	}
 }
 
 - (float)x
 {
-	return 42.0;
+	NSPoint location;
+
+	location = [NSEvent mouseLocation];
+
+	return location.x;
 }
 
 - (float)y
 {
-	return 42.0;
+	NSPoint location;
+
+	location = [NSEvent mouseLocation];
+
+	return location.y;
 }
 
 - (size_t)numberOfButtons
 {
-	return 0;
+	return 2;
 }
 
 - (BOOL)isButtonPressed:(spr_mouse_button_t)button
 {
+	NSUInteger pressedButtons;
+
+	if((unsigned int)button > 4)
+		return NO;
+
+	pressedButtons = [NSEvent pressedMouseButtons];
+
+	if(pressedButtons & (0x1 << (unsigned int)button))
+	   return YES;
+
 	return NO;
 }
 
@@ -67,7 +129,46 @@
 
 @end
 
-@implementation SPRMouseWheel
+@implementation SPRMouseWheel {
+	id _monitor;
+	NSMutableArray *_queue;
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+		NSEvent *(^eventHandler)(NSEvent *);
+
+		_queue = [[NSMutableArray alloc] init];
+
+		eventHandler = ^NSEvent *(NSEvent *event) {
+			float deltaX, deltaY;
+
+			deltaX = event.deltaX;
+			deltaY = event.deltaY;
+
+			// Do not handle scrolling smaller than 1.0
+			// to make the precise scrolling of OSX usable
+			// in the Sphere-style games.
+			if(deltaY >= 1.0)
+				[_queue enqueue:@(SPR_MOUSE_WHEEL_DOWN)];
+			else if(deltaY <= -1.0)
+				[_queue enqueue:@(SPR_MOUSE_WHEEL_UP)];
+
+			if(deltaX >= 1.0)
+				[_queue enqueue:@(SPR_MOUSE_WHEEL_RIGHT)];
+			else if(deltaX <= -1.0)
+				[_queue enqueue:@(SPR_MOUSE_WHEEL_LEFT)];
+
+			return event;
+		};
+
+        _monitor = [NSEvent addLocalMonitorForEventsMatchingMask:NSScrollWheelMask
+														 handler:eventHandler];
+    }
+    return self;
+}
 
 - (void)installInstanceIntoContext:(L8Context *)context
 {
@@ -75,15 +176,34 @@
 
 	L8Value *wheel;
 
-	wheel = context[@"Input"][@"Mouse"][@"Wheel"];
+	wheel = [L8Value valueWithObject:self inContext:context];
 
-	wheel[@"UP"] = @(3);
-	wheel[@"DOWN"] = @(4);
+	wheel[@"NONE"] = @(SPR_MOUSE_WHEEL_NONE);
+	wheel[@"UP"] = @(SPR_MOUSE_WHEEL_UP);
+	wheel[@"DOWN"] = @(SPR_MOUSE_WHEEL_DOWN);
+	wheel[@"LEFT"] = @(SPR_MOUSE_WHEEL_LEFT);
+	wheel[@"RIGHT"] = @(SPR_MOUSE_WHEEL_RIGHT);
+
+	context[@"Input"][@"Mouse"][@"Wheel"] = wheel;
+}
+
+- (void)dealloc
+{
+	if(_monitor) {
+		[NSEvent removeMonitor:_monitor];
+		_monitor = nil;
+	}
 }
 
 - (spr_mouse_wheel_event_t)getEvent
 {
-	return 0;
+	NSNumber *event;
+
+	event = [_queue dequeue];
+	if(event)
+		return [event unsignedIntValue];
+
+	return SPR_MOUSE_WHEEL_NONE;
 }
 
 @end

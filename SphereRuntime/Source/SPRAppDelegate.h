@@ -23,7 +23,7 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@class SPRGraphicsView;
+#import "SPRGraphicsView.h"
 
 @interface SPRAppDelegate : NSObject <NSApplicationDelegate>
 

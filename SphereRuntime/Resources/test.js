@@ -10,9 +10,19 @@ var Blue = CreateColor(0, 0, 255, 255);
 
 FlipScreen();
 
-console.log(Input.Mouse.x);
-console.log(GetMouseY());
-console.log(Input.gamepads.length);
+console.log("MX: "+Input.Mouse.x);
+console.log("MY: "+GetMouseY());
+console.log("NGP: "+Input.gamepads.length);
+
+console.log("GK: "+Input.Keyboard.getKey());
+console.log("GKS: "+Input.Keyboard.getKeyString(Input.Keyboard.getKey()));
+
+console.log("AXIS_Y: "+Input.Gamepad.AXIS_Y);
+
+console.log("BUTTON_RIGHT: "+Input.Mouse.BUTTON_RIGHT);
+console.log("KEY_A: "+Input.Keyboard.KEY_A);
+console.log("WHEEL_LEFT: "+Input.Mouse.Wheel.LEFT);
+console.log("ISB: "+Input.Mouse.isButtonPressed(Input.Mouse.BUTTON_LEFT));
 
 /** TEST 1: OO code */
 /*

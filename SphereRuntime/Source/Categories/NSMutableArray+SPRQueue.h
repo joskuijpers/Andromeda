@@ -20,66 +20,28 @@
  * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
- * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+ * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "SPRJSClass.h"
-
-@class SPRInput, SPRMouse, SPRKeyboard, SPRGamepad;
-@protocol SPRGamepad;
+#import <Foundation/Foundation.h>
 
 /**
- * @brief Input services: JavaScript exports.
+ * @brief Queue (FIFO) implementation for NSMutableArray.
  */
-@protocol SPRInput <L8Export>
-
-@property (readonly) NSArray<SPRGamepad> *gamepads;
-
-@end
+@interface NSMutableArray (SPRQueue)
 
 /**
- * @brief Input configuration: JavaScript exports.
- */
-@protocol SPRInputConfig <L8Export>
-
-@property (assign) int menu;
-@property (assign) int up;
-@property (assign) int down;
-@property (assign) int left;
-@property (assign) int right;
-@property (assign) int a;
-@property (assign) int b;
-@property (assign) int x;
-@property (assign) int y;
-
-- (void)save;
-
-@end
-
-/**
- * @brief Input services.
- */
-@interface SPRInput : NSObject <SPRInput, SPRJSClass>
-
-/// Mouse input.
-@property (readonly) SPRMouse *mouse;
-
-/// Keyboard input.
-@property (readonly) SPRKeyboard *keyboard;
-
-@end
-
-/**
- * @brief Input configuration.
- */
-@interface SPRInputConfig : NSObject <SPRInputConfig, SPRJSClass>
-
-/**
- * Create an input config object with specified configuration
+ * Get the next element from the queue.
  *
- * @param configuration The configuration.
- * @return An initialized SPRInputConfig object.
+ * @return The top element in the queue, or nil if empty.
  */
-- (instancetype)initWithConfiguration:(NSDictionary *)configuration;
+- (id)dequeue;
+
+/**
+ * Enqueue an object.
+ *
+ * @param object The object.
+ */
+- (void)enqueue:(id)object;
 
 @end

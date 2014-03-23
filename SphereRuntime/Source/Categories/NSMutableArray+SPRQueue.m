@@ -23,63 +23,24 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
 
-#import "SPRJSClass.h"
+#import "NSMutableArray+SPRQueue.h"
 
-@class SPRInput, SPRMouse, SPRKeyboard, SPRGamepad;
-@protocol SPRGamepad;
+@implementation NSMutableArray (SPRQueue)
 
-/**
- * @brief Input services: JavaScript exports.
- */
-@protocol SPRInput <L8Export>
+- (void)enqueue:(id)object
+{
+	[self addObject:object];
+}
 
-@property (readonly) NSArray<SPRGamepad> *gamepads;
+- (id)dequeue
+{
+	id head;
 
-@end
+	head = [self objectAtIndex:0];
+	if(head != nil)
+		[self removeObjectAtIndex:0];
 
-/**
- * @brief Input configuration: JavaScript exports.
- */
-@protocol SPRInputConfig <L8Export>
-
-@property (assign) int menu;
-@property (assign) int up;
-@property (assign) int down;
-@property (assign) int left;
-@property (assign) int right;
-@property (assign) int a;
-@property (assign) int b;
-@property (assign) int x;
-@property (assign) int y;
-
-- (void)save;
-
-@end
-
-/**
- * @brief Input services.
- */
-@interface SPRInput : NSObject <SPRInput, SPRJSClass>
-
-/// Mouse input.
-@property (readonly) SPRMouse *mouse;
-
-/// Keyboard input.
-@property (readonly) SPRKeyboard *keyboard;
-
-@end
-
-/**
- * @brief Input configuration.
- */
-@interface SPRInputConfig : NSObject <SPRInputConfig, SPRJSClass>
-
-/**
- * Create an input config object with specified configuration
- *
- * @param configuration The configuration.
- * @return An initialized SPRInputConfig object.
- */
-- (instancetype)initWithConfiguration:(NSDictionary *)configuration;
+	return head;
+}
 
 @end

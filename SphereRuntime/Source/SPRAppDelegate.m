@@ -39,12 +39,11 @@ void load_bundle_script(L8Context *context, NSString *name);
 {
 	_javaScriptContext = [[L8Context alloc] init];
 
-
 	[_javaScriptContext executeBlockInContext:^(L8Context *context) {
+		context[@"console"] = [[SPRConsole alloc] init];
+		
 		spr_install_js_lib(context);
 		load_bundle_script(context, @"sphere15");
-
-		context[@"console"] = [[SPRConsole alloc] init];
 
 		load_bundle_script(context, @"test");
 	}];

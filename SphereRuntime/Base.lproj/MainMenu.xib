@@ -90,7 +90,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <openGLView useAuxiliaryDepthBufferStencil="NO" allowOffline="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hfl-bS-AYr">
+                    <openGLView useAuxiliaryDepthBufferStencil="NO" allowOffline="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hfl-bS-AYr" customClass="SPRGraphicsView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     </openGLView>
@@ -105,6 +105,7 @@
         </window>
         <customObject id="494" customClass="SPRAppDelegate">
             <connections>
+                <outlet property="graphicsView" destination="Hfl-bS-AYr" id="J3H-SY-TPk"/>
                 <outlet property="window" destination="371" id="532"/>
             </connections>
         </customObject>

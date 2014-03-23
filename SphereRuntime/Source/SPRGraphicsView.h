@@ -25,6 +25,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface SPRGraphicsView : NSView
+@interface SPRGraphicsView : NSOpenGLView
 
 @end

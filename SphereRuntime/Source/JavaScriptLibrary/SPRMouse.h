@@ -28,19 +28,22 @@
 /// Mouse buttons.
 typedef enum spr_mouse_button_e : unsigned int {
 	SPR_MOUSE_BUTTON_LEFT		= 0,	// NSLeftMouseDown/Up
-	SPR_MOUSE_BUTTON_MIDDLE		= 1,	// NSOtherMouseDown/Up
-	SPR_MOUSE_BUTTON_RIGHT		= 2,	// NSRightMouseDown/Up
+	SPR_MOUSE_BUTTON_RIGHT		= 1,	// NSRightMouseDown/Up
+	SPR_MOUSE_BUTTON_MIDDLE		= 2,	// NSOtherMouseDown/Up
 	SPR_MOUSE_BUTTON_EXTRA_1	= 3,
 	SPR_MOUSE_BUTTON_EXTRA_2	= 4
 } spr_mouse_button_t;
 
 /// Mouse wheel events.
 typedef enum spr_mouse_wheel_event_e : unsigned int {
-	SPR_MOUSE_WHEEL_UP			= 0,
-	SPR_MOUSE_WHEEL_DOWN		= 1,
-	SPR_MOUSE_WHEEL_LEFT		= 2,
-	SPR_MOUSE_WHEEL_RIGHT		= 3
+	SPR_MOUSE_WHEEL_NONE		= 0,
+	SPR_MOUSE_WHEEL_UP			= 1,
+	SPR_MOUSE_WHEEL_DOWN		= 2,
+	SPR_MOUSE_WHEEL_LEFT		= 3,
+	SPR_MOUSE_WHEEL_RIGHT		= 4
 } spr_mouse_wheel_event_t;
+
+@class SPRMouseWheel;
 
 /**
  * @brief Mouse input device: JavaScript exports.
@@ -94,6 +97,9 @@ L8_EXPORT_AS(setPosition,
  * @brief Mouse input device.
  */
 @interface SPRMouse : SPRInputDevice <SPRMouse>
+
+/// The mouse wheel input.
+@property (readonly) SPRMouseWheel *wheel;
 
 @end
 
