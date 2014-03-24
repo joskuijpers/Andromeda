@@ -29,6 +29,8 @@
 @implementation SPRKeyboard {
 	id _monitor;
 	NSMutableArray *_queue;
+	spr_keyboard_key_t _keyStatus[256];
+	size_t _numKeysPressed;
 }
 
 - (instancetype)init
@@ -39,11 +41,29 @@
 		NSEvent *(^eventHandler)(NSEvent *);
 
 		_queue = [[NSMutableArray alloc] init];
+		bzero(_keyStatus, 256);
 
 		eventHandler = ^NSEvent *(NSEvent *event) {
-			NSLog(@"[KB] Got event %@",event);
+			unsigned short keyCode;
 
-			return event;
+			if(event.isARepeat)
+				return nil;
+
+			keyCode = event.keyCode;
+
+			if SPR_LIKELY(keyCode >= 0 && keyCode < 255) {
+				if(event.type == NSKeyDown)
+					_keyStatus[keyCode + 1] = 1;
+				else
+					_keyStatus[keyCode + 1] = 0;
+			}
+
+			// TODO: add possibly more information, like MOD states.
+			[_queue enqueue:@(keyCode + 1)];
+
+			// TODO: Make it possible to move keys upwards,
+			// so that CMD+Q is closing the app.
+			return nil;
 		};
 
 		mask = NSKeyDownMask | NSKeyUpMask;
@@ -167,6 +187,12 @@
 
 - (spr_keyboard_key_t)getKey
 {
+	NSNumber *key;
+
+	key = [_queue dequeue];
+	if(key)
+		return key.unsignedIntValue;
+
 	return SPR_KEY_NONE;
 }
 
@@ -177,12 +203,49 @@
 
 - (BOOL)isKeyPressed
 {
-	return NO;
+	NSArray *arguments;
+	unsigned int key = SPR_KEY_NONE;
+	NSUInteger modFlags;
+
+	arguments = [L8Context currentArguments];
+	if(arguments.count >= 1)
+		key = [[arguments[0] toNumber] unsignedIntValue];
+
+	modFlags = [NSEvent modifierFlags];
+
+	if(key >= 247 && key <= 252) { // Modifier keys
+		switch(key) {
+			case SPR_KEY_SHIFT:
+				return modFlags & (0x1 << 17);
+			case SPR_KEY_CAPSLOCK:
+				return modFlags & (0x1 << 16);
+			case SPR_KEY_CTRL:
+				return modFlags & (0x1 << 18);
+			case SPR_KEY_ALT:
+				return modFlags & (0x1 << 19);
+			case SPR_KEY_CMND:
+				return modFlags & (0x1 << 20);
+			case SPR_KEY_FN:
+				return modFlags & (0x1 << 23);
+			default: // Is dead.
+				return NO;
+		}
+	}
+
+	return _keyStatus[key];
 }
 
 - (BOOL)getToggleState:(spr_keyboard_key_t)key
 {
-	return NO;
+	NSUInteger modFlags;
+
+	// Capslock is the only toggleable key on a Mac keyboard
+	if(key != SPR_KEY_CAPSLOCK)
+		return NO;
+
+	modFlags = [NSEvent modifierFlags];
+
+	return modFlags & (1 << 16);
 }
 
 - (NSString *)getKeyString:(spr_keyboard_key_t)key
