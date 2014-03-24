@@ -27,10 +27,7 @@
 #import "NSMutableArray+SPRQueue.h"
 #import "SPRCoordinateUtilities.h"
 
-@implementation SPRMouse {
-	id _monitor;
-	NSMutableArray *_queue;
-}
+@implementation SPRMouse
 
 @synthesize wheel=_wheel;
 
@@ -38,22 +35,7 @@
 {
     self = [super init];
     if (self) {
-		NSEventMask mask;
-		NSEvent *(^eventHandler)(NSEvent *);
-
 		_wheel = [[SPRMouseWheel alloc] init];
-		_queue = [[NSMutableArray alloc] init];
-
-		eventHandler = ^NSEvent *(NSEvent *event) {
-			NSLog(@"[MS] Got event %@",event);
-
-			return event;
-		};
-
-		mask = NSLeftMouseDownMask | NSLeftMouseUpMask | NSRightMouseDownMask
-			| NSRightMouseUpMask | NSOtherMouseDownMask | NSOtherMouseUpMask;
-        _monitor = [NSEvent addLocalMonitorForEventsMatchingMask:mask
-														 handler:eventHandler];
     }
     return self;
 }
@@ -75,14 +57,6 @@
 	context[@"Input"][@"Mouse"] = mouse;
 
 	[_wheel installInstanceIntoContext:context];
-}
-
-- (void)dealloc
-{
-	if(_monitor) {
-		[NSEvent removeMonitor:_monitor];
-		_monitor = nil;
-	}
 }
 
 - (float)x
