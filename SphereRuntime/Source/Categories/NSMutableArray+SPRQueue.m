@@ -36,9 +36,11 @@
 {
 	id head;
 
+	if([self count] == 0)
+		return nil;
+
 	head = [self objectAtIndex:0];
-	if(head != nil)
-		[self removeObjectAtIndex:0];
+	[self removeObjectAtIndex:0];
 
 	return head;
 }
