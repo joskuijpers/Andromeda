@@ -54,7 +54,7 @@
 		80B5FE7618D133AD0035C62B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80477BCF18D1313100B16692 /* Cocoa.framework */; };
 		80B5FE7918D133AD0035C62B /* AndromedaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80B5FE6418D133AD0035C62B /* AndromedaKit.framework */; };
 		80B5FE8118D133AE0035C62B /* SphereRuntimeKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FE8018D133AE0035C62B /* SphereRuntimeKitTests.m */; };
-		80B5FE8918D1348E0035C62B /* SphereRuntimeKit-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FE8818D1348E0035C62B /* SphereRuntimeKit-Prefix.pch */; };
+		80B5FE8918D1348E0035C62B /* AndromedaKit-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FE8818D1348E0035C62B /* AndromedaKit-Prefix.pch */; };
 		80B5FE9318D1352A0035C62B /* SRKFile_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FE9018D1352A0035C62B /* SRKFile_Private.h */; };
 		80B5FE9418D1352A0035C62B /* SRKFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FE9118D1352A0035C62B /* SRKFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		80B5FE9518D1352A0035C62B /* SRKFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FE9218D1352A0035C62B /* SRKFile.m */; };
@@ -149,7 +149,7 @@
 		80477BD718D1313100B16692 /* Andromeda-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Andromeda-Info.plist"; sourceTree = "<group>"; };
 		80477BD918D1313100B16692 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		80477BDB18D1313100B16692 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Source/main.m; sourceTree = "<group>"; };
-		80477BDD18D1313100B16692 /* SphereRuntime-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SphereRuntime-Prefix.pch"; path = "Source/SphereRuntime-Prefix.pch"; sourceTree = "<group>"; };
+		80477BDD18D1313100B16692 /* Andromeda-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Andromeda-Prefix.pch"; path = "Source/Andromeda-Prefix.pch"; sourceTree = "<group>"; };
 		80477BDF18D1313100B16692 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		80477BE518D1313100B16692 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		80477BE718D1313100B16692 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -219,9 +219,9 @@
 		80B5FE6418D133AD0035C62B /* AndromedaKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AndromedaKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80B5FE6818D133AD0035C62B /* AndromedaKit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AndromedaKit-Info.plist"; sourceTree = "<group>"; };
 		80B5FE7418D133AD0035C62B /* AndromedaKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AndromedaKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		80B5FE7C18D133AD0035C62B /* SphereRuntimeKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SphereRuntimeKitTests-Info.plist"; sourceTree = "<group>"; };
+		80B5FE7C18D133AD0035C62B /* AndromedaKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AndromedaKitTests-Info.plist"; sourceTree = "<group>"; };
 		80B5FE8018D133AE0035C62B /* SphereRuntimeKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SphereRuntimeKitTests.m; sourceTree = "<group>"; };
-		80B5FE8818D1348E0035C62B /* SphereRuntimeKit-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SphereRuntimeKit-Prefix.pch"; path = "Source/SphereRuntimeKit-Prefix.pch"; sourceTree = "<group>"; };
+		80B5FE8818D1348E0035C62B /* AndromedaKit-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AndromedaKit-Prefix.pch"; path = "Source/AndromedaKit-Prefix.pch"; sourceTree = "<group>"; };
 		80B5FE9018D1352A0035C62B /* SRKFile_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRKFile_Private.h; path = Source/Resources/SphereFileTypes/SRKFile_Private.h; sourceTree = "<group>"; };
 		80B5FE9118D1352A0035C62B /* SRKFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRKFile.h; path = Source/Resources/SphereFileTypes/SRKFile.h; sourceTree = "<group>"; };
 		80B5FE9218D1352A0035C62B /* SRKFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRKFile.m; path = Source/Resources/SphereFileTypes/SRKFile.m; sourceTree = "<group>"; };
@@ -422,7 +422,7 @@
 				80477BD718D1313100B16692 /* Andromeda-Info.plist */,
 				80477BD818D1313100B16692 /* InfoPlist.strings */,
 				80477BDB18D1313100B16692 /* main.m */,
-				80477BDD18D1313100B16692 /* SphereRuntime-Prefix.pch */,
+				80477BDD18D1313100B16692 /* Andromeda-Prefix.pch */,
 				80477BDE18D1313100B16692 /* Credits.rtf */,
 				80A3C77918DBB64B002EEF8C /* macros.h */,
 			);
@@ -594,7 +594,7 @@
 			isa = PBXGroup;
 			children = (
 				80B5FE6818D133AD0035C62B /* AndromedaKit-Info.plist */,
-				80B5FE8818D1348E0035C62B /* SphereRuntimeKit-Prefix.pch */,
+				80B5FE8818D1348E0035C62B /* AndromedaKit-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -611,7 +611,7 @@
 		80B5FE7B18D133AD0035C62B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				80B5FE7C18D133AD0035C62B /* SphereRuntimeKitTests-Info.plist */,
+				80B5FE7C18D133AD0035C62B /* AndromedaKitTests-Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -735,7 +735,7 @@
 				80B5FED318D1357E0035C62B /* SRKSound.h in Headers */,
 				80B5FEDC18D135940035C62B /* endian.h in Headers */,
 				80B5FE9918D1353F0035C62B /* NSString+SRKUtilities.h in Headers */,
-				80B5FE8918D1348E0035C62B /* SphereRuntimeKit-Prefix.pch in Headers */,
+				80B5FE8918D1348E0035C62B /* AndromedaKit-Prefix.pch in Headers */,
 				80B5FECA18D135760035C62B /* SRKTileSet_Private.h in Headers */,
 				80B5FE9318D1352A0035C62B /* SRKFile_Private.h in Headers */,
 			);
