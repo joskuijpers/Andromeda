@@ -43,6 +43,10 @@
 	context[@"include"] = ^(NSString *path) {
 		NSLog(@"include: %@",path);
 	};
+
+	context[@"resolve"] = ^(NSString *resource) {
+		NSLog(@"resolve %@",resource);
+	};
 }
 
 + (void)abortWithMessage:(NSString *)message
@@ -66,7 +70,7 @@
 
 + (void)garbageCollect
 {
-
+	[[[L8Context currentContext] virtualMachine] runGarbageCollector];
 }
 
 @end
