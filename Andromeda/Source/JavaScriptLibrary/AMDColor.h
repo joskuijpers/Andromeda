@@ -32,25 +32,25 @@
  */
 @protocol AMDColor <L8Export>
 
-/// The red value, ranged 0 to 255.
-@property (assign) uint8_t red;
+/// The red value, ranged 0 to 1.0.
+@property (assign) float red;
 
-/// The green value, ranged 0 to 255.
-@property (assign) uint8_t green;
+/// The green value, ranged 0 to 1.0.
+@property (assign) float green;
 
-/// The blue value, ranged 0 to 255.
-@property (assign) uint8_t blue;
+/// The blue value, ranged 0 to 1.0.
+@property (assign) float blue;
 
-/// The alpha value, ranged 0 to 255.
-@property (assign) uint8_t alpha;
+/// The alpha value, ranged 0 to 1.0.
+@property (assign) float alpha;
 
 /**
  * Create a new color.
  *
- * @!param red The red value, ranged 0 to 255.
- * @!param green The green value, ranged 0 to 255.
- * @!param blue The blue value, ranged 0 to 255.
- * @!param alpha The alpha value, ranged 0 to 255. [optional]
+ * @!param red The red value, ranged 0 to 1.0.
+ * @!param green The green value, ranged 0 to 1.0.
+ * @!param blue The blue value, ranged 0 to 1.0.
+ * @!param alpha The alpha value, ranged 0 to 1.0. [optional]
  * @return The initialized color.
  */
 - (instancetype)init;
@@ -90,28 +90,28 @@ L8_EXPORT_AS(blendWeighted,
 /**
  * Create a new color.
  *
- * @param red The red value, ranged 0 to 255.
- * @param green The green value, ranged 0 to 255.
- * @param blue The blue value, ranged 0 to 255.
+ * @param red The red value, ranged 0 to 1.0.
+ * @param green The green value, ranged 0 to 1.0.
+ * @param blue The blue value, ranged 0 to 1.0.
  * @return The initialized color.
  */
-- (instancetype)initWithRed:(uint8_t)red
-					  green:(uint8_t)green
-					   blue:(uint8_t)blue;
+- (instancetype)initWithRed:(float)red
+					  green:(float)green
+					   blue:(float)blue;
 
 /**
  * Create a new color.
  *
- * @param red The red value, ranged 0 to 255.
- * @param green The green value, ranged 0 to 255.
- * @param blue The blue value, ranged 0 to 255.
- * @param alpha The alpha value, ranged 0 to 255.
+ * @param red The red value, ranged 0 to 1.0.
+ * @param green The green value, ranged 0 to 1.0.
+ * @param blue The blue value, ranged 0 to 1.0.
+ * @param alpha The alpha value, ranged 0 to 1.0.
  * @return The initialized color.
  */
-- (instancetype)initWithRed:(uint8_t)red
-					  green:(uint8_t)green
-					   blue:(uint8_t)blue
-					  alpha:(uint8_t)alpha;
+- (instancetype)initWithRed:(float)red
+					  green:(float)green
+					   blue:(float)blue
+					  alpha:(float)alpha;
 
 /**
  * Create an AMDColor with color-information from an

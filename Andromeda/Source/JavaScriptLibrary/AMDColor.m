@@ -41,32 +41,32 @@
 		NSArray *args = [L8Context currentArguments];
 		size_t count = args.count;
 
-		_red = (count >= 1)?[args[0] toUInt32]:0;
-		_green = (count >= 2)?[args[1] toUInt32]:0;
-		_blue = (count >= 3)?[args[2] toUInt32]:0;
-		_alpha = (count >= 4)?[args[3] toUInt32]:255;
+		_red = (count >= 1)?[args[0] toUInt32]:0.0;
+		_green = (count >= 2)?[args[1] toUInt32]:0.0;
+		_blue = (count >= 3)?[args[2] toUInt32]:0.0;
+		_alpha = (count >= 4)?[args[3] toUInt32]:1.0;
 	}
 	return self;
 }
 
-- (instancetype)initWithRed:(uint8_t)red
-					  green:(uint8_t)green
-					   blue:(uint8_t)blue
+- (instancetype)initWithRed:(float)red
+					  green:(float)green
+					   blue:(float)blue
 {
 	self = [super init];
 	if(self) {
 		_red = red;
 		_green = green;
 		_blue = blue;
-		_alpha = 255;
+		_alpha = 1.0;
 	}
 	return self;
 }
 
-- (instancetype)initWithRed:(uint8_t)red
-					  green:(uint8_t)green
-					   blue:(uint8_t)blue
-					  alpha:(uint8_t)alpha
+- (instancetype)initWithRed:(float)red
+					  green:(float)green
+					   blue:(float)blue
+					  alpha:(float)alpha
 {
 	self = [super init];
 	if(self) {
@@ -82,20 +82,20 @@
 {
 	self = [super init];
 	if(self) {
-		_red = color.redComponent * 255.0;
-		_green = color.greenComponent * 255.0;
-		_blue = color.blueComponent * 255.0;
-		_alpha = color.alphaComponent * 255.0;
+		_red = color.redComponent;
+		_green = color.greenComponent;
+		_blue = color.blueComponent;
+		_alpha = color.alphaComponent;
 	}
 	return self;
 }
 
 - (AMDColor *)blend:(AMDColor *)other
 {
-	return [[AMDColor alloc] initWithRed:(other.red+_red)/2
-								   green:(other.green+_green)/2
-									blue:(other.blue+_blue)/2
-								   alpha:(other.alpha+_alpha)/2];
+	return [[AMDColor alloc] initWithRed:(other.red+_red)/2.0
+								   green:(other.green+_green)/2.0
+									blue:(other.blue+_blue)/2.0
+								   alpha:(other.alpha+_alpha)/2.0];
 }
 
 - (AMDColor *)blend:(AMDColor *)other
@@ -130,20 +130,17 @@
 
 - (NSColor *)toNSColor
 {
-	return [NSColor colorWithCalibratedRed:_red/255.0
-									 green:_green/255.0
-									  blue:_blue/255.0
-									 alpha:_alpha/255.0];
+	return [NSColor colorWithCalibratedRed:_red green:_green blue:_blue alpha:_alpha];
 }
 
 - (CGColorRef)newCGColor
 {
-	return CGColorCreateGenericRGB(_red/255.0, _green/255.0, _blue/255.0, _alpha/255.0);
+	return CGColorCreateGenericRGB(_red, _green, _blue, _alpha);
 }
 
 - (NSString *)description
 {
-	return [NSString stringWithFormat:@"<AMDColor>{red: %d, green: %d, blue: %d, alpha: %d}",
+	return [NSString stringWithFormat:@"<AMDColor>{%f, %f, %f, %f}",
 			_red,_green,_blue,_alpha];
 }
 
