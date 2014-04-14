@@ -42,18 +42,6 @@
  */
 @protocol AMDInputConfig <L8Export>
 
-@property (assign) int menu;
-@property (assign) int up;
-@property (assign) int down;
-@property (assign) int left;
-@property (assign) int right;
-@property (assign) int a;
-@property (assign) int b;
-@property (assign) int x;
-@property (assign) int y;
-
-- (void)save;
-
 @end
 
 /**

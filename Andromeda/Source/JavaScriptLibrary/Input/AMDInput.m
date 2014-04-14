@@ -61,9 +61,6 @@
 
 @implementation AMDInputConfig
 
-@synthesize menu=_menu, up=_up, down=_down, left=_left, right=_right;
-@synthesize a=_a, b=_b, x=_x, y=_y;
-
 - (instancetype)initWithConfiguration:(NSDictionary *)configuration
 {
 	self = [super init];
