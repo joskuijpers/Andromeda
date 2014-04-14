@@ -25,6 +25,7 @@
 
 #import "AMKFont.h"
 #import "AMKFile_Private.h"
+#import "AMKImage.h"
 
 #pragma mark - File structures
 typedef struct {

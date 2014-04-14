@@ -85,12 +85,12 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="429" y="269" width="320" height="240"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
             <view key="contentView" id="372">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <openGLView useAuxiliaryDepthBufferStencil="NO" allowOffline="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hfl-bS-AYr" customClass="SPRGraphicsView">
+                    <openGLView useAuxiliaryDepthBufferStencil="NO" allowOffline="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hfl-bS-AYr" customClass="AMDGraphicsView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     </openGLView>
@@ -103,7 +103,7 @@
                 </constraints>
             </view>
         </window>
-        <customObject id="494" customClass="SPRAppDelegate">
+        <customObject id="494" customClass="AMDAppDelegate">
             <connections>
                 <outlet property="graphicsView" destination="Hfl-bS-AYr" id="J3H-SY-TPk"/>
                 <outlet property="window" destination="371" id="532"/>

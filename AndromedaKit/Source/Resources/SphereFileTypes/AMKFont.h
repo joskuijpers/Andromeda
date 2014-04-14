@@ -23,7 +23,7 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <SphereRuntimeKit/SphereRuntimeKit.h>
+#import "AMKFile.h"
 
 /**
  * @brief A font. Also the representation of .rfn files

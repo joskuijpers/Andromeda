@@ -1,20 +1,20 @@
 console.log("Hello World!");
 
+var Game = {};
 
 Game.init = function() {
 	console.log("INIT");
 
 	/** TEST 1: Blue rectangle with red border, full window size */
-	var Red = CreateColor(255, 0, 0, 255);
-	var Blue = CreateColor(0, 0, 255, 255);
+	var Red = new Color(1.0, 0, 0, 1.0);
+	var Blue = new Color(0, 0, 1.0, 1.0);
 
 	//Rectangle(0, 0, GetScreenWidth(), GetScreenHeight(), Red);
 	//Rectangle(20, 20, GetScreenWidth()-40, GetScreenHeight()-40, Blue);
 
-	FlipScreen();
+	Screen.flip();
 
 	console.log("MX: "+Input.Mouse.x);
-	console.log("MY: "+GetMouseY());
 	console.log("NGP: "+Input.gamepads.length);
 
 	console.log("GK: "+Input.Keyboard.getKey());

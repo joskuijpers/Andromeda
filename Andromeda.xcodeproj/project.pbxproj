@@ -1050,7 +1050,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Andromeda/Source/Andromeda-Prefix.pch";
-				INFOPLIST_FILE = "SphereRuntime/Andromeda-Info.plist";
+				INFOPLIST_FILE = "Andromeda/Andromeda-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LD_RUNPATH_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = (
@@ -1074,7 +1074,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Andromeda/Source/Andromeda-Prefix.pch";
-				INFOPLIST_FILE = "SphereRuntime/Andromeda-Info.plist";
+				INFOPLIST_FILE = "Andromeda/Andromeda-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LD_RUNPATH_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = (
@@ -1099,7 +1099,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "SphereRuntimeKit/AndromedaKit-Info.plist";
+				INFOPLIST_FILE = "AndromedaKit/AndromedaKit-Info.plist";
 				PRODUCT_NAME = AndromedaKit;
 				WRAPPER_EXTENSION = framework;
 			};
@@ -1114,7 +1114,7 @@
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AndromedaKit/Source/AndromedaKit-Prefix.pch";
-				INFOPLIST_FILE = "SphereRuntimeKit/AndromedaKit-Info.plist";
+				INFOPLIST_FILE = "AndromedaKit/AndromedaKit-Info.plist";
 				PRODUCT_NAME = AndromedaKit;
 				WRAPPER_EXTENSION = framework;
 			};
@@ -1135,7 +1135,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "SphereRuntimeKitTests/SphereRuntimeKitTests-Info.plist";
+				INFOPLIST_FILE = "AndromedaKitTests/AndromedaKitTests-Info.plist";
 				PRODUCT_NAME = AndromedaKitTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -1153,7 +1153,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SphereRuntimeKit/SphereRuntimeKit-Prefix.pch";
-				INFOPLIST_FILE = "SphereRuntimeKitTests/SphereRuntimeKitTests-Info.plist";
+				INFOPLIST_FILE = "AndromedaKitTests/AndromedaKitTests-Info.plist";
 				PRODUCT_NAME = AndromedaKitTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
