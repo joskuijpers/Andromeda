@@ -23,21 +23,21 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef SRK_ENDIAN_H
-#define SRK_ENDIAN_H
+#ifndef AMK_ENDIAN_H
+#define AMK_ENDIAN_H
 
 #include <stdint.h>
 
-#define SPHERE_LITTLE_ENDIAN 0
-#define SPHERE_BIG_ENDIAN    1
+#define ANDROMEDA_LITTLE_ENDIAN 0
+#define ANDROMEDA_BIG_ENDIAN    1
 
 #if defined(__BIG_ENDIAN__)
-# define SPHERE_BYTEORDER SPHERE_BIG_ENDIAN
+# define ANDROMEDA_BYTEORDER ANDROMEDA_BIG_ENDIAN
 #else
-# define SPHERE_BYTEORDER SPHERE_LITTLE_ENDIAN
+# define ANDROMEDA_BYTEORDER ANDROMEDA_LITTLE_ENDIAN
 #endif
 
-#if SPHERE_BYTEORDER == SPHERE_LITTLE_ENDIAN
+#if ANDROMEDA_BYTEORDER == ANDROMEDA_LITTLE_ENDIAN
 
 #define ltom_w(x) (x)
 #define mtol_w(x) (x)
@@ -93,7 +93,7 @@ inline void mtol_f(uint8_t *out, const float in)
 	out[3] = fp[3];
 }
 
-#elif SPHERE_BYTEORDER == SPHERE_BIG_ENDIAN
+#elif ANDROMEDA_BYTEORDER == ANDROMEDA_BIG_ENDIAN
 
 #define btom_w(x) (x)
 #define mtob_w(x) (x)
@@ -152,4 +152,4 @@ inline void mtol_f(uint8_t *out, float in)
 
 #endif
 
-#endif // SRK_ENDIAN_H
+#endif // AMK_ENDIAN_H

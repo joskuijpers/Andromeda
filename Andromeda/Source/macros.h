@@ -26,63 +26,63 @@
 #pragma mark Attribute definitions
 
 #if __has_attribute(deprecated)
-# define SPR_DEPRECATED(msg) __attribute__((deprecated((msg))))
+# define AMD_DEPRECATED(msg) __attribute__((deprecated((msg))))
 #else
-# define SPR_DEPRECATED(msg)
+# define AMD_DEPRECATED(msg)
 #endif
 
 #if __has_attribute(unavailable)
-# define SPR_UNAVAILABLE(msg) __attribute__((unavailable((msg))))
+# define AMD_UNAVAILABLE(msg) __attribute__((unavailable((msg))))
 #else
-# define SPR_UNAVAILABLE(msg)
+# define AMD_UNAVAILABLE(msg)
 #endif
 
 #if __has_attribute(objc_designated_initializer)
-# define SPR_DESIGNATED_INITIALIZER __attribute__((objc_designated_initializer))
+# define AMD_DESIGNATED_INITIALIZER __attribute__((objc_designated_initializer))
 #else
-# define SPR_DESIGNATED_INITIALIZER
+# define AMD_DESIGNATED_INITIALIZER
 #endif
 
 #if __has_attribute(objc_returns_inner_pointer)
-# define SPR_RETURNS_INNER_POINTER __attribute__((objc_returns_inner_pointer))
+# define AMD_RETURNS_INNER_POINTER __attribute__((objc_returns_inner_pointer))
 #else
-# define SPR_RETURNS_INNER_POINTER
+# define AMD_RETURNS_INNER_POINTER
 #endif
 
 #if __has_attribute(unused)
-# define SPR_UNUSED __attribute__((unused))
+# define AMD_UNUSED __attribute__((unused))
 #else
-# define SPR_UNUSED
+# define AMD_UNUSED
 #endif
 
 #if __has_attribute(warn_unused_result)
-# define SPR_WARN_UNUSED_RESULT __attribute__((warn_unused_result))
+# define AMD_WARN_UNUSED_RESULT __attribute__((warn_unused_result))
 #else
-# define SPR_WARN_UNUSED_RESULT
+# define AMD_WARN_UNUSED_RESULT
 #endif
 
 #if __has_attribute(objc_root_class)
-# define SPR_ROOT_CLASS __attribute__((objc_root_class))
+# define AMD_ROOT_CLASS __attribute__((objc_root_class))
 #else
-# define SPR_ROOT_CLASS
+# define AMD_ROOT_CLASS
 #endif
 
 #if __has_attribute(objc_requires_super)
-# define SPR_REQUIRES_SUPER __attribute__((objc_requires_super))
+# define AMD_REQUIRES_SUPER __attribute__((objc_requires_super))
 #else
-# define SPR_REQUIRES_SUPER
+# define AMD_REQUIRES_SUPER
 #endif
 
 #if __has_attribute(const)
-# define SPR_CONST __attribute__((const))
+# define AMD_CONST __attribute__((const))
 #else
-# define SPR_CONST
+# define AMD_CONST
 #endif
 
 #if __has_builtin(__builtin_expect)
-# define SPR_LIKELY(condition) (__builtin_expect(!!(condition), 1))
-# define SPR_UNLIKELY(condition) (__builtin_expect(!!(condition), 0))
+# define AMD_LIKELY(condition) (__builtin_expect(!!(condition), 1))
+# define AMD_UNLIKELY(condition) (__builtin_expect(!!(condition), 0))
 #else
-# define SPR_LIKELY(condition)
-# define SPR_UNLIKELY(condition)
+# define AMD_LIKELY(condition)
+# define AMD_UNLIKELY(condition)
 #endif

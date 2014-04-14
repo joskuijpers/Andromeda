@@ -7,44 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		800FB73E18DF57A900AEB582 /* NSMutableArray+SPRQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 800FB73D18DF57A900AEB582 /* NSMutableArray+SPRQueue.m */; };
-		800FB74118DF588900AEB582 /* NSMutableArray+SPRStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 800FB74018DF588900AEB582 /* NSMutableArray+SPRStack.m */; };
-		800FB74418DF8D3400AEB582 /* SPRCoordinateUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 800FB74318DF8D3400AEB582 /* SPRCoordinateUtilities.m */; };
+		800FB73E18DF57A900AEB582 /* NSMutableArray+AMDQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 800FB73D18DF57A900AEB582 /* NSMutableArray+AMDQueue.m */; };
+		800FB74118DF588900AEB582 /* NSMutableArray+AMDStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 800FB74018DF588900AEB582 /* NSMutableArray+AMDStack.m */; };
+		800FB74418DF8D3400AEB582 /* AMDCoordinateUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 800FB74318DF8D3400AEB582 /* AMDCoordinateUtilities.m */; };
 		804111D618D144A100F7974F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 804111D518D144A100F7974F /* CoreGraphics.framework */; };
 		804111D718D144B100F7974F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80477BCF18D1313100B16692 /* Cocoa.framework */; };
 		80477BDA18D1313100B16692 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 80477BD818D1313100B16692 /* InfoPlist.strings */; };
 		80477BDC18D1313100B16692 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477BDB18D1313100B16692 /* main.m */; };
 		80477BE018D1313100B16692 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 80477BDE18D1313100B16692 /* Credits.rtf */; };
 		80477BE818D1313100B16692 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80477BE718D1313100B16692 /* Images.xcassets */; };
-		80477C2F18D1320900B16692 /* SPRBonjour.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C1318D1320800B16692 /* SPRBonjour.m */; };
-		80477C3018D1320900B16692 /* SPRByteArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C1518D1320800B16692 /* SPRByteArray.m */; };
-		80477C3118D1320900B16692 /* SPRColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C1718D1320800B16692 /* SPRColor.m */; };
-		80477C3218D1320900B16692 /* SPRCompatibility15.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C1A18D1320800B16692 /* SPRCompatibility15.m */; };
-		80477C3318D1320900B16692 /* SPRCompatibility16.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C1C18D1320800B16692 /* SPRCompatibility16.m */; };
-		80477C3418D1320900B16692 /* SPRConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C1E18D1320800B16692 /* SPRConsole.m */; };
-		80477C3518D1320900B16692 /* SPRFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2018D1320800B16692 /* SPRFile.m */; };
-		80477C3618D1320900B16692 /* SPRFileSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2218D1320800B16692 /* SPRFileSystem.m */; };
-		80477C3718D1320900B16692 /* SPRImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2418D1320800B16692 /* SPRImage.m */; };
-		80477C3818D1320900B16692 /* SPRJSClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2618D1320800B16692 /* SPRJSClass.m */; };
-		80477C3A18D1320900B16692 /* SPRNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2A18D1320900B16692 /* SPRNetwork.m */; };
-		80477C3B18D1320900B16692 /* SPRRawFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2C18D1320900B16692 /* SPRRawFile.m */; };
-		80477C3C18D1320900B16692 /* SPRSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2E18D1320900B16692 /* SPRSocket.m */; };
-		80477C3F18D1321500B16692 /* SPRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C3E18D1321500B16692 /* SPRAppDelegate.m */; };
-		80477C4218D1321A00B16692 /* SPRGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C4118D1321A00B16692 /* SPRGame.m */; };
-		80477C4518D1321F00B16692 /* SPRResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C4418D1321F00B16692 /* SPRResource.m */; };
-		8049F80818DA49AA00B454F8 /* SPRDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8049F80718DA49AA00B454F8 /* SPRDirectory.m */; };
-		80A3C76F18DA891B002EEF8C /* NSString+SPRHashing.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A3C76E18DA891B002EEF8C /* NSString+SPRHashing.m */; };
-		80A3C77218DA8925002EEF8C /* NSData+SPRHashing.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A3C77118DA8925002EEF8C /* NSData+SPRHashing.m */; };
-		80A3C77818DA8FDD002EEF8C /* SPRFileHashing.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A3C77718DA8FDD002EEF8C /* SPRFileHashing.m */; };
+		80477C2F18D1320900B16692 /* AMDBonjour.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C1318D1320800B16692 /* AMDBonjour.m */; };
+		80477C3018D1320900B16692 /* AMDByteArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C1518D1320800B16692 /* AMDByteArray.m */; };
+		80477C3118D1320900B16692 /* AMDColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C1718D1320800B16692 /* AMDColor.m */; };
+		80477C3418D1320900B16692 /* AMDConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C1E18D1320800B16692 /* AMDConsole.m */; };
+		80477C3518D1320900B16692 /* AMDFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2018D1320800B16692 /* AMDFile.m */; };
+		80477C3618D1320900B16692 /* AMDFileSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2218D1320800B16692 /* AMDFileSystem.m */; };
+		80477C3718D1320900B16692 /* AMDImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2418D1320800B16692 /* AMDImage.m */; };
+		80477C3818D1320900B16692 /* AMDJSClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2618D1320800B16692 /* AMDJSClass.m */; };
+		80477C3A18D1320900B16692 /* AMDNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2A18D1320900B16692 /* AMDNetwork.m */; };
+		80477C3B18D1320900B16692 /* AMDRawFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2C18D1320900B16692 /* AMDRawFile.m */; };
+		80477C3C18D1320900B16692 /* AMDSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2E18D1320900B16692 /* AMDSocket.m */; };
+		80477C3F18D1321500B16692 /* AMDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C3E18D1321500B16692 /* AMDAppDelegate.m */; };
+		80477C4218D1321A00B16692 /* AMDGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C4118D1321A00B16692 /* AMDGame.m */; };
+		80477C4518D1321F00B16692 /* AMDResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C4418D1321F00B16692 /* AMDResource.m */; };
+		8049F80818DA49AA00B454F8 /* AMDDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8049F80718DA49AA00B454F8 /* AMDDirectory.m */; };
+		80A3C76F18DA891B002EEF8C /* NSString+AMDHashing.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A3C76E18DA891B002EEF8C /* NSString+AMDHashing.m */; };
+		80A3C77218DA8925002EEF8C /* NSData+AMDHashing.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A3C77118DA8925002EEF8C /* NSData+AMDHashing.m */; };
+		80A3C77818DA8FDD002EEF8C /* AMDFileHashing.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A3C77718DA8FDD002EEF8C /* AMDFileHashing.m */; };
 		80A3C77B18DBD5C0002EEF8C /* AndromedaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80B5FE6418D133AD0035C62B /* AndromedaKit.framework */; };
-		80AAD8CC18DD1B9800805E3D /* SPRGraphicsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 80AAD8CB18DD1B9800805E3D /* SPRGraphicsView.m */; };
-		80AAD8CF18DD254300805E3D /* SPRScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 80AAD8CE18DD254300805E3D /* SPRScreen.m */; };
-		80AAD8D218DE68A500805E3D /* SPRSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 80AAD8D118DE68A500805E3D /* SPRSystem.m */; };
-		80AAD8D818DE7C4C00805E3D /* SPRKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 80AAD8D718DE7C4C00805E3D /* SPRKeyboard.m */; };
-		80AAD8DB18DE7C5500805E3D /* SPRMouse.m in Sources */ = {isa = PBXBuildFile; fileRef = 80AAD8DA18DE7C5500805E3D /* SPRMouse.m */; };
-		80AAD8DE18DE7C6000805E3D /* SPRGamepad.m in Sources */ = {isa = PBXBuildFile; fileRef = 80AAD8DD18DE7C6000805E3D /* SPRGamepad.m */; };
-		80AAD8E118DE7C6900805E3D /* SPRInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 80AAD8E018DE7C6900805E3D /* SPRInput.m */; };
-		80AAD8E418DE8D4600805E3D /* SPRInputDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 80AAD8E318DE8D4600805E3D /* SPRInputDevice.m */; };
+		80AAD8CC18DD1B9800805E3D /* AMDGraphicsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 80AAD8CB18DD1B9800805E3D /* AMDGraphicsView.m */; };
+		80AAD8CF18DD254300805E3D /* AMDScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 80AAD8CE18DD254300805E3D /* AMDScreen.m */; };
+		80AAD8D218DE68A500805E3D /* AMDSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 80AAD8D118DE68A500805E3D /* AMDSystem.m */; };
+		80AAD8D818DE7C4C00805E3D /* AMDKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 80AAD8D718DE7C4C00805E3D /* AMDKeyboard.m */; };
+		80AAD8DB18DE7C5500805E3D /* AMDMouse.m in Sources */ = {isa = PBXBuildFile; fileRef = 80AAD8DA18DE7C5500805E3D /* AMDMouse.m */; };
+		80AAD8DE18DE7C6000805E3D /* AMDGamepad.m in Sources */ = {isa = PBXBuildFile; fileRef = 80AAD8DD18DE7C6000805E3D /* AMDGamepad.m */; };
+		80AAD8E118DE7C6900805E3D /* AMDInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 80AAD8E018DE7C6900805E3D /* AMDInput.m */; };
+		80AAD8E418DE8D4600805E3D /* AMDInputDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 80AAD8E318DE8D4600805E3D /* AMDInputDevice.m */; };
 		80B5FE5A18D1332B0035C62B /* sphere15.js in Resources */ = {isa = PBXBuildFile; fileRef = 80477C4618D1325C00B16692 /* sphere15.js */; };
 		80B5FE5B18D1332B0035C62B /* sphere16.js in Resources */ = {isa = PBXBuildFile; fileRef = 80477C4718D1325C00B16692 /* sphere16.js */; };
 		80B5FE5C18D1332B0035C62B /* test_module.js in Resources */ = {isa = PBXBuildFile; fileRef = 80477C4818D1325C00B16692 /* test_module.js */; };
@@ -53,48 +51,48 @@
 		80B5FE7518D133AD0035C62B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80477BEE18D1313100B16692 /* XCTest.framework */; };
 		80B5FE7618D133AD0035C62B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80477BCF18D1313100B16692 /* Cocoa.framework */; };
 		80B5FE7918D133AD0035C62B /* AndromedaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80B5FE6418D133AD0035C62B /* AndromedaKit.framework */; };
-		80B5FE8118D133AE0035C62B /* SphereRuntimeKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FE8018D133AE0035C62B /* SphereRuntimeKitTests.m */; };
+		80B5FE8118D133AE0035C62B /* AndromedaKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FE8018D133AE0035C62B /* AndromedaKitTests.m */; };
 		80B5FE8918D1348E0035C62B /* AndromedaKit-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FE8818D1348E0035C62B /* AndromedaKit-Prefix.pch */; };
-		80B5FE9318D1352A0035C62B /* SRKFile_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FE9018D1352A0035C62B /* SRKFile_Private.h */; };
-		80B5FE9418D1352A0035C62B /* SRKFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FE9118D1352A0035C62B /* SRKFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		80B5FE9518D1352A0035C62B /* SRKFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FE9218D1352A0035C62B /* SRKFile.m */; };
-		80B5FE9918D1353F0035C62B /* NSString+SRKUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FE9718D1353F0035C62B /* NSString+SRKUtilities.h */; };
-		80B5FE9A18D1353F0035C62B /* NSString+SRKUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FE9818D1353F0035C62B /* NSString+SRKUtilities.m */; };
-		80B5FE9C18D135490035C62B /* SphereRuntimeKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FE9B18D135490035C62B /* SphereRuntimeKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		80B5FEA318D135540035C62B /* SRKAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FE9D18D135540035C62B /* SRKAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		80B5FEA418D135540035C62B /* SRKAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FE9E18D135540035C62B /* SRKAnimation.m */; };
-		80B5FEA518D135540035C62B /* SRKFLICAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FE9F18D135540035C62B /* SRKFLICAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		80B5FEA618D135540035C62B /* SRKFLICAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FEA018D135540035C62B /* SRKFLICAnimation.m */; };
-		80B5FEA718D135540035C62B /* SRKMNGAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FEA118D135540035C62B /* SRKMNGAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		80B5FEA818D135540035C62B /* SRKMNGAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FEA218D135540035C62B /* SRKMNGAnimation.m */; };
-		80B5FEBC18D135760035C62B /* SRKFileSGM.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FEA918D135760035C62B /* SRKFileSGM.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		80B5FEBD18D135760035C62B /* SRKFileSGM.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FEAA18D135760035C62B /* SRKFileSGM.m */; };
-		80B5FEBE18D135760035C62B /* SRKFont.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FEAB18D135760035C62B /* SRKFont.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		80B5FEBF18D135760035C62B /* SRKFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FEAC18D135760035C62B /* SRKFont.m */; };
-		80B5FEC018D135760035C62B /* SRKImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FEAD18D135760035C62B /* SRKImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		80B5FEC118D135760035C62B /* SRKImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FEAE18D135760035C62B /* SRKImage.m */; };
-		80B5FEC218D135760035C62B /* SRKMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FEAF18D135760035C62B /* SRKMap.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		80B5FEC318D135760035C62B /* SRKMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FEB018D135760035C62B /* SRKMap.m */; };
-		80B5FEC418D135760035C62B /* SRKObstructionMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FEB118D135760035C62B /* SRKObstructionMap.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		80B5FEC518D135760035C62B /* SRKObstructionMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FEB218D135760035C62B /* SRKObstructionMap.m */; };
-		80B5FEC618D135760035C62B /* SRKPlayList.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FEB318D135760035C62B /* SRKPlayList.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		80B5FEC718D135760035C62B /* SRKPlayList.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FEB418D135760035C62B /* SRKPlayList.m */; };
-		80B5FEC818D135760035C62B /* SRKSpriteSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FEB518D135760035C62B /* SRKSpriteSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		80B5FEC918D135760035C62B /* SRKSpriteSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FEB618D135760035C62B /* SRKSpriteSet.m */; };
-		80B5FECA18D135760035C62B /* SRKTileSet_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FEB718D135760035C62B /* SRKTileSet_Private.h */; };
-		80B5FECB18D135760035C62B /* SRKTileSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FEB818D135760035C62B /* SRKTileSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		80B5FECC18D135760035C62B /* SRKTileSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FEB918D135760035C62B /* SRKTileSet.m */; };
-		80B5FECD18D135760035C62B /* SRKWindowStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FEBA18D135760035C62B /* SRKWindowStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		80B5FECE18D135760035C62B /* SRKWindowStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FEBB18D135760035C62B /* SRKWindowStyle.m */; };
-		80B5FED318D1357E0035C62B /* SRKSound.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FECF18D1357E0035C62B /* SRKSound.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		80B5FED418D1357E0035C62B /* SRKSound.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FED018D1357E0035C62B /* SRKSound.m */; };
-		80B5FED518D1357E0035C62B /* SRKSoundEffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FED118D1357E0035C62B /* SRKSoundEffect.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		80B5FED618D1357E0035C62B /* SRKSoundEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FED218D1357E0035C62B /* SRKSoundEffect.m */; };
-		80B5FED918D135870035C62B /* SRKResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FED718D135870035C62B /* SRKResource.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		80B5FEDA18D135870035C62B /* SRKResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FED818D135870035C62B /* SRKResource.m */; };
+		80B5FE9318D1352A0035C62B /* AMKFile_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FE9018D1352A0035C62B /* AMKFile_Private.h */; };
+		80B5FE9418D1352A0035C62B /* AMKFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FE9118D1352A0035C62B /* AMKFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		80B5FE9518D1352A0035C62B /* AMKFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FE9218D1352A0035C62B /* AMKFile.m */; };
+		80B5FE9918D1353F0035C62B /* NSString+AMKUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FE9718D1353F0035C62B /* NSString+AMKUtilities.h */; };
+		80B5FE9A18D1353F0035C62B /* NSString+AMKUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FE9818D1353F0035C62B /* NSString+AMKUtilities.m */; };
+		80B5FE9C18D135490035C62B /* AndromedaKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FE9B18D135490035C62B /* AndromedaKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		80B5FEA318D135540035C62B /* AMKAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FE9D18D135540035C62B /* AMKAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		80B5FEA418D135540035C62B /* AMKAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FE9E18D135540035C62B /* AMKAnimation.m */; };
+		80B5FEA518D135540035C62B /* AMKFLICAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FE9F18D135540035C62B /* AMKFLICAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		80B5FEA618D135540035C62B /* AMKFLICAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FEA018D135540035C62B /* AMKFLICAnimation.m */; };
+		80B5FEA718D135540035C62B /* AMKMNGAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FEA118D135540035C62B /* AMKMNGAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		80B5FEA818D135540035C62B /* AMKMNGAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FEA218D135540035C62B /* AMKMNGAnimation.m */; };
+		80B5FEBC18D135760035C62B /* AMKFileSGM.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FEA918D135760035C62B /* AMKFileSGM.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		80B5FEBD18D135760035C62B /* AMKFileSGM.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FEAA18D135760035C62B /* AMKFileSGM.m */; };
+		80B5FEBE18D135760035C62B /* AMKFont.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FEAB18D135760035C62B /* AMKFont.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		80B5FEBF18D135760035C62B /* AMKFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FEAC18D135760035C62B /* AMKFont.m */; };
+		80B5FEC018D135760035C62B /* AMKImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FEAD18D135760035C62B /* AMKImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		80B5FEC118D135760035C62B /* AMKImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FEAE18D135760035C62B /* AMKImage.m */; };
+		80B5FEC218D135760035C62B /* AMKMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FEAF18D135760035C62B /* AMKMap.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		80B5FEC318D135760035C62B /* AMKMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FEB018D135760035C62B /* AMKMap.m */; };
+		80B5FEC418D135760035C62B /* AMKObstructionMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FEB118D135760035C62B /* AMKObstructionMap.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		80B5FEC518D135760035C62B /* AMKObstructionMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FEB218D135760035C62B /* AMKObstructionMap.m */; };
+		80B5FEC618D135760035C62B /* AMKPlayList.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FEB318D135760035C62B /* AMKPlayList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		80B5FEC718D135760035C62B /* AMKPlayList.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FEB418D135760035C62B /* AMKPlayList.m */; };
+		80B5FEC818D135760035C62B /* AMKSpriteSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FEB518D135760035C62B /* AMKSpriteSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		80B5FEC918D135760035C62B /* AMKSpriteSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FEB618D135760035C62B /* AMKSpriteSet.m */; };
+		80B5FECA18D135760035C62B /* AMKTileSet_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FEB718D135760035C62B /* AMKTileSet_Private.h */; };
+		80B5FECB18D135760035C62B /* AMKTileSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FEB818D135760035C62B /* AMKTileSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		80B5FECC18D135760035C62B /* AMKTileSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FEB918D135760035C62B /* AMKTileSet.m */; };
+		80B5FECD18D135760035C62B /* AMKWindowStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FEBA18D135760035C62B /* AMKWindowStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		80B5FECE18D135760035C62B /* AMKWindowStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FEBB18D135760035C62B /* AMKWindowStyle.m */; };
+		80B5FED318D1357E0035C62B /* AMKSound.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FECF18D1357E0035C62B /* AMKSound.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		80B5FED418D1357E0035C62B /* AMKSound.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FED018D1357E0035C62B /* AMKSound.m */; };
+		80B5FED518D1357E0035C62B /* AMKSoundEffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FED118D1357E0035C62B /* AMKSoundEffect.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		80B5FED618D1357E0035C62B /* AMKSoundEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FED218D1357E0035C62B /* AMKSoundEffect.m */; };
+		80B5FED918D135870035C62B /* AMKResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FED718D135870035C62B /* AMKResource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		80B5FEDA18D135870035C62B /* AMKResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FED818D135870035C62B /* AMKResource.m */; };
 		80B5FEDC18D135940035C62B /* endian.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FEDB18D135940035C62B /* endian.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		80B5FEDF18D1359A0035C62B /* SRKGame.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FEDD18D1359A0035C62B /* SRKGame.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		80B5FEE018D1359A0035C62B /* SRKGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FEDE18D1359A0035C62B /* SRKGame.m */; };
+		80B5FEDF18D1359A0035C62B /* AMKGame.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B5FEDD18D1359A0035C62B /* AMKGame.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		80B5FEE018D1359A0035C62B /* AMKGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B5FEDE18D1359A0035C62B /* AMKGame.m */; };
 		80B682AF18D8FF7300445BF9 /* L8Framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80B682AE18D8FF7300445BF9 /* L8Framework.framework */; };
 		80B682B118D908B300445BF9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80477BCF18D1313100B16692 /* Cocoa.framework */; };
 		80B682B318D90E6D00445BF9 /* L8Framework.framework in Copy Private Frameworks */ = {isa = PBXBuildFile; fileRef = 80B682AE18D8FF7300445BF9 /* L8Framework.framework */; };
@@ -132,12 +130,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		800FB73C18DF57A900AEB582 /* NSMutableArray+SPRQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SPRQueue.h"; sourceTree = "<group>"; };
-		800FB73D18DF57A900AEB582 /* NSMutableArray+SPRQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SPRQueue.m"; sourceTree = "<group>"; };
-		800FB73F18DF588900AEB582 /* NSMutableArray+SPRStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SPRStack.h"; sourceTree = "<group>"; };
-		800FB74018DF588900AEB582 /* NSMutableArray+SPRStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SPRStack.m"; sourceTree = "<group>"; };
-		800FB74218DF8D3400AEB582 /* SPRCoordinateUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRCoordinateUtilities.h; path = Source/SPRCoordinateUtilities.h; sourceTree = "<group>"; };
-		800FB74318DF8D3400AEB582 /* SPRCoordinateUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRCoordinateUtilities.m; path = Source/SPRCoordinateUtilities.m; sourceTree = "<group>"; };
+		800FB73C18DF57A900AEB582 /* NSMutableArray+AMDQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+AMDQueue.h"; sourceTree = "<group>"; };
+		800FB73D18DF57A900AEB582 /* NSMutableArray+AMDQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+AMDQueue.m"; sourceTree = "<group>"; };
+		800FB73F18DF588900AEB582 /* NSMutableArray+AMDStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+AMDStack.h"; sourceTree = "<group>"; };
+		800FB74018DF588900AEB582 /* NSMutableArray+AMDStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+AMDStack.m"; sourceTree = "<group>"; };
+		800FB74218DF8D3400AEB582 /* AMDCoordinateUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMDCoordinateUtilities.h; path = Source/AMDCoordinateUtilities.h; sourceTree = "<group>"; };
+		800FB74318DF8D3400AEB582 /* AMDCoordinateUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMDCoordinateUtilities.m; path = Source/AMDCoordinateUtilities.m; sourceTree = "<group>"; };
 		8024954118D228F70071F3C4 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		8024954218D228F70071F3C4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		804111D518D144A100F7974F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -154,114 +152,109 @@
 		80477BE518D1313100B16692 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		80477BE718D1313100B16692 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		80477BEE18D1313100B16692 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		80477C1218D1320800B16692 /* SPRBonjour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRBonjour.h; path = Source/JavaScriptLibrary/SPRBonjour.h; sourceTree = "<group>"; };
-		80477C1318D1320800B16692 /* SPRBonjour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRBonjour.m; path = Source/JavaScriptLibrary/SPRBonjour.m; sourceTree = "<group>"; };
-		80477C1418D1320800B16692 /* SPRByteArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRByteArray.h; path = Source/JavaScriptLibrary/SPRByteArray.h; sourceTree = "<group>"; };
-		80477C1518D1320800B16692 /* SPRByteArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRByteArray.m; path = Source/JavaScriptLibrary/SPRByteArray.m; sourceTree = "<group>"; };
-		80477C1618D1320800B16692 /* SPRColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRColor.h; path = Source/JavaScriptLibrary/SPRColor.h; sourceTree = "<group>"; };
-		80477C1718D1320800B16692 /* SPRColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRColor.m; path = Source/JavaScriptLibrary/SPRColor.m; sourceTree = "<group>"; };
-		80477C1818D1320800B16692 /* SPRCompatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRCompatibility.h; path = Source/JavaScriptLibrary/SPRCompatibility.h; sourceTree = "<group>"; };
-		80477C1918D1320800B16692 /* SPRCompatibility15.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRCompatibility15.h; path = Source/JavaScriptLibrary/SPRCompatibility15.h; sourceTree = "<group>"; };
-		80477C1A18D1320800B16692 /* SPRCompatibility15.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRCompatibility15.m; path = Source/JavaScriptLibrary/SPRCompatibility15.m; sourceTree = "<group>"; };
-		80477C1B18D1320800B16692 /* SPRCompatibility16.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRCompatibility16.h; path = Source/JavaScriptLibrary/SPRCompatibility16.h; sourceTree = "<group>"; };
-		80477C1C18D1320800B16692 /* SPRCompatibility16.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRCompatibility16.m; path = Source/JavaScriptLibrary/SPRCompatibility16.m; sourceTree = "<group>"; };
-		80477C1D18D1320800B16692 /* SPRConsole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRConsole.h; path = Source/JavaScriptLibrary/SPRConsole.h; sourceTree = "<group>"; };
-		80477C1E18D1320800B16692 /* SPRConsole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRConsole.m; path = Source/JavaScriptLibrary/SPRConsole.m; sourceTree = "<group>"; };
-		80477C1F18D1320800B16692 /* SPRFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRFile.h; path = Source/JavaScriptLibrary/SPRFile.h; sourceTree = "<group>"; };
-		80477C2018D1320800B16692 /* SPRFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRFile.m; path = Source/JavaScriptLibrary/SPRFile.m; sourceTree = "<group>"; };
-		80477C2118D1320800B16692 /* SPRFileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRFileSystem.h; path = Source/JavaScriptLibrary/SPRFileSystem.h; sourceTree = "<group>"; };
-		80477C2218D1320800B16692 /* SPRFileSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRFileSystem.m; path = Source/JavaScriptLibrary/SPRFileSystem.m; sourceTree = "<group>"; };
-		80477C2318D1320800B16692 /* SPRImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRImage.h; path = Source/JavaScriptLibrary/SPRImage.h; sourceTree = "<group>"; };
-		80477C2418D1320800B16692 /* SPRImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRImage.m; path = Source/JavaScriptLibrary/SPRImage.m; sourceTree = "<group>"; };
-		80477C2518D1320800B16692 /* SPRJSClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRJSClass.h; path = Source/JavaScriptLibrary/SPRJSClass.h; sourceTree = "<group>"; };
-		80477C2618D1320800B16692 /* SPRJSClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRJSClass.m; path = Source/JavaScriptLibrary/SPRJSClass.m; sourceTree = "<group>"; };
-		80477C2918D1320900B16692 /* SPRNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRNetwork.h; path = Source/JavaScriptLibrary/SPRNetwork.h; sourceTree = "<group>"; };
-		80477C2A18D1320900B16692 /* SPRNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRNetwork.m; path = Source/JavaScriptLibrary/SPRNetwork.m; sourceTree = "<group>"; };
-		80477C2B18D1320900B16692 /* SPRRawFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRRawFile.h; path = Source/JavaScriptLibrary/SPRRawFile.h; sourceTree = "<group>"; };
-		80477C2C18D1320900B16692 /* SPRRawFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRRawFile.m; path = Source/JavaScriptLibrary/SPRRawFile.m; sourceTree = "<group>"; };
-		80477C2D18D1320900B16692 /* SPRSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRSocket.h; path = Source/JavaScriptLibrary/SPRSocket.h; sourceTree = "<group>"; };
-		80477C2E18D1320900B16692 /* SPRSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRSocket.m; path = Source/JavaScriptLibrary/SPRSocket.m; sourceTree = "<group>"; };
-		80477C3D18D1321500B16692 /* SPRAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRAppDelegate.h; path = Source/SPRAppDelegate.h; sourceTree = "<group>"; };
-		80477C3E18D1321500B16692 /* SPRAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRAppDelegate.m; path = Source/SPRAppDelegate.m; sourceTree = "<group>"; };
-		80477C4018D1321A00B16692 /* SPRGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRGame.h; path = Source/SPRGame.h; sourceTree = "<group>"; };
-		80477C4118D1321A00B16692 /* SPRGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRGame.m; path = Source/SPRGame.m; sourceTree = "<group>"; };
-		80477C4318D1321F00B16692 /* SPRResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRResource.h; path = Source/SPRResource.h; sourceTree = "<group>"; };
-		80477C4418D1321F00B16692 /* SPRResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRResource.m; path = Source/SPRResource.m; sourceTree = "<group>"; };
+		80477C1218D1320800B16692 /* AMDBonjour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMDBonjour.h; path = Source/JavaScriptLibrary/AMDBonjour.h; sourceTree = "<group>"; };
+		80477C1318D1320800B16692 /* AMDBonjour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMDBonjour.m; path = Source/JavaScriptLibrary/AMDBonjour.m; sourceTree = "<group>"; };
+		80477C1418D1320800B16692 /* AMDByteArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMDByteArray.h; path = Source/JavaScriptLibrary/AMDByteArray.h; sourceTree = "<group>"; };
+		80477C1518D1320800B16692 /* AMDByteArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMDByteArray.m; path = Source/JavaScriptLibrary/AMDByteArray.m; sourceTree = "<group>"; };
+		80477C1618D1320800B16692 /* AMDColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMDColor.h; path = Source/JavaScriptLibrary/AMDColor.h; sourceTree = "<group>"; };
+		80477C1718D1320800B16692 /* AMDColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMDColor.m; path = Source/JavaScriptLibrary/AMDColor.m; sourceTree = "<group>"; };
+		80477C1D18D1320800B16692 /* AMDConsole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMDConsole.h; path = Source/JavaScriptLibrary/AMDConsole.h; sourceTree = "<group>"; };
+		80477C1E18D1320800B16692 /* AMDConsole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMDConsole.m; path = Source/JavaScriptLibrary/AMDConsole.m; sourceTree = "<group>"; };
+		80477C1F18D1320800B16692 /* AMDFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMDFile.h; path = Source/JavaScriptLibrary/AMDFile.h; sourceTree = "<group>"; };
+		80477C2018D1320800B16692 /* AMDFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMDFile.m; path = Source/JavaScriptLibrary/AMDFile.m; sourceTree = "<group>"; };
+		80477C2118D1320800B16692 /* AMDFileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMDFileSystem.h; path = Source/JavaScriptLibrary/AMDFileSystem.h; sourceTree = "<group>"; };
+		80477C2218D1320800B16692 /* AMDFileSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMDFileSystem.m; path = Source/JavaScriptLibrary/AMDFileSystem.m; sourceTree = "<group>"; };
+		80477C2318D1320800B16692 /* AMDImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMDImage.h; path = Source/JavaScriptLibrary/AMDImage.h; sourceTree = "<group>"; };
+		80477C2418D1320800B16692 /* AMDImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMDImage.m; path = Source/JavaScriptLibrary/AMDImage.m; sourceTree = "<group>"; };
+		80477C2518D1320800B16692 /* AMDJSClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMDJSClass.h; path = Source/JavaScriptLibrary/AMDJSClass.h; sourceTree = "<group>"; };
+		80477C2618D1320800B16692 /* AMDJSClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMDJSClass.m; path = Source/JavaScriptLibrary/AMDJSClass.m; sourceTree = "<group>"; };
+		80477C2918D1320900B16692 /* AMDNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMDNetwork.h; path = Source/JavaScriptLibrary/AMDNetwork.h; sourceTree = "<group>"; };
+		80477C2A18D1320900B16692 /* AMDNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMDNetwork.m; path = Source/JavaScriptLibrary/AMDNetwork.m; sourceTree = "<group>"; };
+		80477C2B18D1320900B16692 /* AMDRawFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMDRawFile.h; path = Source/JavaScriptLibrary/AMDRawFile.h; sourceTree = "<group>"; };
+		80477C2C18D1320900B16692 /* AMDRawFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMDRawFile.m; path = Source/JavaScriptLibrary/AMDRawFile.m; sourceTree = "<group>"; };
+		80477C2D18D1320900B16692 /* AMDSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMDSocket.h; path = Source/JavaScriptLibrary/AMDSocket.h; sourceTree = "<group>"; };
+		80477C2E18D1320900B16692 /* AMDSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMDSocket.m; path = Source/JavaScriptLibrary/AMDSocket.m; sourceTree = "<group>"; };
+		80477C3D18D1321500B16692 /* AMDAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMDAppDelegate.h; path = Source/AMDAppDelegate.h; sourceTree = "<group>"; };
+		80477C3E18D1321500B16692 /* AMDAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMDAppDelegate.m; path = Source/AMDAppDelegate.m; sourceTree = "<group>"; };
+		80477C4018D1321A00B16692 /* AMDGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMDGame.h; path = Source/AMDGame.h; sourceTree = "<group>"; };
+		80477C4118D1321A00B16692 /* AMDGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMDGame.m; path = Source/AMDGame.m; sourceTree = "<group>"; };
+		80477C4318D1321F00B16692 /* AMDResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMDResource.h; path = Source/AMDResource.h; sourceTree = "<group>"; };
+		80477C4418D1321F00B16692 /* AMDResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMDResource.m; path = Source/AMDResource.m; sourceTree = "<group>"; };
 		80477C4618D1325C00B16692 /* sphere15.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = sphere15.js; path = Resources/sphere15.js; sourceTree = "<group>"; };
 		80477C4718D1325C00B16692 /* sphere16.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = sphere16.js; path = Resources/sphere16.js; sourceTree = "<group>"; };
 		80477C4818D1325C00B16692 /* test_module.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = test_module.js; path = Resources/test_module.js; sourceTree = "<group>"; };
 		80477C4918D1325C00B16692 /* test.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = test.js; path = Resources/test.js; sourceTree = "<group>"; };
-		8049F80618DA49AA00B454F8 /* SPRDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRDirectory.h; path = Source/JavaScriptLibrary/SPRDirectory.h; sourceTree = "<group>"; };
-		8049F80718DA49AA00B454F8 /* SPRDirectory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRDirectory.m; path = Source/JavaScriptLibrary/SPRDirectory.m; sourceTree = "<group>"; };
-		80A3C76D18DA891B002EEF8C /* NSString+SPRHashing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SPRHashing.h"; sourceTree = "<group>"; };
-		80A3C76E18DA891B002EEF8C /* NSString+SPRHashing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SPRHashing.m"; sourceTree = "<group>"; };
-		80A3C77018DA8925002EEF8C /* NSData+SPRHashing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SPRHashing.h"; sourceTree = "<group>"; };
-		80A3C77118DA8925002EEF8C /* NSData+SPRHashing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SPRHashing.m"; sourceTree = "<group>"; };
-		80A3C77618DA8FDD002EEF8C /* SPRFileHashing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRFileHashing.h; path = Source/SPRFileHashing.h; sourceTree = "<group>"; };
-		80A3C77718DA8FDD002EEF8C /* SPRFileHashing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRFileHashing.m; path = Source/SPRFileHashing.m; sourceTree = "<group>"; };
+		8049F80618DA49AA00B454F8 /* AMDDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMDDirectory.h; path = Source/JavaScriptLibrary/AMDDirectory.h; sourceTree = "<group>"; };
+		8049F80718DA49AA00B454F8 /* AMDDirectory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMDDirectory.m; path = Source/JavaScriptLibrary/AMDDirectory.m; sourceTree = "<group>"; };
+		80A3C76D18DA891B002EEF8C /* NSString+AMDHashing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AMDHashing.h"; sourceTree = "<group>"; };
+		80A3C76E18DA891B002EEF8C /* NSString+AMDHashing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AMDHashing.m"; sourceTree = "<group>"; };
+		80A3C77018DA8925002EEF8C /* NSData+AMDHashing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AMDHashing.h"; sourceTree = "<group>"; };
+		80A3C77118DA8925002EEF8C /* NSData+AMDHashing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AMDHashing.m"; sourceTree = "<group>"; };
+		80A3C77618DA8FDD002EEF8C /* AMDFileHashing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMDFileHashing.h; path = Source/AMDFileHashing.h; sourceTree = "<group>"; };
+		80A3C77718DA8FDD002EEF8C /* AMDFileHashing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMDFileHashing.m; path = Source/AMDFileHashing.m; sourceTree = "<group>"; };
 		80A3C77918DBB64B002EEF8C /* macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = macros.h; path = Source/macros.h; sourceTree = "<group>"; };
-		80AAD8CA18DD1B9800805E3D /* SPRGraphicsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRGraphicsView.h; path = Source/SPRGraphicsView.h; sourceTree = "<group>"; };
-		80AAD8CB18DD1B9800805E3D /* SPRGraphicsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRGraphicsView.m; path = Source/SPRGraphicsView.m; sourceTree = "<group>"; };
-		80AAD8CD18DD254300805E3D /* SPRScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRScreen.h; path = Source/JavaScriptLibrary/SPRScreen.h; sourceTree = "<group>"; };
-		80AAD8CE18DD254300805E3D /* SPRScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRScreen.m; path = Source/JavaScriptLibrary/SPRScreen.m; sourceTree = "<group>"; };
-		80AAD8D018DE68A500805E3D /* SPRSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRSystem.h; path = Source/JavaScriptLibrary/SPRSystem.h; sourceTree = "<group>"; };
-		80AAD8D118DE68A500805E3D /* SPRSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRSystem.m; path = Source/JavaScriptLibrary/SPRSystem.m; sourceTree = "<group>"; };
-		80AAD8D618DE7C4C00805E3D /* SPRKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRKeyboard.h; path = Source/JavaScriptLibrary/SPRKeyboard.h; sourceTree = "<group>"; };
-		80AAD8D718DE7C4C00805E3D /* SPRKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRKeyboard.m; path = Source/JavaScriptLibrary/SPRKeyboard.m; sourceTree = "<group>"; };
-		80AAD8D918DE7C5500805E3D /* SPRMouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRMouse.h; path = Source/JavaScriptLibrary/SPRMouse.h; sourceTree = "<group>"; };
-		80AAD8DA18DE7C5500805E3D /* SPRMouse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRMouse.m; path = Source/JavaScriptLibrary/SPRMouse.m; sourceTree = "<group>"; };
-		80AAD8DC18DE7C6000805E3D /* SPRGamepad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRGamepad.h; path = Source/JavaScriptLibrary/SPRGamepad.h; sourceTree = "<group>"; };
-		80AAD8DD18DE7C6000805E3D /* SPRGamepad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRGamepad.m; path = Source/JavaScriptLibrary/SPRGamepad.m; sourceTree = "<group>"; };
-		80AAD8DF18DE7C6900805E3D /* SPRInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRInput.h; path = Source/JavaScriptLibrary/SPRInput.h; sourceTree = "<group>"; };
-		80AAD8E018DE7C6900805E3D /* SPRInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRInput.m; path = Source/JavaScriptLibrary/SPRInput.m; sourceTree = "<group>"; };
-		80AAD8E218DE8D4600805E3D /* SPRInputDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPRInputDevice.h; path = Source/JavaScriptLibrary/SPRInputDevice.h; sourceTree = "<group>"; };
-		80AAD8E318DE8D4600805E3D /* SPRInputDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPRInputDevice.m; path = Source/JavaScriptLibrary/SPRInputDevice.m; sourceTree = "<group>"; };
+		80AAD8CA18DD1B9800805E3D /* AMDGraphicsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMDGraphicsView.h; path = Source/AMDGraphicsView.h; sourceTree = "<group>"; };
+		80AAD8CB18DD1B9800805E3D /* AMDGraphicsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMDGraphicsView.m; path = Source/AMDGraphicsView.m; sourceTree = "<group>"; };
+		80AAD8CD18DD254300805E3D /* AMDScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMDScreen.h; path = Source/JavaScriptLibrary/AMDScreen.h; sourceTree = "<group>"; };
+		80AAD8CE18DD254300805E3D /* AMDScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMDScreen.m; path = Source/JavaScriptLibrary/AMDScreen.m; sourceTree = "<group>"; };
+		80AAD8D018DE68A500805E3D /* AMDSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMDSystem.h; path = Source/JavaScriptLibrary/AMDSystem.h; sourceTree = "<group>"; };
+		80AAD8D118DE68A500805E3D /* AMDSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMDSystem.m; path = Source/JavaScriptLibrary/AMDSystem.m; sourceTree = "<group>"; };
+		80AAD8D618DE7C4C00805E3D /* AMDKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMDKeyboard.h; path = Source/JavaScriptLibrary/AMDKeyboard.h; sourceTree = "<group>"; };
+		80AAD8D718DE7C4C00805E3D /* AMDKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMDKeyboard.m; path = Source/JavaScriptLibrary/AMDKeyboard.m; sourceTree = "<group>"; };
+		80AAD8D918DE7C5500805E3D /* AMDMouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMDMouse.h; path = Source/JavaScriptLibrary/AMDMouse.h; sourceTree = "<group>"; };
+		80AAD8DA18DE7C5500805E3D /* AMDMouse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMDMouse.m; path = Source/JavaScriptLibrary/AMDMouse.m; sourceTree = "<group>"; };
+		80AAD8DC18DE7C6000805E3D /* AMDGamepad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMDGamepad.h; path = Source/JavaScriptLibrary/AMDGamepad.h; sourceTree = "<group>"; };
+		80AAD8DD18DE7C6000805E3D /* AMDGamepad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMDGamepad.m; path = Source/JavaScriptLibrary/AMDGamepad.m; sourceTree = "<group>"; };
+		80AAD8DF18DE7C6900805E3D /* AMDInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMDInput.h; path = Source/JavaScriptLibrary/AMDInput.h; sourceTree = "<group>"; };
+		80AAD8E018DE7C6900805E3D /* AMDInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMDInput.m; path = Source/JavaScriptLibrary/AMDInput.m; sourceTree = "<group>"; };
+		80AAD8E218DE8D4600805E3D /* AMDInputDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMDInputDevice.h; path = Source/JavaScriptLibrary/AMDInputDevice.h; sourceTree = "<group>"; };
+		80AAD8E318DE8D4600805E3D /* AMDInputDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMDInputDevice.m; path = Source/JavaScriptLibrary/AMDInputDevice.m; sourceTree = "<group>"; };
 		80B5FE6418D133AD0035C62B /* AndromedaKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AndromedaKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80B5FE6818D133AD0035C62B /* AndromedaKit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AndromedaKit-Info.plist"; sourceTree = "<group>"; };
 		80B5FE7418D133AD0035C62B /* AndromedaKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AndromedaKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		80B5FE7C18D133AD0035C62B /* AndromedaKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AndromedaKitTests-Info.plist"; sourceTree = "<group>"; };
-		80B5FE8018D133AE0035C62B /* SphereRuntimeKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SphereRuntimeKitTests.m; sourceTree = "<group>"; };
+		80B5FE8018D133AE0035C62B /* AndromedaKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AndromedaKitTests.m; sourceTree = "<group>"; };
 		80B5FE8818D1348E0035C62B /* AndromedaKit-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AndromedaKit-Prefix.pch"; path = "Source/AndromedaKit-Prefix.pch"; sourceTree = "<group>"; };
-		80B5FE9018D1352A0035C62B /* SRKFile_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRKFile_Private.h; path = Source/Resources/SphereFileTypes/SRKFile_Private.h; sourceTree = "<group>"; };
-		80B5FE9118D1352A0035C62B /* SRKFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRKFile.h; path = Source/Resources/SphereFileTypes/SRKFile.h; sourceTree = "<group>"; };
-		80B5FE9218D1352A0035C62B /* SRKFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRKFile.m; path = Source/Resources/SphereFileTypes/SRKFile.m; sourceTree = "<group>"; };
-		80B5FE9718D1353F0035C62B /* NSString+SRKUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+SRKUtilities.h"; path = "Source/Categories/NSString+SRKUtilities.h"; sourceTree = "<group>"; };
-		80B5FE9818D1353F0035C62B /* NSString+SRKUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+SRKUtilities.m"; path = "Source/Categories/NSString+SRKUtilities.m"; sourceTree = "<group>"; };
-		80B5FE9B18D135490035C62B /* SphereRuntimeKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SphereRuntimeKit.h; path = Source/SphereRuntimeKit.h; sourceTree = "<group>"; };
-		80B5FE9D18D135540035C62B /* SRKAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRKAnimation.h; path = Source/Resources/Animation/SRKAnimation.h; sourceTree = "<group>"; };
-		80B5FE9E18D135540035C62B /* SRKAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRKAnimation.m; path = Source/Resources/Animation/SRKAnimation.m; sourceTree = "<group>"; };
-		80B5FE9F18D135540035C62B /* SRKFLICAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRKFLICAnimation.h; path = Source/Resources/Animation/SRKFLICAnimation.h; sourceTree = "<group>"; };
-		80B5FEA018D135540035C62B /* SRKFLICAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRKFLICAnimation.m; path = Source/Resources/Animation/SRKFLICAnimation.m; sourceTree = "<group>"; };
-		80B5FEA118D135540035C62B /* SRKMNGAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRKMNGAnimation.h; path = Source/Resources/Animation/SRKMNGAnimation.h; sourceTree = "<group>"; };
-		80B5FEA218D135540035C62B /* SRKMNGAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRKMNGAnimation.m; path = Source/Resources/Animation/SRKMNGAnimation.m; sourceTree = "<group>"; };
-		80B5FEA918D135760035C62B /* SRKFileSGM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRKFileSGM.h; path = Source/Resources/SphereFileTypes/SRKFileSGM.h; sourceTree = "<group>"; };
-		80B5FEAA18D135760035C62B /* SRKFileSGM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRKFileSGM.m; path = Source/Resources/SphereFileTypes/SRKFileSGM.m; sourceTree = "<group>"; };
-		80B5FEAB18D135760035C62B /* SRKFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRKFont.h; path = Source/Resources/SphereFileTypes/SRKFont.h; sourceTree = "<group>"; };
-		80B5FEAC18D135760035C62B /* SRKFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRKFont.m; path = Source/Resources/SphereFileTypes/SRKFont.m; sourceTree = "<group>"; };
-		80B5FEAD18D135760035C62B /* SRKImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRKImage.h; path = Source/Resources/SRKImage.h; sourceTree = "<group>"; };
-		80B5FEAE18D135760035C62B /* SRKImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRKImage.m; path = Source/Resources/SRKImage.m; sourceTree = "<group>"; };
-		80B5FEAF18D135760035C62B /* SRKMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRKMap.h; path = Source/Resources/SphereFileTypes/SRKMap.h; sourceTree = "<group>"; };
-		80B5FEB018D135760035C62B /* SRKMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRKMap.m; path = Source/Resources/SphereFileTypes/SRKMap.m; sourceTree = "<group>"; };
-		80B5FEB118D135760035C62B /* SRKObstructionMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRKObstructionMap.h; path = Source/Resources/SphereFileTypes/SRKObstructionMap.h; sourceTree = "<group>"; };
-		80B5FEB218D135760035C62B /* SRKObstructionMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRKObstructionMap.m; path = Source/Resources/SphereFileTypes/SRKObstructionMap.m; sourceTree = "<group>"; };
-		80B5FEB318D135760035C62B /* SRKPlayList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRKPlayList.h; path = Source/Resources/SphereFileTypes/SRKPlayList.h; sourceTree = "<group>"; };
-		80B5FEB418D135760035C62B /* SRKPlayList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRKPlayList.m; path = Source/Resources/SphereFileTypes/SRKPlayList.m; sourceTree = "<group>"; };
-		80B5FEB518D135760035C62B /* SRKSpriteSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRKSpriteSet.h; path = Source/Resources/SphereFileTypes/SRKSpriteSet.h; sourceTree = "<group>"; };
-		80B5FEB618D135760035C62B /* SRKSpriteSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRKSpriteSet.m; path = Source/Resources/SphereFileTypes/SRKSpriteSet.m; sourceTree = "<group>"; };
-		80B5FEB718D135760035C62B /* SRKTileSet_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRKTileSet_Private.h; path = Source/Resources/SphereFileTypes/SRKTileSet_Private.h; sourceTree = "<group>"; };
-		80B5FEB818D135760035C62B /* SRKTileSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRKTileSet.h; path = Source/Resources/SphereFileTypes/SRKTileSet.h; sourceTree = "<group>"; };
-		80B5FEB918D135760035C62B /* SRKTileSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRKTileSet.m; path = Source/Resources/SphereFileTypes/SRKTileSet.m; sourceTree = "<group>"; };
-		80B5FEBA18D135760035C62B /* SRKWindowStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRKWindowStyle.h; path = Source/Resources/SphereFileTypes/SRKWindowStyle.h; sourceTree = "<group>"; };
-		80B5FEBB18D135760035C62B /* SRKWindowStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRKWindowStyle.m; path = Source/Resources/SphereFileTypes/SRKWindowStyle.m; sourceTree = "<group>"; };
-		80B5FECF18D1357E0035C62B /* SRKSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRKSound.h; path = Source/Resources/Sound/SRKSound.h; sourceTree = "<group>"; };
-		80B5FED018D1357E0035C62B /* SRKSound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRKSound.m; path = Source/Resources/Sound/SRKSound.m; sourceTree = "<group>"; };
-		80B5FED118D1357E0035C62B /* SRKSoundEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRKSoundEffect.h; path = Source/Resources/Sound/SRKSoundEffect.h; sourceTree = "<group>"; };
-		80B5FED218D1357E0035C62B /* SRKSoundEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRKSoundEffect.m; path = Source/Resources/Sound/SRKSoundEffect.m; sourceTree = "<group>"; };
-		80B5FED718D135870035C62B /* SRKResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRKResource.h; path = Source/Resources/SRKResource.h; sourceTree = "<group>"; };
-		80B5FED818D135870035C62B /* SRKResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRKResource.m; path = Source/Resources/SRKResource.m; sourceTree = "<group>"; };
+		80B5FE9018D1352A0035C62B /* AMKFile_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMKFile_Private.h; path = Source/Resources/SphereFileTypes/AMKFile_Private.h; sourceTree = "<group>"; };
+		80B5FE9118D1352A0035C62B /* AMKFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMKFile.h; path = Source/Resources/SphereFileTypes/AMKFile.h; sourceTree = "<group>"; };
+		80B5FE9218D1352A0035C62B /* AMKFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMKFile.m; path = Source/Resources/SphereFileTypes/AMKFile.m; sourceTree = "<group>"; };
+		80B5FE9718D1353F0035C62B /* NSString+AMKUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+AMKUtilities.h"; path = "Source/Categories/NSString+AMKUtilities.h"; sourceTree = "<group>"; };
+		80B5FE9818D1353F0035C62B /* NSString+AMKUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+AMKUtilities.m"; path = "Source/Categories/NSString+AMKUtilities.m"; sourceTree = "<group>"; };
+		80B5FE9B18D135490035C62B /* AndromedaKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AndromedaKit.h; path = Source/AndromedaKit.h; sourceTree = "<group>"; };
+		80B5FE9D18D135540035C62B /* AMKAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMKAnimation.h; path = Source/Resources/Animation/AMKAnimation.h; sourceTree = "<group>"; };
+		80B5FE9E18D135540035C62B /* AMKAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMKAnimation.m; path = Source/Resources/Animation/AMKAnimation.m; sourceTree = "<group>"; };
+		80B5FE9F18D135540035C62B /* AMKFLICAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMKFLICAnimation.h; path = Source/Resources/Animation/AMKFLICAnimation.h; sourceTree = "<group>"; };
+		80B5FEA018D135540035C62B /* AMKFLICAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMKFLICAnimation.m; path = Source/Resources/Animation/AMKFLICAnimation.m; sourceTree = "<group>"; };
+		80B5FEA118D135540035C62B /* AMKMNGAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMKMNGAnimation.h; path = Source/Resources/Animation/AMKMNGAnimation.h; sourceTree = "<group>"; };
+		80B5FEA218D135540035C62B /* AMKMNGAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMKMNGAnimation.m; path = Source/Resources/Animation/AMKMNGAnimation.m; sourceTree = "<group>"; };
+		80B5FEA918D135760035C62B /* AMKFileSGM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMKFileSGM.h; path = Source/Resources/SphereFileTypes/AMKFileSGM.h; sourceTree = "<group>"; };
+		80B5FEAA18D135760035C62B /* AMKFileSGM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMKFileSGM.m; path = Source/Resources/SphereFileTypes/AMKFileSGM.m; sourceTree = "<group>"; };
+		80B5FEAB18D135760035C62B /* AMKFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMKFont.h; path = Source/Resources/SphereFileTypes/AMKFont.h; sourceTree = "<group>"; };
+		80B5FEAC18D135760035C62B /* AMKFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMKFont.m; path = Source/Resources/SphereFileTypes/AMKFont.m; sourceTree = "<group>"; };
+		80B5FEAD18D135760035C62B /* AMKImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMKImage.h; path = Source/Resources/AMKImage.h; sourceTree = "<group>"; };
+		80B5FEAE18D135760035C62B /* AMKImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMKImage.m; path = Source/Resources/AMKImage.m; sourceTree = "<group>"; };
+		80B5FEAF18D135760035C62B /* AMKMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMKMap.h; path = Source/Resources/SphereFileTypes/AMKMap.h; sourceTree = "<group>"; };
+		80B5FEB018D135760035C62B /* AMKMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMKMap.m; path = Source/Resources/SphereFileTypes/AMKMap.m; sourceTree = "<group>"; };
+		80B5FEB118D135760035C62B /* AMKObstructionMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMKObstructionMap.h; path = Source/Resources/SphereFileTypes/AMKObstructionMap.h; sourceTree = "<group>"; };
+		80B5FEB218D135760035C62B /* AMKObstructionMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMKObstructionMap.m; path = Source/Resources/SphereFileTypes/AMKObstructionMap.m; sourceTree = "<group>"; };
+		80B5FEB318D135760035C62B /* AMKPlayList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMKPlayList.h; path = Source/Resources/SphereFileTypes/AMKPlayList.h; sourceTree = "<group>"; };
+		80B5FEB418D135760035C62B /* AMKPlayList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMKPlayList.m; path = Source/Resources/SphereFileTypes/AMKPlayList.m; sourceTree = "<group>"; };
+		80B5FEB518D135760035C62B /* AMKSpriteSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMKSpriteSet.h; path = Source/Resources/SphereFileTypes/AMKSpriteSet.h; sourceTree = "<group>"; };
+		80B5FEB618D135760035C62B /* AMKSpriteSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMKSpriteSet.m; path = Source/Resources/SphereFileTypes/AMKSpriteSet.m; sourceTree = "<group>"; };
+		80B5FEB718D135760035C62B /* AMKTileSet_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMKTileSet_Private.h; path = Source/Resources/SphereFileTypes/AMKTileSet_Private.h; sourceTree = "<group>"; };
+		80B5FEB818D135760035C62B /* AMKTileSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMKTileSet.h; path = Source/Resources/SphereFileTypes/AMKTileSet.h; sourceTree = "<group>"; };
+		80B5FEB918D135760035C62B /* AMKTileSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMKTileSet.m; path = Source/Resources/SphereFileTypes/AMKTileSet.m; sourceTree = "<group>"; };
+		80B5FEBA18D135760035C62B /* AMKWindowStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMKWindowStyle.h; path = Source/Resources/SphereFileTypes/AMKWindowStyle.h; sourceTree = "<group>"; };
+		80B5FEBB18D135760035C62B /* AMKWindowStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMKWindowStyle.m; path = Source/Resources/SphereFileTypes/AMKWindowStyle.m; sourceTree = "<group>"; };
+		80B5FECF18D1357E0035C62B /* AMKSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMKSound.h; path = Source/Resources/Sound/AMKSound.h; sourceTree = "<group>"; };
+		80B5FED018D1357E0035C62B /* AMKSound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMKSound.m; path = Source/Resources/Sound/AMKSound.m; sourceTree = "<group>"; };
+		80B5FED118D1357E0035C62B /* AMKSoundEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMKSoundEffect.h; path = Source/Resources/Sound/AMKSoundEffect.h; sourceTree = "<group>"; };
+		80B5FED218D1357E0035C62B /* AMKSoundEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMKSoundEffect.m; path = Source/Resources/Sound/AMKSoundEffect.m; sourceTree = "<group>"; };
+		80B5FED718D135870035C62B /* AMKResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMKResource.h; path = Source/Resources/AMKResource.h; sourceTree = "<group>"; };
+		80B5FED818D135870035C62B /* AMKResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMKResource.m; path = Source/Resources/AMKResource.m; sourceTree = "<group>"; };
 		80B5FEDB18D135940035C62B /* endian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = endian.h; path = Source/endian.h; sourceTree = "<group>"; };
-		80B5FEDD18D1359A0035C62B /* SRKGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRKGame.h; path = Source/SRKGame.h; sourceTree = "<group>"; };
-		80B5FEDE18D1359A0035C62B /* SRKGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRKGame.m; path = Source/SRKGame.m; sourceTree = "<group>"; };
+		80B5FEDD18D1359A0035C62B /* AMKGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMKGame.h; path = Source/AMKGame.h; sourceTree = "<group>"; };
+		80B5FEDE18D1359A0035C62B /* AMKGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMKGame.m; path = Source/AMKGame.m; sourceTree = "<group>"; };
 		80B682AE18D8FF7300445BF9 /* L8Framework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = L8Framework.framework; path = Frameworks/L8Framework.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -307,27 +300,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		8024964F18D3E9B60071F3C4 /* Compatibility */ = {
-			isa = PBXGroup;
-			children = (
-				80477C1818D1320800B16692 /* SPRCompatibility.h */,
-				80477C1918D1320800B16692 /* SPRCompatibility15.h */,
-				80477C1A18D1320800B16692 /* SPRCompatibility15.m */,
-				80477C1B18D1320800B16692 /* SPRCompatibility16.h */,
-				80477C1C18D1320800B16692 /* SPRCompatibility16.m */,
-			);
-			name = Compatibility;
-			sourceTree = "<group>";
-		};
 		8024965018D3E9C40071F3C4 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
-				80477C1618D1320800B16692 /* SPRColor.h */,
-				80477C1718D1320800B16692 /* SPRColor.m */,
-				80477C2318D1320800B16692 /* SPRImage.h */,
-				80477C2418D1320800B16692 /* SPRImage.m */,
-				80AAD8CD18DD254300805E3D /* SPRScreen.h */,
-				80AAD8CE18DD254300805E3D /* SPRScreen.m */,
+				80477C1618D1320800B16692 /* AMDColor.h */,
+				80477C1718D1320800B16692 /* AMDColor.m */,
+				80477C2318D1320800B16692 /* AMDImage.h */,
+				80477C2418D1320800B16692 /* AMDImage.m */,
+				80AAD8CD18DD254300805E3D /* AMDScreen.h */,
+				80AAD8CE18DD254300805E3D /* AMDScreen.m */,
 			);
 			name = Graphics;
 			sourceTree = "<group>";
@@ -335,12 +316,12 @@
 		8024965118D3E9D30071F3C4 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				80477C1218D1320800B16692 /* SPRBonjour.h */,
-				80477C1318D1320800B16692 /* SPRBonjour.m */,
-				80477C2918D1320900B16692 /* SPRNetwork.h */,
-				80477C2A18D1320900B16692 /* SPRNetwork.m */,
-				80477C2D18D1320900B16692 /* SPRSocket.h */,
-				80477C2E18D1320900B16692 /* SPRSocket.m */,
+				80477C1218D1320800B16692 /* AMDBonjour.h */,
+				80477C1318D1320800B16692 /* AMDBonjour.m */,
+				80477C2918D1320900B16692 /* AMDNetwork.h */,
+				80477C2A18D1320900B16692 /* AMDNetwork.m */,
+				80477C2D18D1320900B16692 /* AMDSocket.h */,
+				80477C2E18D1320900B16692 /* AMDSocket.m */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -348,14 +329,14 @@
 		8024965218D3E9DE0071F3C4 /* File System */ = {
 			isa = PBXGroup;
 			children = (
-				80477C1F18D1320800B16692 /* SPRFile.h */,
-				80477C2018D1320800B16692 /* SPRFile.m */,
-				80477C2118D1320800B16692 /* SPRFileSystem.h */,
-				80477C2218D1320800B16692 /* SPRFileSystem.m */,
-				80477C2B18D1320900B16692 /* SPRRawFile.h */,
-				80477C2C18D1320900B16692 /* SPRRawFile.m */,
-				8049F80618DA49AA00B454F8 /* SPRDirectory.h */,
-				8049F80718DA49AA00B454F8 /* SPRDirectory.m */,
+				80477C1F18D1320800B16692 /* AMDFile.h */,
+				80477C2018D1320800B16692 /* AMDFile.m */,
+				80477C2118D1320800B16692 /* AMDFileSystem.h */,
+				80477C2218D1320800B16692 /* AMDFileSystem.m */,
+				80477C2B18D1320900B16692 /* AMDRawFile.h */,
+				80477C2C18D1320900B16692 /* AMDRawFile.m */,
+				8049F80618DA49AA00B454F8 /* AMDDirectory.h */,
+				8049F80718DA49AA00B454F8 /* AMDDirectory.m */,
 			);
 			name = "File System";
 			sourceTree = "<group>";
@@ -436,8 +417,8 @@
 				80477C0F18D131E100B16692 /* JavaScript Library */,
 				80477C1018D131EA00B16692 /* Utilities */,
 				80477C1118D131F000B16692 /* Game */,
-				80477C3D18D1321500B16692 /* SPRAppDelegate.h */,
-				80477C3E18D1321500B16692 /* SPRAppDelegate.m */,
+				80477C3D18D1321500B16692 /* AMDAppDelegate.h */,
+				80477C3E18D1321500B16692 /* AMDAppDelegate.m */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -468,10 +449,9 @@
 				80AAD8D518DE7B9F00805E3D /* Input */,
 				8024965118D3E9D30071F3C4 /* Networking */,
 				8024965018D3E9C40071F3C4 /* Graphics */,
-				8024964F18D3E9B60071F3C4 /* Compatibility */,
 				8024965218D3E9DE0071F3C4 /* File System */,
-				80477C1418D1320800B16692 /* SPRByteArray.h */,
-				80477C1518D1320800B16692 /* SPRByteArray.m */,
+				80477C1418D1320800B16692 /* AMDByteArray.h */,
+				80477C1518D1320800B16692 /* AMDByteArray.m */,
 				80AAD8D418DE68B400805E3D /* System */,
 				80AAD8D318DE68AA00805E3D /* Internal */,
 			);
@@ -481,12 +461,12 @@
 		80477C1018D131EA00B16692 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				80477C4318D1321F00B16692 /* SPRResource.h */,
-				80477C4418D1321F00B16692 /* SPRResource.m */,
-				80A3C77618DA8FDD002EEF8C /* SPRFileHashing.h */,
-				80A3C77718DA8FDD002EEF8C /* SPRFileHashing.m */,
-				800FB74218DF8D3400AEB582 /* SPRCoordinateUtilities.h */,
-				800FB74318DF8D3400AEB582 /* SPRCoordinateUtilities.m */,
+				80477C4318D1321F00B16692 /* AMDResource.h */,
+				80477C4418D1321F00B16692 /* AMDResource.m */,
+				80A3C77618DA8FDD002EEF8C /* AMDFileHashing.h */,
+				80A3C77718DA8FDD002EEF8C /* AMDFileHashing.m */,
+				800FB74218DF8D3400AEB582 /* AMDCoordinateUtilities.h */,
+				800FB74318DF8D3400AEB582 /* AMDCoordinateUtilities.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -494,8 +474,8 @@
 		80477C1118D131F000B16692 /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				80477C4018D1321A00B16692 /* SPRGame.h */,
-				80477C4118D1321A00B16692 /* SPRGame.m */,
+				80477C4018D1321A00B16692 /* AMDGame.h */,
+				80477C4118D1321A00B16692 /* AMDGame.m */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -503,14 +483,14 @@
 		80A3C76C18DA88DA002EEF8C /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				80A3C76D18DA891B002EEF8C /* NSString+SPRHashing.h */,
-				80A3C76E18DA891B002EEF8C /* NSString+SPRHashing.m */,
-				80A3C77018DA8925002EEF8C /* NSData+SPRHashing.h */,
-				80A3C77118DA8925002EEF8C /* NSData+SPRHashing.m */,
-				800FB73C18DF57A900AEB582 /* NSMutableArray+SPRQueue.h */,
-				800FB73D18DF57A900AEB582 /* NSMutableArray+SPRQueue.m */,
-				800FB73F18DF588900AEB582 /* NSMutableArray+SPRStack.h */,
-				800FB74018DF588900AEB582 /* NSMutableArray+SPRStack.m */,
+				80A3C76D18DA891B002EEF8C /* NSString+AMDHashing.h */,
+				80A3C76E18DA891B002EEF8C /* NSString+AMDHashing.m */,
+				80A3C77018DA8925002EEF8C /* NSData+AMDHashing.h */,
+				80A3C77118DA8925002EEF8C /* NSData+AMDHashing.m */,
+				800FB73C18DF57A900AEB582 /* NSMutableArray+AMDQueue.h */,
+				800FB73D18DF57A900AEB582 /* NSMutableArray+AMDQueue.m */,
+				800FB73F18DF588900AEB582 /* NSMutableArray+AMDStack.h */,
+				800FB74018DF588900AEB582 /* NSMutableArray+AMDStack.m */,
 			);
 			name = Categories;
 			path = Source/Categories;
@@ -521,8 +501,8 @@
 			children = (
 				80AAD8C918DD1B4C00805E3D /* Graphics */,
 				80AAD8C818DD1B4600805E3D /* Map */,
-				80AAD8CA18DD1B9800805E3D /* SPRGraphicsView.h */,
-				80AAD8CB18DD1B9800805E3D /* SPRGraphicsView.m */,
+				80AAD8CA18DD1B9800805E3D /* AMDGraphicsView.h */,
+				80AAD8CB18DD1B9800805E3D /* AMDGraphicsView.m */,
 			);
 			name = Engine;
 			sourceTree = "<group>";
@@ -544,8 +524,8 @@
 		80AAD8D318DE68AA00805E3D /* Internal */ = {
 			isa = PBXGroup;
 			children = (
-				80477C2518D1320800B16692 /* SPRJSClass.h */,
-				80477C2618D1320800B16692 /* SPRJSClass.m */,
+				80477C2518D1320800B16692 /* AMDJSClass.h */,
+				80477C2618D1320800B16692 /* AMDJSClass.m */,
 			);
 			name = Internal;
 			sourceTree = "<group>";
@@ -553,10 +533,10 @@
 		80AAD8D418DE68B400805E3D /* System */ = {
 			isa = PBXGroup;
 			children = (
-				80AAD8D018DE68A500805E3D /* SPRSystem.h */,
-				80AAD8D118DE68A500805E3D /* SPRSystem.m */,
-				80477C1D18D1320800B16692 /* SPRConsole.h */,
-				80477C1E18D1320800B16692 /* SPRConsole.m */,
+				80AAD8D018DE68A500805E3D /* AMDSystem.h */,
+				80AAD8D118DE68A500805E3D /* AMDSystem.m */,
+				80477C1D18D1320800B16692 /* AMDConsole.h */,
+				80477C1E18D1320800B16692 /* AMDConsole.m */,
 			);
 			name = System;
 			sourceTree = "<group>";
@@ -564,16 +544,16 @@
 		80AAD8D518DE7B9F00805E3D /* Input */ = {
 			isa = PBXGroup;
 			children = (
-				80AAD8D618DE7C4C00805E3D /* SPRKeyboard.h */,
-				80AAD8D718DE7C4C00805E3D /* SPRKeyboard.m */,
-				80AAD8D918DE7C5500805E3D /* SPRMouse.h */,
-				80AAD8DA18DE7C5500805E3D /* SPRMouse.m */,
-				80AAD8DC18DE7C6000805E3D /* SPRGamepad.h */,
-				80AAD8DD18DE7C6000805E3D /* SPRGamepad.m */,
-				80AAD8DF18DE7C6900805E3D /* SPRInput.h */,
-				80AAD8E018DE7C6900805E3D /* SPRInput.m */,
-				80AAD8E218DE8D4600805E3D /* SPRInputDevice.h */,
-				80AAD8E318DE8D4600805E3D /* SPRInputDevice.m */,
+				80AAD8D618DE7C4C00805E3D /* AMDKeyboard.h */,
+				80AAD8D718DE7C4C00805E3D /* AMDKeyboard.m */,
+				80AAD8D918DE7C5500805E3D /* AMDMouse.h */,
+				80AAD8DA18DE7C5500805E3D /* AMDMouse.m */,
+				80AAD8DC18DE7C6000805E3D /* AMDGamepad.h */,
+				80AAD8DD18DE7C6000805E3D /* AMDGamepad.m */,
+				80AAD8DF18DE7C6900805E3D /* AMDInput.h */,
+				80AAD8E018DE7C6900805E3D /* AMDInput.m */,
+				80AAD8E218DE8D4600805E3D /* AMDInputDevice.h */,
+				80AAD8E318DE8D4600805E3D /* AMDInputDevice.m */,
 			);
 			name = Input;
 			sourceTree = "<group>";
@@ -602,7 +582,7 @@
 		80B5FE7A18D133AD0035C62B /* AndromedaKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				80B5FE8018D133AE0035C62B /* SphereRuntimeKitTests.m */,
+				80B5FE8018D133AE0035C62B /* AndromedaKitTests.m */,
 				80B5FE7B18D133AD0035C62B /* Supporting Files */,
 			);
 			path = AndromedaKitTests;
@@ -619,10 +599,10 @@
 		80B5FE8A18D1349A0035C62B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				80B5FED718D135870035C62B /* SRKResource.h */,
-				80B5FED818D135870035C62B /* SRKResource.m */,
-				80B5FEAD18D135760035C62B /* SRKImage.h */,
-				80B5FEAE18D135760035C62B /* SRKImage.m */,
+				80B5FED718D135870035C62B /* AMKResource.h */,
+				80B5FED818D135870035C62B /* AMKResource.m */,
+				80B5FEAD18D135760035C62B /* AMKImage.h */,
+				80B5FEAE18D135760035C62B /* AMKImage.m */,
 				80B5FE8B18D134BA0035C62B /* Sound */,
 				80B5FE8C18D134C10035C62B /* Animation */,
 				80B5FE8D18D134C70035C62B /* Sphere files */,
@@ -633,10 +613,10 @@
 		80B5FE8B18D134BA0035C62B /* Sound */ = {
 			isa = PBXGroup;
 			children = (
-				80B5FECF18D1357E0035C62B /* SRKSound.h */,
-				80B5FED018D1357E0035C62B /* SRKSound.m */,
-				80B5FED118D1357E0035C62B /* SRKSoundEffect.h */,
-				80B5FED218D1357E0035C62B /* SRKSoundEffect.m */,
+				80B5FECF18D1357E0035C62B /* AMKSound.h */,
+				80B5FED018D1357E0035C62B /* AMKSound.m */,
+				80B5FED118D1357E0035C62B /* AMKSoundEffect.h */,
+				80B5FED218D1357E0035C62B /* AMKSoundEffect.m */,
 			);
 			name = Sound;
 			sourceTree = "<group>";
@@ -644,12 +624,12 @@
 		80B5FE8C18D134C10035C62B /* Animation */ = {
 			isa = PBXGroup;
 			children = (
-				80B5FE9D18D135540035C62B /* SRKAnimation.h */,
-				80B5FE9E18D135540035C62B /* SRKAnimation.m */,
-				80B5FE9F18D135540035C62B /* SRKFLICAnimation.h */,
-				80B5FEA018D135540035C62B /* SRKFLICAnimation.m */,
-				80B5FEA118D135540035C62B /* SRKMNGAnimation.h */,
-				80B5FEA218D135540035C62B /* SRKMNGAnimation.m */,
+				80B5FE9D18D135540035C62B /* AMKAnimation.h */,
+				80B5FE9E18D135540035C62B /* AMKAnimation.m */,
+				80B5FE9F18D135540035C62B /* AMKFLICAnimation.h */,
+				80B5FEA018D135540035C62B /* AMKFLICAnimation.m */,
+				80B5FEA118D135540035C62B /* AMKMNGAnimation.h */,
+				80B5FEA218D135540035C62B /* AMKMNGAnimation.m */,
 			);
 			name = Animation;
 			sourceTree = "<group>";
@@ -657,26 +637,26 @@
 		80B5FE8D18D134C70035C62B /* Sphere files */ = {
 			isa = PBXGroup;
 			children = (
-				80B5FE9118D1352A0035C62B /* SRKFile.h */,
-				80B5FE9218D1352A0035C62B /* SRKFile.m */,
-				80B5FE9018D1352A0035C62B /* SRKFile_Private.h */,
-				80B5FEA918D135760035C62B /* SRKFileSGM.h */,
-				80B5FEAA18D135760035C62B /* SRKFileSGM.m */,
-				80B5FEAB18D135760035C62B /* SRKFont.h */,
-				80B5FEAC18D135760035C62B /* SRKFont.m */,
-				80B5FEAF18D135760035C62B /* SRKMap.h */,
-				80B5FEB018D135760035C62B /* SRKMap.m */,
-				80B5FEB118D135760035C62B /* SRKObstructionMap.h */,
-				80B5FEB218D135760035C62B /* SRKObstructionMap.m */,
-				80B5FEB318D135760035C62B /* SRKPlayList.h */,
-				80B5FEB418D135760035C62B /* SRKPlayList.m */,
-				80B5FEB518D135760035C62B /* SRKSpriteSet.h */,
-				80B5FEB618D135760035C62B /* SRKSpriteSet.m */,
-				80B5FEB818D135760035C62B /* SRKTileSet.h */,
-				80B5FEB918D135760035C62B /* SRKTileSet.m */,
-				80B5FEB718D135760035C62B /* SRKTileSet_Private.h */,
-				80B5FEBA18D135760035C62B /* SRKWindowStyle.h */,
-				80B5FEBB18D135760035C62B /* SRKWindowStyle.m */,
+				80B5FE9118D1352A0035C62B /* AMKFile.h */,
+				80B5FE9218D1352A0035C62B /* AMKFile.m */,
+				80B5FE9018D1352A0035C62B /* AMKFile_Private.h */,
+				80B5FEA918D135760035C62B /* AMKFileSGM.h */,
+				80B5FEAA18D135760035C62B /* AMKFileSGM.m */,
+				80B5FEAB18D135760035C62B /* AMKFont.h */,
+				80B5FEAC18D135760035C62B /* AMKFont.m */,
+				80B5FEAF18D135760035C62B /* AMKMap.h */,
+				80B5FEB018D135760035C62B /* AMKMap.m */,
+				80B5FEB118D135760035C62B /* AMKObstructionMap.h */,
+				80B5FEB218D135760035C62B /* AMKObstructionMap.m */,
+				80B5FEB318D135760035C62B /* AMKPlayList.h */,
+				80B5FEB418D135760035C62B /* AMKPlayList.m */,
+				80B5FEB518D135760035C62B /* AMKSpriteSet.h */,
+				80B5FEB618D135760035C62B /* AMKSpriteSet.m */,
+				80B5FEB818D135760035C62B /* AMKTileSet.h */,
+				80B5FEB918D135760035C62B /* AMKTileSet.m */,
+				80B5FEB718D135760035C62B /* AMKTileSet_Private.h */,
+				80B5FEBA18D135760035C62B /* AMKWindowStyle.h */,
+				80B5FEBB18D135760035C62B /* AMKWindowStyle.m */,
 			);
 			name = "Sphere files";
 			sourceTree = "<group>";
@@ -684,8 +664,8 @@
 		80B5FE8E18D135100035C62B /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				80B5FEDD18D1359A0035C62B /* SRKGame.h */,
-				80B5FEDE18D1359A0035C62B /* SRKGame.m */,
+				80B5FEDD18D1359A0035C62B /* AMKGame.h */,
+				80B5FEDE18D1359A0035C62B /* AMKGame.m */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -693,7 +673,7 @@
 		80B5FE8F18D135160035C62B /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				80B5FE9B18D135490035C62B /* SphereRuntimeKit.h */,
+				80B5FE9B18D135490035C62B /* AndromedaKit.h */,
 				80B5FEDB18D135940035C62B /* endian.h */,
 			);
 			name = Main;
@@ -702,8 +682,8 @@
 		80B5FE9618D135360035C62B /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				80B5FE9718D1353F0035C62B /* NSString+SRKUtilities.h */,
-				80B5FE9818D1353F0035C62B /* NSString+SRKUtilities.m */,
+				80B5FE9718D1353F0035C62B /* NSString+AMKUtilities.h */,
+				80B5FE9818D1353F0035C62B /* NSString+AMKUtilities.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -715,29 +695,29 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80B5FEA318D135540035C62B /* SRKAnimation.h in Headers */,
-				80B5FECB18D135760035C62B /* SRKTileSet.h in Headers */,
-				80B5FEC018D135760035C62B /* SRKImage.h in Headers */,
-				80B5FEA718D135540035C62B /* SRKMNGAnimation.h in Headers */,
-				80B5FED518D1357E0035C62B /* SRKSoundEffect.h in Headers */,
-				80B5FED918D135870035C62B /* SRKResource.h in Headers */,
-				80B5FEC218D135760035C62B /* SRKMap.h in Headers */,
-				80B5FE9C18D135490035C62B /* SphereRuntimeKit.h in Headers */,
-				80B5FEC418D135760035C62B /* SRKObstructionMap.h in Headers */,
-				80B5FEDF18D1359A0035C62B /* SRKGame.h in Headers */,
-				80B5FEC618D135760035C62B /* SRKPlayList.h in Headers */,
-				80B5FEA518D135540035C62B /* SRKFLICAnimation.h in Headers */,
-				80B5FE9418D1352A0035C62B /* SRKFile.h in Headers */,
-				80B5FEBC18D135760035C62B /* SRKFileSGM.h in Headers */,
-				80B5FECD18D135760035C62B /* SRKWindowStyle.h in Headers */,
-				80B5FEBE18D135760035C62B /* SRKFont.h in Headers */,
-				80B5FEC818D135760035C62B /* SRKSpriteSet.h in Headers */,
-				80B5FED318D1357E0035C62B /* SRKSound.h in Headers */,
+				80B5FEA318D135540035C62B /* AMKAnimation.h in Headers */,
+				80B5FECB18D135760035C62B /* AMKTileSet.h in Headers */,
+				80B5FEC018D135760035C62B /* AMKImage.h in Headers */,
+				80B5FEA718D135540035C62B /* AMKMNGAnimation.h in Headers */,
+				80B5FED518D1357E0035C62B /* AMKSoundEffect.h in Headers */,
+				80B5FED918D135870035C62B /* AMKResource.h in Headers */,
+				80B5FEC218D135760035C62B /* AMKMap.h in Headers */,
+				80B5FE9C18D135490035C62B /* AndromedaKit.h in Headers */,
+				80B5FEC418D135760035C62B /* AMKObstructionMap.h in Headers */,
+				80B5FEDF18D1359A0035C62B /* AMKGame.h in Headers */,
+				80B5FEC618D135760035C62B /* AMKPlayList.h in Headers */,
+				80B5FEA518D135540035C62B /* AMKFLICAnimation.h in Headers */,
+				80B5FE9418D1352A0035C62B /* AMKFile.h in Headers */,
+				80B5FEBC18D135760035C62B /* AMKFileSGM.h in Headers */,
+				80B5FECD18D135760035C62B /* AMKWindowStyle.h in Headers */,
+				80B5FEBE18D135760035C62B /* AMKFont.h in Headers */,
+				80B5FEC818D135760035C62B /* AMKSpriteSet.h in Headers */,
+				80B5FED318D1357E0035C62B /* AMKSound.h in Headers */,
 				80B5FEDC18D135940035C62B /* endian.h in Headers */,
-				80B5FE9918D1353F0035C62B /* NSString+SRKUtilities.h in Headers */,
+				80B5FE9918D1353F0035C62B /* NSString+AMKUtilities.h in Headers */,
 				80B5FE8918D1348E0035C62B /* AndromedaKit-Prefix.pch in Headers */,
-				80B5FECA18D135760035C62B /* SRKTileSet_Private.h in Headers */,
-				80B5FE9318D1352A0035C62B /* SRKFile_Private.h in Headers */,
+				80B5FECA18D135760035C62B /* AMKTileSet_Private.h in Headers */,
+				80B5FE9318D1352A0035C62B /* AMKFile_Private.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -871,38 +851,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80A3C77818DA8FDD002EEF8C /* SPRFileHashing.m in Sources */,
-				80477C2F18D1320900B16692 /* SPRBonjour.m in Sources */,
-				80477C3018D1320900B16692 /* SPRByteArray.m in Sources */,
-				80477C3618D1320900B16692 /* SPRFileSystem.m in Sources */,
-				80AAD8E418DE8D4600805E3D /* SPRInputDevice.m in Sources */,
-				80477C3C18D1320900B16692 /* SPRSocket.m in Sources */,
-				80477C3218D1320900B16692 /* SPRCompatibility15.m in Sources */,
-				80AAD8E118DE7C6900805E3D /* SPRInput.m in Sources */,
-				80477C3318D1320900B16692 /* SPRCompatibility16.m in Sources */,
-				80AAD8DE18DE7C6000805E3D /* SPRGamepad.m in Sources */,
-				80AAD8DB18DE7C5500805E3D /* SPRMouse.m in Sources */,
-				80477C3B18D1320900B16692 /* SPRRawFile.m in Sources */,
-				800FB74418DF8D3400AEB582 /* SPRCoordinateUtilities.m in Sources */,
-				80477C3F18D1321500B16692 /* SPRAppDelegate.m in Sources */,
-				80477C4518D1321F00B16692 /* SPRResource.m in Sources */,
-				80AAD8CF18DD254300805E3D /* SPRScreen.m in Sources */,
-				80477C3118D1320900B16692 /* SPRColor.m in Sources */,
-				80AAD8CC18DD1B9800805E3D /* SPRGraphicsView.m in Sources */,
-				80477C3718D1320900B16692 /* SPRImage.m in Sources */,
-				8049F80818DA49AA00B454F8 /* SPRDirectory.m in Sources */,
-				80477C3518D1320900B16692 /* SPRFile.m in Sources */,
-				80AAD8D218DE68A500805E3D /* SPRSystem.m in Sources */,
-				80A3C76F18DA891B002EEF8C /* NSString+SPRHashing.m in Sources */,
-				80AAD8D818DE7C4C00805E3D /* SPRKeyboard.m in Sources */,
+				80A3C77818DA8FDD002EEF8C /* AMDFileHashing.m in Sources */,
+				80477C2F18D1320900B16692 /* AMDBonjour.m in Sources */,
+				80477C3018D1320900B16692 /* AMDByteArray.m in Sources */,
+				80477C3618D1320900B16692 /* AMDFileSystem.m in Sources */,
+				80AAD8E418DE8D4600805E3D /* AMDInputDevice.m in Sources */,
+				80477C3C18D1320900B16692 /* AMDSocket.m in Sources */,
+				80AAD8E118DE7C6900805E3D /* AMDInput.m in Sources */,
+				80AAD8DE18DE7C6000805E3D /* AMDGamepad.m in Sources */,
+				80AAD8DB18DE7C5500805E3D /* AMDMouse.m in Sources */,
+				80477C3B18D1320900B16692 /* AMDRawFile.m in Sources */,
+				800FB74418DF8D3400AEB582 /* AMDCoordinateUtilities.m in Sources */,
+				80477C3F18D1321500B16692 /* AMDAppDelegate.m in Sources */,
+				80477C4518D1321F00B16692 /* AMDResource.m in Sources */,
+				80AAD8CF18DD254300805E3D /* AMDScreen.m in Sources */,
+				80477C3118D1320900B16692 /* AMDColor.m in Sources */,
+				80AAD8CC18DD1B9800805E3D /* AMDGraphicsView.m in Sources */,
+				80477C3718D1320900B16692 /* AMDImage.m in Sources */,
+				8049F80818DA49AA00B454F8 /* AMDDirectory.m in Sources */,
+				80477C3518D1320900B16692 /* AMDFile.m in Sources */,
+				80AAD8D218DE68A500805E3D /* AMDSystem.m in Sources */,
+				80A3C76F18DA891B002EEF8C /* NSString+AMDHashing.m in Sources */,
+				80AAD8D818DE7C4C00805E3D /* AMDKeyboard.m in Sources */,
 				80477BDC18D1313100B16692 /* main.m in Sources */,
-				80A3C77218DA8925002EEF8C /* NSData+SPRHashing.m in Sources */,
-				800FB73E18DF57A900AEB582 /* NSMutableArray+SPRQueue.m in Sources */,
-				80477C3418D1320900B16692 /* SPRConsole.m in Sources */,
-				80477C4218D1321A00B16692 /* SPRGame.m in Sources */,
-				80477C3A18D1320900B16692 /* SPRNetwork.m in Sources */,
-				80477C3818D1320900B16692 /* SPRJSClass.m in Sources */,
-				800FB74118DF588900AEB582 /* NSMutableArray+SPRStack.m in Sources */,
+				80A3C77218DA8925002EEF8C /* NSData+AMDHashing.m in Sources */,
+				800FB73E18DF57A900AEB582 /* NSMutableArray+AMDQueue.m in Sources */,
+				80477C3418D1320900B16692 /* AMDConsole.m in Sources */,
+				80477C4218D1321A00B16692 /* AMDGame.m in Sources */,
+				80477C3A18D1320900B16692 /* AMDNetwork.m in Sources */,
+				80477C3818D1320900B16692 /* AMDJSClass.m in Sources */,
+				800FB74118DF588900AEB582 /* NSMutableArray+AMDStack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -910,24 +888,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80B5FED418D1357E0035C62B /* SRKSound.m in Sources */,
-				80B5FED618D1357E0035C62B /* SRKSoundEffect.m in Sources */,
-				80B5FEC118D135760035C62B /* SRKImage.m in Sources */,
-				80B5FEA818D135540035C62B /* SRKMNGAnimation.m in Sources */,
-				80B5FEC318D135760035C62B /* SRKMap.m in Sources */,
-				80B5FE9518D1352A0035C62B /* SRKFile.m in Sources */,
-				80B5FEE018D1359A0035C62B /* SRKGame.m in Sources */,
-				80B5FEA418D135540035C62B /* SRKAnimation.m in Sources */,
-				80B5FE9A18D1353F0035C62B /* NSString+SRKUtilities.m in Sources */,
-				80B5FEBD18D135760035C62B /* SRKFileSGM.m in Sources */,
-				80B5FEA618D135540035C62B /* SRKFLICAnimation.m in Sources */,
-				80B5FEDA18D135870035C62B /* SRKResource.m in Sources */,
-				80B5FEC918D135760035C62B /* SRKSpriteSet.m in Sources */,
-				80B5FEC518D135760035C62B /* SRKObstructionMap.m in Sources */,
-				80B5FECE18D135760035C62B /* SRKWindowStyle.m in Sources */,
-				80B5FECC18D135760035C62B /* SRKTileSet.m in Sources */,
-				80B5FEBF18D135760035C62B /* SRKFont.m in Sources */,
-				80B5FEC718D135760035C62B /* SRKPlayList.m in Sources */,
+				80B5FED418D1357E0035C62B /* AMKSound.m in Sources */,
+				80B5FED618D1357E0035C62B /* AMKSoundEffect.m in Sources */,
+				80B5FEC118D135760035C62B /* AMKImage.m in Sources */,
+				80B5FEA818D135540035C62B /* AMKMNGAnimation.m in Sources */,
+				80B5FEC318D135760035C62B /* AMKMap.m in Sources */,
+				80B5FE9518D1352A0035C62B /* AMKFile.m in Sources */,
+				80B5FEE018D1359A0035C62B /* AMKGame.m in Sources */,
+				80B5FEA418D135540035C62B /* AMKAnimation.m in Sources */,
+				80B5FE9A18D1353F0035C62B /* NSString+AMKUtilities.m in Sources */,
+				80B5FEBD18D135760035C62B /* AMKFileSGM.m in Sources */,
+				80B5FEA618D135540035C62B /* AMKFLICAnimation.m in Sources */,
+				80B5FEDA18D135870035C62B /* AMKResource.m in Sources */,
+				80B5FEC918D135760035C62B /* AMKSpriteSet.m in Sources */,
+				80B5FEC518D135760035C62B /* AMKObstructionMap.m in Sources */,
+				80B5FECE18D135760035C62B /* AMKWindowStyle.m in Sources */,
+				80B5FECC18D135760035C62B /* AMKTileSet.m in Sources */,
+				80B5FEBF18D135760035C62B /* AMKFont.m in Sources */,
+				80B5FEC718D135760035C62B /* AMKPlayList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -935,7 +913,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80B5FE8118D133AE0035C62B /* SphereRuntimeKitTests.m in Sources */,
+				80B5FE8118D133AE0035C62B /* AndromedaKitTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1071,7 +1049,7 @@
 					"\"$(SRCROOT)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SphereRuntime/Source/Andromeda-Prefix.pch";
+				GCC_PREFIX_HEADER = "Andromeda/Source/Andromeda-Prefix.pch";
 				INFOPLIST_FILE = "SphereRuntime/Andromeda-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LD_RUNPATH_SEARCH_PATHS = "";
@@ -1095,7 +1073,7 @@
 					"\"$(SRCROOT)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SphereRuntime/Source/Andromeda-Prefix.pch";
+				GCC_PREFIX_HEADER = "Andromeda/Source/Andromeda-Prefix.pch";
 				INFOPLIST_FILE = "SphereRuntime/Andromeda-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LD_RUNPATH_SEARCH_PATHS = "";
@@ -1116,7 +1094,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SphereRuntimeKit/Source/AndromedaKit-Prefix.pch";
+				GCC_PREFIX_HEADER = "AndromedaKit/Source/AndromedaKit-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1135,7 +1113,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SphereRuntimeKit/Source/AndromedaKit-Prefix.pch";
+				GCC_PREFIX_HEADER = "AndromedaKit/Source/AndromedaKit-Prefix.pch";
 				INFOPLIST_FILE = "SphereRuntimeKit/AndromedaKit-Info.plist";
 				PRODUCT_NAME = AndromedaKit;
 				WRAPPER_EXTENSION = framework;
@@ -1145,7 +1123,7 @@
 		80B5FE8618D133AE0035C62B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SphereRuntime.app/Contents/MacOS/SphereRuntime";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Andromeda.app/Contents/MacOS/Andromeda";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -1167,7 +1145,7 @@
 		80B5FE8718D133AE0035C62B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SphereRuntime.app/Contents/MacOS/SphereRuntime";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Andromeda.app/Contents/MacOS/Andromeda";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
