@@ -20,18 +20,30 @@
  * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
- * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
 
-#import "AMDGame.h"
+#import "AMDJSClass.h"
 
-@implementation AMDGame
+/**
+ * @brief The JavaScript Game object: JavaScript exports.
+ */
+@protocol AMDGame <L8Export>
 
-// Loading of dictionary with info
-// Verifying installation
+/// Name of the game.
+@property (readonly) NSString *name;
 
-// Two options:
-// 1) a gamefolder is provided on CMD
-// 2) a standalone run: the game is in the App folder
+/// Author of the game.
+@property (readonly) NSString *author;
+
+/// Description of the game.
+@property (readonly) NSString *description;
+
+@end
+
+/**
+ * @brief The JavaScript Game object.
+ */
+@interface AMDGame : NSObject <AMDGame, AMDJSClass>
 
 @end

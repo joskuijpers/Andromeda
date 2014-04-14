@@ -22,3 +22,16 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+
+#import "AMDGame.h"
+
+@implementation AMDGame
+
+@synthesize name, author, description;
+
++ (void)installIntoContext:(L8Context *)context
+{
+	context[@"Game"] = [L8Value valueWithNullInContext:context];
+}
+
+@end
