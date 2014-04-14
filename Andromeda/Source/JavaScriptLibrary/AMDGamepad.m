@@ -29,13 +29,20 @@
 
 + (void)installIntoContext:(L8Context *)context
 {
-	L8Value *gamepad;
+	L8Value *gamepad, *axis, *button;
 
 	gamepad = [L8Value valueWithNewObjectInContext:context];
+	axis = [L8Value valueWithNewObjectInContext:context];
+	button = [L8Value valueWithNewObjectInContext:context];
 
-	gamepad[@"AXIS_X"] = @(AMD_GAMEPAD_AXIS_X);
-	gamepad[@"AXIS_Y"] = @(AMD_GAMEPAD_AXIS_Y);
+	axis[@"X"] = @(AMD_GAMEPAD_AXIS_X);
+	axis[@"Y"] = @(AMD_GAMEPAD_AXIS_Y);
 
+	button[@"NONE"] = @(0);
+	button[@"A"] = @(1);
+
+	gamepad[@"Axis"] = axis;
+	gamepad[@"Button"] = button;
 	context[@"Input"][@"Gamepad"] = gamepad;
 }
 

@@ -44,16 +44,18 @@
 {
 	[super installInstanceIntoContext:context];
 
-	L8Value *mouse;
+	L8Value *mouse, *button;
 
 	mouse = [L8Value valueWithObject:self inContext:context];
+	button = [L8Value valueWithNewObjectInContext:context];
 
-	mouse[@"BUTTON_LEFT"] = @(AMD_MOUSE_BUTTON_LEFT);
-	mouse[@"BUTTON_RIGHT"] = @(AMD_MOUSE_BUTTON_RIGHT);
-	mouse[@"BUTTON_MIDDLE"] = @(AMD_MOUSE_BUTTON_MIDDLE);
-	mouse[@"BUTTON_EXTRA_1"] = @(AMD_MOUSE_BUTTON_EXTRA_1);
-	mouse[@"BUTTON_EXTRA_2"] = @(AMD_MOUSE_BUTTON_EXTRA_2);
+	button[@"LEFT"] = @(AMD_MOUSE_BUTTON_LEFT);
+	button[@"RIGHT"] = @(AMD_MOUSE_BUTTON_RIGHT);
+	button[@"MIDDLE"] = @(AMD_MOUSE_BUTTON_MIDDLE);
+	button[@"EXTRA1"] = @(AMD_MOUSE_BUTTON_EXTRA_1);
+	button[@"EXTRA2"] = @(AMD_MOUSE_BUTTON_EXTRA_2);
 
+	mouse[@"Button"] = button;
 	context[@"Input"][@"Mouse"] = mouse;
 
 	[_wheel installInstanceIntoContext:context];
@@ -158,16 +160,18 @@
 {
 	[super installInstanceIntoContext:context];
 
-	L8Value *wheel;
+	L8Value *wheel, *event;
 
 	wheel = [L8Value valueWithObject:self inContext:context];
+	event = [L8Value valueWithNewObjectInContext:context];
 
-	wheel[@"NONE"] = @(AMD_MOUSE_WHEEL_NONE);
-	wheel[@"UP"] = @(AMD_MOUSE_WHEEL_UP);
-	wheel[@"DOWN"] = @(AMD_MOUSE_WHEEL_DOWN);
-	wheel[@"LEFT"] = @(AMD_MOUSE_WHEEL_LEFT);
-	wheel[@"RIGHT"] = @(AMD_MOUSE_WHEEL_RIGHT);
+	event[@"NONE"] = @(AMD_MOUSE_WHEEL_NONE);
+	event[@"UP"] = @(AMD_MOUSE_WHEEL_UP);
+	event[@"DOWN"] = @(AMD_MOUSE_WHEEL_DOWN);
+	event[@"LEFT"] = @(AMD_MOUSE_WHEEL_LEFT);
+	event[@"RIGHT"] = @(AMD_MOUSE_WHEEL_RIGHT);
 
+	wheel[@"Event"] = event;
 	context[@"Input"][@"Mouse"][@"Wheel"] = wheel;
 }
 
