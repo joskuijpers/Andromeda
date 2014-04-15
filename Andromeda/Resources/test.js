@@ -13,7 +13,7 @@ Game.exit = function() {
 }
 
 Game.loop = function() {
-	//console.log("[MS] "+Input.Mouse.x+","+Input.Mouse.y);
+//	console.log("[MS] "+Input.Mouse.x+","+Input.Mouse.y);
 }
 
 

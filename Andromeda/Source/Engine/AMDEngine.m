@@ -20,13 +20,32 @@
  * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
- * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+ * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@class AMDEngine;
+#import "AMDEngine.h"
 
-@interface AMDGraphicsView : NSOpenGLView
+#import <OpenGL/OpenGL.h>
+#import <OpenGL/gl3.h>
+@import GLKit;
 
-@property (weak) AMDEngine *engine;
+@implementation AMDEngine
+
+- (void)setViewportRect:(NSRect)bounds
+{
+	glViewport(0, 0, bounds.size.width, bounds.size.height);
+}
+
+- (void)render
+{
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	// Draw code
+}
+
+- (void)advanceTimeBy:(float)seconds
+{
+
+}
 
 @end

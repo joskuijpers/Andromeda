@@ -25,18 +25,24 @@
 
 #import "AMDAppDelegate.h"
 
+#import "AMDGraphicsView.h"
+#import "AMDEngine.h"
+
 #import "AMDJSClass.h"
 #import "AMDConsole.h"
-#import "AMDGraphicsView.h"
 
 void load_bundle_script(L8Context *context, NSString *name);
 
 @implementation AMDAppDelegate {
 	L8Context *_javaScriptContext;
+	AMDEngine *_engine;
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+	_engine = [[AMDEngine alloc] init];
+	_graphicsView.engine = _engine;
+
 	_javaScriptContext = [[L8Context alloc] init];
 
 	[_javaScriptContext executeBlockInContext:^(L8Context *context) {

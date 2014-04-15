@@ -24,14 +24,153 @@
  */
 
 #import "AMDGraphicsView.h"
+#import "AMDEngine.h"
 
-@implementation AMDGraphicsView
+@import OpenGL;
+#import <OpenGL/gl3.h>
 
-- (id)initWithFrame:(NSRect)frame
+static CVReturn amd_display_link_callback(CVDisplayLinkRef displayLink,
+										  const CVTimeStamp *now,
+										  const CVTimeStamp *outputTime,
+										  CVOptionFlags flagsIn,
+										  CVOptionFlags *flagsOut,
+										  void *displayLinkContext);
+
+@implementation AMDGraphicsView {
+	CVDisplayLinkRef _displayLink;
+}
+
+- (void)awakeFromNib
 {
-    self = [super initWithFrame:frame];
+	NSOpenGLPixelFormat *pixelFormat;
+	NSOpenGLContext *context;
 
-    return self;
+	NSOpenGLPixelFormatAttribute attrs[] =
+	{
+		NSOpenGLPFADoubleBuffer,
+		NSOpenGLPFADepthSize, 24,
+		NSOpenGLPFAOpenGLProfile,
+		NSOpenGLProfileVersion3_2Core,
+		0
+	};
+
+	pixelFormat = [[NSOpenGLPixelFormat alloc] initWithAttributes:attrs];
+	if(!pixelFormat)
+		NSLog(@"No OpenGL pixel format");
+
+    context = [[NSOpenGLContext alloc] initWithFormat:pixelFormat shareContext:nil];
+
+#ifdef DEBUG
+	CGLEnable([context CGLContextObj], kCGLCECrashOnRemovedFunctions);
+#endif
+
+    [self setPixelFormat:pixelFormat];
+    [self setOpenGLContext:context];
+
+    [self setWantsBestResolutionOpenGLSurface:YES];
+}
+
+- (void)dealloc
+{
+	CVDisplayLinkStop(_displayLink);
+	CVDisplayLinkRelease(_displayLink);
+}
+
+- (void)prepareOpenGL
+{
+	[super prepareOpenGL];
+
+	CGLContextObj cglContext;
+	CGLPixelFormatObj cglPixelFormat;
+	GLint swapInt;
+
+	// Synchronize buffer swaps with screen refresh rate
+	swapInt = 1;
+	[self.openGLContext setValues:&swapInt forParameter:NSOpenGLCPSwapInterval];
+
+	CVDisplayLinkCreateWithActiveCGDisplays(&_displayLink);
+	CVDisplayLinkSetOutputCallback(_displayLink, &amd_display_link_callback, (__bridge void *)self);
+
+	cglContext = [self.openGLContext CGLContextObj];
+	cglPixelFormat = [self.pixelFormat CGLPixelFormatObj];
+	CVDisplayLinkSetCurrentCGDisplayFromOpenGLContext(_displayLink, cglContext, cglPixelFormat);
+
+	CVDisplayLinkStart(_displayLink);
+
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(windowWillClose:)
+												 name:NSWindowWillCloseNotification
+											   object:self.window];
+}
+
+#pragma mark - Actions
+
+- (void)reshape
+{
+	NSRect viewRectPoints, viewRectPixels;
+
+	[super reshape];
+	CGLLockContext([self.openGLContext CGLContextObj]);
+
+	viewRectPoints = self.bounds;
+	viewRectPixels = [self convertRectToBacking:viewRectPoints];
+
+	[_engine setViewportRect:viewRectPixels];
+
+	CGLUnlockContext([self.openGLContext CGLContextObj]);
+}
+
+- (void)windowWillClose:(NSNotification*)notification
+{
+	CVDisplayLinkStop(_displayLink);
+}
+
+- (void)renewGState
+{
+	[self.window disableScreenUpdatesUntilFlush];
+	[super renewGState];
+}
+
+#pragma mark - Drawing
+
+- (CVReturn)getFrameForTime:(const CVTimeStamp *)outputTime
+{
+	@autoreleasepool {
+		[self drawView];
+	}
+
+    return kCVReturnSuccess;
+}
+
+- (void)drawRect:(NSRect)dirtyRect
+{
+	[self drawView];
+}
+
+- (void)drawView
+{
+	[self.openGLContext makeCurrentContext];
+
+	CGLLockContext([self.openGLContext CGLContextObj]);
+
+    [_engine render];
+
+	CGLFlushDrawable([self.openGLContext CGLContextObj]);
+	CGLUnlockContext([self.openGLContext CGLContextObj]);
 }
 
 @end
+
+static CVReturn amd_display_link_callback(CVDisplayLinkRef displayLink,
+										  const CVTimeStamp *now,
+										  const CVTimeStamp *outputTime,
+										  CVOptionFlags flagsIn,
+										  CVOptionFlags *flagsOut,
+										  void *displayLinkContext)
+{
+	CVReturn result;
+
+	result = [(__bridge AMDGraphicsView *)displayLinkContext getFrameForTime:outputTime];
+
+	return result;
+}

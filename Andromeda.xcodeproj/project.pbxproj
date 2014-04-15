@@ -30,6 +30,7 @@
 		80477C3F18D1321500B16692 /* AMDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C3E18D1321500B16692 /* AMDAppDelegate.m */; };
 		80477C4518D1321F00B16692 /* AMDResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C4418D1321F00B16692 /* AMDResource.m */; };
 		8049F80818DA49AA00B454F8 /* AMDDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8049F80718DA49AA00B454F8 /* AMDDirectory.m */; };
+		8068F4A318FD6A2A0082835E /* AMDEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 8068F4A218FD6A2A0082835E /* AMDEngine.m */; };
 		8086DC9218FC8EEC0084D743 /* AMDGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 8086DC9118FC8EEC0084D743 /* AMDGame.m */; };
 		80A3C76F18DA891B002EEF8C /* NSString+AMDHashing.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A3C76E18DA891B002EEF8C /* NSString+AMDHashing.m */; };
 		80A3C77218DA8925002EEF8C /* NSData+AMDHashing.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A3C77118DA8925002EEF8C /* NSData+AMDHashing.m */; };
@@ -180,6 +181,8 @@
 		80477C4918D1325C00B16692 /* test.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = test.js; path = Resources/test.js; sourceTree = "<group>"; };
 		8049F80618DA49AA00B454F8 /* AMDDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDDirectory.h; sourceTree = "<group>"; };
 		8049F80718DA49AA00B454F8 /* AMDDirectory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDDirectory.m; sourceTree = "<group>"; };
+		8068F4A118FD6A2A0082835E /* AMDEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDEngine.h; sourceTree = "<group>"; };
+		8068F4A218FD6A2A0082835E /* AMDEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDEngine.m; sourceTree = "<group>"; };
 		8086DC9018FC8EEC0084D743 /* AMDGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDGame.h; sourceTree = "<group>"; };
 		8086DC9118FC8EEC0084D743 /* AMDGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDGame.m; sourceTree = "<group>"; };
 		80A3C76D18DA891B002EEF8C /* NSString+AMDHashing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AMDHashing.h"; sourceTree = "<group>"; };
@@ -412,7 +415,6 @@
 				80AAD8C718DD1B4100805E3D /* Engine */,
 				80477C0F18D131E100B16692 /* JavaScript Library */,
 				80477C1018D131EA00B16692 /* Utilities */,
-				80477C1118D131F000B16692 /* Game */,
 				80477C3D18D1321500B16692 /* AMDAppDelegate.h */,
 				80477C3E18D1321500B16692 /* AMDAppDelegate.m */,
 			);
@@ -468,13 +470,6 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		80477C1118D131F000B16692 /* Game */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Game;
-			sourceTree = "<group>";
-		};
 		8086DC8918FC798A0084D743 /* Game */ = {
 			isa = PBXGroup;
 			children = (
@@ -505,6 +500,8 @@
 			children = (
 				80AAD8CA18DD1B9800805E3D /* AMDGraphicsView.h */,
 				80AAD8CB18DD1B9800805E3D /* AMDGraphicsView.m */,
+				8068F4A118FD6A2A0082835E /* AMDEngine.h */,
+				8068F4A218FD6A2A0082835E /* AMDEngine.m */,
 			);
 			path = Engine;
 			sourceTree = "<group>";
@@ -849,6 +846,7 @@
 				80477C3B18D1320900B16692 /* AMDRawFile.m in Sources */,
 				8086DC9218FC8EEC0084D743 /* AMDGame.m in Sources */,
 				800FB74418DF8D3400AEB582 /* AMDCoordinateUtilities.m in Sources */,
+				8068F4A318FD6A2A0082835E /* AMDEngine.m in Sources */,
 				80477C3F18D1321500B16692 /* AMDAppDelegate.m in Sources */,
 				80477C4518D1321F00B16692 /* AMDResource.m in Sources */,
 				80AAD8CF18DD254300805E3D /* AMDScreen.m in Sources */,
@@ -1028,6 +1026,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1052,6 +1051,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

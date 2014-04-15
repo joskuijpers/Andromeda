@@ -23,10 +23,12 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
 
-@class AMDEngine;
+@interface AMDEngine : NSObject
 
-@interface AMDGraphicsView : NSOpenGLView
+@property (assign) CFAbsoluteTime renderTime;
 
-@property (weak) AMDEngine *engine;
+- (void)setViewportRect:(NSRect)bounds;
+- (void)advanceTimeBy:(float)seconds;
+- (void)render;
 
 @end
