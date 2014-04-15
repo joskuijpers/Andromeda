@@ -49,6 +49,18 @@ L8_EXPORT_AS(abort,
  */
 + (void)restart;
 
+/**
+ * Resolve a resource with specified query.
+ *
+ * @param query The query.
+ * @!param extension The default file extension.
+ * @!param folder The default file folder.
+ * @return The path, relative to either / or ~/, or nil if not found.
+ */
+L8_EXPORT_AS(resolve,
++ (NSString *)resolveResourceWithQuery:(NSString *)query
+);
+
 @end
 
 /**
@@ -66,6 +78,25 @@ L8_EXPORT_AS(abort,
 @end
 
 /**
+ * @brief A runtime extension representation: JavaScript exports.
+ */
+@protocol AMDSystemExtension <L8Export>
+
+/// Name of the extension.
+@property (readonly) NSString *name;
+
+/// Version of the extension.
+@property (readonly) NSNumber *version;
+
+/// Version of the extension in a readable form.
+@property (readonly) NSString *versionString;
+
+/// Extension-specific description of functionality.
+@property (readonly) NSDictionary *functionalityDescription;
+
+@end
+
+/**
  * @brief The System class.
  */
 @interface AMDSystem : NSObject <AMDSystem, AMDJSClass>
@@ -76,5 +107,12 @@ L8_EXPORT_AS(abort,
  * @brief Debugging the system withing JavaScript.
  */
 @interface AMDSystemDebug : NSObject <AMDSystemDebug, AMDJSClass>
+
+@end
+
+/**
+ * @brief A runtime extension representation.
+ */
+@interface AMDSystemExtension : NSObject <AMDSystemExtension, AMDJSClass>
 
 @end

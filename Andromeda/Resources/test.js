@@ -2,31 +2,10 @@ console.log("Hello World!");
 
 var Game = {};
 
+console.log(System.extensions["sqlite"]);
+
 Game.init = function() {
 	console.log("INIT");
-
-	/** TEST 1: Blue rectangle with red border, full window size */
-	var Red = new Color(1.0, 0, 0, 1.0);
-	var Blue = new Color(0, 0, 1.0, 1.0);
-
-	//Rectangle(0, 0, GetScreenWidth(), GetScreenHeight(), Red);
-	//Rectangle(20, 20, GetScreenWidth()-40, GetScreenHeight()-40, Blue);
-
-	Screen.flip();
-
-	console.log("MX: "+Input.Mouse.x);
-	console.log("NGP: "+Input.gamepads.length);
-
-	console.log("GK: "+Input.Keyboard.getKey());
-	console.log("GKS: "+Input.Keyboard.getKeyString(Input.Keyboard.getKey()));
-
-	console.log("AXIS_Y: "+Input.Gamepad.Axis.Y);
-
-	console.log("BUTTON_RIGHT: "+Input.Mouse.Button.RIGHT);
-	console.log("KEY_A: "+Input.Keyboard.KEY_A);
-	console.log("WHEEL_LEFT: "+Input.Mouse.Wheel.Event.LEFT);
-	console.log("ISB: "+Input.Mouse.isButtonPressed(Input.Mouse.Button.LEFT));
-
 }
 
 Game.exit = function() {

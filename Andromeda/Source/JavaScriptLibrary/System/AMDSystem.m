@@ -31,10 +31,12 @@
 {
 	context[@"System"] = [AMDSystem class];
 	context[@"System"][@"Debug"] = [AMDSystemDebug class];
+	context[@"System"][@"Extension"] = [AMDSystemExtension class];
 
 	context[@"System"][@"version"] = @(10000); // TODO get from some build setting of define.
 	context[@"System"][@"versionString"] = @"Andromeda 1.0.0";
 
+	context[@"System"][@"extensions"] = @{};
 
 	context[@"require"] = ^(NSString *path) {
 		NSLog(@"require: %@",path);
@@ -42,10 +44,6 @@
 
 	context[@"include"] = ^(NSString *path) {
 		NSLog(@"include: %@",path);
-	};
-
-	context[@"resolve"] = ^(NSString *resource) {
-		NSLog(@"resolve %@",resource);
 	};
 }
 
@@ -56,12 +54,17 @@
 
 + (void)exit
 {
-
+	[[NSApplication sharedApplication] terminate:nil];
 }
 
 + (void)restart
 {
 
+}
+
++ (NSString *)resolveResourceWithQuery:(NSString *)query
+{
+	return nil;
 }
 
 @end
@@ -71,6 +74,18 @@
 + (void)garbageCollect
 {
 	[[[L8Context currentContext] virtualMachine] runGarbageCollector];
+}
+
+@end
+
+@implementation AMDSystemExtension
+
+@synthesize name, version, versionString, functionalityDescription;
+
+- (NSString *)description
+{
+	return [NSString stringWithFormat:@"<AMDSystemExtension>{name: %@, version: %@ (%@), "
+			"functionalityDescription: %@}",name,versionString,version,functionalityDescription];
 }
 
 @end
