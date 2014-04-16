@@ -48,6 +48,8 @@
 		80AAD8E418DE8D4600805E3D /* AMDInputDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 80AAD8E318DE8D4600805E3D /* AMDInputDevice.m */; };
 		80B3D37418FEBCE300DB0B4C /* AMDEXTSQLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B3D37318FEBCE300DB0B4C /* AMDEXTSQLite.m */; };
 		80B3D37718FEBD3A00DB0B4C /* AMDSystemExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B3D37618FEBD3A00DB0B4C /* AMDSystemExtension.m */; };
+		80B3D37A18FECE3100DB0B4C /* sqlite.js in Sources */ = {isa = PBXBuildFile; fileRef = 80B3D37918FECE3100DB0B4C /* sqlite.js */; };
+		80B3D37C18FED22D00DB0B4C /* sqlite.js in Resources */ = {isa = PBXBuildFile; fileRef = 80B3D37918FECE3100DB0B4C /* sqlite.js */; };
 		80B5FE5C18D1332B0035C62B /* test_module.js in Resources */ = {isa = PBXBuildFile; fileRef = 80477C4818D1325C00B16692 /* test_module.js */; };
 		80B5FE5D18D1332B0035C62B /* test.js in Resources */ = {isa = PBXBuildFile; fileRef = 80477C4918D1325C00B16692 /* test.js */; };
 		80B5FE5E18D133380035C62B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80477BE418D1313100B16692 /* MainMenu.xib */; };
@@ -99,6 +101,7 @@
 		80B682AF18D8FF7300445BF9 /* L8Framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80B682AE18D8FF7300445BF9 /* L8Framework.framework */; };
 		80B682B118D908B300445BF9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80477BCF18D1313100B16692 /* Cocoa.framework */; };
 		80B682B318D90E6D00445BF9 /* L8Framework.framework in Copy Private Frameworks */ = {isa = PBXBuildFile; fileRef = 80B682AE18D8FF7300445BF9 /* L8Framework.framework */; };
+		E3573AF530BF4E5CB8FAE6E4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A25A7EC0408F41F5AE04D424 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +136,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3EE7A173BE1D4DAE83B2C2D8 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		800FB73C18DF57A900AEB582 /* NSMutableArray+AMDQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+AMDQueue.h"; sourceTree = "<group>"; };
 		800FB73D18DF57A900AEB582 /* NSMutableArray+AMDQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+AMDQueue.m"; sourceTree = "<group>"; };
 		800FB73F18DF588900AEB582 /* NSMutableArray+AMDStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+AMDStack.h"; sourceTree = "<group>"; };
@@ -181,14 +185,14 @@
 		80477C3E18D1321500B16692 /* AMDAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDAppDelegate.m; sourceTree = "<group>"; };
 		80477C4318D1321F00B16692 /* AMDResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDResource.h; sourceTree = "<group>"; };
 		80477C4418D1321F00B16692 /* AMDResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDResource.m; sourceTree = "<group>"; };
-		80477C4818D1325C00B16692 /* test_module.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = test_module.js; path = Resources/test_module.js; sourceTree = "<group>"; };
-		80477C4918D1325C00B16692 /* test.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = test.js; path = Resources/test.js; sourceTree = "<group>"; };
+		80477C4818D1325C00B16692 /* test_module.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = test_module.js; sourceTree = "<group>"; };
+		80477C4918D1325C00B16692 /* test.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = test.js; sourceTree = "<group>"; };
 		8049F80618DA49AA00B454F8 /* AMDDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDDirectory.h; sourceTree = "<group>"; };
 		8049F80718DA49AA00B454F8 /* AMDDirectory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDDirectory.m; sourceTree = "<group>"; };
 		8068F4A118FD6A2A0082835E /* AMDEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDEngine.h; sourceTree = "<group>"; };
 		8068F4A218FD6A2A0082835E /* AMDEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDEngine.m; sourceTree = "<group>"; };
-		8068F4A418FDD56D0082835E /* simple_vertex_shader.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = simple_vertex_shader.vs; path = Resources/simple_vertex_shader.vs; sourceTree = "<group>"; };
-		8068F4A618FDD57E0082835E /* simple_fragment_shader.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = simple_fragment_shader.fs; path = Resources/simple_fragment_shader.fs; sourceTree = "<group>"; };
+		8068F4A418FDD56D0082835E /* simple_vertex_shader.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = simple_vertex_shader.vs; sourceTree = "<group>"; };
+		8068F4A618FDD57E0082835E /* simple_fragment_shader.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = simple_fragment_shader.fs; sourceTree = "<group>"; };
 		8086DC9018FC8EEC0084D743 /* AMDGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDGame.h; sourceTree = "<group>"; };
 		8086DC9118FC8EEC0084D743 /* AMDGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDGame.m; sourceTree = "<group>"; };
 		80A3C76D18DA891B002EEF8C /* NSString+AMDHashing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AMDHashing.h"; sourceTree = "<group>"; };
@@ -218,6 +222,7 @@
 		80B3D37318FEBCE300DB0B4C /* AMDEXTSQLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDEXTSQLite.m; sourceTree = "<group>"; };
 		80B3D37518FEBD3A00DB0B4C /* AMDSystemExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDSystemExtension.h; sourceTree = "<group>"; };
 		80B3D37618FEBD3A00DB0B4C /* AMDSystemExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDSystemExtension.m; sourceTree = "<group>"; };
+		80B3D37918FECE3100DB0B4C /* sqlite.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = sqlite.js; sourceTree = "<group>"; };
 		80B5FE6418D133AD0035C62B /* AndromedaKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AndromedaKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80B5FE6818D133AD0035C62B /* AndromedaKit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AndromedaKit-Info.plist"; sourceTree = "<group>"; };
 		80B5FE7418D133AD0035C62B /* AndromedaKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AndromedaKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -265,6 +270,7 @@
 		80B5FEDD18D1359A0035C62B /* AMKGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMKGame.h; path = Source/AMKGame.h; sourceTree = "<group>"; };
 		80B5FEDE18D1359A0035C62B /* AMKGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMKGame.m; path = Source/AMKGame.m; sourceTree = "<group>"; };
 		80B682AE18D8FF7300445BF9 /* L8Framework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = L8Framework.framework; path = Frameworks/L8Framework.framework; sourceTree = "<group>"; };
+		A25A7EC0408F41F5AE04D424 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +281,7 @@
 				80A3C77B18DBD5C0002EEF8C /* AndromedaKit.framework in Frameworks */,
 				80B682B118D908B300445BF9 /* Cocoa.framework in Frameworks */,
 				80B682AF18D8FF7300445BF9 /* L8Framework.framework in Frameworks */,
+				E3573AF530BF4E5CB8FAE6E4 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +366,7 @@
 				8024954018D228E80071F3C4 /* Supporting Files */,
 				80477BCE18D1313100B16692 /* Frameworks */,
 				80477BCD18D1313100B16692 /* Products */,
+				3EE7A173BE1D4DAE83B2C2D8 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -380,6 +388,7 @@
 				80477BCF18D1313100B16692 /* Cocoa.framework */,
 				80477BEE18D1313100B16692 /* XCTest.framework */,
 				80477BD118D1313100B16692 /* Other Frameworks */,
+				A25A7EC0408F41F5AE04D424 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -400,6 +409,7 @@
 				80A3C76C18DA88DA002EEF8C /* Categories */,
 				80477C0C18D1317D00B16692 /* App */,
 				80477C0D18D1318300B16692 /* Resources */,
+				80B3D37B18FECE6400DB0B4C /* UI */,
 				80477C0E18D1318A00B16692 /* Assets */,
 				80477BD618D1313100B16692 /* Supporting Files */,
 			);
@@ -436,13 +446,13 @@
 		80477C0D18D1318300B16692 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				80477BE418D1313100B16692 /* MainMenu.xib */,
+				80B3D37818FECDE800DB0B4C /* JavaScript */,
 				80477C4818D1325C00B16692 /* test_module.js */,
 				80477C4918D1325C00B16692 /* test.js */,
 				8068F4A418FDD56D0082835E /* simple_vertex_shader.vs */,
 				8068F4A618FDD57E0082835E /* simple_fragment_shader.fs */,
 			);
-			name = Resources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		80477C0E18D1318A00B16692 /* Assets */ = {
@@ -565,6 +575,22 @@
 				80B3D37318FEBCE300DB0B4C /* AMDEXTSQLite.m */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		80B3D37818FECDE800DB0B4C /* JavaScript */ = {
+			isa = PBXGroup;
+			children = (
+				80B3D37918FECE3100DB0B4C /* sqlite.js */,
+			);
+			path = JavaScript;
+			sourceTree = "<group>";
+		};
+		80B3D37B18FECE6400DB0B4C /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				80477BE418D1313100B16692 /* MainMenu.xib */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 		80B5FE6618D133AD0035C62B /* AndromedaKit */ = {
@@ -737,10 +763,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 80477BFD18D1313100B16692 /* Build configuration list for PBXNativeTarget "Andromeda" */;
 			buildPhases = (
+				CBEEED84CE8C48EAA94C0819 /* Check Pods Manifest.lock */,
 				80477BC818D1313100B16692 /* Sources */,
 				80477BC918D1313100B16692 /* Frameworks */,
 				80477BCA18D1313100B16692 /* Resources */,
 				80B682B218D90E4A00445BF9 /* Copy Private Frameworks */,
+				7E1DBECE37B94DFF889EE4DA /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -832,6 +860,7 @@
 				80477BE818D1313100B16692 /* Images.xcassets in Resources */,
 				8068F4A518FDD56D0082835E /* simple_vertex_shader.vs in Resources */,
 				8068F4A718FDD57E0082835E /* simple_fragment_shader.fs in Resources */,
+				80B3D37C18FED22D00DB0B4C /* sqlite.js in Resources */,
 				80477BE018D1313100B16692 /* Credits.rtf in Resources */,
 				80B5FE5C18D1332B0035C62B /* test_module.js in Resources */,
 				80B5FE5D18D1332B0035C62B /* test.js in Resources */,
@@ -855,6 +884,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7E1DBECE37B94DFF889EE4DA /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CBEEED84CE8C48EAA94C0819 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		80477BC818D1313100B16692 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -862,6 +924,7 @@
 			files = (
 				80A3C77818DA8FDD002EEF8C /* AMDFileHashing.m in Sources */,
 				80477C2F18D1320900B16692 /* AMDBonjour.m in Sources */,
+				80B3D37A18FECE3100DB0B4C /* sqlite.js in Sources */,
 				80477C3018D1320900B16692 /* AMDByteArray.m in Sources */,
 				80477C3618D1320900B16692 /* AMDFileSystem.m in Sources */,
 				80AAD8E418DE8D4600805E3D /* AMDInputDevice.m in Sources */,
@@ -1052,6 +1115,7 @@
 		};
 		80477BFE18D1313100B16692 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3EE7A173BE1D4DAE83B2C2D8 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1069,6 +1133,7 @@
 				OTHER_LDFLAGS = (
 					"-rpath",
 					"@executable_path/../Frameworks",
+					"$(inherited)",
 				);
 				PRODUCT_NAME = Andromeda;
 				WRAPPER_EXTENSION = app;
@@ -1077,6 +1142,7 @@
 		};
 		80477BFF18D1313100B16692 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3EE7A173BE1D4DAE83B2C2D8 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1094,6 +1160,7 @@
 				OTHER_LDFLAGS = (
 					"-rpath",
 					"@executable_path/../Frameworks",
+					"$(inherited)",
 				);
 				PRODUCT_NAME = Andromeda;
 				WRAPPER_EXTENSION = app;

@@ -43,9 +43,9 @@ GLuint load_shaders(const char *vertex_file_path, const char *fragment_file_path
 }
 
 static const GLfloat g_vertex_buffer_data[] = {
-	-1.0f, -1.0f,
-	1.0f, -1.0f,
-	0.0f, 1.0f
+	-1.0f, -1.0f, 0.0f,
+	1.0f, -1.0f, 0.0f,
+	0.0f, 1.0f, 0.0f
 };
 
 - (void)didCreateContext
@@ -73,7 +73,7 @@ static const GLfloat g_vertex_buffer_data[] = {
 	glEnableVertexAttribArray(vertexPosition_modelspaceID);
 	glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
 	glVertexAttribPointer(vertexPosition_modelspaceID,
-						  2,
+						  3,
 						  GL_FLOAT,
 						  GL_FALSE, // normalized
 						  0,

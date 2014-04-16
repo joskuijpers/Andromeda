@@ -1,33 +1,13 @@
-console.log("Hello World!");
 
 var Game = {};
 
-console.log(System.extensions["sqlite"]);
-
 Game.init = function() {
-	console.log("INIT");
-}
-
-Game.exit = function() {
-	console.log("EXIT");
+	console.log();
 }
 
 Game.loop = function() {
 //	console.log("[MS] "+Input.Mouse.x+","+Input.Mouse.y);
 }
-
-
-/** TEST 1: OO code */
-/*
-var red = new Color(255, 0, 0);
-var blue = new Color(0, 0, 255);
-
-Screen.drawRect(0, 0, Screen.width, Screen.height, red);
-Screen.drawRect(20, 20, Screen.width-40, Screen.height-40, blue);
-
-Screen.flip();
-*/
-
 
 /*
 var bonj1 = new Network.Bonjour();

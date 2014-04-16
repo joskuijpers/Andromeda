@@ -27,3 +27,7 @@ Build/
 # Documentation
 **/docs/
 **/Docs/
+
+# Pods
+Pods/
+Podfile.lock

@@ -70,7 +70,9 @@ L8_EXPORT_AS(createTable,
  *
  * @return Array of dictionaries as result, or null on failure.
  */
-- (NSArray *)_performQuery:(NSString *)query;
+L8_EXPORT_AS(_performQuery,
+- (NSArray *)_performQuery:(NSString *)query withArguments:(NSArray *)arguments
+);
 
 /**
  * Get the insertion id of the last INSERT query.
@@ -94,7 +96,7 @@ L8_EXPORT_AS(createTable,
  *
  * @return The error string or null if no error.
  */
-- (NSString *)_getError;
+- (NSString *)_getLastError;
 
 @end
 
@@ -113,9 +115,9 @@ L8_EXPORT_AS(createTable,
 /**
  * Truncates the table.
  *
- * @return Number of rows trashed or -1 on failure.
+ * @return YES on success, NO otherwise.
  */
-- (NSNumber *)truncate;
+- (bool)truncate;
 
 /**
  * Drops the table.
@@ -125,7 +127,7 @@ L8_EXPORT_AS(createTable,
  *
  * @return YES on success, NO otherwise.
  */
-- (BOOL)drop;
+- (bool)drop;
 
 @end
 

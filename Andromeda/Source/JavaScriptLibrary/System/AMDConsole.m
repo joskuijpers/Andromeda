@@ -33,15 +33,19 @@
 	NSArray *arguments;
 
 	arguments = [L8Context currentArguments];
+	if([arguments count] == 0)
+		return;
 
 	// If the string does not contain any formatting elements,
 	// assume the function just received a variable number of objects to log
-	if([string rangeOfString:@"%"].location == NSNotFound) {
+	if([(L8Value *)arguments[0] isString]
+	   && [[arguments[0] toString] rangeOfString:@"%"].location != NSNotFound) {
+		NSLog(@"To Implement: printf-like formatting!");
+		fprintf(stdout,"[LOG ] %s\n",[[arguments[0] toString] UTF8String]);
+	} else {
+		// TODO Concat. with spaces instead
 		for(L8Value *arg in arguments)
 			fprintf(stdout,"[LOG ] %s\n",[[arg toString] UTF8String]);
-	} else {
-		NSLog(@"To Implement: printf-like formatting!");
-		fprintf(stdout,"[LOG ] %s\n",[string UTF8String]);
 	}
 }
 

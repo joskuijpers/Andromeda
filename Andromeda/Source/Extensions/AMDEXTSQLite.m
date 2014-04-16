@@ -25,6 +25,8 @@
 
 #import "AMDEXTSQLite.h"
 
+#import <FMDB/FMDatabase.h>
+
 @implementation AMDEXTSQLite
 
 - (id)init
@@ -40,9 +42,16 @@
 @implementation AMDSQLiteDatabase {
 	NSString *_path;
 	NSMutableDictionary *_tables;
+	FMDatabase *_database;
 }
 
 @synthesize tables=_tables;
+
++ (void)installIntoContext:(L8Context *)context
+{
+	context[@"Database"] = [AMDSQLiteDatabase class];
+	context[@"Database"][@"Table"] = [AMDSQLiteTable class];
+}
 
 - (instancetype)init
 {
@@ -59,40 +68,119 @@
 {
 	self = [super init];
 	if(self) {
+		FMResultSet *rs;
+
 		_path = path;
 		_tables = [NSMutableDictionary dictionary];
+
+		_database = [[FMDatabase alloc] initWithPath:path];
+		if(![_database open]) {
+			_database = nil;
+			return nil;
+		}
+
+		rs = [_database executeQuery:@"SELECT tbl_name FROM sqlite_master WHERE type='table'"];
+		while([rs next]) {
+			NSString *name;
+
+			name = [rs stringForColumn:@"tbl_name"];
+			_tables[name] = [[AMDSQLiteTable alloc] initWithName:name database:self];
+		}
 	}
 	return self;
 }
 
+- (void)dealloc
+{
+	[_database close];
+}
+
 - (NSObject *)queryWithSQL:(NSString *)sql
 {
-	return nil;
+	FMResultSet *resultSet;
+	NSArray *data;
+
+	if(!sql) {
+		L8Value *queryClass, *query;
+
+		queryClass = [L8Context currentContext][@"Database"][@"Query"];
+		query = [queryClass constructWithArguments:@[[L8Context currentThis]]];
+
+		return query;
+	}
+
+	resultSet = [_database executeQuery:sql];
+	data = [self arrayFromResultSet:resultSet];
+	[resultSet close];
+
+	return data;
 }
 
 - (AMDSQLiteTable *)createTableWithName:(NSString *)name layout:(NSDictionary *)layout
 {
+	// Transform layout into SQL query
 	return nil;
 }
 
-- (NSArray *)_performQuery:(NSString *)query
+- (NSArray *)_performQuery:(NSString *)query withArguments:(NSArray *)arguments
 {
-	return nil;
+	// if starts with SELECT
+	if([query hasPrefix:@"SELECT"]) {
+		FMResultSet *resultSet;
+		NSArray *data;
+
+		resultSet = [_database executeQuery:query withArgumentsInArray:arguments];
+		data = [self arrayFromResultSet:resultSet];
+		[resultSet close];
+
+		return data;
+	}
+
+	if(![_database executeUpdate:query withArgumentsInArray:arguments])
+		return nil;
+
+	// TODO some other kind of Success display
+	return (NSArray *)[NSNull null];
 }
 
 - (NSNumber *)_insertId
 {
-	return nil;
+	return @([_database lastInsertRowId]);
 }
 
 - (NSNumber *)_affectedRows
 {
-	return nil;
+	return @([_database changes]);
 }
 
-- (NSString *)_getError
+- (NSString *)_getLastError
 {
-	return nil;
+	if(![_database hadError])
+		return (NSString *)[NSNull null];
+	return [_database lastErrorMessage];
+}
+
+- (NSArray *)arrayFromResultSet:(FMResultSet *)resultSet
+{
+	NSMutableArray *rows;
+
+	if(resultSet == nil)
+		return nil;
+
+	rows = [NSMutableArray array];
+
+	while([resultSet next]) {
+		NSMutableDictionary *row;
+
+		row = [NSMutableDictionary dictionaryWithCapacity:[resultSet columnCount]];
+
+		for(int i = 0; i < [resultSet columnCount]; ++i)
+			row[[resultSet columnNameForIndex:i]] = resultSet[i];
+
+		[rows addObject:row];
+	}
+
+	return rows;
 }
 
 @end
@@ -114,17 +202,37 @@
 
 - (NSNumber *)countAll
 {
-	return nil;
+	NSArray *rs;
+
+	rs = [_database _performQuery:[NSString stringWithFormat:@"SELECT COUNT(*) AS count FROM %@",_name]
+					withArguments:nil];
+
+	return rs[0][@"count"];
 }
 
-- (NSNumber *)truncate
+- (bool)truncate
 {
-	return nil;
+	id rs;
+
+	rs = [_database _performQuery:[NSString stringWithFormat:@"DELETE FROM %@",_name]
+					withArguments:nil];
+
+	return (rs != nil);
 }
 
-- (BOOL)drop
+- (bool)drop
 {
-	return NO;
+	id rs;
+
+	rs = [_database _performQuery:[NSString stringWithFormat:@"DROP TABLE %@",_name]
+					withArguments:nil];
+
+	if(rs == nil)
+		return NO;
+
+	[((NSMutableDictionary *)_database.tables) removeObjectForKey:_name];
+
+	return YES;
 }
 
 @end
