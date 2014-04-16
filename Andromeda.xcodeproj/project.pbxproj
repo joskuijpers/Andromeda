@@ -30,6 +30,7 @@
 		80477C3F18D1321500B16692 /* AMDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C3E18D1321500B16692 /* AMDAppDelegate.m */; };
 		80477C4518D1321F00B16692 /* AMDResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C4418D1321F00B16692 /* AMDResource.m */; };
 		8049F80818DA49AA00B454F8 /* AMDDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8049F80718DA49AA00B454F8 /* AMDDirectory.m */; };
+		8059FBEB18FF2C9D00FC66D8 /* AMDProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 8059FBEA18FF2C9D00FC66D8 /* AMDProcess.m */; };
 		8068F4A318FD6A2A0082835E /* AMDEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 8068F4A218FD6A2A0082835E /* AMDEngine.m */; };
 		8068F4A518FDD56D0082835E /* simple_vertex_shader.vs in Resources */ = {isa = PBXBuildFile; fileRef = 8068F4A418FDD56D0082835E /* simple_vertex_shader.vs */; };
 		8068F4A718FDD57E0082835E /* simple_fragment_shader.fs in Resources */ = {isa = PBXBuildFile; fileRef = 8068F4A618FDD57E0082835E /* simple_fragment_shader.fs */; };
@@ -49,6 +50,7 @@
 		80B3D37418FEBCE300DB0B4C /* AMDEXTSQLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B3D37318FEBCE300DB0B4C /* AMDEXTSQLite.m */; };
 		80B3D37718FEBD3A00DB0B4C /* AMDSystemExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B3D37618FEBD3A00DB0B4C /* AMDSystemExtension.m */; };
 		80B3D37C18FED22D00DB0B4C /* sqlite.js in Resources */ = {isa = PBXBuildFile; fileRef = 80B3D37918FECE3100DB0B4C /* sqlite.js */; };
+		80B3D37E18FEF33500DB0B4C /* andromeda.js in Resources */ = {isa = PBXBuildFile; fileRef = 80B3D37D18FEF32100DB0B4C /* andromeda.js */; };
 		80B5FE5C18D1332B0035C62B /* test_module.js in Resources */ = {isa = PBXBuildFile; fileRef = 80477C4818D1325C00B16692 /* test_module.js */; };
 		80B5FE5D18D1332B0035C62B /* test.js in Resources */ = {isa = PBXBuildFile; fileRef = 80477C4918D1325C00B16692 /* test.js */; };
 		80B5FE5E18D133380035C62B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80477BE418D1313100B16692 /* MainMenu.xib */; };
@@ -188,6 +190,8 @@
 		80477C4918D1325C00B16692 /* test.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = test.js; sourceTree = "<group>"; };
 		8049F80618DA49AA00B454F8 /* AMDDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDDirectory.h; sourceTree = "<group>"; };
 		8049F80718DA49AA00B454F8 /* AMDDirectory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDDirectory.m; sourceTree = "<group>"; };
+		8059FBE918FF2C9D00FC66D8 /* AMDProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDProcess.h; sourceTree = "<group>"; };
+		8059FBEA18FF2C9D00FC66D8 /* AMDProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDProcess.m; sourceTree = "<group>"; };
 		8068F4A118FD6A2A0082835E /* AMDEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDEngine.h; sourceTree = "<group>"; };
 		8068F4A218FD6A2A0082835E /* AMDEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDEngine.m; sourceTree = "<group>"; };
 		8068F4A418FDD56D0082835E /* simple_vertex_shader.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = simple_vertex_shader.vs; sourceTree = "<group>"; };
@@ -222,6 +226,7 @@
 		80B3D37518FEBD3A00DB0B4C /* AMDSystemExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDSystemExtension.h; sourceTree = "<group>"; };
 		80B3D37618FEBD3A00DB0B4C /* AMDSystemExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDSystemExtension.m; sourceTree = "<group>"; };
 		80B3D37918FECE3100DB0B4C /* sqlite.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = sqlite.js; sourceTree = "<group>"; };
+		80B3D37D18FEF32100DB0B4C /* andromeda.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = andromeda.js; sourceTree = "<group>"; };
 		80B5FE6418D133AD0035C62B /* AndromedaKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AndromedaKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80B5FE6818D133AD0035C62B /* AndromedaKit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AndromedaKit-Info.plist"; sourceTree = "<group>"; };
 		80B5FE7418D133AD0035C62B /* AndromedaKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AndromedaKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -546,6 +551,8 @@
 				80477C1E18D1320800B16692 /* AMDConsole.m */,
 				80B3D37518FEBD3A00DB0B4C /* AMDSystemExtension.h */,
 				80B3D37618FEBD3A00DB0B4C /* AMDSystemExtension.m */,
+				8059FBE918FF2C9D00FC66D8 /* AMDProcess.h */,
+				8059FBEA18FF2C9D00FC66D8 /* AMDProcess.m */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -579,6 +586,7 @@
 		80B3D37818FECDE800DB0B4C /* JavaScript */ = {
 			isa = PBXGroup;
 			children = (
+				80B3D37D18FEF32100DB0B4C /* andromeda.js */,
 				80B3D37918FECE3100DB0B4C /* sqlite.js */,
 			);
 			path = JavaScript;
@@ -862,6 +870,7 @@
 				80B3D37C18FED22D00DB0B4C /* sqlite.js in Resources */,
 				80477BE018D1313100B16692 /* Credits.rtf in Resources */,
 				80B5FE5C18D1332B0035C62B /* test_module.js in Resources */,
+				80B3D37E18FEF33500DB0B4C /* andromeda.js in Resources */,
 				80B5FE5D18D1332B0035C62B /* test.js in Resources */,
 				80B5FE5E18D133380035C62B /* MainMenu.xib in Resources */,
 			);
@@ -939,6 +948,7 @@
 				80477C4518D1321F00B16692 /* AMDResource.m in Sources */,
 				80AAD8CF18DD254300805E3D /* AMDScreen.m in Sources */,
 				80477C3118D1320900B16692 /* AMDColor.m in Sources */,
+				8059FBEB18FF2C9D00FC66D8 /* AMDProcess.m in Sources */,
 				80AAD8CC18DD1B9800805E3D /* AMDGraphicsView.m in Sources */,
 				80477C3718D1320900B16692 /* AMDImage.m in Sources */,
 				8049F80818DA49AA00B454F8 /* AMDDirectory.m in Sources */,

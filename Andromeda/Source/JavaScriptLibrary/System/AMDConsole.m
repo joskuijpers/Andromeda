@@ -43,9 +43,10 @@
 		NSLog(@"To Implement: printf-like formatting!");
 		fprintf(stdout,"[LOG ] %s\n",[[arguments[0] toString] UTF8String]);
 	} else {
-		// TODO Concat. with spaces instead
+		fprintf(stdout,"[LOG ]");
 		for(L8Value *arg in arguments)
-			fprintf(stdout,"[LOG ] %s\n",[[arg toString] UTF8String]);
+			fprintf(stdout," %s",[[arg toString] UTF8String]);
+		fprintf(stdout,"\n");
 	}
 }
 

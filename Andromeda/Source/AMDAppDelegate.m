@@ -30,11 +30,13 @@
 
 #import "AMDJSClass.h"
 #import "AMDConsole.h"
+#import "AMDProcess.h"
 
 void load_bundle_script(L8Context *context, NSString *name);
 
 @implementation AMDAppDelegate {
 	L8Context *_javaScriptContext;
+	AMDProcess *_process;
 	AMDEngine *_engine;
 }
 
@@ -49,10 +51,23 @@ void load_bundle_script(L8Context *context, NSString *name);
 	[_javaScriptContext executeBlockInContext:^(L8Context *context) {
 		context[@"console"] = [[AMDConsole alloc] init];
 		
-		spr_install_js_lib(context);
+//		spr_install_js_lib(context);
 
-		load_bundle_script(context, @"test");
+//		load_bundle_script(context, @"module");
+//		load_bundle_script(context, @"andromeda");
+//		load_bundle_script(context, @"test");
 
+		L8Value *ret;
+		AMDProcess *process;
+
+		process = [[AMDProcess alloc] init];
+		ret = [context evaluateScriptAtPath:[[NSBundle mainBundle] pathForResource:@"andromeda"
+																			ofType:@"js"]];
+		assert([ret isFunction]);
+
+		[ret callWithArguments:@[process]];
+		
+/*
 		if(![context.globalObject hasProperty:@"Game"])
 			NSLog(@"No game found.");
 		else {
@@ -66,6 +81,7 @@ void load_bundle_script(L8Context *context, NSString *name);
 										   userInfo:context
 											repeats:YES];
 		}
+ */
 	}];
 }
 
