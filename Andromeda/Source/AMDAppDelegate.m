@@ -42,6 +42,7 @@ void load_bundle_script(L8Context *context, NSString *name);
 {
 	_engine = [[AMDEngine alloc] init];
 	_graphicsView.engine = _engine;
+	[_engine didCreateContext];
 
 	_javaScriptContext = [[L8Context alloc] init];
 

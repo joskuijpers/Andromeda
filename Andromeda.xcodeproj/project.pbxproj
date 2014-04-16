@@ -31,6 +31,8 @@
 		80477C4518D1321F00B16692 /* AMDResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C4418D1321F00B16692 /* AMDResource.m */; };
 		8049F80818DA49AA00B454F8 /* AMDDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8049F80718DA49AA00B454F8 /* AMDDirectory.m */; };
 		8068F4A318FD6A2A0082835E /* AMDEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 8068F4A218FD6A2A0082835E /* AMDEngine.m */; };
+		8068F4A518FDD56D0082835E /* simple_vertex_shader.vs in Resources */ = {isa = PBXBuildFile; fileRef = 8068F4A418FDD56D0082835E /* simple_vertex_shader.vs */; };
+		8068F4A718FDD57E0082835E /* simple_fragment_shader.fs in Resources */ = {isa = PBXBuildFile; fileRef = 8068F4A618FDD57E0082835E /* simple_fragment_shader.fs */; };
 		8086DC9218FC8EEC0084D743 /* AMDGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 8086DC9118FC8EEC0084D743 /* AMDGame.m */; };
 		80A3C76F18DA891B002EEF8C /* NSString+AMDHashing.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A3C76E18DA891B002EEF8C /* NSString+AMDHashing.m */; };
 		80A3C77218DA8925002EEF8C /* NSData+AMDHashing.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A3C77118DA8925002EEF8C /* NSData+AMDHashing.m */; };
@@ -183,6 +185,8 @@
 		8049F80718DA49AA00B454F8 /* AMDDirectory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDDirectory.m; sourceTree = "<group>"; };
 		8068F4A118FD6A2A0082835E /* AMDEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDEngine.h; sourceTree = "<group>"; };
 		8068F4A218FD6A2A0082835E /* AMDEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDEngine.m; sourceTree = "<group>"; };
+		8068F4A418FDD56D0082835E /* simple_vertex_shader.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = simple_vertex_shader.vs; path = Resources/simple_vertex_shader.vs; sourceTree = "<group>"; };
+		8068F4A618FDD57E0082835E /* simple_fragment_shader.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = simple_fragment_shader.fs; path = Resources/simple_fragment_shader.fs; sourceTree = "<group>"; };
 		8086DC9018FC8EEC0084D743 /* AMDGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDGame.h; sourceTree = "<group>"; };
 		8086DC9118FC8EEC0084D743 /* AMDGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDGame.m; sourceTree = "<group>"; };
 		80A3C76D18DA891B002EEF8C /* NSString+AMDHashing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AMDHashing.h"; sourceTree = "<group>"; };
@@ -428,6 +432,8 @@
 				80477BE418D1313100B16692 /* MainMenu.xib */,
 				80477C4818D1325C00B16692 /* test_module.js */,
 				80477C4918D1325C00B16692 /* test.js */,
+				8068F4A418FDD56D0082835E /* simple_vertex_shader.vs */,
+				8068F4A618FDD57E0082835E /* simple_fragment_shader.fs */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -806,6 +812,8 @@
 			files = (
 				80477BDA18D1313100B16692 /* InfoPlist.strings in Resources */,
 				80477BE818D1313100B16692 /* Images.xcassets in Resources */,
+				8068F4A518FDD56D0082835E /* simple_vertex_shader.vs in Resources */,
+				8068F4A718FDD57E0082835E /* simple_fragment_shader.fs in Resources */,
 				80477BE018D1313100B16692 /* Credits.rtf in Resources */,
 				80B5FE5C18D1332B0035C62B /* test_module.js in Resources */,
 				80B5FE5D18D1332B0035C62B /* test.js in Resources */,

@@ -30,5 +30,6 @@
 - (void)setViewportRect:(NSRect)bounds;
 - (void)advanceTimeBy:(float)seconds;
 - (void)render;
+- (void)didCreateContext;
 
 @end
