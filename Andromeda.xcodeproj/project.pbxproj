@@ -48,7 +48,6 @@
 		80AAD8E418DE8D4600805E3D /* AMDInputDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 80AAD8E318DE8D4600805E3D /* AMDInputDevice.m */; };
 		80B3D37418FEBCE300DB0B4C /* AMDEXTSQLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B3D37318FEBCE300DB0B4C /* AMDEXTSQLite.m */; };
 		80B3D37718FEBD3A00DB0B4C /* AMDSystemExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B3D37618FEBD3A00DB0B4C /* AMDSystemExtension.m */; };
-		80B3D37A18FECE3100DB0B4C /* sqlite.js in Sources */ = {isa = PBXBuildFile; fileRef = 80B3D37918FECE3100DB0B4C /* sqlite.js */; };
 		80B3D37C18FED22D00DB0B4C /* sqlite.js in Resources */ = {isa = PBXBuildFile; fileRef = 80B3D37918FECE3100DB0B4C /* sqlite.js */; };
 		80B5FE5C18D1332B0035C62B /* test_module.js in Resources */ = {isa = PBXBuildFile; fileRef = 80477C4818D1325C00B16692 /* test_module.js */; };
 		80B5FE5D18D1332B0035C62B /* test.js in Resources */ = {isa = PBXBuildFile; fileRef = 80477C4918D1325C00B16692 /* test.js */; };
@@ -924,7 +923,6 @@
 			files = (
 				80A3C77818DA8FDD002EEF8C /* AMDFileHashing.m in Sources */,
 				80477C2F18D1320900B16692 /* AMDBonjour.m in Sources */,
-				80B3D37A18FECE3100DB0B4C /* sqlite.js in Sources */,
 				80477C3018D1320900B16692 /* AMDByteArray.m in Sources */,
 				80477C3618D1320900B16692 /* AMDFileSystem.m in Sources */,
 				80AAD8E418DE8D4600805E3D /* AMDInputDevice.m in Sources */,
