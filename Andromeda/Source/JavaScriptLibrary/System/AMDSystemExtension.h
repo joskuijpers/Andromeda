@@ -26,67 +26,41 @@
 #import "AMDJSClass.h"
 
 /**
- * @brief The System class: JavaScript exports.
+ * @brief A runtime extension representation: JavaScript exports.
  */
-@protocol AMDSystem <L8Export>
+@protocol AMDSystemExtension <L8Export>
 
-/**
- * Abort the game engine with a message.
- *
- * @param message The abort message.
- */
-L8_EXPORT_AS(abort,
-+ (void)abortWithMessage:(NSString *)message
-);
+/// Name of the extension.
+@property (readonly) NSString *name;
 
-/**
- * Exit the game engine unconditionally.
- */
-+ (void)exit;
+/// Version of the extension.
+@property (readonly) NSNumber *version;
 
-/**
- * Restart the game.
- */
-+ (void)restart;
+/// Version of the extension in a readable form.
+@property (readonly) NSString *versionString;
 
-/**
- * Resolve a resource with specified query.
- *
- * @param query The query.
- * @!param extension The default file extension.
- * @!param folder The default file folder.
- * @return The path, relative to either / or ~/, or nil if not found.
- */
-L8_EXPORT_AS(resolve,
-+ (NSString *)resolveResourceWithQuery:(NSString *)query
-);
+/// Extension-specific description of functionality.
+@property (readonly) NSDictionary *functionalityDescription;
 
 @end
 
 /**
- * @brief Debugging the system withing JavaScript: JavaScript exports.
+ * @brief A runtime extension representation.
  */
-@protocol AMDSystemDebug <L8Export>
+@interface AMDSystemExtension : NSObject <AMDSystemExtension, AMDJSClass>
 
 /**
- * Run the garbage collector.
+ * Initialize the extension info.
  *
- * @warning This method is blocking, and can take a while (seconds).
+ * @param name Name of the extension.
+ * @param version Version number.
+ * @param versionString Human readable version.
+ * @param description Custom functionality description.
+ * @return self.
  */
-+ (void)garbageCollect;
-
-@end
-
-/**
- * @brief The System class.
- */
-@interface AMDSystem : NSObject <AMDSystem, AMDJSClass>
-
-@end
-
-/**
- * @brief Debugging the system withing JavaScript.
- */
-@interface AMDSystemDebug : NSObject <AMDSystemDebug, AMDJSClass>
+- (instancetype)initWithName:(NSString *)name
+					 version:(NSNumber *)version
+			   versionString:(NSString *)versionString
+				 description:(NSDictionary *)description;
 
 @end

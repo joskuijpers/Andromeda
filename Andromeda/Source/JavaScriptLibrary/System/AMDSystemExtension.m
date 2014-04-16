@@ -20,73 +20,35 @@
  * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
- * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+ * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "AMDJSClass.h"
+#import "AMDSystemExtension.h"
 
-/**
- * @brief The System class: JavaScript exports.
- */
-@protocol AMDSystem <L8Export>
+@implementation AMDSystemExtension
 
-/**
- * Abort the game engine with a message.
- *
- * @param message The abort message.
- */
-L8_EXPORT_AS(abort,
-+ (void)abortWithMessage:(NSString *)message
-);
+@synthesize name=_name, version=_version, versionString=_versionString;
+@synthesize functionalityDescription=_functionalityDescription;
 
-/**
- * Exit the game engine unconditionally.
- */
-+ (void)exit;
+- (instancetype)initWithName:(NSString *)name
+					 version:(NSNumber *)version
+			   versionString:(NSString *)versionString
+				 description:(NSDictionary *)description
+{
+	self = [super init];
+	if(self) {
+		_name = name;
+		_version = version;
+		_versionString = versionString;
+		_functionalityDescription = description;
+	}
+	return self;
+}
 
-/**
- * Restart the game.
- */
-+ (void)restart;
-
-/**
- * Resolve a resource with specified query.
- *
- * @param query The query.
- * @!param extension The default file extension.
- * @!param folder The default file folder.
- * @return The path, relative to either / or ~/, or nil if not found.
- */
-L8_EXPORT_AS(resolve,
-+ (NSString *)resolveResourceWithQuery:(NSString *)query
-);
-
-@end
-
-/**
- * @brief Debugging the system withing JavaScript: JavaScript exports.
- */
-@protocol AMDSystemDebug <L8Export>
-
-/**
- * Run the garbage collector.
- *
- * @warning This method is blocking, and can take a while (seconds).
- */
-+ (void)garbageCollect;
-
-@end
-
-/**
- * @brief The System class.
- */
-@interface AMDSystem : NSObject <AMDSystem, AMDJSClass>
-
-@end
-
-/**
- * @brief Debugging the system withing JavaScript.
- */
-@interface AMDSystemDebug : NSObject <AMDSystemDebug, AMDJSClass>
+- (NSString *)description
+{
+	return [NSString stringWithFormat:@"<AMDSystemExtension>{name: %@, version: %@ (%@), "
+			"functionalityDescription: %@}",_name,_versionString,_version,_functionalityDescription];
+}
 
 @end

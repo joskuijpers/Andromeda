@@ -46,6 +46,8 @@
 		80AAD8DE18DE7C6000805E3D /* AMDGamepad.m in Sources */ = {isa = PBXBuildFile; fileRef = 80AAD8DD18DE7C6000805E3D /* AMDGamepad.m */; };
 		80AAD8E118DE7C6900805E3D /* AMDInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 80AAD8E018DE7C6900805E3D /* AMDInput.m */; };
 		80AAD8E418DE8D4600805E3D /* AMDInputDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 80AAD8E318DE8D4600805E3D /* AMDInputDevice.m */; };
+		80B3D37418FEBCE300DB0B4C /* AMDEXTSQLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B3D37318FEBCE300DB0B4C /* AMDEXTSQLite.m */; };
+		80B3D37718FEBD3A00DB0B4C /* AMDSystemExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B3D37618FEBD3A00DB0B4C /* AMDSystemExtension.m */; };
 		80B5FE5C18D1332B0035C62B /* test_module.js in Resources */ = {isa = PBXBuildFile; fileRef = 80477C4818D1325C00B16692 /* test_module.js */; };
 		80B5FE5D18D1332B0035C62B /* test.js in Resources */ = {isa = PBXBuildFile; fileRef = 80477C4918D1325C00B16692 /* test.js */; };
 		80B5FE5E18D133380035C62B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80477BE418D1313100B16692 /* MainMenu.xib */; };
@@ -212,6 +214,10 @@
 		80AAD8E018DE7C6900805E3D /* AMDInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDInput.m; sourceTree = "<group>"; };
 		80AAD8E218DE8D4600805E3D /* AMDInputDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDInputDevice.h; sourceTree = "<group>"; };
 		80AAD8E318DE8D4600805E3D /* AMDInputDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDInputDevice.m; sourceTree = "<group>"; };
+		80B3D37218FEBCE300DB0B4C /* AMDEXTSQLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDEXTSQLite.h; sourceTree = "<group>"; };
+		80B3D37318FEBCE300DB0B4C /* AMDEXTSQLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDEXTSQLite.m; sourceTree = "<group>"; };
+		80B3D37518FEBD3A00DB0B4C /* AMDSystemExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDSystemExtension.h; sourceTree = "<group>"; };
+		80B3D37618FEBD3A00DB0B4C /* AMDSystemExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDSystemExtension.m; sourceTree = "<group>"; };
 		80B5FE6418D133AD0035C62B /* AndromedaKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AndromedaKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80B5FE6818D133AD0035C62B /* AndromedaKit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AndromedaKit-Info.plist"; sourceTree = "<group>"; };
 		80B5FE7418D133AD0035C62B /* AndromedaKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AndromedaKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -417,6 +423,7 @@
 			isa = PBXGroup;
 			children = (
 				80AAD8C718DD1B4100805E3D /* Engine */,
+				80B3D37018FEBC7700DB0B4C /* Extensions */,
 				80477C0F18D131E100B16692 /* JavaScript Library */,
 				80477C1018D131EA00B16692 /* Utilities */,
 				80477C3D18D1321500B16692 /* AMDAppDelegate.h */,
@@ -528,6 +535,8 @@
 				80AAD8D118DE68A500805E3D /* AMDSystem.m */,
 				80477C1D18D1320800B16692 /* AMDConsole.h */,
 				80477C1E18D1320800B16692 /* AMDConsole.m */,
+				80B3D37518FEBD3A00DB0B4C /* AMDSystemExtension.h */,
+				80B3D37618FEBD3A00DB0B4C /* AMDSystemExtension.m */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -547,6 +556,15 @@
 				80AAD8E318DE8D4600805E3D /* AMDInputDevice.m */,
 			);
 			path = Input;
+			sourceTree = "<group>";
+		};
+		80B3D37018FEBC7700DB0B4C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				80B3D37218FEBCE300DB0B4C /* AMDEXTSQLite.h */,
+				80B3D37318FEBCE300DB0B4C /* AMDEXTSQLite.m */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		80B5FE6618D133AD0035C62B /* AndromedaKit */ = {
@@ -853,6 +871,7 @@
 				80AAD8DB18DE7C5500805E3D /* AMDMouse.m in Sources */,
 				80477C3B18D1320900B16692 /* AMDRawFile.m in Sources */,
 				8086DC9218FC8EEC0084D743 /* AMDGame.m in Sources */,
+				80B3D37718FEBD3A00DB0B4C /* AMDSystemExtension.m in Sources */,
 				800FB74418DF8D3400AEB582 /* AMDCoordinateUtilities.m in Sources */,
 				8068F4A318FD6A2A0082835E /* AMDEngine.m in Sources */,
 				80477C3F18D1321500B16692 /* AMDAppDelegate.m in Sources */,
@@ -872,6 +891,7 @@
 				80477C3418D1320900B16692 /* AMDConsole.m in Sources */,
 				80477C3A18D1320900B16692 /* AMDNetwork.m in Sources */,
 				80477C3818D1320900B16692 /* AMDJSClass.m in Sources */,
+				80B3D37418FEBCE300DB0B4C /* AMDEXTSQLite.m in Sources */,
 				800FB74118DF588900AEB582 /* NSMutableArray+AMDStack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

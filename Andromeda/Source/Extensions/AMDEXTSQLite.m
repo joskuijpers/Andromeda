@@ -23,59 +23,108 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "AMDSystem.h"
-#import "AMDSystemExtension.h"
 #import "AMDEXTSQLite.h"
 
-@implementation AMDSystem
+@implementation AMDEXTSQLite
 
-+ (void)installIntoContext:(L8Context *)context
+- (id)init
 {
-	context[@"System"] = [AMDSystem class];
-	context[@"System"][@"Debug"] = [AMDSystemDebug class];
-	context[@"System"][@"Extension"] = [AMDSystemExtension class];
-
-	context[@"System"][@"version"] = @(10000); // TODO get from some build setting of define.
-	context[@"System"][@"versionString"] = @"Andromeda 1.0.0";
-
-	context[@"System"][@"extensions"] = @{@"sqlite":[[AMDEXTSQLite alloc] init]};
-
-	context[@"require"] = ^(NSString *path) {
-		NSLog(@"require: %@",path);
-	};
-
-	context[@"include"] = ^(NSString *path) {
-		NSLog(@"include: %@",path);
-	};
-}
-
-+ (void)abortWithMessage:(NSString *)message
-{
-
-}
-
-+ (void)exit
-{
-	[[NSApplication sharedApplication] terminate:nil];
-}
-
-+ (void)restart
-{
-
-}
-
-+ (NSString *)resolveResourceWithQuery:(NSString *)query
-{
-	return query;
+	return [super initWithName:@"SQLite"
+					   version:@(1)
+				 versionString:@"0.0.1"
+				   description:@{}];
 }
 
 @end
 
-@implementation AMDSystemDebug
+@implementation AMDSQLiteDatabase {
+	NSString *_path;
+	NSMutableDictionary *_tables;
+}
 
-+ (void)garbageCollect
+@synthesize tables=_tables;
+
+- (instancetype)init
 {
-	[[[L8Context currentContext] virtualMachine] runGarbageCollector];
+	NSArray *arguments;
+
+	arguments = [L8Context currentArguments];
+	if(arguments.count < 1)
+		return nil;
+
+	return [self initWithPath:[arguments[0] toString]];
+}
+
+- (instancetype)initWithPath:(NSString *)path
+{
+	self = [super init];
+	if(self) {
+		_path = path;
+		_tables = [NSMutableDictionary dictionary];
+	}
+	return self;
+}
+
+- (NSObject *)queryWithSQL:(NSString *)sql
+{
+	return nil;
+}
+
+- (AMDSQLiteTable *)createTableWithName:(NSString *)name layout:(NSDictionary *)layout
+{
+	return nil;
+}
+
+- (NSArray *)_performQuery:(NSString *)query
+{
+	return nil;
+}
+
+- (NSNumber *)_insertId
+{
+	return nil;
+}
+
+- (NSNumber *)_affectedRows
+{
+	return nil;
+}
+
+- (NSString *)_getError
+{
+	return nil;
+}
+
+@end
+
+@implementation AMDSQLiteTable {
+	NSString *_name;
+	__weak AMDSQLiteDatabase *_database;
+}
+
+- (instancetype)initWithName:(NSString *)name database:(AMDSQLiteDatabase *)database
+{
+	self = [super init];
+	if(self) {
+		_name = name;
+		_database = database;
+	}
+	return self;
+}
+
+- (NSNumber *)countAll
+{
+	return nil;
+}
+
+- (NSNumber *)truncate
+{
+	return nil;
+}
+
+- (BOOL)drop
+{
+	return NO;
 }
 
 @end
