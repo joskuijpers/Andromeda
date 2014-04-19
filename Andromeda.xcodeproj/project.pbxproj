@@ -22,7 +22,6 @@
 		80477C3418D1320900B16692 /* AMDConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C1E18D1320800B16692 /* AMDConsole.m */; };
 		80477C3518D1320900B16692 /* AMDFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2018D1320800B16692 /* AMDFile.m */; };
 		80477C3618D1320900B16692 /* AMDFileSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2218D1320800B16692 /* AMDFileSystem.m */; };
-		80477C3718D1320900B16692 /* AMDImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2418D1320800B16692 /* AMDImage.m */; };
 		80477C3818D1320900B16692 /* AMDJSClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2618D1320800B16692 /* AMDJSClass.m */; };
 		80477C3A18D1320900B16692 /* AMDNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2A18D1320900B16692 /* AMDNetwork.m */; };
 		80477C3B18D1320900B16692 /* AMDRawFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2C18D1320900B16692 /* AMDRawFile.m */; };
@@ -173,8 +172,6 @@
 		80477C2018D1320800B16692 /* AMDFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDFile.m; sourceTree = "<group>"; };
 		80477C2118D1320800B16692 /* AMDFileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDFileSystem.h; sourceTree = "<group>"; };
 		80477C2218D1320800B16692 /* AMDFileSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDFileSystem.m; sourceTree = "<group>"; };
-		80477C2318D1320800B16692 /* AMDImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDImage.h; sourceTree = "<group>"; };
-		80477C2418D1320800B16692 /* AMDImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDImage.m; sourceTree = "<group>"; };
 		80477C2518D1320800B16692 /* AMDJSClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDJSClass.h; sourceTree = "<group>"; };
 		80477C2618D1320800B16692 /* AMDJSClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDJSClass.m; sourceTree = "<group>"; };
 		80477C2918D1320900B16692 /* AMDNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDNetwork.h; sourceTree = "<group>"; };
@@ -328,8 +325,6 @@
 			children = (
 				80477C1618D1320800B16692 /* AMDColor.h */,
 				80477C1718D1320800B16692 /* AMDColor.m */,
-				80477C2318D1320800B16692 /* AMDImage.h */,
-				80477C2418D1320800B16692 /* AMDImage.m */,
 				80AAD8CD18DD254300805E3D /* AMDScreen.h */,
 				80AAD8CE18DD254300805E3D /* AMDScreen.m */,
 			);
@@ -955,7 +950,6 @@
 				80477C3118D1320900B16692 /* AMDColor.m in Sources */,
 				8059FBEB18FF2C9D00FC66D8 /* AMDProcess.m in Sources */,
 				80AAD8CC18DD1B9800805E3D /* AMDGraphicsView.m in Sources */,
-				80477C3718D1320900B16692 /* AMDImage.m in Sources */,
 				8049F80818DA49AA00B454F8 /* AMDDirectory.m in Sources */,
 				80477C3518D1320900B16692 /* AMDFile.m in Sources */,
 				80AAD8D218DE68A500805E3D /* AMDSystem.m in Sources */,
