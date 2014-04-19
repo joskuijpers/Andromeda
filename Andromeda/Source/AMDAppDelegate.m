@@ -49,61 +49,29 @@ void load_bundle_script(L8Context *context, NSString *name);
 	_javaScriptContext = [[L8Context alloc] init];
 
 	[_javaScriptContext executeBlockInContext:^(L8Context *context) {
-		context[@"console"] = [[AMDConsole alloc] init];
-		
-//		spr_install_js_lib(context);
-
-//		load_bundle_script(context, @"module");
-//		load_bundle_script(context, @"andromeda");
-//		load_bundle_script(context, @"test");
-
 		L8Value *ret;
-		AMDProcess *process;
 
-		process = [[AMDProcess alloc] init];
-		ret = [context evaluateScriptAtPath:[[NSBundle mainBundle] pathForResource:@"andromeda"
-																			ofType:@"js"]];
-		assert([ret isFunction]);
+		context[@"console"] = [[AMDConsole alloc] init];
 
-		[ret callWithArguments:@[process]];
-		
-/*
-		if(![context.globalObject hasProperty:@"Game"])
-			NSLog(@"No game found.");
-		else {
-			L8Value *game = context[@"Game"];
+		_process = [[AMDProcess alloc] init];
+		NSString *path = [[NSBundle mainBundle] pathForResource:@"andromeda"
+														 ofType:@"js"];
 
-			[game invokeMethod:@"init" withArguments:@[]];
+		@try {
+			ret = [context evaluateScript:[NSString stringWithContentsOfFile:path
+																	encoding:NSUTF8StringEncoding
+																	   error:NULL]
+								 withName:[path lastPathComponent]];
+			assert([ret isFunction]);
 
-			[NSTimer scheduledTimerWithTimeInterval:1.0/2.0
-											 target:self
-										   selector:@selector(doLoop:)
-										   userInfo:context
-											repeats:YES];
+			[ret callWithArguments:@[_process]];
+		} @catch(id exc) {
+			fprintf(stderr,"[EXC ] %s\n",[[exc description] UTF8String]);
 		}
- */
-	}];
-}
-
-- (void)doLoop:(NSTimer *)timer
-{
-	L8Context *context = timer.userInfo;
-
-	[context executeBlockInContext:^(L8Context *context) {
-		[context[@"Game"] invokeMethod:@"loop" withArguments:@[]];
 	}];
 }
 
 @end
-
-void load_bundle_script(L8Context *context, NSString *name)
-{
-	@try {
-		[context loadScriptAtPath:[[NSBundle mainBundle] pathForResource:name ofType:@"js"]];
-	} @catch(id ex) {
-		printf("[EXC ] %s\n",[[ex toString] UTF8String]);
-	}
-}
 
 @interface L8Exception (Ext)
 - (NSString *)toString;

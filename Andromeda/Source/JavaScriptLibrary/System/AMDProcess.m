@@ -26,38 +26,69 @@
 #import "AMDProcess.h"
 
 #import <L8Framework/L8.h>
+#include <objc/runtime.h>
 
-@implementation AMDProcess
+@implementation AMDProcess {
+	NSMutableDictionary *_bindingCache;
+	NSDictionary *_bindings;
+}
 
 @synthesize mainModule=_mainModule;
 
-- (L8Value *)runInThisContext:(NSString *)code withOptions:(NSDictionary *)options
+- (instancetype)init
 {
-	L8Context *context;
-	L8Value *result;
-	NSString *filename;
+	self = [super init];
 
-	filename = options[@"filename"];
-	if(filename == nil)
-		filename = @"";
+	_bindingCache = [[NSMutableDictionary alloc] init];
+	_bindings = [self findAllBindings];
 
-	context = [L8Context currentContext];
-	result = [context evaluateScript:code withName:filename];
+	return self;
+}
+
+- (NSDictionary *)findAllBindings
+{
+	Class *classes;
+	unsigned int count;
+	NSMutableDictionary *result;
+
+	result = [NSMutableDictionary dictionary];
+
+	classes = objc_copyClassList(&count);
+	for(unsigned int i = 0; i < count; i++) {
+		if(!class_conformsToProtocol(classes[i], @protocol(AMDBinding)))
+			continue;
+
+		result[[classes[i] bindingName]] = classes[i];
+	}
+
+	free(classes);
 
 	return result;
 }
 
 - (L8Value *)bindingForBuiltin:(NSString *)builtin
 {
+	L8Value *binding;
+
+	binding = _bindingCache[builtin];
+	if(binding != nil)
+		return binding;
+
+	if(_bindings[builtin]) {
+		Class<AMDBinding> bindingClass;
+
+		bindingClass = _bindings[builtin];
+
+		binding = [bindingClass setUpBinding];
+
+		_bindingCache[builtin] = binding;
+
+		return binding;
+	} else
+		[[L8Value valueWithNewErrorFromMessage:[NSString stringWithFormat:@"No such binding '%@'",builtin]
+									 inContext:[L8Context currentContext]] throwValue];
+
 	return nil;
-}
-
-- (NSString *)contentsOfFileAtPath:(NSString *)path
-{
-	NSString *xPath = [[NSBundle mainBundle] pathForResource:[[path lastPathComponent] stringByDeletingPathExtension]
-													  ofType:[path pathExtension]];
-
-	return [NSString stringWithContentsOfFile:xPath encoding:NSUTF8StringEncoding error:NULL];
 }
 
 @end

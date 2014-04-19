@@ -127,4 +127,25 @@
 	return [AMDFileHashing sha256HashOfFileAtPath:path];
 }
 
+////////////////////////////
+
++ (L8Value *)setUpBinding
+{
+	return [L8Value valueWithObject:[AMDFileSystem class]
+						  inContext:[L8Context currentContext]];
+}
+
++ (NSString *)bindingName
+{
+	return @"fs";
+}
+
++ (NSString *)contentsOfFileAtPath:(NSString *)path
+{
+	NSString *xPath = [[NSBundle mainBundle] pathForResource:[[path lastPathComponent] stringByDeletingPathExtension]
+													  ofType:[path pathExtension]];
+
+	return [NSString stringWithContentsOfFile:xPath encoding:NSUTF8StringEncoding error:NULL];
+}
+
 @end

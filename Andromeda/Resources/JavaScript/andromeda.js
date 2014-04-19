@@ -37,6 +37,10 @@
 	// and is not bound to the Process class anymore...
 	//var runInThisContext = process.runInThisContext;
 
+	////////////////////////////////////////
+	/// Modules
+	////////////////////////////////////////
+
 	/// A module class
 	function Module(id, parent) {
 		this.filename = null;
@@ -51,50 +55,63 @@
 		this.loaded = false;
 		this.children = [];
 	}
-	
+
 	Module._cache = {};
 	//Module._pathCache = {};
-	
+
 	/// Loading a module.
 	Module.prototype.require = function(query) {
 		return Module._load(query,this);	
 	};
-	
-	/// Compiles the contents of a module
-	Module.prototype._compile = function(content, filename) {
-		var self = this;
-		
-		function require(path) {
-			return self.require(path);
-		}
-		
-		require.resolve = function(query) {
-			return Module._resolveLookupPaths(query, self);	
-		};
-		
-		var wrapped = Module.wrap(content);
-		var compiled = process.runInThisContext(wrapped, {"filename":filename});
-		var dirname = "TODO"; // path.dirname()
-		
-		// Supply our wrapped require function.
-		var args = [self.exports, require, self, filename, dirname];
-		return compiled.apply(self.exports, args);
+
+	/// Load this module by compiling it.
+	Module.prototype.load = function(filename) {
+		//assert(!this.loaded);
+		this.filename = filename;
+
+		var fs = process.binding("fs");
+		var content = fs.readFile(filename,"utf8");
+		this._compile(content,filename);
+
+		this.loaded = true;
 	};
-	
+
 	/// Wraps a module script to create encapsulation.
 	Module.wrap = function(script) {
 		return Module.wrapper[0] + script + Module.wrapper[1];
 	};
-	
+
 	/// The wrapper-parts.
 	Module.wrapper = [
 		"(function(exports, require, module, __filename, __dirname) { ",
 		"\n});"
 	];
-	
+
 	/// Run the main module.
 	Module.runMain = function(name) {
 		Module._load(name, null, true);
+	};
+
+	/// Compiles the contents of a module
+	Module.prototype._compile = function(content, filename) {
+		var self = this;
+
+		function require(path) {
+			return self.require(path);
+		}
+
+		require.resolve = function(query) {
+			return Module._resolveQuery(query, self);
+		};
+
+		var dirname = "TODO"; // path.dirname()
+		var wrapped = Module.wrap(content);
+		var vm = process.binding("vm");
+		var compiled = vm.runInThisContext(wrapped, {"filename":filename});
+		
+		// Supply our wrapped require function.
+		var args = [self.exports, require, self, filename, dirname];
+		return compiled.apply(self.exports, args);
 	};
 	
 	/// Load a module with given query and parent.
@@ -128,57 +145,18 @@
 	
 	/// Resolve a query to a filename.
 	Module._resolveFilename = function(query, parent) {
-		var resolve = Module._resolveLookupPaths(query, parent);
-		//var id = resolve[0];
-		var possiblePaths = resolve[1];
-		
-		var filename = Module._findPath(query, possiblePaths);
+		var filename = Module._resolveQuery(query, parent);
 		if(!filename)
 			throw new Error("Can't find module '"+query+"'");
 		
 		return filename;
 	};
 	
-	/// Get possible paths for a query.
-	Module._resolveLookupPaths = function(query, parent) {
-		return ["myID",[query+".js"]]; // TODO
-	};
-	
-	/// Find the actual path for a query.
-	Module._findPath = function(query, possiblePaths) {
-			return possiblePaths[0]; // TODO
-	};
-	
-	/// Load this module by compiling it.
-	Module.prototype.load = function(filename) {
-		//assert(!this.loaded);
-		this.filename = filename;
-	
-		
-		var content = process.readFile(filename);
-		this._compile(content,filename);
-		
-		this.loaded = true;
+	/// Resolve the query
+	Module._resolveQuery = function(query, parent) {
+			return query+".js"; // TODO
 	};
 
+	// After loading all code, start!
 	start();
 });
-
-/*
-
-BINDINGS = JS <> C++
- 
-process.binding(class)
-	looks into cache
-		return cache (exports)
-	else if exists
-		create L8Value newObject
-		install(context, newObject)
-		cache
-		return object (exports)
-	else if natives
-		set object to Map of available native modules
-
-*/
-
-

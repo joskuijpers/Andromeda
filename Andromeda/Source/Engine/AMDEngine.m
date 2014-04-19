@@ -59,15 +59,15 @@ static const GLfloat g_vertex_buffer_data[] = {
 	glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(g_vertex_buffer_data), g_vertex_buffer_data, GL_STATIC_DRAW);
 
-	programID = load_shaders("simple_vertex_shader","simple_fragment_shader");
+	//programID = load_shaders("simple_vertex_shader","simple_fragment_shader");
 
-	vertexPosition_modelspaceID = glGetAttribLocation(programID, "vertexPosition_modelspace");
+	//vertexPosition_modelspaceID = glGetAttribLocation(programID, "vertexPosition_modelspace");
 }
 
 - (void)render
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
+/*
 	glUseProgram(programID);
 
 	glEnableVertexAttribArray(vertexPosition_modelspaceID);
@@ -82,6 +82,7 @@ static const GLfloat g_vertex_buffer_data[] = {
 	glDrawArrays(GL_TRIANGLES, 0, 3);
 
 	glDisableVertexAttribArray(vertexPosition_modelspaceID);
+ */
 }
 
 - (void)advanceTimeBy:(float)seconds

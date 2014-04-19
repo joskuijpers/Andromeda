@@ -24,6 +24,7 @@
  */
 
 #import "AMDJSClass.h"
+#import "AMDProcess.h"
 
 @class AMDDirectory;
 
@@ -32,6 +33,14 @@
  * system: JavaScript exports.
  */
 @protocol AMDFileSystem <L8Export>
+
+
+L8_EXPORT_AS(readFile,
++ (NSString *)contentsOfFileAtPath:(NSString *)path
+);
+
+
+//////////////////////////////
 
 /**
  * Get a list of items at specified path.
@@ -124,6 +133,6 @@ L8_EXPORT_AS(sha256,
 /**
  * @brief A class for manipulating the native file system.
  */
-@interface AMDFileSystem : NSObject <AMDFileSystem, AMDJSClass>
+@interface AMDFileSystem : NSObject <AMDFileSystem, AMDBinding>
 
 @end

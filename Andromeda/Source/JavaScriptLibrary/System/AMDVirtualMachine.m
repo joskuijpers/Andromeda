@@ -20,56 +20,40 @@
  * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
- * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+ * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <L8Framework/L8Export.h>
+#import "AMDVirtualMachine.h"
 
-@class L8Value;
+#import <L8Framework/L8.h>
 
-/**
- * @brief Information about the process: JavaScript exports.
- */
-@protocol AMDProcess <L8Export>
+@implementation AMDVirtualMachine
 
-/// The main module. (type Module)
-@property (strong) L8Value *mainModule;
++ (L8Value *)setUpBinding
+{
+	return [L8Value valueWithObject:[AMDVirtualMachine class]
+						  inContext:[L8Context currentContext]];
+}
 
-/**
- * Get a binding for a builtin binding-system.
- *
- * @param builtin Name of the binding.
- * @return The binding object.
- */
-L8_EXPORT_AS(binding,
-- (L8Value *)bindingForBuiltin:(NSString *)builtin
-);
++ (NSString *)bindingName
+{
+	return @"vm";
+}
 
-@end
++ (L8Value *)runInThisContext:(NSString *)code withOptions:(NSDictionary *)options
+{
+	L8Context *context;
+	L8Value *result;
+	NSString *filename;
 
-/**
- * @brief A ObjC/JS binding protocol.
- */
-@protocol AMDBinding <L8Export>
+	filename = options[@"filename"];
+	if(filename == nil)
+		filename = @"";
 
-+ (NSString *)bindingName;
+	context = [L8Context currentContext];
+	result = [context evaluateScript:code withName:filename];
 
-/**
- * Set up the exports for the binding.
- *
- * To expose only a function, use L8Value newObject and setters.
- * To export a class instance, return an L8Value with an instance wrapped.
- * To export a class, return an L8Value with a class wrapped.
- *
- * @return The exports.
- */
-+ (L8Value *)setUpBinding;
-
-@end
-
-/**
- * @brief Information about the process.
- */
-@interface AMDProcess : NSObject <AMDProcess>
+	return result;
+}
 
 @end
