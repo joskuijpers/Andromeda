@@ -17,13 +17,11 @@
 		80477BE018D1313100B16692 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 80477BDE18D1313100B16692 /* Credits.rtf */; };
 		80477BE818D1313100B16692 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80477BE718D1313100B16692 /* Images.xcassets */; };
 		80477C2F18D1320900B16692 /* AMDBonjour.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C1318D1320800B16692 /* AMDBonjour.m */; };
-		80477C3018D1320900B16692 /* AMDByteArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C1518D1320800B16692 /* AMDByteArray.m */; };
 		80477C3118D1320900B16692 /* AMDColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C1718D1320800B16692 /* AMDColor.m */; };
 		80477C3418D1320900B16692 /* AMDConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C1E18D1320800B16692 /* AMDConsole.m */; };
 		80477C3618D1320900B16692 /* AMDFileSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2218D1320800B16692 /* AMDFileSystem.m */; };
 		80477C3818D1320900B16692 /* AMDJSClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2618D1320800B16692 /* AMDJSClass.m */; };
 		80477C3A18D1320900B16692 /* AMDNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2A18D1320900B16692 /* AMDNetwork.m */; };
-		80477C3B18D1320900B16692 /* AMDRawFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2C18D1320900B16692 /* AMDRawFile.m */; };
 		80477C3C18D1320900B16692 /* AMDSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2E18D1320900B16692 /* AMDSocket.m */; };
 		80477C3F18D1321500B16692 /* AMDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C3E18D1321500B16692 /* AMDAppDelegate.m */; };
 		80477C4518D1321F00B16692 /* AMDResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C4418D1321F00B16692 /* AMDResource.m */; };
@@ -166,8 +164,6 @@
 		80477BEE18D1313100B16692 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		80477C1218D1320800B16692 /* AMDBonjour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDBonjour.h; sourceTree = "<group>"; };
 		80477C1318D1320800B16692 /* AMDBonjour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDBonjour.m; sourceTree = "<group>"; };
-		80477C1418D1320800B16692 /* AMDByteArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDByteArray.h; sourceTree = "<group>"; };
-		80477C1518D1320800B16692 /* AMDByteArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDByteArray.m; sourceTree = "<group>"; };
 		80477C1618D1320800B16692 /* AMDColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDColor.h; sourceTree = "<group>"; };
 		80477C1718D1320800B16692 /* AMDColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDColor.m; sourceTree = "<group>"; };
 		80477C1D18D1320800B16692 /* AMDConsole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDConsole.h; sourceTree = "<group>"; };
@@ -178,8 +174,6 @@
 		80477C2618D1320800B16692 /* AMDJSClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDJSClass.m; sourceTree = "<group>"; };
 		80477C2918D1320900B16692 /* AMDNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDNetwork.h; sourceTree = "<group>"; };
 		80477C2A18D1320900B16692 /* AMDNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDNetwork.m; sourceTree = "<group>"; };
-		80477C2B18D1320900B16692 /* AMDRawFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDRawFile.h; sourceTree = "<group>"; };
-		80477C2C18D1320900B16692 /* AMDRawFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDRawFile.m; sourceTree = "<group>"; };
 		80477C2D18D1320900B16692 /* AMDSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDSocket.h; sourceTree = "<group>"; };
 		80477C2E18D1320900B16692 /* AMDSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDSocket.m; sourceTree = "<group>"; };
 		80477C3D18D1321500B16692 /* AMDAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDAppDelegate.h; sourceTree = "<group>"; };
@@ -354,15 +348,6 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		8024965218D3E9DE0071F3C4 /* File System */ = {
-			isa = PBXGroup;
-			children = (
-				80477C2B18D1320900B16692 /* AMDRawFile.h */,
-				80477C2C18D1320900B16692 /* AMDRawFile.m */,
-			);
-			path = "File System";
-			sourceTree = "<group>";
-		};
 		80477BC318D1313100B16692 = {
 			isa = PBXGroup;
 			children = (
@@ -477,9 +462,6 @@
 				80AAD8D518DE7B9F00805E3D /* Input */,
 				8024965118D3E9D30071F3C4 /* Networking */,
 				8024965018D3E9C40071F3C4 /* Graphics */,
-				8024965218D3E9DE0071F3C4 /* File System */,
-				80477C1418D1320800B16692 /* AMDByteArray.h */,
-				80477C1518D1320800B16692 /* AMDByteArray.m */,
 				80AAD8D418DE68B400805E3D /* System */,
 				80AAD8D318DE68AA00805E3D /* Internal */,
 			);
@@ -959,7 +941,6 @@
 			files = (
 				80A3C77818DA8FDD002EEF8C /* AMDFileHashing.m in Sources */,
 				80477C2F18D1320900B16692 /* AMDBonjour.m in Sources */,
-				80477C3018D1320900B16692 /* AMDByteArray.m in Sources */,
 				80477C3618D1320900B16692 /* AMDFileSystem.m in Sources */,
 				80AAD8E418DE8D4600805E3D /* AMDInputDevice.m in Sources */,
 				80477C3C18D1320900B16692 /* AMDSocket.m in Sources */,
@@ -967,7 +948,6 @@
 				80A0A54519033B7700E73AA2 /* AMDEvent.m in Sources */,
 				80AAD8DE18DE7C6000805E3D /* AMDGamepad.m in Sources */,
 				80AAD8DB18DE7C5500805E3D /* AMDMouse.m in Sources */,
-				80477C3B18D1320900B16692 /* AMDRawFile.m in Sources */,
 				8086DC9218FC8EEC0084D743 /* AMDGame.m in Sources */,
 				80B3D37718FEBD3A00DB0B4C /* AMDSystemExtension.m in Sources */,
 				800FB74418DF8D3400AEB582 /* AMDCoordinateUtilities.m in Sources */,
