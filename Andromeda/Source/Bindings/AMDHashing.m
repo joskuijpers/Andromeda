@@ -20,36 +20,60 @@
  * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
- * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+ * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <L8Framework/L8Export.h>
+#import "AMDHashing.h"
+#import "NSString+AMDHashing.h"
+#import "NSData+AMDHashing.h"
+#import "AMDFileHashing.h"
 
-@class L8Value;
+#import <L8Framework/L8.h>
 
-/**
- * @brief Information about the process: JavaScript exports.
- */
-@protocol AMDProcess <L8Export>
+@implementation AMDHashing
 
-/// The main module. (type Module)
-@property (strong) L8Value *mainModule;
++ (L8Value *)setUpBinding
+{
+	return [L8Value valueWithObject:[AMDHashing class]
+						  inContext:[L8Context currentContext]];
+}
 
-/**
- * Get a binding for a builtin binding-system.
- *
- * @param builtin Name of the binding.
- * @return The binding object.
- */
-L8_EXPORT_AS(binding,
-- (L8Value *)bindingForBuiltin:(NSString *)builtin
-);
++ (NSString *)bindingName
+{
+	return @"hashing";
+}
 
-@end
++ (NSString *)dataHashOfData:(L8Value *)data withAlgorithm:(NSString *)algorithm
+{
+	id dataObject;
 
-/**
- * @brief Information about the process.
- */
-@interface AMDProcess : NSObject <AMDProcess>
+	if([data isString])
+		dataObject = [data toString];
+	else
+		@throw @"Not Implemented";
+
+	if([algorithm isEqualToString:@"md5"])
+		return [dataObject md5];
+	if([algorithm isEqualToString:@"sha1"])
+		return [dataObject sha1];
+	if([algorithm isEqualToString:@"sha256"])
+		return [dataObject sha256];
+
+	return nil;
+}
+
++ (NSString *)fileHashOfFileAtPath:(NSString *)path withAlgorithm:(NSString *)algorithm
+{
+	path = [path stringByExpandingTildeInPath];
+
+	if([algorithm isEqualToString:@"md5"])
+		return [AMDFileHashing md5HashOfFileAtPath:path];
+	if([algorithm isEqualToString:@"sha1"])
+		return [AMDFileHashing sha1HashOfFileAtPath:path];
+	if([algorithm isEqualToString:@"sha256"])
+		return [AMDFileHashing sha256HashOfFileAtPath:path];
+
+	return nil;
+}
 
 @end

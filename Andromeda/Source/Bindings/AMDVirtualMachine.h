@@ -23,33 +23,29 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
 
-#import <L8Framework/L8Export.h>
-
-@class L8Value;
+#import "AMDBinding.h"
 
 /**
- * @brief Information about the process: JavaScript exports.
+ * @brief JavaScript virtual machine bindings: JavaScript exports.
  */
-@protocol AMDProcess <L8Export>
-
-/// The main module. (type Module)
-@property (strong) L8Value *mainModule;
+@protocol AMDVirtualMachine <L8Export>
 
 /**
- * Get a binding for a builtin binding-system.
+ * Run a piece of code in the current context.
  *
- * @param builtin Name of the binding.
- * @return The binding object.
+ * @param code The code to run.
+ * @param options Execution options: [filename]
+ * @return The result object after evaluation.
  */
-L8_EXPORT_AS(binding,
-- (L8Value *)bindingForBuiltin:(NSString *)builtin
+L8_EXPORT_AS(runInThisContext,
++ (L8Value *)runInThisContext:(NSString *)code withOptions:(NSDictionary *)options
 );
 
 @end
 
 /**
- * @brief Information about the process.
+ * @brief JavaScript virtual machine bindings.
  */
-@interface AMDProcess : NSObject <AMDProcess>
+@interface AMDVirtualMachine : NSObject <AMDVirtualMachine, AMDBinding>
 
 @end

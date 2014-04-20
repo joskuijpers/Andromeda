@@ -24,6 +24,7 @@
  */
 
 #import "AMDProcess.h"
+#import "AMDBinding.h"
 
 #import <L8Framework/L8.h>
 #include <objc/runtime.h>

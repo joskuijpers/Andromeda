@@ -25,6 +25,9 @@
 
 (function (process) {
 
+	var vmBinding = process.binding("vm");
+	var fsBinding = process.binding("fs");
+
 	/// JavaScript entry point of Andromeda
 	function start() {
 
@@ -47,6 +50,7 @@
 		this.id = id;
 		this.parent = parent;
 		this.exports = {};
+		this._process = process;
 
 		if(parent && parent.children) {
 			parent.children.push(this);
@@ -69,8 +73,7 @@
 		//assert(!this.loaded);
 		this.filename = filename;
 
-		var fs = process.binding("fs");
-		var content = fs.readFile(filename,"utf8");
+		var content = fsBinding.readFile(filename,"utf8");
 		this._compile(content,filename);
 
 		this.loaded = true;
@@ -104,11 +107,9 @@
 			return Module._resolveQuery(query, self);
 		};
 
-		var dirname = "TODO"; // path.dirname()
+		var dirname = "TODO";
 		var wrapped = Module.wrap(content);
-		var vm = process.binding("vm");
-
-		var compiled = vm.runInThisContext(wrapped, {"filename":filename});
+		var compiled = vmBinding.runInThisContext(wrapped, {"filename":filename});
 
 		// Supply our wrapped require function.
 		var args = [self.exports, require, self, filename, dirname];

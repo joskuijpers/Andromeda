@@ -24,20 +24,35 @@
  */
 
 #import "AMDFileSystem.h"
-#import "AMDDirectory.h"
 #import "AMDFile.h"
 #import "AMDRawFile.h"
 #import "AMDFileHashing.h"
 
 @implementation AMDFileSystem
 
-+ (void)installIntoContext:(L8Context *)context
++ (L8Value *)setUpBinding
 {
-	context[@"FileSystem"] = [AMDFileSystem class];
-	context[@"FileSystem"][@"Directory"] = [AMDDirectory class];
-	context[@"FileSystem"][@"RawFile"] = [AMDRawFile class];
-	context[@"FileSystem"][@"File"] = [AMDFile class];
+	return [L8Value valueWithObject:[AMDFileSystem class]
+						  inContext:[L8Context currentContext]];
 }
+
++ (NSString *)bindingName
+{
+	return @"fs";
+}
+
++ (NSStringEncoding)stringEncodingForEncoding:(NSString *)encoding
+{
+	if([encoding isEqualToString:@"utf16"])
+		return NSUTF16StringEncoding;
+	else if([encoding isEqualToString:@"utf16le"])
+		return NSUTF16LittleEndianStringEncoding;
+	else if([encoding isEqualToString:@"utf16be"])
+		return NSUTF16BigEndianStringEncoding;
+	return NSUTF8StringEncoding;
+}
+
+#pragma mark - File System structure operations
 
 + (NSArray *)contentsOfDirectoryAtPath:(NSString *)path
 {
@@ -46,6 +61,7 @@
 	NSArray *contents;
 
 	fileManager = [NSFileManager defaultManager];
+	path = [path stringByExpandingTildeInPath];
 
 	contents = [fileManager contentsOfDirectoryAtPath:path // TODO resolve
 									 error:&error];
@@ -61,6 +77,7 @@
 	NSError *error = NULL;
 
 	fileManager = [NSFileManager defaultManager];
+	path = [path stringByExpandingTildeInPath];
 
 	if(![fileManager createDirectoryAtPath:path // TODO resolve
 		   withIntermediateDirectories:YES
@@ -68,7 +85,8 @@
 								 error:&error])
 		return nil;
 
-	return [[AMDDirectory alloc] initWithPath:path];
+//	return [[AMDDirectory alloc] initWithPath:path];
+	return nil;
 }
 
 + (BOOL)removeItemAtPath:(NSString *)path
@@ -77,6 +95,7 @@
 	NSError *error = NULL;
 
 	fileManager = [NSFileManager defaultManager];
+	path = [path stringByExpandingTildeInPath];
 
 	if(![fileManager removeItemAtPath:path // TODO resolve
 							error:&error])
@@ -91,6 +110,8 @@
 	NSError *error = NULL;
 
 	fileManager = [NSFileManager defaultManager];
+	from = [from stringByExpandingTildeInPath];
+	to = [to stringByExpandingTildeInPath];
 
 	if(![fileManager moveItemAtPath:from // TODO resolve
 							 toPath:to // TODO resolve
@@ -105,57 +126,45 @@
 	NSFileManager *fileManager;
 
 	fileManager = [NSFileManager defaultManager];
+	path = [path stringByExpandingTildeInPath];
 
-	return [fileManager fileExistsAtPath:path]; // TODO resolve
+	return [fileManager fileExistsAtPath:path];
 }
 
-+ (NSString *)md5ForFileAtPath:(NSString *)path
-{
-	// TODO resolve path
-	return [AMDFileHashing md5HashOfFileAtPath:path];
-}
+#pragma mark - File operations
 
-+ (NSString *)sha1ForFileAtPath:(NSString *)path
-{
-	// TODO resolve path
-	return [AMDFileHashing sha1HashOfFileAtPath:path];
-}
-
-+ (NSString *)sha256ForFileAtPath:(NSString *)path
-{
-	// TODO resolve path
-	return [AMDFileHashing sha256HashOfFileAtPath:path];
-}
-
-////////////////////////////
-
-+ (L8Value *)setUpBinding
-{
-	return [L8Value valueWithObject:[AMDFileSystem class]
-						  inContext:[L8Context currentContext]];
-}
-
-+ (NSString *)bindingName
-{
-	return @"fs";
-}
-
-+ (NSString *)contentsOfFileAtPath:(NSString *)path
++ (L8Value *)contentsOfFileAtPath:(NSString *)path withEncoding:(NSString *)encoding
 {
 	NSError *error;
-	NSString *xPath, *data;
+	id data;
 
-	xPath = [[NSBundle mainBundle] pathForResource:[[path lastPathComponent] stringByDeletingPathExtension]
-													  ofType:[path pathExtension]];
+	path = [path stringByExpandingTildeInPath];
+	if(![path hasPrefix:@"/"]) {
+		NSString *ext = [path pathExtension];
+		path = [[path lastPathComponent] stringByDeletingPathExtension];
+		path = [[NSBundle mainBundle] pathForResource:path ofType:ext];
+	}
 
-	data = [NSString stringWithContentsOfFile:xPath
-									 encoding:NSUTF8StringEncoding
+	if([encoding isEqualToString:@"bin"]) {
+		data = [NSData dataWithContentsOfFile:path
+									  options:NSDataReadingUncached
 										error:&error];
+	} else {
+		data = [NSString stringWithContentsOfFile:path
+										 encoding:[self stringEncodingForEncoding:encoding]
+											error:&error];
+	}
 
 	if(error)
-		return (NSString *)[NSNull null];
+		return [L8Value valueWithNullInContext:[L8Context currentContext]];
 
-	return data;
+	return [L8Value valueWithObject:data inContext:[L8Context currentContext]];
+}
+
++ (BOOL)writeToFile:(NSString *)path data:(L8Value *)data withEncoding:(NSString *)encoding
+{
+	// TODO
+	return NO;
 }
 
 @end

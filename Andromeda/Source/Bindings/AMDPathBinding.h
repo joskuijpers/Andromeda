@@ -23,33 +23,23 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
 
-#import <L8Framework/L8Export.h>
-
-@class L8Value;
+#import "AMDBinding.h"
 
 /**
- * @brief Information about the process: JavaScript exports.
+ * @brief Binding for path manipulation: JavaScript exports.
  */
-@protocol AMDProcess <L8Export>
+@protocol AMDPathBinding <L8Export>
 
-/// The main module. (type Module)
-@property (strong) L8Value *mainModule;
-
-/**
- * Get a binding for a builtin binding-system.
- *
- * @param builtin Name of the binding.
- * @return The binding object.
- */
-L8_EXPORT_AS(binding,
-- (L8Value *)bindingForBuiltin:(NSString *)builtin
-);
++ (NSString *)dirname:(NSString *)path;
++ (NSString *)basename:(NSString *)path;
++ (NSString *)extension:(NSString *)path;
++ (NSString *)normalize:(NSString *)path;
 
 @end
 
 /**
- * @brief Information about the process.
+ * @brief Binding for path manipulation.
  */
-@interface AMDProcess : NSObject <AMDProcess>
+@interface AMDPathBinding : NSObject <AMDPathBinding,AMDBinding>
 
 @end

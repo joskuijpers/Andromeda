@@ -20,32 +20,44 @@
  * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
- * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+ * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "AMDProcess.h"
+#import "AMDPathBinding.h"
 
-/**
- * @brief JavaScript virtual machine bindings: JavaScript exports.
- */
-@protocol AMDVirtualMachine <L8Export>
+#import <L8Framework/L8.h>
 
-/**
- * Run a piece of code in the current context.
- *
- * @param code The code to run.
- * @param options Execution options: [filename]
- * @return The result object after evaluation.
- */
-L8_EXPORT_AS(runInThisContext,
-+ (L8Value *)runInThisContext:(NSString *)code withOptions:(NSDictionary *)options
-);
+@implementation AMDPathBinding
 
-@end
++ (L8Value *)setUpBinding
+{
+	return [L8Value valueWithObject:[AMDPathBinding class]
+						  inContext:[L8Context currentContext]];
+}
 
-/**
- * @brief JavaScript virtual machine bindings.
- */
-@interface AMDVirtualMachine : NSObject <AMDVirtualMachine, AMDBinding>
++ (NSString *)bindingName
+{
+	return @"path";
+}
+
++ (NSString *)dirname:(NSString *)path
+{
+	return [path stringByDeletingLastPathComponent];
+}
+
++ (NSString *)basename:(NSString *)path
+{
+	return [path lastPathComponent];
+}
+
++ (NSString *)extension:(NSString *)path
+{
+	return [path pathExtension];
+}
+
++ (NSString *)normalize:(NSString *)path
+{
+	return [path stringByExpandingTildeInPath];
+}
 
 @end

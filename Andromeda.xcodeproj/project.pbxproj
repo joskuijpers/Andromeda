@@ -20,7 +20,6 @@
 		80477C3018D1320900B16692 /* AMDByteArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C1518D1320800B16692 /* AMDByteArray.m */; };
 		80477C3118D1320900B16692 /* AMDColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C1718D1320800B16692 /* AMDColor.m */; };
 		80477C3418D1320900B16692 /* AMDConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C1E18D1320800B16692 /* AMDConsole.m */; };
-		80477C3518D1320900B16692 /* AMDFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2018D1320800B16692 /* AMDFile.m */; };
 		80477C3618D1320900B16692 /* AMDFileSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2218D1320800B16692 /* AMDFileSystem.m */; };
 		80477C3818D1320900B16692 /* AMDJSClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2618D1320800B16692 /* AMDJSClass.m */; };
 		80477C3A18D1320900B16692 /* AMDNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2A18D1320900B16692 /* AMDNetwork.m */; };
@@ -28,7 +27,6 @@
 		80477C3C18D1320900B16692 /* AMDSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2E18D1320900B16692 /* AMDSocket.m */; };
 		80477C3F18D1321500B16692 /* AMDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C3E18D1321500B16692 /* AMDAppDelegate.m */; };
 		80477C4518D1321F00B16692 /* AMDResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C4418D1321F00B16692 /* AMDResource.m */; };
-		8049F80818DA49AA00B454F8 /* AMDDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8049F80718DA49AA00B454F8 /* AMDDirectory.m */; };
 		8059FBEB18FF2C9D00FC66D8 /* AMDProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 8059FBEA18FF2C9D00FC66D8 /* AMDProcess.m */; };
 		8059FBEE18FF4D0400FC66D8 /* AMDVirtualMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = 8059FBED18FF4D0400FC66D8 /* AMDVirtualMachine.m */; };
 		8068F4A318FD6A2A0082835E /* AMDEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 8068F4A218FD6A2A0082835E /* AMDEngine.m */; };
@@ -37,6 +35,10 @@
 		8086DC9218FC8EEC0084D743 /* AMDGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 8086DC9118FC8EEC0084D743 /* AMDGame.m */; };
 		80A0A54519033B7700E73AA2 /* AMDEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A0A54419033B7700E73AA2 /* AMDEvent.m */; };
 		80A0A55D1904517C00E73AA2 /* AMDEventSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A0A55C1904517C00E73AA2 /* AMDEventSender.m */; };
+		80A0A560190458DA00E73AA2 /* fs.js in Resources */ = {isa = PBXBuildFile; fileRef = 80A0A55E190458C400E73AA2 /* fs.js */; };
+		80A0A561190458DA00E73AA2 /* net.js in Resources */ = {isa = PBXBuildFile; fileRef = 80A0A55F190458CD00E73AA2 /* net.js */; };
+		80A0A56419045BA300E73AA2 /* AMDPathBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A0A56319045BA300E73AA2 /* AMDPathBinding.m */; };
+		80A0A56A19045D0C00E73AA2 /* AMDHashing.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A0A56919045D0C00E73AA2 /* AMDHashing.m */; };
 		80A3C76F18DA891B002EEF8C /* NSString+AMDHashing.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A3C76E18DA891B002EEF8C /* NSString+AMDHashing.m */; };
 		80A3C77218DA8925002EEF8C /* NSData+AMDHashing.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A3C77118DA8925002EEF8C /* NSData+AMDHashing.m */; };
 		80A3C77818DA8FDD002EEF8C /* AMDFileHashing.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A3C77718DA8FDD002EEF8C /* AMDFileHashing.m */; };
@@ -170,8 +172,6 @@
 		80477C1718D1320800B16692 /* AMDColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDColor.m; sourceTree = "<group>"; };
 		80477C1D18D1320800B16692 /* AMDConsole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDConsole.h; sourceTree = "<group>"; };
 		80477C1E18D1320800B16692 /* AMDConsole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDConsole.m; sourceTree = "<group>"; };
-		80477C1F18D1320800B16692 /* AMDFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDFile.h; sourceTree = "<group>"; };
-		80477C2018D1320800B16692 /* AMDFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDFile.m; sourceTree = "<group>"; };
 		80477C2118D1320800B16692 /* AMDFileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDFileSystem.h; sourceTree = "<group>"; };
 		80477C2218D1320800B16692 /* AMDFileSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDFileSystem.m; sourceTree = "<group>"; };
 		80477C2518D1320800B16692 /* AMDJSClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDJSClass.h; sourceTree = "<group>"; };
@@ -188,8 +188,6 @@
 		80477C4418D1321F00B16692 /* AMDResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDResource.m; sourceTree = "<group>"; };
 		80477C4818D1325C00B16692 /* test_module.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = test_module.js; sourceTree = "<group>"; };
 		80477C4918D1325C00B16692 /* test.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = test.js; sourceTree = "<group>"; };
-		8049F80618DA49AA00B454F8 /* AMDDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDDirectory.h; sourceTree = "<group>"; };
-		8049F80718DA49AA00B454F8 /* AMDDirectory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDDirectory.m; sourceTree = "<group>"; };
 		8059FBE918FF2C9D00FC66D8 /* AMDProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDProcess.h; sourceTree = "<group>"; };
 		8059FBEA18FF2C9D00FC66D8 /* AMDProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDProcess.m; sourceTree = "<group>"; };
 		8059FBEC18FF4D0400FC66D8 /* AMDVirtualMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDVirtualMachine.h; sourceTree = "<group>"; };
@@ -204,6 +202,13 @@
 		80A0A54419033B7700E73AA2 /* AMDEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDEvent.m; sourceTree = "<group>"; };
 		80A0A55B1904517C00E73AA2 /* AMDEventSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDEventSender.h; sourceTree = "<group>"; };
 		80A0A55C1904517C00E73AA2 /* AMDEventSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDEventSender.m; sourceTree = "<group>"; };
+		80A0A55E190458C400E73AA2 /* fs.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = fs.js; sourceTree = "<group>"; };
+		80A0A55F190458CD00E73AA2 /* net.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = net.js; sourceTree = "<group>"; };
+		80A0A56219045BA300E73AA2 /* AMDPathBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDPathBinding.h; sourceTree = "<group>"; };
+		80A0A56319045BA300E73AA2 /* AMDPathBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDPathBinding.m; sourceTree = "<group>"; };
+		80A0A56519045BBD00E73AA2 /* AMDBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDBinding.h; sourceTree = "<group>"; };
+		80A0A56819045D0C00E73AA2 /* AMDHashing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDHashing.h; sourceTree = "<group>"; };
+		80A0A56919045D0C00E73AA2 /* AMDHashing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDHashing.m; sourceTree = "<group>"; };
 		80A3C76D18DA891B002EEF8C /* NSString+AMDHashing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AMDHashing.h"; sourceTree = "<group>"; };
 		80A3C76E18DA891B002EEF8C /* NSString+AMDHashing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AMDHashing.m"; sourceTree = "<group>"; };
 		80A3C77018DA8925002EEF8C /* NSData+AMDHashing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AMDHashing.h"; sourceTree = "<group>"; };
@@ -353,14 +358,8 @@
 		8024965218D3E9DE0071F3C4 /* File System */ = {
 			isa = PBXGroup;
 			children = (
-				80477C1F18D1320800B16692 /* AMDFile.h */,
-				80477C2018D1320800B16692 /* AMDFile.m */,
-				80477C2118D1320800B16692 /* AMDFileSystem.h */,
-				80477C2218D1320800B16692 /* AMDFileSystem.m */,
 				80477C2B18D1320900B16692 /* AMDRawFile.h */,
 				80477C2C18D1320900B16692 /* AMDRawFile.m */,
-				8049F80618DA49AA00B454F8 /* AMDDirectory.h */,
-				8049F80718DA49AA00B454F8 /* AMDDirectory.m */,
 			);
 			path = "File System";
 			sourceTree = "<group>";
@@ -514,6 +513,15 @@
 		80A0A54219033B1700E73AA2 /* Bindings */ = {
 			isa = PBXGroup;
 			children = (
+				80A0A56519045BBD00E73AA2 /* AMDBinding.h */,
+				80A0A56219045BA300E73AA2 /* AMDPathBinding.h */,
+				80A0A56319045BA300E73AA2 /* AMDPathBinding.m */,
+				8059FBEC18FF4D0400FC66D8 /* AMDVirtualMachine.h */,
+				8059FBED18FF4D0400FC66D8 /* AMDVirtualMachine.m */,
+				80A0A56819045D0C00E73AA2 /* AMDHashing.h */,
+				80A0A56919045D0C00E73AA2 /* AMDHashing.m */,
+				80477C2118D1320800B16692 /* AMDFileSystem.h */,
+				80477C2218D1320800B16692 /* AMDFileSystem.m */,
 			);
 			path = Bindings;
 			sourceTree = "<group>";
@@ -569,8 +577,6 @@
 				80B3D37618FEBD3A00DB0B4C /* AMDSystemExtension.m */,
 				8059FBE918FF2C9D00FC66D8 /* AMDProcess.h */,
 				8059FBEA18FF2C9D00FC66D8 /* AMDProcess.m */,
-				8059FBEC18FF4D0400FC66D8 /* AMDVirtualMachine.h */,
-				8059FBED18FF4D0400FC66D8 /* AMDVirtualMachine.m */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -606,6 +612,8 @@
 			children = (
 				80B3D37D18FEF32100DB0B4C /* andromeda.js */,
 				80B3D37918FECE3100DB0B4C /* sqlite.js */,
+				80A0A55E190458C400E73AA2 /* fs.js */,
+				80A0A55F190458CD00E73AA2 /* net.js */,
 			);
 			path = JavaScript;
 			sourceTree = "<group>";
@@ -889,6 +897,8 @@
 				80477BE018D1313100B16692 /* Credits.rtf in Resources */,
 				80B5FE5C18D1332B0035C62B /* test_module.js in Resources */,
 				80B3D37E18FEF33500DB0B4C /* andromeda.js in Resources */,
+				80A0A560190458DA00E73AA2 /* fs.js in Resources */,
+				80A0A561190458DA00E73AA2 /* net.js in Resources */,
 				80B5FE5D18D1332B0035C62B /* test.js in Resources */,
 				80B5FE5E18D133380035C62B /* MainMenu.xib in Resources */,
 			);
@@ -970,8 +980,6 @@
 				80477C3118D1320900B16692 /* AMDColor.m in Sources */,
 				8059FBEB18FF2C9D00FC66D8 /* AMDProcess.m in Sources */,
 				80AAD8CC18DD1B9800805E3D /* AMDGraphicsView.m in Sources */,
-				8049F80818DA49AA00B454F8 /* AMDDirectory.m in Sources */,
-				80477C3518D1320900B16692 /* AMDFile.m in Sources */,
 				80AAD8D218DE68A500805E3D /* AMDSystem.m in Sources */,
 				80A3C76F18DA891B002EEF8C /* NSString+AMDHashing.m in Sources */,
 				8059FBEE18FF4D0400FC66D8 /* AMDVirtualMachine.m in Sources */,
@@ -979,11 +987,13 @@
 				80477BDC18D1313100B16692 /* main.m in Sources */,
 				80A3C77218DA8925002EEF8C /* NSData+AMDHashing.m in Sources */,
 				800FB73E18DF57A900AEB582 /* NSMutableArray+AMDQueue.m in Sources */,
+				80A0A56A19045D0C00E73AA2 /* AMDHashing.m in Sources */,
 				80477C3418D1320900B16692 /* AMDConsole.m in Sources */,
 				80477C3A18D1320900B16692 /* AMDNetwork.m in Sources */,
 				80477C3818D1320900B16692 /* AMDJSClass.m in Sources */,
 				80B3D37418FEBCE300DB0B4C /* AMDEXTSQLite.m in Sources */,
 				800FB74118DF588900AEB582 /* NSMutableArray+AMDStack.m in Sources */,
+				80A0A56419045BA300E73AA2 /* AMDPathBinding.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -28,28 +28,26 @@
 @class L8Value;
 
 /**
- * @brief Information about the process: JavaScript exports.
+ * @brief A ObjC/JS binding protocol.
  */
-@protocol AMDProcess <L8Export>
-
-/// The main module. (type Module)
-@property (strong) L8Value *mainModule;
+@protocol AMDBinding <L8Export>
 
 /**
- * Get a binding for a builtin binding-system.
+ * Get the name of the binding.
  *
- * @param builtin Name of the binding.
- * @return The binding object.
+ * @return Name of the binding.
  */
-L8_EXPORT_AS(binding,
-- (L8Value *)bindingForBuiltin:(NSString *)builtin
-);
-
-@end
++ (NSString *)bindingName;
 
 /**
- * @brief Information about the process.
+ * Set up the exports for the binding.
+ *
+ * To expose only a function, use L8Value newObject and setters.
+ * To export a class instance, return an L8Value with an instance wrapped.
+ * To export a class, return an L8Value with a class wrapped.
+ *
+ * @return The exports.
  */
-@interface AMDProcess : NSObject <AMDProcess>
++ (L8Value *)setUpBinding;
 
 @end

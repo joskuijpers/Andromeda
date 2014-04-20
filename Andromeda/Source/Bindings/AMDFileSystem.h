@@ -24,23 +24,18 @@
  */
 
 #import "AMDJSClass.h"
-#import "AMDProcess.h"
+#import "AMDBinding.h"
 
-@class AMDDirectory;
+@class AMDDirectory, L8Value;
 
 /**
- * @brief A class for manipulating the native file
- * system: JavaScript exports.
+ * @brief A class for manipulating the native file system: JavaScript exports.
  */
 @protocol AMDFileSystem <L8Export>
 
-
-L8_EXPORT_AS(readFile,
-+ (NSString *)contentsOfFileAtPath:(NSString *)path
-);
-
-
-//////////////////////////////
+/**
+ * @section File System structure operations.
+ */
 
 /**
  * Get a list of items at specified path.
@@ -61,7 +56,7 @@ L8_EXPORT_AS(list,
  * @return An AMDDirectory initialized with the path on
  * success, or nil on failure.
  */
-L8_EXPORT_AS(createDirectory, // TODO find a shorter name or do create() for both files and dirs
+L8_EXPORT_AS(mkdir,
 + (AMDDirectory *)createDirectoryAtPath:(NSString *)path
 );
 
@@ -99,33 +94,30 @@ L8_EXPORT_AS(exists,
 );
 
 /**
- * Get the MD5 hash for a file.
- *
- * @param path The path of the file.
- * @return The MD5 hash of the file, or nil on failure.
+ * @section File operations.
  */
-L8_EXPORT_AS(md5,
-+ (NSString *)md5ForFileAtPath:(NSString *)path
+
+/**
+ * Read a file into memory.
+ *
+ * @param path Path of the file.
+ * @param encoding Encoding of the file. [utf8,utf16,utf16le,utf16be,bin]
+ * @return A binary data object if 'bin', a string otherwise.
+ */
+L8_EXPORT_AS(readFile,
++ (L8Value *)contentsOfFileAtPath:(NSString *)path withEncoding:(NSString *)encoding
 );
 
 /**
- * Get the SHA1 hash for a file.
+ * Write to a file, overwriting the contents.
  *
- * @param path The path of the file.
- * @return The SHA1 hash of the file, or nil on failure.
+ * @param path Path of the file.
+ * @param data Data for the file.
+ * @param encoding Encoding for the file. [utf8,utf16,utf16le,utf16be,bin]
+ * @return YES on success, NO on failure.
  */
-L8_EXPORT_AS(sha1,
-+ (NSString *)sha1ForFileAtPath:(NSString *)path
-);
-
-/**
- * Get the SHA256 hash for a file.
- *
- * @param path The path of the file.
- * @return The SHA256 hash of the file, or nil on failure.
- */
-L8_EXPORT_AS(sha256,
-+ (NSString *)sha256ForFileAtPath:(NSString *)path
+L8_EXPORT_AS(writeFile,
++ (BOOL)writeToFile:(NSString *)path data:(L8Value *)data withEncoding:(NSString *)encoding
 );
 
 @end

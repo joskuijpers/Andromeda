@@ -20,57 +20,29 @@
  * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
- * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
 
-#import "AMDDirectory.h"
-#import "AMDFileSystem.h"
+#import "AMDBinding.h"
 
-@implementation AMDDirectory
+/**
+ * @brief Binding for hash-functions for data and files: JavaScript exports.
+ */
+@protocol AMDHashing <L8Export>
 
-@synthesize path=_path;
+L8_EXPORT_AS(dataHash,
++ (NSString *)dataHashOfData:(L8Value *)data withAlgorithm:(NSString *)algorithm
+);
 
-- (instancetype)init
-{
-	NSArray *arguments = [L8Context currentArguments];
-
-	if(arguments.count < 1)
-		return nil;
-
-	return [self initWithPath:[(L8Value *)arguments[0] toString]];
-}
-
-- (instancetype)initWithPath:(NSString *)path
-{
-	self = [super init];
-	if(self) {
-		_path = [path copy];
-
-		// TODO: use some resource manager to find the correct path
-	}
-	return self;
-}
-
-- (NSArray *)contents
-{
-	return [AMDFileSystem contentsOfDirectoryAtPath:_path];
-}
-
-- (BOOL)renameTo:(NSString *)newName
-{
-	if AMD_LIKELY ([AMDFileSystem renameItemAtPath:_path
-											toPath:newName]) {
-		_path = newName;
-		return YES;
-	}
-
-	return NO;
-}
-
-- (BOOL)remove
-{
-	return [AMDFileSystem removeItemAtPath:_path];
-}
+L8_EXPORT_AS(fileHash,
++ (NSString *)fileHashOfFileAtPath:(NSString *)path withAlgorithm:(NSString *)algorithm
+);
 
 @end
 
+/**
+ * @brief Binding for hash-functions for data and files.
+ */
+@interface AMDHashing : NSObject <AMDHashing,AMDBinding>
+
+@end
