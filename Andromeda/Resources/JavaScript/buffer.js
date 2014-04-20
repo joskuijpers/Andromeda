@@ -20,73 +20,27 @@
  * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
- * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+ * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "AMDJSClass.h"
-
 /**
- * @brief The System class: JavaScript exports.
- */
-@protocol AMDSystem <L8Export>
-
-/**
- * Abort the game engine with a message.
  *
- * @param message The abort message.
- */
-L8_EXPORT_AS(abort,
-+ (void)abortWithMessage:(NSString *)message
-);
-
-/**
- * Exit the game engine unconditionally.
- */
-+ (void)exit;
-
-/**
- * Restart the game.
- */
-+ (void)restart;
-
-/**
- * Resolve a resource with specified query.
+ * Buffer(size)
+ * Buffer(array)
+ * Buffer(str[. encoding])
  *
- * @param query The query.
- * @!param extension The default file extension.
- * @!param folder The default file folder.
- * @return The path, relative to either / or ~/, or nil if not found.
+ * TODO Use TypedArrays for the implementation
+ * TODO Support TypedArrays in L8 (L8TypedArray{NSData *data, ENUM type} 
  */
-L8_EXPORT_AS(resolve,
-+ (NSString *)resolveResourceWithQuery:(NSString *)query
-);
+function Buffer() {
 
-@end
 
-/**
- * @brief Debugging the system withing JavaScript: JavaScript exports.
- */
-@protocol AMDSystemDebug <L8Export>
-
-/**
- * Run the garbage collector.
- *
- * @warning This method is blocking, and can take a while (seconds).
- */
-+ (void)garbageCollect;
-
-@end
-
-/**
- * @brief The System class.
- */
-@interface AMDSystem : NSObject <AMDSystem, AMDJSClass>
-
-@end
-
-/**
- * @brief Debugging the system withing JavaScript.
- */
-@interface AMDSystemDebug : NSObject <AMDSystemDebug, AMDJSClass>
-
-@end
+	this.concat = function(other) {
+		
+	};
+	
+	this.slice = function(start, end) {
+		
+	};
+}
+exports = Buffer;

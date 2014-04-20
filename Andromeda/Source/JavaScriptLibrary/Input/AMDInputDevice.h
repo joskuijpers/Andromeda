@@ -25,12 +25,12 @@
 
 #import <L8Framework/L8.h>
 
-#import "AMDEventSender.h"
+#import "AMDEventEmitter.h"
 
 /**
  * @brief Any input device.
  */
-@interface AMDInputDevice : AMDEventSender
+@interface AMDInputDevice : AMDEventEmitter
 
 /**
  * Install the receiving instance in the context.

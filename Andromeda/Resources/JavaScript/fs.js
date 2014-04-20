@@ -23,9 +23,9 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-var fs = module._process.binding("fs");
-var path = module._process.binding("path");
-var hashing = module._process.binding("hashing");
+var fs = process.binding("fs");
+var path = process.binding("path");
+var hashing = process.binding("hashing");
 
 /**
  * @section File System

@@ -50,7 +50,6 @@
 		this.id = id;
 		this.parent = parent;
 		this.exports = {};
-		this._process = process;
 
 		if(parent && parent.children) {
 			parent.children.push(this);

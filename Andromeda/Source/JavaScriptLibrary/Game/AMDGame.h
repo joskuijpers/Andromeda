@@ -24,7 +24,7 @@
  */
 
 #import "AMDJSClass.h"
-#import "AMDEventSender.h"
+#import "AMDEventEmitter.h"
 
 /**
  * @brief The JavaScript Game object: JavaScript exports.
@@ -45,6 +45,6 @@
 /**
  * @brief The JavaScript Game object.
  */
-@interface AMDGame : AMDEventSender <AMDGame, AMDEventSender, AMDEventReceiver, AMDJSClass>
+@interface AMDGame : AMDEventEmitter <AMDGame, AMDEventSender, AMDEventReceiver, AMDJSClass>
 
 @end

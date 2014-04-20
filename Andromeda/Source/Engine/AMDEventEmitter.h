@@ -30,7 +30,7 @@
 /**
  * @brief A class that sends and receives events.
  */
-@interface AMDEventSender : NSObject
+@interface AMDEventEmitter : NSObject
 
 /**
  * Trigger an event.
@@ -47,6 +47,10 @@
  * @param function The callback function.
  */
 - (void)addEventListener:(NSString *)event function:(L8Value *)function;
+
+- (void)removeEventListener:(NSString *)event function:(L8Value *)function;
+
+- (void)removeAllEventListeners:(NSString *)event;
 
 @end
 

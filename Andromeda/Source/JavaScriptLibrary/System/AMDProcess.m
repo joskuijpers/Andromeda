@@ -34,17 +34,26 @@
 	NSDictionary *_bindings;
 }
 
-@synthesize mainModule=_mainModule;
+@synthesize mainModule=_mainModule, version=_version, versions=_versions;
 
 - (instancetype)init
 {
 	self = [super init];
+	if AMD_LIKELY(self) {
+		_bindingCache = [[NSMutableDictionary alloc] init];
+		_bindings = [self findAllBindings];
 
-	_bindingCache = [[NSMutableDictionary alloc] init];
-	_bindings = [self findAllBindings];
-
+		// _extensions = @{@"sqlite":[[AMDEXTSQLite alloc] init]};
+		_version = @(10000); // TODO get from some build setting
+		_versions = @{@"node" : @"1.0.0",
+					  @"pegasus" : @"0.1",
+					  @"L8Framework" : @"0.1",
+					  @"v8" : @"3.24.40"};
+	}
 	return self;
 }
+
+#pragma mark - Bindings
 
 - (NSDictionary *)findAllBindings
 {
@@ -90,6 +99,41 @@
 									 inContext:[L8Context currentContext]] throwValue];
 
 	return nil;
+}
+
+#pragma mark - Exiting the process
+
+- (void)abortWithMessage:(NSString *)message
+{
+
+}
+
+- (void)exit
+{
+	[[NSApplication sharedApplication] terminate:nil];
+}
+
+- (void)restart
+{
+
+}
+
+#pragma mark - Utilities
+
+- (void)dispatch:(L8Value *)function
+{
+	dispatch_async(dispatch_get_main_queue(), ^{
+		[function.context executeBlockInContext:^(L8Context *context) {
+			[function callWithArguments:@[]];
+		}];
+	});
+}
+
+#pragma mark - Debugging
+
+- (void)garbageCollect
+{
+	[[[L8Context currentContext] virtualMachine] runGarbageCollector];
 }
 
 @end

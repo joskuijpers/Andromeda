@@ -23,12 +23,12 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "AMDEventSender.h"
+#import "AMDEventEmitter.h"
 #import "AMDEvent.h"
 
 #import <L8Framework/L8.h>
 
-@implementation AMDEventSender {
+@implementation AMDEventEmitter {
 	NSMutableDictionary *_eventCallbacks;
 }
 
@@ -44,21 +44,52 @@
 
 - (void)triggerEvent:(NSString *)event withArguments:(NSArray *)arguments
 {
-	L8Value *function;
+	NSArray *listeners;
 
-	function = _eventCallbacks[event];
-	if(function == nil)
+	listeners = _eventCallbacks[event];
+	if AMD_UNLIKELY(listeners == nil)
 		return;
 
-	[AMDEvent enqueueEventWithFunction:function arguments:arguments];
+	for(L8Value *function in listeners)
+		[AMDEvent enqueueEventWithFunction:function arguments:arguments];
 }
 
 - (void)addEventListener:(NSString *)event function:(L8Value *)function
 {
-	if(![function isFunction])
+	NSMutableArray *listeners;
+
+	if AMD_UNLIKELY(![function isFunction])
 		return;
 
-	_eventCallbacks[event] = function;
+	listeners = _eventCallbacks[event];
+	if(listeners == nil) {
+		listeners = [NSMutableArray arrayWithCapacity:1];
+		_eventCallbacks[event] = listeners;
+	}
+
+	[listeners addObject:function];
+}
+
+- (void)removeEventListener:(NSString *)event function:(L8Value *)function
+{
+	NSMutableArray *listeners;
+
+	if AMD_UNLIKELY(![function isFunction])
+		return;
+
+	listeners = _eventCallbacks[event];
+	[listeners removeObject:function];
+}
+
+- (void)removeAllEventListeners:(NSString *)event
+{
+	NSMutableArray *listeners;
+
+	if(event != nil) {
+		listeners = _eventCallbacks[event];
+		[listeners removeAllObjects];
+	} else
+		[_eventCallbacks removeAllObjects];
 }
 
 @end

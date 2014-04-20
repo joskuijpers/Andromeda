@@ -50,22 +50,27 @@ void load_bundle_script(L8Context *context, NSString *name);
 
 	[_javaScriptContext executeBlockInContext:^(L8Context *context) {
 		L8Value *ret;
-
-		context[@"console"] = [[AMDConsole alloc] init];
+		NSString *mainPath;
 
 		_process = [[AMDProcess alloc] init];
-		NSString *path = [[NSBundle mainBundle] pathForResource:@"andromeda"
+
+		// Install the globals
+		context[@"console"] = [[AMDConsole alloc] init];
+		context[@"process"] = _process;
+
+		mainPath = [[NSBundle mainBundle] pathForResource:@"andromeda"
 														 ofType:@"js"];
 
 		@try {
-			ret = [context evaluateScript:[NSString stringWithContentsOfFile:path
+			ret = [context evaluateScript:[NSString stringWithContentsOfFile:mainPath
 																	encoding:NSUTF8StringEncoding
 																	   error:NULL]
-								 withName:[path lastPathComponent]];
+								 withName:[mainPath lastPathComponent]];
 			assert([ret isFunction]);
 
-			spr_install_js_lib(context);
+//			spr_install_js_lib(context);
 
+			// Execute Andromeda
 			[ret callWithArguments:@[_process]];
 		} @catch(id exc) {
 			fprintf(stderr,"[EXC ] %s\n",[[exc description] UTF8String]);
