@@ -20,49 +20,45 @@
  * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
- * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+ * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "AMDInputDevice.h"
+#import "AMDEventSender.h"
+#import "AMDEvent.h"
 
-/// Gamepad axes.
-typedef enum spr_gamepad_axis_e : unsigned int {
-	AMD_GAMEPAD_AXIS_X = 0,
-	AMD_GAMEPAD_AXIS_Y = 1
-} spr_gamepad_axis_t;
+#import <L8Framework/L8.h>
 
-/**
- * @brief Gamepad input device: JavaScript exports.
- */
-@protocol AMDGamepad <L8Export>
+@implementation AMDEventSender {
+	NSMutableDictionary *_eventCallbacks;
+}
 
-/// Get the number of buttons.
-@property (readonly) size_t numberOfButtons;
+- (id)init
+{
+    self = [super init];
+    if AMD_LIKELY(self) {
+		_eventCallbacks = [[NSMutableDictionary alloc] init];
+	}
 
-/// Get the number of axes available.
-@property (readonly) size_t numberOfAxes;
+    return self;
+}
 
-/**
- * Get whether specified button is being pressed.
- *
- * @param button The button.
- * @return YES when the button is pressed, NO otherwise.
- */
-- (BOOL)isButtonPressed:(int)button;
+- (void)triggerEvent:(NSString *)event withArguments:(NSArray *)arguments
+{
+	L8Value *function;
 
-/**
- * Get the current value of specified axis.
- *
- * @param axis The axis.
- * @return A floating point value for the axis.
- */
-- (double)getAxis:(spr_gamepad_axis_t)axis;
+	function = _eventCallbacks[event];
+	if(function == nil)
+		return;
 
-@end
+	[AMDEvent enqueueEventWithFunction:function arguments:arguments];
+}
 
-/**
- * @brief Gamepad input device.
- */
-@interface AMDGamepad : AMDInputDevice <AMDGamepad, AMDEventSender>
+- (void)addEventListener:(NSString *)event function:(L8Value *)function
+{
+	if(![function isFunction])
+		return;
+
+	_eventCallbacks[event] = function;
+}
 
 @end

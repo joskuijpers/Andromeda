@@ -32,9 +32,6 @@
 	NSMutableArray *_queue;
 	spr_keyboard_key_t _keyStatus[256];
 	size_t _numKeysPressed;
-
-	NSMutableDictionary *_eventCallbacks;
-	NSArray *_eventNames;
 }
 
 - (instancetype)init
@@ -43,9 +40,6 @@
     if (self) {
 		NSEventMask mask;
 		NSEvent *(^eventHandler)(NSEvent *);
-
-		_eventCallbacks = [[NSMutableDictionary alloc] init];
-		_eventNames = @[@"keydown",@"keyup"];
 
 		_queue = [[NSMutableArray alloc] init];
 		bzero(_keyStatus, 256);
@@ -275,28 +269,6 @@
 - (NSString *)getKeyString:(spr_keyboard_key_t)key withShift:(BOOL)shift
 {
 	return nil;
-}
-
-- (void)triggerEvent:(NSString *)event withArguments:(NSArray *)arguments
-{
-	L8Value *function;
-
-	function = _eventCallbacks[event];
-	if(function == nil)
-		return;
-
-	[AMDEvent enqueueEventWithFunction:function arguments:arguments];
-}
-
-- (void)addEventListener:(NSString *)event function:(L8Value *)function
-{
-	if(![function isFunction])
-		return;
-
-	if(![_eventNames containsObject:event])
-		return;
-
-	_eventCallbacks[event] = function;
 }
 
 @end

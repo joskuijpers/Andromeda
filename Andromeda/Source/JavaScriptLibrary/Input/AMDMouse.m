@@ -147,6 +147,8 @@
 			else if(deltaX <= -1.0)
 				[_queue enqueue:@(AMD_MOUSE_WHEEL_LEFT)];
 
+			[self triggerEvent:@"scroll" withArguments:@[@(deltaX),@(deltaY)]];
+
 			return event;
 		};
 

@@ -23,46 +23,67 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
 
-#import "AMDInputDevice.h"
+#import <L8Framework/L8Export.h>
 
-/// Gamepad axes.
-typedef enum spr_gamepad_axis_e : unsigned int {
-	AMD_GAMEPAD_AXIS_X = 0,
-	AMD_GAMEPAD_AXIS_Y = 1
-} spr_gamepad_axis_t;
+@class L8Value;
 
 /**
- * @brief Gamepad input device: JavaScript exports.
+ * @brief A class that sends and receives events.
  */
-@protocol AMDGamepad <L8Export>
-
-/// Get the number of buttons.
-@property (readonly) size_t numberOfButtons;
-
-/// Get the number of axes available.
-@property (readonly) size_t numberOfAxes;
+@interface AMDEventSender : NSObject
 
 /**
- * Get whether specified button is being pressed.
+ * Trigger an event.
  *
- * @param button The button.
- * @return YES when the button is pressed, NO otherwise.
+ * @param event The event.
+ * @param arguments The event arguments.
  */
-- (BOOL)isButtonPressed:(int)button;
+- (void)triggerEvent:(NSString *)event withArguments:(NSArray *)arguments;
 
 /**
- * Get the current value of specified axis.
+ * Add an event listener for specified event.
  *
- * @param axis The axis.
- * @return A floating point value for the axis.
+ * @param event The event.
+ * @param function The callback function.
  */
-- (double)getAxis:(spr_gamepad_axis_t)axis;
+- (void)addEventListener:(NSString *)event function:(L8Value *)function;
 
 @end
 
 /**
- * @brief Gamepad input device.
+ * @brief JavaScript exports for classes that send events.
+ *
+ * Provides the on() function for JavaScript to register callbacks.
  */
-@interface AMDGamepad : AMDInputDevice <AMDGamepad, AMDEventSender>
+@protocol AMDEventSender <L8Export>
+
+/**
+ * Add an event listener for an event.
+ *
+ * @param event The event. [keydown,keyup]
+ * @param function The JS function.
+ */
+L8_EXPORT_AS(on,
+- (void)addEventListener:(NSString *)event function:(L8Value *)function
+);
+
+@end
+
+/**
+ * @brief JavaScript exports for classes that accept events.
+ *
+ * Provides the .trigger() function for JavaScript to trigger callbacks.
+ */
+@protocol AMDEventReceiver <L8Export>
+
+/**
+ * Trigger an event.
+ *
+ * @param event The event.
+ * @param arguments The event arguments.
+ */
+L8_EXPORT_AS(trigger,
+- (void)triggerEvent:(NSString *)event withArguments:(NSArray *)arguments
+);
 
 @end

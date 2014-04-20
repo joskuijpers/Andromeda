@@ -25,10 +25,12 @@
 
 #import <L8Framework/L8.h>
 
+#import "AMDEventSender.h"
+
 /**
  * @brief Any input device.
  */
-@interface AMDInputDevice : NSObject
+@interface AMDInputDevice : AMDEventSender
 
 /**
  * Install the receiving instance in the context.

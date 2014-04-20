@@ -101,7 +101,7 @@ L8_EXPORT_AS(setPosition,
 /**
  * @brief Mouse input device.
  */
-@interface AMDMouse : AMDInputDevice <AMDMouse>
+@interface AMDMouse : AMDInputDevice <AMDMouse, AMDEventSender>
 
 /// The mouse wheel input.
 @property (readonly) AMDMouseWheel *wheel;
@@ -111,6 +111,6 @@ L8_EXPORT_AS(setPosition,
 /**
  * @brief Mouse input device, the scroll wheel.
  */
-@interface AMDMouseWheel : AMDInputDevice <AMDMouseWheel>
+@interface AMDMouseWheel : AMDInputDevice <AMDMouseWheel, AMDEventSender>
 
 @end
