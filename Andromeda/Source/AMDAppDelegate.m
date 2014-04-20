@@ -64,6 +64,8 @@ void load_bundle_script(L8Context *context, NSString *name);
 								 withName:[path lastPathComponent]];
 			assert([ret isFunction]);
 
+			spr_install_js_lib(context);
+
 			[ret callWithArguments:@[_process]];
 		} @catch(id exc) {
 			fprintf(stderr,"[EXC ] %s\n",[[exc description] UTF8String]);

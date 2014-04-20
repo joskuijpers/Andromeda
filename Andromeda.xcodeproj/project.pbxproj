@@ -35,6 +35,7 @@
 		8068F4A518FDD56D0082835E /* simple_vertex_shader.vs in Resources */ = {isa = PBXBuildFile; fileRef = 8068F4A418FDD56D0082835E /* simple_vertex_shader.vs */; };
 		8068F4A718FDD57E0082835E /* simple_fragment_shader.fs in Resources */ = {isa = PBXBuildFile; fileRef = 8068F4A618FDD57E0082835E /* simple_fragment_shader.fs */; };
 		8086DC9218FC8EEC0084D743 /* AMDGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 8086DC9118FC8EEC0084D743 /* AMDGame.m */; };
+		80A0A54519033B7700E73AA2 /* AMDEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A0A54419033B7700E73AA2 /* AMDEvent.m */; };
 		80A3C76F18DA891B002EEF8C /* NSString+AMDHashing.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A3C76E18DA891B002EEF8C /* NSString+AMDHashing.m */; };
 		80A3C77218DA8925002EEF8C /* NSData+AMDHashing.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A3C77118DA8925002EEF8C /* NSData+AMDHashing.m */; };
 		80A3C77818DA8FDD002EEF8C /* AMDFileHashing.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A3C77718DA8FDD002EEF8C /* AMDFileHashing.m */; };
@@ -198,6 +199,8 @@
 		8068F4A618FDD57E0082835E /* simple_fragment_shader.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = simple_fragment_shader.fs; sourceTree = "<group>"; };
 		8086DC9018FC8EEC0084D743 /* AMDGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDGame.h; sourceTree = "<group>"; };
 		8086DC9118FC8EEC0084D743 /* AMDGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDGame.m; sourceTree = "<group>"; };
+		80A0A54319033B7700E73AA2 /* AMDEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDEvent.h; sourceTree = "<group>"; };
+		80A0A54419033B7700E73AA2 /* AMDEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDEvent.m; sourceTree = "<group>"; };
 		80A3C76D18DA891B002EEF8C /* NSString+AMDHashing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AMDHashing.h"; sourceTree = "<group>"; };
 		80A3C76E18DA891B002EEF8C /* NSString+AMDHashing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AMDHashing.m"; sourceTree = "<group>"; };
 		80A3C77018DA8925002EEF8C /* NSData+AMDHashing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AMDHashing.h"; sourceTree = "<group>"; };
@@ -437,6 +440,7 @@
 				80AAD8C718DD1B4100805E3D /* Engine */,
 				80B3D37018FEBC7700DB0B4C /* Extensions */,
 				80477C0F18D131E100B16692 /* JavaScript Library */,
+				80A0A54219033B1700E73AA2 /* Bindings */,
 				80477C1018D131EA00B16692 /* Utilities */,
 				80477C3D18D1321500B16692 /* AMDAppDelegate.h */,
 				80477C3E18D1321500B16692 /* AMDAppDelegate.m */,
@@ -504,6 +508,13 @@
 			path = Game;
 			sourceTree = "<group>";
 		};
+		80A0A54219033B1700E73AA2 /* Bindings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Bindings;
+			sourceTree = "<group>";
+		};
 		80A3C76C18DA88DA002EEF8C /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -527,6 +538,8 @@
 				80AAD8CB18DD1B9800805E3D /* AMDGraphicsView.m */,
 				8068F4A118FD6A2A0082835E /* AMDEngine.h */,
 				8068F4A218FD6A2A0082835E /* AMDEngine.m */,
+				80A0A54319033B7700E73AA2 /* AMDEvent.h */,
+				80A0A54419033B7700E73AA2 /* AMDEvent.m */,
 			);
 			path = Engine;
 			sourceTree = "<group>";
@@ -937,6 +950,7 @@
 				80AAD8E418DE8D4600805E3D /* AMDInputDevice.m in Sources */,
 				80477C3C18D1320900B16692 /* AMDSocket.m in Sources */,
 				80AAD8E118DE7C6900805E3D /* AMDInput.m in Sources */,
+				80A0A54519033B7700E73AA2 /* AMDEvent.m in Sources */,
 				80AAD8DE18DE7C6000805E3D /* AMDGamepad.m in Sources */,
 				80AAD8DB18DE7C5500805E3D /* AMDMouse.m in Sources */,
 				80477C3B18D1320900B16692 /* AMDRawFile.m in Sources */,

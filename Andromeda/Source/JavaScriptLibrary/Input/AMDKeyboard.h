@@ -184,6 +184,16 @@ L8_EXPORT_AS(getKeyString,
  */
 - (void)clearQueue;
 
+/**
+ * Add an event listener for an event.
+ *
+ * @param event The event. [keydown,keyup]
+ * @param function The JS function.
+ */
+L8_EXPORT_AS(on,
+- (void)addEventListener:(NSString *)event function:(L8Value *)function
+);
+
 @end
 
 /**

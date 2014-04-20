@@ -25,12 +25,16 @@
 
 #import "AMDKeyboard.h"
 #import "NSMutableArray+AMDQueue.h"
+#import "AMDEvent.h"
 
 @implementation AMDKeyboard {
 	id _monitor;
 	NSMutableArray *_queue;
 	spr_keyboard_key_t _keyStatus[256];
 	size_t _numKeysPressed;
+
+	NSMutableDictionary *_eventCallbacks;
+	NSArray *_eventNames;
 }
 
 - (instancetype)init
@@ -39,6 +43,9 @@
     if (self) {
 		NSEventMask mask;
 		NSEvent *(^eventHandler)(NSEvent *);
+
+		_eventCallbacks = [[NSMutableDictionary alloc] init];
+		_eventNames = @[@"keydown",@"keyup"];
 
 		_queue = [[NSMutableArray alloc] init];
 		bzero(_keyStatus, 256);
@@ -52,10 +59,13 @@
 			keyCode = event.keyCode;
 
 			if AMD_LIKELY(keyCode >= 0 && keyCode < 255) {
-				if(event.type == NSKeyDown)
+				if(event.type == NSKeyDown) {
 					_keyStatus[keyCode + 1] = 1;
-				else
+					[self triggerEvent:@"keydown" withArguments:@[@(keyCode)]];
+				} else {
 					_keyStatus[keyCode + 1] = 0;
+					[self triggerEvent:@"keyup" withArguments:@[@(keyCode)]];
+				}
 			}
 
 			// TODO: add possibly more information, like MOD states.
@@ -265,6 +275,28 @@
 - (NSString *)getKeyString:(spr_keyboard_key_t)key withShift:(BOOL)shift
 {
 	return nil;
+}
+
+- (void)triggerEvent:(NSString *)event withArguments:(NSArray *)arguments
+{
+	L8Value *function;
+
+	function = _eventCallbacks[event];
+	if(function == nil)
+		return;
+
+	[AMDEvent enqueueEventWithFunction:function arguments:arguments];
+}
+
+- (void)addEventListener:(NSString *)event function:(L8Value *)function
+{
+	if(![function isFunction])
+		return;
+
+	if(![_eventNames containsObject:event])
+		return;
+
+	_eventCallbacks[event] = function;
 }
 
 @end
