@@ -31,7 +31,7 @@
 		// Load and execute the main module.
 		Module.runMain("test");
 	}
-	
+
 	/// Run code in the current context.
 	// This breaks L8Framework because This is then changed into the global
 	// and is not bound to the Process class anymore...
@@ -47,11 +47,11 @@
 		this.id = id;
 		this.parent = parent;
 		this.exports = {};
-	
+
 		if(parent && parent.children) {
 			parent.children.push(this);
 		}
-	
+
 		this.loaded = false;
 		this.children = [];
 	}
@@ -96,8 +96,8 @@
 	Module.prototype._compile = function(content, filename) {
 		var self = this;
 
-		function require(path) {
-			return self.require(path);
+		function require(query) {
+			return self.require(query);
 		}
 
 		require.resolve = function(query) {
@@ -107,30 +107,31 @@
 		var dirname = "TODO"; // path.dirname()
 		var wrapped = Module.wrap(content);
 		var vm = process.binding("vm");
+
 		var compiled = vm.runInThisContext(wrapped, {"filename":filename});
-		
+
 		// Supply our wrapped require function.
 		var args = [self.exports, require, self, filename, dirname];
 		return compiled.apply(self.exports, args);
 	};
-	
+
 	/// Load a module with given query and parent.
 	/// Does resolving of paths.
 	Module._load = function(query, parent, isMain) {
 		var filename = Module._resolveFilename(query, parent);
-		
+
 		var module = Module._cache[filename];
 		if(module)
 			return module.exports;
-		
+
 		module = new Module(filename, parent);
 		if(isMain) {
 			process.mainModule = module;
 			module.id = '.'; // WHY?
 		}
-		
+
 		Module._cache[filename] = module;
-		
+
 		var hadException = true;
 		try {
 			module.load(filename);
@@ -139,19 +140,19 @@
 			if(hadException)
 				delete Module._cache[filename];
 		}
-		
+
 		return module.exports;
 	};
-	
+
 	/// Resolve a query to a filename.
 	Module._resolveFilename = function(query, parent) {
 		var filename = Module._resolveQuery(query, parent);
 		if(!filename)
 			throw new Error("Can't find module '"+query+"'");
-		
+
 		return filename;
 	};
-	
+
 	/// Resolve the query
 	Module._resolveQuery = function(query, parent) {
 			return query+".js"; // TODO

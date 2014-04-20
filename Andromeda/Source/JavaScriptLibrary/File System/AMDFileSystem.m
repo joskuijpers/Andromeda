@@ -142,10 +142,20 @@
 
 + (NSString *)contentsOfFileAtPath:(NSString *)path
 {
-	NSString *xPath = [[NSBundle mainBundle] pathForResource:[[path lastPathComponent] stringByDeletingPathExtension]
+	NSError *error;
+	NSString *xPath, *data;
+
+	xPath = [[NSBundle mainBundle] pathForResource:[[path lastPathComponent] stringByDeletingPathExtension]
 													  ofType:[path pathExtension]];
 
-	return [NSString stringWithContentsOfFile:xPath encoding:NSUTF8StringEncoding error:NULL];
+	data = [NSString stringWithContentsOfFile:xPath
+									 encoding:NSUTF8StringEncoding
+										error:&error];
+
+	if(error)
+		return (NSString *)[NSNull null];
+
+	return data;
 }
 
 @end
