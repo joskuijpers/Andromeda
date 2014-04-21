@@ -34,3 +34,7 @@
 #import "L8NativeException.h"
 #import "L8StackTrace.h"
 #import "L8VirtualMachine.h"
+
+#ifdef L8_ENABLE_TYPED_ARRAYS
+# import "L8ArrayBuffer.h"
+#endif

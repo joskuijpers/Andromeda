@@ -57,6 +57,7 @@ void load_bundle_script(L8Context *context, NSString *name);
 		// Install the globals
 		context[@"console"] = [[AMDConsole alloc] init];
 		context[@"process"] = _process;
+		context[@"global"] = context.globalObject;
 
 		mainPath = [[NSBundle mainBundle] pathForResource:@"andromeda"
 														 ofType:@"js"];
@@ -67,8 +68,6 @@ void load_bundle_script(L8Context *context, NSString *name);
 																	   error:NULL]
 								 withName:[mainPath lastPathComponent]];
 			assert([ret isFunction]);
-
-//			spr_install_js_lib(context);
 
 			// Execute Andromeda
 			[ret callWithArguments:@[_process]];

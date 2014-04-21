@@ -32,6 +32,18 @@
  */
 #define L8_TRANSFER_JS_EXCEPTIONS
 
+/**
+ * Enables typed arrays and their encapsulation.
+ */
+#define L8_ENABLE_TYPED_ARRAYS
+
+/**
+ * Enables symbols and their encapsulation.
+ *
+ * Enables an experimental V8 harmony feature.
+ */
+#define L8_ENABLE_SYMBOLS
+
 //#define L8_OBJC_OBJFW
 
 #pragma mark Definitions dependent on configuration

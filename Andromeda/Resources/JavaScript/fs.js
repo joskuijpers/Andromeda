@@ -23,6 +23,8 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+"use strict";
+
 var fs = process.binding("fs");
 var path = process.binding("path");
 var hashing = process.binding("hashing");
@@ -100,66 +102,78 @@ function File(path) {
 	this.path = path;
 	var map = {};
 	var hasBeenWritten = false;
-
 	if(fs.exists(path)) {
 		load(path);
 		this.hasBeenWritten = true;
 	}
-	
+
+	Object.defineProperty(this, "length", {
+		get : function() { return Object.keys(map).length; },
+		enumerable : true
+	});
+
+	/**
+	 * Private Functions
+	 */
+
 	function load() {
 		var data = fs.readFile(this.path);
 		console.log("Found data '"+data+"'");
 		// TODO
 	}
-		
+
 	// Transform the map to a savable string.
 	function _toString() {
 		var data = "";
-	
+
 		for(var key in map)
 			data += key + "=" + map[key] + "\n";
-	
+
 		console.log("data",data);
-	
+
 		return data;
 	}
-		
+
+	/**
+	 * Public Functions
+	 */
+
 	this.save = function() {
 		var data = _toString();
-	
+
 		if(fs.writeFile(this.path,data,"utf8")) {
 			hasBeenWritten = true;
 			return true;
 		}
 		return false;
 	};
-	
+
 	this.md5 = function() {
 		return hashing.dataHash(_toString(),"md5");
 	};
-	
+
 	this.sha1 = function() {
 		return hashing.dataHash(_toString(),"sha1");	
 	};
-	
+
 	this.sha256 = function() {
 		return hashing.dataHash(_toString(),"sha256");
 	};
-	
+
 	this.rename = function(path) {
 		if(!hasBeenWritten) {
 			this.path = path;
 			return;	
 		}
-		
+
 		if(fs.rename(this.path,path)) {
 			this.path = path;
 			return true;
 		}
-		
+
 		return false;
 	};
-	
+
 	this.remove = function() {
 		if(fs.remove(this.path)) {
 			this.path = "";
@@ -168,7 +182,6 @@ function File(path) {
 		}
 		return false;
 	};
-
 }
 exports.File = File;
 

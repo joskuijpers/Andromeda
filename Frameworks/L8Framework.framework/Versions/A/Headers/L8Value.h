@@ -23,7 +23,7 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@class L8Context;
+@class L8Context, L8ArrayBuffer;
 
 /**
  * @brief Wrapper of a JavaScript value.
@@ -143,6 +143,36 @@
  */
 + (instancetype)valueWithUndefinedInContext:(L8Context *)context;
 
+#ifdef L8_ENABLE_SYMBOLS
+/**
+ * Create a new JavaScript Symbol.
+ *
+ * @param The name of the symbol.
+ * @param context The context to create the value in.
+ * @return The new JavaScript symbol.
+ */
++ (instancetype)valueWithSymbol:(NSString *)symbol inContext:(L8Context *)context;
+
+/**
+ * Create a new Symbol.
+ *
+ * @param context The context to create the value in.
+ * @return The new JavaScript Symbol.
+ */
++ (instancetype)valueWithNewSymbolInContext:(L8Context *)context;
+#endif
+
+#ifdef L8_ENABLE_TYPED_ARRAYS
+/**
+ * Create a new JavaScript ArrayBuffer.
+ *
+ * @param length The length of the array buffer.
+ * @param context The context to create the value in.
+ * @return The new JavaScript ArrayBuffer
+ */
++ (instancetype)valueWithArrayBufferOfLength:(size_t)length inContext:(L8Context *)context;
+#endif
+
 /**
  * @page convertingtypes Converting to Objective-C Types
  * When converting between JavaScript values and Objective-C objects a copy is
@@ -159,12 +189,14 @@
  * NSNull            |        null
  * NSString          |       string
  * NSNumber          |   number, boolean
- * NSDictionary      |   Object object
+ * NSDictionary      |    Object object
  * NSArray           |    Array object
  * NSDate            |     Date object
- * NSBlock *         |   Function object *
- * id **             |   Wrapper object **
- * Class ***         | Constructor object ***
+ * NSData            |  ArrayBuffer object
+ * L8Value           |    Symbol object
+ * NSBlock *         |  Function object *
+ * id **             |  Wrapper object **
+ * Class ***         |Constructor object ***
  * </pre>
  *
  * * Instances of NSBlock with supported arguments types will be presented to
@@ -318,6 +350,18 @@
  */
 - (NSDictionary *)toDictionary;
 
+#ifdef L8_ENABLE_TYPED_ARRAYS
+/**
+ * Convert a L8Value to NSData.
+ *
+ * If the value is <code>null</code> or <code>undefined</code> then <code>nil</code> is returned.
+ * If the value is not an ArrayBufer, a JavaScript TypeError will be thrown.
+ *
+ * @return The NSData object containing the ArrayBuffer data.
+ */
+- (L8ArrayBuffer *)toArrayBuffer;
+#endif
+
 /**
  * Access a property of a L8Value.
  *
@@ -451,6 +495,24 @@
  * @return YES if this L8Value represents a native error. NO otherwise.
  */
 - (BOOL)isNativeError;
+
+#ifdef L8_ENABLE_SYMBOLS
+/**
+ * Check if the L8Value is a Symbol.
+ *
+ * @return YES if this L8Value represents a Symbol. NO otherwise.
+ */
+- (BOOL)isSymbol;
+#endif
+
+#ifdef L8_ENABLE_TYPED_ARRAYS
+/**
+ * Check if the L8Value is a ArrayBuffer.
+ *
+ * @return YES if this L8Value represents an ArrayBuffer. NO otherwise.
+ */
+- (BOOL)isArrayBuffer;
+#endif
 
 /**
  * Compare two L8Values using JavaScript's <code>===</code> operator.

@@ -23,6 +23,8 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+"use strict";
+
 (function (process) {
 
 	var vmBinding = process.binding("vm");
@@ -31,14 +33,12 @@
 	/// JavaScript entry point of Andromeda
 	function start() {
 
+		// Load the Buffer class.
+		global.Buffer = Module._load("buffer", null);
+
 		// Load and execute the main module.
 		Module.runMain("test");
 	}
-
-	/// Run code in the current context.
-	// This breaks L8Framework because This is then changed into the global
-	// and is not bound to the Process class anymore...
-	//var runInThisContext = process.runInThisContext;
 
 	////////////////////////////////////////
 	/// Modules

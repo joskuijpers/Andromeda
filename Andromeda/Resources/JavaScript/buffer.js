@@ -23,30 +23,6 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/**
- *
- * Buffer(size)
- * Buffer(array)
- * Buffer(str[. encoding])
- *
- * TODO Use TypedArrays for the implementation
- * TODO Support TypedArrays in L8 (L8TypedArray{NSData *data, ENUM type} 
- */
-function Buffer() {
-
-
-	this.concat = function(other) {
-		
-	};
-	
-	this.slice = function(start, end) {
-		
-	};
-	
-	this.toString = function(encoding) {
-		
-	};
-	
-	this.
+function Buffer(subject, encoding) {
 }
-exports = Buffer;
+module.exports = Buffer;
