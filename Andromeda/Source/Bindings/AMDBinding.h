@@ -30,7 +30,7 @@
 /**
  * @brief A ObjC/JS binding protocol.
  */
-@protocol AMDBinding <L8Export>
+@protocol AMDBinding <NSObject>
 
 /**
  * Get the name of the binding.
