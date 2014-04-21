@@ -24,7 +24,6 @@
  */
 
 #import "AMDSocket.h"
-#import "AMDByteArray.h"
 
 @interface AMDSocket () <NSStreamDelegate>
 @end

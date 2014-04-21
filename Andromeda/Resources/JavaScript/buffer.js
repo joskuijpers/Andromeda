@@ -42,5 +42,11 @@ function Buffer() {
 	this.slice = function(start, end) {
 		
 	};
+	
+	this.toString = function(encoding) {
+		
+	};
+	
+	this.
 }
 exports = Buffer;
