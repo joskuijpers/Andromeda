@@ -49,19 +49,21 @@ exports.Keyboard = Keyboard;
 function Mouse() {
 
 	Object.defineProperties(this, "position", {
-		get : function() { return input.getMousePosition(); },
-		enumerable : true
+		get: function () {
+			return input.getMousePosition();
+		},
+		enumerable: true
 	});
 }
 exports.Mouse = Mouse;
 
 exports.Mouse.Button = {
-	NONE : 0,
-	LEFT : 1,
-	RIGHT : 2,
-	EXTRA1 : 3,
-	EXTRA2 : 4,
-	EXTRA3 : 5
+	NONE: 0,
+	LEFT: 1,
+	RIGHT: 2,
+	EXTRA1: 3,
+	EXTRA2: 4,
+	EXTRA3: 5
 };
 
 //exports.Mouse.Button.NONE = 0;

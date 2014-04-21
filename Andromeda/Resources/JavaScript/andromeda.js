@@ -40,9 +40,9 @@
 		Module.runMain("test");
 	}
 
-	////////////////////////////////////////
-	/// Modules
-	////////////////////////////////////////
+	/**
+	 * @section Modules
+	 */
 
 	/// A module class
 	function Module(id, parent) {
@@ -63,23 +63,23 @@
 	//Module._pathCache = {};
 
 	/// Loading a module.
-	Module.prototype.require = function(query) {
-		return Module._load(query,this);	
+	Module.prototype.require = function (query) {
+		return Module._load(query, this);
 	};
 
 	/// Load this module by compiling it.
-	Module.prototype.load = function(filename) {
+	Module.prototype.load = function (filename) {
 		//assert(!this.loaded);
 		this.filename = filename;
 
-		var content = fsBinding.readFile(filename,"utf8");
-		this._compile(content,filename);
+		var content = fsBinding.readFile(filename, "utf8");
+		this._compile(content, filename);
 
 		this.loaded = true;
 	};
 
 	/// Wraps a module script to create encapsulation.
-	Module.wrap = function(script) {
+	Module.wrap = function (script) {
 		return Module.wrapper[0] + script + Module.wrapper[1];
 	};
 
@@ -90,25 +90,27 @@
 	];
 
 	/// Run the main module.
-	Module.runMain = function(name) {
+	Module.runMain = function (name) {
 		Module._load(name, null, true);
 	};
 
 	/// Compiles the contents of a module
-	Module.prototype._compile = function(content, filename) {
+	Module.prototype._compile = function (content, filename) {
 		var self = this;
 
 		function require(query) {
 			return self.require(query);
 		}
 
-		require.resolve = function(query) {
+		require.resolve = function (query) {
 			return Module._resolveQuery(query, self);
 		};
 
 		var dirname = "TODO";
 		var wrapped = Module.wrap(content);
-		var compiled = vmBinding.runInThisContext(wrapped, {"filename":filename});
+		var compiled = vmBinding.runInThisContext(wrapped, {
+			"filename": filename
+		});
 
 		// Supply our wrapped require function.
 		var args = [self.exports, require, self, filename, dirname];
@@ -117,7 +119,7 @@
 
 	/// Load a module with given query and parent.
 	/// Does resolving of paths.
-	Module._load = function(query, parent, isMain) {
+	Module._load = function (query, parent, isMain) {
 		var filename = Module._resolveFilename(query, parent);
 
 		var module = Module._cache[filename];
@@ -145,17 +147,17 @@
 	};
 
 	/// Resolve a query to a filename.
-	Module._resolveFilename = function(query, parent) {
+	Module._resolveFilename = function (query, parent) {
 		var filename = Module._resolveQuery(query, parent);
 		if(!filename)
-			throw new Error("Can't find module '"+query+"'");
+			throw new Error("Can't find module '" + query + "'");
 
 		return filename;
 	};
 
 	/// Resolve the query
-	Module._resolveQuery = function(query, parent) {
-			return query+".js"; // TODO
+	Module._resolveQuery = function (query, parent) {
+		return query + ".js"; // TODO
 	};
 
 	// After loading all code, start!

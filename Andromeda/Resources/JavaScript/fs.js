@@ -33,38 +33,38 @@ var hashing = process.binding("hashing");
  * @section File System
  */
 
-exports.list = function(path) {
+exports.list = function (path) {
 	return fs.list(path);
 };
 
-exports.createDirectory = function(path) {
+exports.createDirectory = function (path) {
 	if(mkdir(path))
 		return new exports.Directory(path);
 	return false;
 };
 
-exports.remove = function(path) {
+exports.remove = function (path) {
 	return fs.remove(path);
 };
 
-exports.rename = function(path,newPath) {
-	return fs.rename(path,newPath);
+exports.rename = function (path, newPath) {
+	return fs.rename(path, newPath);
 };
 
-exports.exists = function(path) {
+exports.exists = function (path) {
 	return fs.exists(path);
 };
 
-exports.md5 = function(path) {
-	return hashing.fileHash(path,"md5");
+exports.md5 = function (path) {
+	return hashing.fileHash(path, "md5");
 };
 
-exports.sha1 = function(path) {
-	return hashing.fileHash(path,"sha1");
+exports.sha1 = function (path) {
+	return hashing.fileHash(path, "sha1");
 };
 
-exports.sha256 = function(path) {
-	return hashing.fileHash(path,"sha256");
+exports.sha256 = function (path) {
+	return hashing.fileHash(path, "sha256");
 };
 
 /**
@@ -73,22 +73,22 @@ exports.sha256 = function(path) {
 
 function Directory(path) {
 	this.path = path;
-	
+
 	// TODO define property path as readonly
-	
-	this.list = function() {
+
+	this.list = function () {
 		return fs.list(this.path);
 	};
 
-	this.rename = function(path) {
-		if(fs.rename(this.path,path)) {
+	this.rename = function (path) {
+		if(fs.rename(this.path, path)) {
 			this.path = path;
 			return true;
 		}
 		return false;
 	};
 
-	this.remove = function() {
+	this.remove = function () {
 		return fs.remove(this.path);
 	};
 }
@@ -108,8 +108,11 @@ function File(path) {
 	}
 
 	Object.defineProperty(this, "length", {
-		get : function() { return Object.keys(map).length; },
-		enumerable : true
+		get: function () {
+			return Object.keys(map)
+				.length;
+		},
+		enumerable: true
 	});
 
 	/**
@@ -118,7 +121,7 @@ function File(path) {
 
 	function load() {
 		var data = fs.readFile(this.path);
-		console.log("Found data '"+data+"'");
+		console.log("Found data '" + data + "'");
 		// TODO
 	}
 
@@ -129,7 +132,7 @@ function File(path) {
 		for(var key in map)
 			data += key + "=" + map[key] + "\n";
 
-		console.log("data",data);
+		console.log("data", data);
 
 		return data;
 	}
@@ -138,35 +141,35 @@ function File(path) {
 	 * Public Functions
 	 */
 
-	this.save = function() {
+	this.save = function () {
 		var data = _toString();
 
-		if(fs.writeFile(this.path,data,"utf8")) {
+		if(fs.writeFile(this.path, data, "utf8")) {
 			hasBeenWritten = true;
 			return true;
 		}
 		return false;
 	};
 
-	this.md5 = function() {
-		return hashing.dataHash(_toString(),"md5");
+	this.md5 = function () {
+		return hashing.dataHash(_toString(), "md5");
 	};
 
-	this.sha1 = function() {
-		return hashing.dataHash(_toString(),"sha1");	
+	this.sha1 = function () {
+		return hashing.dataHash(_toString(), "sha1");
 	};
 
-	this.sha256 = function() {
-		return hashing.dataHash(_toString(),"sha256");
+	this.sha256 = function () {
+		return hashing.dataHash(_toString(), "sha256");
 	};
 
-	this.rename = function(path) {
+	this.rename = function (path) {
 		if(!hasBeenWritten) {
 			this.path = path;
-			return;	
+			return;
 		}
 
-		if(fs.rename(this.path,path)) {
+		if(fs.rename(this.path, path)) {
 			this.path = path;
 			return true;
 		}
@@ -174,7 +177,7 @@ function File(path) {
 		return false;
 	};
 
-	this.remove = function() {
+	this.remove = function () {
 		if(fs.remove(this.path)) {
 			this.path = "";
 			map = {};

@@ -27,59 +27,59 @@
 
 exports.isArray = Array.isArray;
 
-exports.isBoolean = function(arg) {
+exports.isBoolean = function (arg) {
 	return typeof arg === "boolean";
 };
 
-exports.isNull = function(arg) {
+exports.isNull = function (arg) {
 	return arg === null;
 };
 
-exports.isNullOrUndefined = function(arg) {
+exports.isNullOrUndefined = function (arg) {
 	return arg == null;
 };
 
-exports.isNumber = function(arg) {
+exports.isNumber = function (arg) {
 	return typeof arg === "number";
 };
 
-exports.isString = function(arg) {
+exports.isString = function (arg) {
 	return typeof arg === "string";
 };
 
-exports.isUndefined = function(arg) {
+exports.isUndefined = function (arg) {
 	return arg === void 0;
 };
 
-exports.isRegExp = function(arg) {
+exports.isRegExp = function (arg) {
 	return isObject(arg) && objectToString(arg) === "[object RegExp]";
 };
 
-exports.isObject = function(arg) {
+exports.isObject = function (arg) {
 	return typeof arg === "object" && arg !== null;
 };
 
-exports.isDate = function(arg) {
+exports.isDate = function (arg) {
 	return isObject(arg) && objectToString(arg) === "[object Date]";
 };
 
-exports.isError = function(arg) {
+exports.isError = function (arg) {
 	return isObject(arg) && (objectToString(arg) === "[object Error]" || arg instanceof Error);
 };
 
-exports.isFunction = function(arg) {
+exports.isFunction = function (arg) {
 	return typeof arg === "function";
 };
 
-exports.isBuffer = function(arg) {
+exports.isBuffer = function (arg) {
 	return arg instanceof Buffer;
 };
 
-exports.amd_isSymbol = function(arg) {
+exports.amd_isSymbol = function (arg) {
 	return typeof arg == "symbol";
 };
 
-exports.amd_isArrayBuffer = function(arg) {
+exports.amd_isArrayBuffer = function (arg) {
 	return isObject(arg) && objectToString(arg) === "[object ArrayBuffer]";
 };
 
@@ -89,7 +89,7 @@ exports.amd_isArrayBuffer = function(arg) {
  * @param {Function} constructor - The constructor that will inherit.
  * @param {Function} superConstructor - The constructor that will be inherited from.
  */
-exports.inherits = function(constructor, superConstructor) {
+exports.inherits = function (constructor, superConstructor) {
 	constructor.super_ = superConstructor;
 	constructor.prototype = Object.create(superConstructor.prototype, {
 		constructor: {

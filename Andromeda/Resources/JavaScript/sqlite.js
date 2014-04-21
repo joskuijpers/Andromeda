@@ -23,20 +23,23 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-exports.Query = function(database) {
+exports.Query = function (database) {
 	this.database = database;
 }
 
-exports.Query.prototype.select = function(column) {
+exports.Query.prototype.select = function (column) {
 	return this;
 }
 
-exports.Query.prototype.where = function(object) {
+exports.Query.prototype.where = function (object) {
 	return this;
 }
 
-exports.Query.prototype.get = function(table) {
-	console.log("Get from table "+table+" in database "+this.database);
+exports.Query.prototype.get = function (table) {
+	console.log("Get from table " + table + " in database " + this.database);
 
-	return {"foo":"bar","x":"y"};
+	return {
+		"foo": "bar",
+		"x": "y"
+	};
 }
