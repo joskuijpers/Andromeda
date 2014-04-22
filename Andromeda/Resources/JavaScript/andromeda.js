@@ -37,7 +37,7 @@
 		global.Buffer = Module._load("buffer", null);
 
 		// Load and execute the main module.
-		Module.runMain("test");
+		Module.runMain("main");
 	}
 
 	/**
@@ -105,6 +105,8 @@
 		require.resolve = function (query) {
 			return Module._resolveQuery(query, self);
 		};
+		
+		require.main = process.mainModule;
 
 		var dirname = "TODO";
 		var wrapped = Module.wrap(content);
