@@ -60,11 +60,14 @@ exports.run = function(tests) {
 		
 		try {
 			tests[key].call();
+			console.log("Test Case '"+key+"' passed.");	
 		} catch(e) {
 			++failures;
-			console.log("[FAIL] Test "+total+" failed. "+e.name+": "+e.message);	
+			console.log("Test Case '"+key+"' failed. "+e.name+": "+e.message);
 		}
 	}
+	
+	console.log("Executed "+total+" tests, with "+failures+" failure"+(failures == 1?"":"s")+".");
 };
 
 String.prototype.startsWith = function (searchString, casesensitive) {

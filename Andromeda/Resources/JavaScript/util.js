@@ -25,6 +25,15 @@
 
 "use strict";
 
+// Prevent using an overridden toString()
+function objectToString(object) {
+	return Object.prototype.toString.call(object);
+}
+
+/**
+ * @section Instanceof functions.
+ */
+
 exports.isArray = Array.isArray;
 
 exports.isBoolean = function (arg) {
@@ -55,9 +64,10 @@ exports.isRegExp = function (arg) {
 	return isObject(arg) && objectToString(arg) === "[object RegExp]";
 };
 
-exports.isObject = function (arg) {
+function isObject(arg) {
 	return typeof arg === "object" && arg !== null;
 };
+exports.isObject = isObject;
 
 exports.isDate = function (arg) {
 	return isObject(arg) && objectToString(arg) === "[object Date]";

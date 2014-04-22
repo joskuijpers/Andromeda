@@ -45,10 +45,10 @@ assert.AssertionError = function AssertionError(options) {
 	if(options.message)
 		this.message = options.message
 	else {
-		this.message = JSON.stringify(this.value) + ' '
+		this.message = JSON.stringify(this.actual) + ' '
 			+ this.operator + ' ' + JSON.stringify(this.expected);
 	}
-	Error.captureStackTrace(this, fail);
+	Error.captureStackTrace(this, options.stackStartFunction || fail);
 };
 util.inherits(assert.AssertionError, Error);
 
@@ -57,12 +57,13 @@ util.inherits(assert.AssertionError, Error);
 //    if not provided. All assertion methods provide both the actual and
 //    expected values to the assertion error for display purposes.
 
-function fail(actual, expected, message, operator) {
-	throw new AssertionError({
+function fail(actual, expected, message, operator, stackStartFunction) {
+	throw new assert.AssertionError({
 		actual: actual,
 		expected: expected,
 		message: message,
-		operator: operator
+		operator: operator,
+		stackStartFunction: stackStartFunction
 	});
 }
 
@@ -72,8 +73,8 @@ function fail(actual, expected, message, operator) {
 //    To test strictly for the value true, use assert.strictEqual(guard, true,
 //     message_opt);.
 function ok(guard, message) {
-	if(!value)
-		fail(value, true, message, '==');
+	if(!guard)
+		fail(guard, true, message, '==', assert.ok);
 }
 assert.ok = ok;
 
@@ -81,7 +82,7 @@ assert.ok = ok;
 //     assert.equal(actual, expected, message_opt);
 assert.equal = function (actual, expected, message) {
 	if(actual != expected)
-		fail(value, expected, message, '==');
+		fail(actual, expected, message, '==', assert.equal);
 }
 
 // 6. The non-equality assertion tests for whether two objects are not equal 
@@ -89,21 +90,21 @@ assert.equal = function (actual, expected, message) {
 //     assert.notEqual(actual, expected, message_opt);
 assert.notEqual = function (actual, expected, message) {
 	if(actual == expected)
-		fail(value, expected, message, '!=');
+		fail(actual, expected, message, '!=', assert.notEqual);
 }
 
 // 7. The equivalence assertion tests a deep equality relation.
 //       assert.deepEqual(actual, expected, message_opt);
 assert.deepEqual = function (actual, expected, message) {
 	if(!_deepEqual(actual, expected))
-		fail(actual, expected, message, 'deepEqual');
+		fail(actual, expected, message, 'deepEqual', assert.deepEqual);
 };
 
 // 8. The non-equivalence assertion tests for any deep inequality.
 //     assert.notDeepEqual(actual, expected, message_opt);
 assert.notDeepEqual = function (actual, expected, message) {
 	if(_deepEqual(actual, expected))
-		fail(actual, expected, message, 'notDeepEqual');
+		fail(actual, expected, message, 'notDeepEqual', assert.notDeepEqual);
 };
 
 function _deepEqual(actual, expected) {
@@ -203,31 +204,31 @@ function objEquiv(a, b) {
 //     assert.strictEqual(actual, expected, message_opt);
 assert.strictEqual = function (actual, expected, message) {
 	if(actual !== expected)
-		fail(value, expected, message, '===');
+		fail(actual, expected, message, '===', assert.strictEqual);
 };
 
 // 10. The strict non-equality assertion tests for strict inequality, as determined by !==.
 //      assert.notStrictEqual(actual, expected, message_opt);
 assert.notStrictEqual = function (actual, expected, message) {
 	if(actual === expected)
-		fail(value, expected, message, '!==');	
+		fail(actual, expected, message, '!==', assert.notStrictEqual);
 };
 
 // 11. Expected to throw an error:
 //      assert.throws(block, Error_opt, message_opt);
 assert.throws = function throws(block, error, message) {
-	var caught = undefined;
+	var caught;
 
 	try {
 		block();
 	} catch(e) {
 		caught = e;
 	}
-	
+
 	if(!caught)
-		fail(caught, error, "Missing expected exception "+message);
+		fail(caught, error, "Missing expected exception "+message, assert.throws);
 	
-	if(error && (caught instanceof error || error.call({}, caught) === true))
-		fail(caught, error, "Got unwanted exception "+message);
+	if(error && !(caught instanceof error || error.call({}, caught) === true))
+		throw caught;
 };
 

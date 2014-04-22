@@ -15,7 +15,6 @@ console.log("Hello World!");
 //console.log(Buffer);
 //var buf = new Buffer(10);
 
-
 var assert = require("assert");
 
 function makeBlock(f) {
