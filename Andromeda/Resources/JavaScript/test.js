@@ -31,7 +31,7 @@ var util = require("util");
 //     catalogs their results. The "run" method must return the total number
 //     of failures, suitable for use as a process exit status code. The idiom
 //     for a self-running test module program would be:
-//      if (module === require.main) 
+//      if (module === require.main)
 //        require("test").run(exports);
 
 // 13. run must accept any Object, usually a unit test module's exports.
@@ -39,7 +39,7 @@ var util = require("util");
 //     have names that begin with but are not equal to "test", and other
 //     properties for specific flags. Sub-objects with names that start with
 //     but are not equal to "test" will be run as sub-tests.
-//     
+//
 //     A future version of this specification may add a mechanism for changing
 //     the mode of test functions from fail-fast (where failed assertions throw)
 //     to fail-slow (where failed assertions just log/print) via a logger
@@ -48,26 +48,27 @@ var util = require("util");
 // 14. Test names may be any String that begins with "test", not necessarily
 //     respecting a case convention.
 
-exports.run = function(tests) {
+exports.run = function (tests) {
 	var failures = 0;
 	var total = 0;
 
 	for(var key in tests) {
-		if(!util.isString(key) || !key.startsWith("test",false))
+		if(!util.isString(key) || !key.startsWith("test", false))
 			continue;
-		
+
 		++total;
-		
+
 		try {
 			tests[key].call();
-			console.log("Test Case '"+key+"' passed.");	
+			console.log("Test Case '" + key + "' passed.");
 		} catch(e) {
 			++failures;
-			console.log("Test Case '"+key+"' failed. "+e.name+": "+e.message);
+			console.log("Test Case '" + key + "' failed. " + e.name + ": " + e.message);
 		}
 	}
-	
-	console.log("Executed "+total+" tests, with "+failures+" failure"+(failures == 1?"":"s")+".");
+
+	console.log("Executed " + total + " tests, with " + failures + " failure" 
+		+ (failures == 1 ? "" : "s") + ".");
 };
 
 String.prototype.startsWith = function (searchString, casesensitive) {
@@ -79,6 +80,6 @@ String.prototype.startsWith = function (searchString, casesensitive) {
 		searchString = searchString.toLowerCase();
 		sliced = sliced.toLowerCase();
 	}
-	
+
 	return sliced == searchString;
 }

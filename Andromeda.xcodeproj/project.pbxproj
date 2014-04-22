@@ -42,6 +42,7 @@
 		80A0A5801905AA1500E73AA2 /* util.js in Resources */ = {isa = PBXBuildFile; fileRef = 80A0A57F1905AA1500E73AA2 /* util.js */; };
 		80A0A5821906B64A00E73AA2 /* assert.js in Resources */ = {isa = PBXBuildFile; fileRef = 80A0A5811906B64A00E73AA2 /* assert.js */; };
 		80A0A5841906F68700E73AA2 /* test.js in Resources */ = {isa = PBXBuildFile; fileRef = 80A0A5831906F68700E73AA2 /* test.js */; };
+		80A0A5871907187E00E73AA2 /* assert_tests.js in Resources */ = {isa = PBXBuildFile; fileRef = 80A0A5861907187E00E73AA2 /* assert_tests.js */; };
 		80A3C76F18DA891B002EEF8C /* NSString+AMDHashing.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A3C76E18DA891B002EEF8C /* NSString+AMDHashing.m */; };
 		80A3C77218DA8925002EEF8C /* NSData+AMDHashing.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A3C77118DA8925002EEF8C /* NSData+AMDHashing.m */; };
 		80A3C77818DA8FDD002EEF8C /* AMDFileHashing.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A3C77718DA8FDD002EEF8C /* AMDFileHashing.m */; };
@@ -212,6 +213,7 @@
 		80A0A57F1905AA1500E73AA2 /* util.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = util.js; sourceTree = "<group>"; };
 		80A0A5811906B64A00E73AA2 /* assert.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = assert.js; sourceTree = "<group>"; };
 		80A0A5831906F68700E73AA2 /* test.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = test.js; sourceTree = "<group>"; };
+		80A0A5861907187E00E73AA2 /* assert_tests.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = assert_tests.js; sourceTree = "<group>"; };
 		80A3C76D18DA891B002EEF8C /* NSString+AMDHashing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AMDHashing.h"; sourceTree = "<group>"; };
 		80A3C76E18DA891B002EEF8C /* NSString+AMDHashing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AMDHashing.m"; sourceTree = "<group>"; };
 		80A3C77018DA8925002EEF8C /* NSData+AMDHashing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AMDHashing.h"; sourceTree = "<group>"; };
@@ -515,6 +517,14 @@
 			path = Bindings;
 			sourceTree = "<group>";
 		};
+		80A0A5851907184C00E73AA2 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				80A0A5861907187E00E73AA2 /* assert_tests.js */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 		80A3C76C18DA88DA002EEF8C /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -597,6 +607,7 @@
 		80B3D37818FECDE800DB0B4C /* JavaScript */ = {
 			isa = PBXGroup;
 			children = (
+				80A0A5851907184C00E73AA2 /* Tests */,
 				80B3D37D18FEF32100DB0B4C /* andromeda.js */,
 				80B3D37918FECE3100DB0B4C /* sqlite.js */,
 				80A0A55E190458C400E73AA2 /* fs.js */,
@@ -883,6 +894,7 @@
 			files = (
 				80477BDA18D1313100B16692 /* InfoPlist.strings in Resources */,
 				80477BE818D1313100B16692 /* Images.xcassets in Resources */,
+				80A0A5871907187E00E73AA2 /* assert_tests.js in Resources */,
 				8068F4A518FDD56D0082835E /* simple_vertex_shader.vs in Resources */,
 				8068F4A718FDD57E0082835E /* simple_fragment_shader.fs in Resources */,
 				80A0A5841906F68700E73AA2 /* test.js in Resources */,

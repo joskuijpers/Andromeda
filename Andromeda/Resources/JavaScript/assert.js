@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (c) 2014 Jos Kuijpers. All rights reserved.
  *
  * http://wiki.commonjs.org/wiki/Unit_Testing/1.0
@@ -34,7 +34,7 @@ var util = require("util");
 var assert = module.exports = ok;
 
 // 2. The AssertionError is defined in assert.
-//     new assert.AssertionError({message: message, actual: actual, 
+//     new assert.AssertionError({message: message, actual: actual,
 //     expected: expected})
 //     assert.AssertionError instanceof Error
 assert.AssertionError = function AssertionError(options) {
@@ -45,8 +45,8 @@ assert.AssertionError = function AssertionError(options) {
 	if(options.message)
 		this.message = options.message
 	else {
-		this.message = JSON.stringify(this.actual) + ' '
-			+ this.operator + ' ' + JSON.stringify(this.expected);
+		this.message = JSON.stringify(this.actual) + ' ' + this.operator + ' '
+			+ JSON.stringify(this.expected);
 	}
 	Error.captureStackTrace(this, options.stackStartFunction || fail);
 };
@@ -85,7 +85,7 @@ assert.equal = function (actual, expected, message) {
 		fail(actual, expected, message, '==', assert.equal);
 }
 
-// 6. The non-equality assertion tests for whether two objects are not equal 
+// 6. The non-equality assertion tests for whether two objects are not equal
 //    with !=
 //     assert.notEqual(actual, expected, message_opt);
 assert.notEqual = function (actual, expected, message) {
@@ -111,29 +111,29 @@ function _deepEqual(actual, expected) {
 	// 7.1. All identical values are equivalent, as determined by ===.
 	if(actual === expected)
 		return true;
-	
+
 	if(util.isBuffer(actual) && util.isBuffer(expected)) {
-		
+
 	}
-	
+
 	// 7.2. If the expected value is a Date object, the actual value is equivalent
 	//      if it is also a Date object that refers to the same time.
 	if(util.isDate(actual) && util.isDate(expected))
 		return actual.getTime() === expected.getTime();
-	
+
 	if(util.isRegExp(actual) && util.isRegExp(expected)) {
 		return actual.source === expected.source &&
-		       actual.global === expected.global &&
-		       actual.multiline === expected.multiline &&
-		       actual.lastIndex === expected.lastIndex &&
-		       actual.ignoreCase === expected.ignoreCase;
+			actual.global === expected.global &&
+			actual.multiline === expected.multiline &&
+			actual.lastIndex === expected.lastIndex &&
+			actual.ignoreCase === expected.ignoreCase;
 	}
-	
+
 	// 7.3. Other pairs that do not both pass typeof value == "object", equivalence
 	//      is determined by ==.
 	if(!util.isObject(actual) && !util.isObject(expected))
 		return actual == expected;
-	
+
 	// 7.4. For all other Object pairs, including Array objects, equivalence is
 	//      determined by having the same number of owned properties (as verified
 	//      with Object.prototype.hasOwnProperty.call), the same set of keys
@@ -226,9 +226,8 @@ assert.throws = function throws(block, error, message) {
 	}
 
 	if(!caught)
-		fail(caught, error, "Missing expected exception "+message, assert.throws);
-	
+		fail(caught, error, "Missing expected exception " + message, assert.throws);
+
 	if(error && !(caught instanceof error || error.call({}, caught) === true))
 		throw caught;
 };
-
