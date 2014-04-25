@@ -31,7 +31,7 @@
 /**
  * @brief Information about the process: JavaScript exports.
  */
-@protocol AMDProcess <L8Export>
+@protocol AMDEngine <L8Export>
 
 /// The main module. (type Module)
 @property (strong) L8Value *mainModule;
@@ -75,7 +75,7 @@ L8_EXPORT_AS(abort,
  * Put the specified function on the dispatch queue.
  *
  * Use this to assert execution order when mixing
- * sync and async functionality. Or do minimize frame-lag.
+ * sync and async functionality. Or to minimize frame-lag.
  */
 - (void)dispatch:(L8Value *)function;
 
@@ -91,6 +91,6 @@ L8_EXPORT_AS(abort,
 /**
  * @brief Information about the process.
  */
-@interface AMDProcess : AMDEventEmitter <AMDProcess, AMDEventSender>
+@interface AMDEngine : AMDEventEmitter <AMDEngine, AMDEventSender>
 
 @end

@@ -23,13 +23,13 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "AMDProcess.h"
+#import "AMDEngine.h"
 #import "AMDBinding.h"
 
 #import <L8Framework/L8.h>
 #include <objc/runtime.h>
 
-@implementation AMDProcess {
+@implementation AMDEngine {
 	NSMutableDictionary *_bindingCache;
 	NSDictionary *_bindings;
 }

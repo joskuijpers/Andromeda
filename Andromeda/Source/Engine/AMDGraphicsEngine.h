@@ -23,7 +23,7 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
 
-@interface AMDEngine : NSObject
+@interface AMDGraphicsEngine : NSObject
 
 @property (assign) CFAbsoluteTime renderTime;
 

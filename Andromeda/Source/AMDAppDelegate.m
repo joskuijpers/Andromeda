@@ -26,25 +26,25 @@
 #import "AMDAppDelegate.h"
 
 #import "AMDGraphicsView.h"
-#import "AMDEngine.h"
+#import "AMDGraphicsEngine.h"
 
 #import "AMDJSClass.h"
 #import "AMDConsole.h"
-#import "AMDProcess.h"
+#import "AMDEngine.h"
 
 void load_bundle_script(L8Context *context, NSString *name);
 
 @implementation AMDAppDelegate {
 	L8Context *_javaScriptContext;
-	AMDProcess *_process;
+	AMDGraphicsEngine *_graphicsEngine;
 	AMDEngine *_engine;
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-	_engine = [[AMDEngine alloc] init];
-	_graphicsView.engine = _engine;
-	[_engine didCreateContext];
+	_graphicsEngine = [[AMDGraphicsEngine alloc] init];
+	_graphicsView.engine = _graphicsEngine;
+	[_graphicsEngine didCreateContext];
 
 	_javaScriptContext = [[L8Context alloc] init];
 
@@ -52,11 +52,11 @@ void load_bundle_script(L8Context *context, NSString *name);
 		L8Value *ret;
 		NSString *mainPath;
 
-		_process = [[AMDProcess alloc] init];
+		_engine = [[AMDEngine alloc] init];
 
 		// Install the globals
 		context[@"console"] = [[AMDConsole alloc] init];
-		context[@"process"] = _process;
+		context[@"engine"] = _engine;
 		context[@"global"] = context.globalObject;
 
 		mainPath = [[NSBundle mainBundle] pathForResource:@"andromeda"
@@ -70,7 +70,7 @@ void load_bundle_script(L8Context *context, NSString *name);
 			assert([ret isFunction]);
 
 			// Execute Andromeda
-			[ret callWithArguments:@[_process]];
+			[ret callWithArguments:@[_engine]];
 		} @catch(id exc) {
 			fprintf(stderr,"[EXC ] %s\n",[[exc description] UTF8String]);
 		}

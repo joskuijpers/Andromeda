@@ -27,18 +27,6 @@
 
 #import <FMDB/FMDatabase.h>
 
-@implementation AMDEXTSQLite
-
-- (id)init
-{
-	return [super initWithName:@"SQLite"
-					   version:@(1)
-				 versionString:@"0.0.1"
-				   description:@{}];
-}
-
-@end
-
 @implementation AMDSQLiteDatabase {
 	NSString *_path;
 	NSMutableDictionary *_tables;

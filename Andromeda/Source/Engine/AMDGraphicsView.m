@@ -24,7 +24,7 @@
  */
 
 #import "AMDGraphicsView.h"
-#import "AMDEngine.h"
+#import "AMDGraphicsEngine.h"
 
 @import OpenGL;
 #import <OpenGL/gl3.h>

@@ -24,7 +24,6 @@
  */
 
 #import "AMDJSClass.h"
-#import "AMDSystemExtension.h"
 
 @class AMDSQLiteTable;
 
@@ -152,12 +151,5 @@ L8_EXPORT_AS(_performQuery,
 @interface AMDSQLiteTable : NSObject <AMDSQLiteTable, AMDJSClass>
 
 - (instancetype)initWithName:(NSString *)name database:(AMDSQLiteDatabase *)database;
-
-@end
-
-/**
- * @brief SQLite extension info.
- */
-@interface AMDEXTSQLite : AMDSystemExtension
 
 @end

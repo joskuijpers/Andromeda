@@ -25,10 +25,10 @@
 
 "use strict";
 
-(function (process) {
+(function (engine) {
 
-	var vmBinding = process.binding("vm");
-	var fsBinding = process.binding("fs");
+	var vmBinding = engine.binding("vm");
+	var fsBinding = engine.binding("fs");
 
 	/// JavaScript entry point of Andromeda
 	function start() {
@@ -106,7 +106,7 @@
 			return Module._resolveQuery(query, self);
 		};
 		
-		require.main = process.mainModule;
+		require.main = engine.mainModule;
 
 		var dirname = "TODO";
 		var wrapped = Module.wrap(content);
@@ -130,7 +130,7 @@
 
 		module = new Module(filename, parent);
 		if(isMain) {
-			process.mainModule = module;
+			engine.mainModule = module;
 			module.id = '.'; // WHY?
 		}
 

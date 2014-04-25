@@ -25,9 +25,9 @@
 
 "use strict";
 
-var fs = process.binding("fs");
-var path = process.binding("path");
-var hashing = process.binding("hashing");
+var fs = engine.binding("fs");
+var path = engine.binding("path");
+var hashing = engine.binding("hashing");
 
 /**
  * @section File System
@@ -37,10 +37,10 @@ exports.list = function (path) {
 	return fs.list(path);
 };
 
-exports.createDirectory = function (path) {
+exports.makeDirectory = function (path) {
 	if(mkdir(path))
 		return new exports.Directory(path);
-	return false;
+	return null;
 };
 
 exports.remove = function (path) {

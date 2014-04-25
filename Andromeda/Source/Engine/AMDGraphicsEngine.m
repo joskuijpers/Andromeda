@@ -23,7 +23,7 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "AMDEngine.h"
+#import "AMDGraphicsEngine.h"
 
 #import <OpenGL/OpenGL.h>
 #import <OpenGL/gl3.h>
@@ -31,7 +31,7 @@
 
 GLuint load_shaders(const char *vertex_file_path, const char *fragment_file_path);
 
-@implementation AMDEngine {
+@implementation AMDGraphicsEngine {
 	GLuint vertexArrayID, vertexBuffer;
 	GLuint vertexPosition_modelspaceID;
 	GLuint programID;
