@@ -46,6 +46,8 @@
 		return NSUTF16LittleEndianStringEncoding;
 	else if([encoding isEqualToString:@"utf16be"])
 		return NSUTF16BigEndianStringEncoding;
+	else if([encoding isEqualToString:@"ascii"])
+		return NSASCIIStringEncoding;
 	return NSUTF8StringEncoding;
 }
 

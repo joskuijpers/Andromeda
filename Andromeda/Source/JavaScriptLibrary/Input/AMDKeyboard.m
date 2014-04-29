@@ -25,7 +25,6 @@
 
 #import "AMDKeyboard.h"
 #import "NSMutableArray+AMDQueue.h"
-#import "AMDEvent.h"
 
 @implementation AMDKeyboard {
 	id _monitor;

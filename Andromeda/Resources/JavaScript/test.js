@@ -25,6 +25,10 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/**
+ * @module test
+ */
+
 var util = require("util");
 
 // 12. The "test" module provides a "run" method that runs unit tests and

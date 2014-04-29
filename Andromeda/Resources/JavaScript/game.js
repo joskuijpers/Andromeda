@@ -20,20 +20,25 @@
  * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
- * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+ * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-
-@class L8Value;
-
-@interface AMDEvent : NSObject
 
 /**
- * Enqueue the event on the GCD.
- *
- * @param function The callback function.
- * @param arguments An array of arguments.
- * @return YES on success, NO on failure.
+ * @module game
  */
-+ (BOOL)enqueueEventWithFunction:(L8Value *)function arguments:(NSArray *)arguments;
 
-@end
+var EventEmitter = engine.binding("event").EventEmitter;
+var util = require("util");
+
+var _myEmitter = new EventEmitter();
+
+exports.name = "Andromeda Test";
+exports.author = "Jos 'Rahkiin' Kuijpers";
+
+exports.on = function (name,fn) {
+	return _myEmitter.on(name,fn);
+};
+
+exports.trigger = function (name,args) {
+	return _myEmitter.trigger(name,args);
+};

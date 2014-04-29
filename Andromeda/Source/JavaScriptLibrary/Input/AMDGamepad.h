@@ -63,6 +63,6 @@ typedef enum spr_gamepad_axis_e : unsigned int {
 /**
  * @brief Gamepad input device.
  */
-@interface AMDGamepad : AMDInputDevice <AMDGamepad, AMDEventSender>
+@interface AMDGamepad : AMDInputDevice <AMDGamepad>
 
 @end

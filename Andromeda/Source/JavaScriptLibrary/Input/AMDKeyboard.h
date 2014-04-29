@@ -189,7 +189,7 @@ L8_EXPORT_AS(getKeyString,
 /**
  * @brief Keyboard input device.
  */
-@interface AMDKeyboard : AMDInputDevice <AMDKeyboard, AMDEventSender>
+@interface AMDKeyboard : AMDInputDevice <AMDKeyboard>
 
 /**
  * Get the string for a key.

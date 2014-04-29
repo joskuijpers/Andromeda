@@ -91,6 +91,6 @@ L8_EXPORT_AS(abort,
 /**
  * @brief Information about the process.
  */
-@interface AMDEngine : AMDEventEmitter <AMDEngine, AMDEventSender>
+@interface AMDEngine : AMDEventEmitter <AMDEngine>
 
 @end

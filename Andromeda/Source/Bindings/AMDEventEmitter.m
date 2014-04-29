@@ -24,12 +24,26 @@
  */
 
 #import "AMDEventEmitter.h"
-#import "AMDEvent.h"
 
 #import <L8Framework/L8.h>
 
 @implementation AMDEventEmitter {
 	NSMutableDictionary *_eventCallbacks;
+}
+
++ (L8Value *)setUpBinding
+{
+	L8Value *wrapper;
+
+	wrapper = [L8Value valueWithNewObjectInContext:[L8Context currentContext]];
+	wrapper[@"EventEmitter"] = [AMDEventEmitter class];
+
+	return wrapper;
+}
+
++ (NSString *)bindingName
+{
+	return @"event";
 }
 
 - (id)init
@@ -50,8 +64,20 @@
 	if AMD_UNLIKELY(listeners == nil)
 		return;
 
-	for(L8Value *function in listeners)
-		[AMDEvent enqueueEventWithFunction:function arguments:arguments];
+	for(L8Value *function in listeners) {
+		if(![function isFunction])
+			continue;
+
+		dispatch_async(dispatch_get_main_queue(), ^{
+			[function.context executeBlockInContext:^(L8Context *context) {
+				@try {
+					[function callWithArguments:arguments];
+				} @catch(id exc) {
+					fprintf(stderr,"[EXC ] %s\n",[[exc description] UTF8String]);
+				}
+			}];
+		});
+	}
 }
 
 - (void)addEventListener:(NSString *)event function:(L8Value *)function

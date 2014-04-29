@@ -124,7 +124,11 @@
 {
 	dispatch_async(dispatch_get_main_queue(), ^{
 		[function.context executeBlockInContext:^(L8Context *context) {
-			[function callWithArguments:@[]];
+			@try {
+				[function callWithArguments:@[]];
+			} @catch(id exc) {
+				fprintf(stderr,"[EXC ] %s\n",[[exc description] UTF8String]);
+			}
 		}];
 	});
 }

@@ -24,42 +24,16 @@
  */
 
 #import <L8Framework/L8Export.h>
+#import "AMDBinding.h"
 
 @class L8Value;
-
-/**
- * @brief A class that sends and receives events.
- */
-@interface AMDEventEmitter : NSObject
-
-/**
- * Trigger an event.
- *
- * @param event The event.
- * @param arguments The event arguments.
- */
-- (void)triggerEvent:(NSString *)event withArguments:(NSArray *)arguments;
-
-/**
- * Add an event listener for specified event.
- *
- * @param event The event.
- * @param function The callback function.
- */
-- (void)addEventListener:(NSString *)event function:(L8Value *)function;
-
-- (void)removeEventListener:(NSString *)event function:(L8Value *)function;
-
-- (void)removeAllEventListeners:(NSString *)event;
-
-@end
 
 /**
  * @brief JavaScript exports for classes that send events.
  *
  * Provides the on() function for JavaScript to register callbacks.
  */
-@protocol AMDEventSender <L8Export>
+@protocol AMDEventEmitter <L8Export>
 
 /**
  * Add an event listener for an event.
@@ -71,15 +45,6 @@ L8_EXPORT_AS(on,
 - (void)addEventListener:(NSString *)event function:(L8Value *)function
 );
 
-@end
-
-/**
- * @brief JavaScript exports for classes that accept events.
- *
- * Provides the .trigger() function for JavaScript to trigger callbacks.
- */
-@protocol AMDEventReceiver <L8Export>
-
 /**
  * Trigger an event.
  *
@@ -89,5 +54,16 @@ L8_EXPORT_AS(on,
 L8_EXPORT_AS(trigger,
 - (void)triggerEvent:(NSString *)event withArguments:(NSArray *)arguments
 );
+
+@end
+
+/**
+ * @brief A class that sends and receives events.
+ */
+@interface AMDEventEmitter : NSObject <AMDEventEmitter,AMDBinding>
+
+- (void)removeEventListener:(NSString *)event function:(L8Value *)function;
+
+- (void)removeAllEventListeners:(NSString *)event;
 
 @end

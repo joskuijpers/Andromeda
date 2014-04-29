@@ -45,6 +45,6 @@
 /**
  * @brief The JavaScript Game object.
  */
-@interface AMDGame : AMDEventEmitter <AMDGame, AMDEventSender, AMDEventReceiver, AMDJSClass>
+@interface AMDGame : AMDEventEmitter <AMDGame, AMDJSClass>
 
 @end
