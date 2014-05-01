@@ -38,16 +38,16 @@
 
 	// If the string does not contain any formatting elements,
 	// assume the function just received a variable number of objects to log
-	if([(L8Value *)arguments[0] isString]
-	   && [[arguments[0] toString] rangeOfString:@"%"].location != NSNotFound) {
-		NSLog(@"To Implement: printf-like formatting!");
-		fprintf(stdout,"[LOG ] %s\n",[[arguments[0] toString] UTF8String]);
-	} else {
+//	if([(L8Value *)arguments[0] isString]
+//	   && [[arguments[0] toString] rangeOfString:@"%"].location != NSNotFound) {
+//		NSLog(@"To Implement: printf-like formatting!");
+//		fprintf(stdout,"[LOG ] %s\n",[[arguments[0] toString] UTF8String]);
+//	} else {
 		fprintf(stdout,"[LOG ]");
 		for(L8Value *arg in arguments)
 			fprintf(stdout," %s",[[arg toString] UTF8String]);
 		fprintf(stdout,"\n");
-	}
+//	}
 }
 
 - (void)error:(NSString *)string

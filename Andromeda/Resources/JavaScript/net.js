@@ -26,3 +26,16 @@
 /**
  * @module net
  */
+
+var binding = engine.binding("net");
+
+Object.defineProperty(exports, "localAddress", {
+	"get": function () { return binding.localAddress; }
+});
+
+Object.defineProperty(exports, "localName", {
+	"get": function () { return binding.localName; }
+});
+
+exports.Bonjour = binding.Bonjour;
+exports.Socket = binding.Socket;

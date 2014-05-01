@@ -23,7 +23,7 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "AMDJSClass.h"
+#import <L8Framework/L8.h>
 
 @class AMDSocket, AMDBonjourPeer;
 
@@ -122,14 +122,14 @@ L8_EXPORT_AS(resolve,
 /**
  * @brief Bonjour networking.
  */
-@interface AMDBonjour : NSObject <AMDBonjour, AMDJSClass>
+@interface AMDBonjour : NSObject <AMDBonjour>
 
 @end
 
 /**
  * @brief A peer host in Bonjour.
  */
-@interface AMDBonjourPeer : NSObject <AMDBonjourPeer, AMDJSClass>
+@interface AMDBonjourPeer : NSObject <AMDBonjourPeer>
 
 /// NSNetService of the peer.
 @property (readonly) NSNetService *service;

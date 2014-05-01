@@ -26,17 +26,18 @@
 #import "AMDBonjour.h"
 #import "AMDSocket.h"
 
+#import <L8Framework/L8.h>
+
 @interface AMDBonjour () <NSNetServiceDelegate, NSNetServiceBrowserDelegate>
 @end
 
 @implementation AMDBonjour {
-	NSNetService *_service;
+	NSNetService *_publishService, *_resolveService;
 	NSNetServiceBrowser *_browser;
 
-	L8Context *_context;
-	L8ManagedValue *_publishCallback;	// NSString *status
-	L8ManagedValue *_discoverCallback;	// NSString *error, AMDBonjourPeer *peer
-	L8ManagedValue *_resolveCallback;	// NSString *error, NSString *host, uint16_t port
+	L8Value *_publishCallback;	// NSString *status
+	L8Value *_discoverCallback;	// NSString *error, AMDBonjourPeer *peer
+	L8Value *_resolveCallback;	// NSString *error, NSString *host, uint16_t port
 }
 
 @synthesize type=_type, domain=_domain;
@@ -48,7 +49,6 @@
 		NSArray *arguments;
 
 		arguments = [L8Context currentArguments];
-		_context = [L8Context currentContext];
 
 		if(arguments.count >= 1)
 			_type = [arguments[0] toString];
@@ -65,51 +65,32 @@
 
 - (BOOL)publishWithPort:(uint16_t)port name:(NSString *)name callback:(L8Value *)callback
 {
-	if([name isKindOfClass:[L8Value class]] && [(L8Value *)name isUndefined])
+	if(name == nil)
 		name = @"";
 
-	if(_publishCallback) {
-		L8VirtualMachine *vm;
-
-		vm = [_context virtualMachine];
-		[vm removeManagedReference:_publishCallback withOwner:self];
-
+	if(_publishCallback)
 		_publishCallback = nil;
-	}
 
 	if([callback isFunction])
-		_publishCallback = [L8ManagedValue managedValueWithValue:callback
-														 andOwner:self];
+		_publishCallback = callback;
 
-	_service = [[NSNetService alloc] initWithDomain:_domain
-											   type:_type
-											   name:name
-											   port:port];
-	_service.delegate = self;
+	_publishService = [[NSNetService alloc] initWithDomain:_domain
+													  type:_type
+													  name:name
+													  port:port];
+	_publishService.delegate = self;
 
-	[_service publish];
+	[_publishService publish];
 
 	return YES;
 }
 
 - (void)discoverPeersWithCallback:(L8Value *)callback
 {
-	if(_discoverCallback) {
-		L8VirtualMachine *vm;
-
-		vm = [_context virtualMachine];
-		[vm removeManagedReference:_discoverCallback withOwner:self];
-
-		_discoverCallback = nil;
-	}
-
 	if AMD_LIKELY ([callback isFunction])
-		_discoverCallback = [L8ManagedValue managedValueWithValue:callback
-														andOwner:self];
+		_discoverCallback = callback;
 	else
-		@throw [NSException exceptionWithName:NSInvalidArgumentException
-									   reason:@"Argument 0 must be function."
-									 userInfo:nil];
+		@throw [L8TypeErrorException exceptionWithMessage:@"Callback must be a function"];
 
 	_browser = [[NSNetServiceBrowser alloc] init];
 	_browser.delegate = self;
@@ -119,71 +100,95 @@
 
 - (void)resolvePeerWithName:(NSString *)name callback:(L8Value *)callback
 {
-	_service = [[NSNetService alloc] initWithDomain:_domain
-											   type:_type
-											   name:name];
-//	_service.delegate = self;
-//	[_service resolveWithTimeout:<#(NSTimeInterval)#>];
+	if AMD_LIKELY ([callback isFunction])
+		_resolveCallback = callback;
+	else
+		@throw [L8TypeErrorException exceptionWithMessage:@"Callback must be a function"];
+
+
+	_resolveService = [[NSNetService alloc] initWithDomain:_domain
+													  type:_type
+													  name:name];
+	_resolveService.delegate = self;
+
+	[_resolveService resolveWithTimeout:10];
 }
 
 - (void)stop
 {
-	[_service stop];
+	[_publishService stop];
+	[_resolveService stop];
 }
 
 #pragma mark - NSNetServiceDelegate implementation
 
 - (void)netServiceDidPublish:(NSNetService *)sender
 {
-	[_context executeBlockInContext:^(L8Context *context) {
-		[[_publishCallback value] callWithArguments:@[@"published"]];
+	[_publishCallback.context executeBlockInContext:^(L8Context *context) {
+		[_publishCallback callWithArguments:@[@"published"]];
 	}];
 }
 
 - (void)netServiceWillPublish:(NSNetService *)sender
 {
-	[_context executeBlockInContext:^(L8Context *context) {
-		[[_publishCallback value] callWithArguments:@[@"publishing"]];
+	[_publishCallback.context executeBlockInContext:^(L8Context *context) {
+		[_publishCallback callWithArguments:@[@"publishing"]];
 	}];
 }
 
 - (void)netServiceDidStop:(NSNetService *)sender
 {
-	[_context executeBlockInContext:^(L8Context *context) {
-		[[_publishCallback value] callWithArguments:@[@"stopped"]];
+	[_publishCallback.context executeBlockInContext:^(L8Context *context) {
+		[_publishCallback callWithArguments:@[@"stopped"]];
 	}];
+	[_resolveCallback.context executeBlockInContext:^(L8Context *context) {
+		[_resolveCallback callWithArguments:@[@"stopped"]];
+	}];
+}
+
+- (void)netService:(NSNetService *)sender didNotResolve:(NSDictionary *)errorDict
+{
+	[_resolveCallback.context executeBlockInContext:^(L8Context *context) {
+		// TODO Put some usable error here
+		[_resolveCallback callWithArguments:@[errorDict]];
+	}];
+
+	_resolveCallback = nil;
+	[_resolveService stop];
+}
+
+- (void)netServiceDidResolveAddress:(NSNetService *)sender
+{
+	[_resolveCallback.context executeBlockInContext:^(L8Context *context) {
+		[_resolveCallback callWithArguments:@[[NSNull null], sender.hostName, @(sender.port)]];
+	}];
+
+	_resolveCallback = nil;
+	[_resolveService stop];
 }
 
 #pragma mark - NSNetServiceBrowserDelegate implementation
 
-- (void)netServiceBrowserWillSearch:(NSNetServiceBrowser *)aNetServiceBrowser
-{
-	NSLog(@"WillSearch");
-}
-
-- (void)netServiceBrowserDidStopSearch:(NSNetServiceBrowser *)aNetServiceBrowser
-{
-	NSLog(@"Stopped");
-}
-
 - (void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser
 			 didNotSearch:(NSDictionary *)errorDict
 {
-	NSLog(@"Didnot %@",errorDict);
+	[_discoverCallback.context executeBlockInContext:^(L8Context *context) {
+		// TODO Put some usable error here
+		[_discoverCallback callWithArguments:@[errorDict]];
+	}];
 }
 
 - (void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser
 		   didFindService:(NSNetService *)aNetService
 			   moreComing:(BOOL)moreComing
 {
-	NSLog(@"Found %@, more %d",aNetService,moreComing);
-	[_context executeBlockInContext:^(L8Context *context) {
+	[_discoverCallback.context executeBlockInContext:^(L8Context *context) {
 		AMDBonjourPeer *peer;
 
 		peer = [[AMDBonjourPeer alloc] initWithService:aNetService
 											   bonjour:self];
 
-		[[_discoverCallback value] callWithArguments:@[[NSNull null],peer]];
+		[_discoverCallback callWithArguments:@[[NSNull null],peer]];
 	}];
 }
 
@@ -191,7 +196,8 @@
 		 didRemoveService:(NSNetService *)aNetService
 			   moreComing:(BOOL)moreComing
 {
-	NSLog(@"Removed %@, more %d",aNetService,moreComing);
+	// TODO handle this.
+	NSLog(@"Removed %@",aNetService);
 }
 
 @end
@@ -204,7 +210,7 @@
 {
 	self = [super init];
 	if(self) {
-		_name = [service.name copy];
+		_name = service.name;
 		_service = service;
 		_bonjour = bonjour;
 	}
@@ -213,7 +219,7 @@
 
 - (void)resolveWithCallback:(L8Value *)callback
 {
-
+	[_bonjour resolvePeerWithName:_service.name callback:callback];
 }
 
 - (AMDSocket *)getSocket
