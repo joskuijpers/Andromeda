@@ -20,19 +20,15 @@
  * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
- * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
 
-#import "AMDJSClass.h"
+#import "AMDBinding.h"
 
 /**
- * @brief Networking class: JavaScript exports.
+ * @brief Binding to the network interfaces: JavaScript exports.
  */
-@protocol AMDNetwork <L8Export>
-
-// Properties:
-// + NSString *localName
-// + NSString *localAddress
+@protocol AMDNetworking <L8Export>
 
 L8_EXPORT_AS(listen,
 + (BOOL)listenOnPort:(uint16_t)port
@@ -41,11 +37,8 @@ L8_EXPORT_AS(listen,
 @end
 
 /**
- * @brief Networking class.
+ * @brief Binding to the network interfaces.
  */
-@interface AMDNetwork : NSObject <AMDNetwork, AMDJSClass>
-
-+ (NSString *)localName;
-+ (NSString *)localAddress;
+@interface AMDNetworking : NSObject <AMDNetworking, AMDBinding>
 
 @end

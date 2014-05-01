@@ -23,36 +23,44 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "AMDNetwork.h"
+#import "AMDNetworking.h"
 #import "AMDBonjour.h"
 #import "AMDSocket.h"
 
-@implementation AMDNetwork
+#import <L8Framework/L8.h>
 
-+ (void)installIntoContext:(L8Context *)context
+@implementation AMDNetworking
+
++ (L8Value *)setUpBinding
 {
-	context[@"Network"] = [AMDNetwork class];
-	context[@"Network"][@"Bonjour"] = [AMDBonjour class];
-	context[@"Network"][@"Bonjour"][@"Peer"] = [AMDBonjourPeer class];
-	context[@"Network"][@"Socket"] = [AMDSocket class];
+	L8Value *binding;
 
-#if 0
-	NSDictionary *property;
-	// localName property on Network
-	property = @{JSPropertyDescriptorGetKey: ^{
-					 return [AMDNetwork localName];
-				 }};
-	[context[@"Network"] defineProperty:@"localName"
-							 descriptor:property];
+	binding = [L8Value valueWithObject:[AMDNetworking class]
+						  inContext:[L8Context currentContext]];
 
-	// localAddress property on Network
-	property = @{JSPropertyDescriptorGetKey: ^{
-					 return [AMDNetwork localAddress];
-				 }};
-	[context[@"Network"] defineProperty:@"localAddress"
-							 descriptor:property];
-#endif
+	binding[@"Bonjour"] = [AMDBonjour class];
+	binding[@"Bonjour"][@"Peer"] = [AMDBonjourPeer class];
+	binding[@"Socket"] = [AMDSocket class];
+
+	[binding defineProperty:@"localName"
+				 descriptor:@{@"get": ^{
+		return [AMDNetworking localName];
+	}}];
+
+	[binding defineProperty:@"localAddress"
+				 descriptor:@{@"get": ^{
+		return [AMDNetworking localAddress];
+	}}];
+
+	return binding;
 }
+
++ (NSString *)bindingName
+{
+	return @"net";
+}
+
+#pragma mark - Network
 
 + (NSString *)localName
 {

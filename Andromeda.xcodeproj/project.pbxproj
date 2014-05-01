@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		800A51FC190E7F7100B1F072 /* game.js in Resources */ = {isa = PBXBuildFile; fileRef = 800A51FB190E7F7000B1F072 /* game.js */; };
+		800A524C191276C000B1F072 /* AMDNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 800A524B191276C000B1F072 /* AMDNetworking.m */; };
 		800FB73E18DF57A900AEB582 /* NSMutableArray+AMDQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 800FB73D18DF57A900AEB582 /* NSMutableArray+AMDQueue.m */; };
 		800FB74118DF588900AEB582 /* NSMutableArray+AMDStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 800FB74018DF588900AEB582 /* NSMutableArray+AMDStack.m */; };
 		800FB74418DF8D3400AEB582 /* AMDCoordinateUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 800FB74318DF8D3400AEB582 /* AMDCoordinateUtilities.m */; };
@@ -22,7 +23,6 @@
 		80477C3418D1320900B16692 /* AMDConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C1E18D1320800B16692 /* AMDConsole.m */; };
 		80477C3618D1320900B16692 /* AMDFileSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2218D1320800B16692 /* AMDFileSystem.m */; };
 		80477C3818D1320900B16692 /* AMDJSClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2618D1320800B16692 /* AMDJSClass.m */; };
-		80477C3A18D1320900B16692 /* AMDNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2A18D1320900B16692 /* AMDNetwork.m */; };
 		80477C3C18D1320900B16692 /* AMDSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C2E18D1320900B16692 /* AMDSocket.m */; };
 		80477C3F18D1321500B16692 /* AMDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C3E18D1321500B16692 /* AMDAppDelegate.m */; };
 		80477C4518D1321F00B16692 /* AMDResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C4418D1321F00B16692 /* AMDResource.m */; };
@@ -145,6 +145,8 @@
 /* Begin PBXFileReference section */
 		3EE7A173BE1D4DAE83B2C2D8 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		800A51FB190E7F7000B1F072 /* game.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = game.js; sourceTree = "<group>"; };
+		800A524A191276C000B1F072 /* AMDNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDNetworking.h; sourceTree = "<group>"; };
+		800A524B191276C000B1F072 /* AMDNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDNetworking.m; sourceTree = "<group>"; };
 		800FB73C18DF57A900AEB582 /* NSMutableArray+AMDQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+AMDQueue.h"; sourceTree = "<group>"; };
 		800FB73D18DF57A900AEB582 /* NSMutableArray+AMDQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+AMDQueue.m"; sourceTree = "<group>"; };
 		800FB73F18DF588900AEB582 /* NSMutableArray+AMDStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+AMDStack.h"; sourceTree = "<group>"; };
@@ -177,8 +179,6 @@
 		80477C2218D1320800B16692 /* AMDFileSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDFileSystem.m; sourceTree = "<group>"; };
 		80477C2518D1320800B16692 /* AMDJSClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDJSClass.h; sourceTree = "<group>"; };
 		80477C2618D1320800B16692 /* AMDJSClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDJSClass.m; sourceTree = "<group>"; };
-		80477C2918D1320900B16692 /* AMDNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDNetwork.h; sourceTree = "<group>"; };
-		80477C2A18D1320900B16692 /* AMDNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDNetwork.m; sourceTree = "<group>"; };
 		80477C2D18D1320900B16692 /* AMDSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDSocket.h; sourceTree = "<group>"; };
 		80477C2E18D1320900B16692 /* AMDSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDSocket.m; sourceTree = "<group>"; };
 		80477C3D18D1321500B16692 /* AMDAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDAppDelegate.h; sourceTree = "<group>"; };
@@ -332,6 +332,7 @@
 				80477C2218D1320800B16692 /* AMDFileSystem.m */,
 			);
 			name = "File System";
+			path = FileSystem;
 			sourceTree = "<group>";
 		};
 		800A5242190E9AD300B1F072 /* Engine */ = {
@@ -342,7 +343,20 @@
 				8059FBEC18FF4D0400FC66D8 /* AMDVirtualMachine.h */,
 				8059FBED18FF4D0400FC66D8 /* AMDVirtualMachine.m */,
 			);
-			name = Engine;
+			path = Engine;
+			sourceTree = "<group>";
+		};
+		800A52491912769600B1F072 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				80477C1218D1320800B16692 /* AMDBonjour.h */,
+				80477C1318D1320800B16692 /* AMDBonjour.m */,
+				80477C2D18D1320900B16692 /* AMDSocket.h */,
+				80477C2E18D1320900B16692 /* AMDSocket.m */,
+				800A524A191276C000B1F072 /* AMDNetworking.h */,
+				800A524B191276C000B1F072 /* AMDNetworking.m */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		8024954018D228E80071F3C4 /* Supporting Files */ = {
@@ -363,19 +377,6 @@
 				80AAD8CE18DD254300805E3D /* AMDScreen.m */,
 			);
 			path = Graphics;
-			sourceTree = "<group>";
-		};
-		8024965118D3E9D30071F3C4 /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-				80477C1218D1320800B16692 /* AMDBonjour.h */,
-				80477C1318D1320800B16692 /* AMDBonjour.m */,
-				80477C2918D1320900B16692 /* AMDNetwork.h */,
-				80477C2A18D1320900B16692 /* AMDNetwork.m */,
-				80477C2D18D1320900B16692 /* AMDSocket.h */,
-				80477C2E18D1320900B16692 /* AMDSocket.m */,
-			);
-			path = Networking;
 			sourceTree = "<group>";
 		};
 		80477BC318D1313100B16692 = {
@@ -490,7 +491,6 @@
 			children = (
 				8086DC8918FC798A0084D743 /* Game */,
 				80AAD8D518DE7B9F00805E3D /* Input */,
-				8024965118D3E9D30071F3C4 /* Networking */,
 				8024965018D3E9C40071F3C4 /* Graphics */,
 				80AAD8D418DE68B400805E3D /* System */,
 				80AAD8D318DE68AA00805E3D /* Internal */,
@@ -527,6 +527,7 @@
 				80A0A56519045BBD00E73AA2 /* AMDBinding.h */,
 				800A5242190E9AD300B1F072 /* Engine */,
 				800A5241190E9AC500B1F072 /* File System */,
+				800A52491912769600B1F072 /* Networking */,
 			);
 			path = Bindings;
 			sourceTree = "<group>";
@@ -981,6 +982,7 @@
 				80477C2F18D1320900B16692 /* AMDBonjour.m in Sources */,
 				80477C3618D1320900B16692 /* AMDFileSystem.m in Sources */,
 				80AAD8E418DE8D4600805E3D /* AMDInputDevice.m in Sources */,
+				800A524C191276C000B1F072 /* AMDNetworking.m in Sources */,
 				80477C3C18D1320900B16692 /* AMDSocket.m in Sources */,
 				80AAD8E118DE7C6900805E3D /* AMDInput.m in Sources */,
 				80AAD8DE18DE7C6000805E3D /* AMDGamepad.m in Sources */,
@@ -1003,7 +1005,6 @@
 				800FB73E18DF57A900AEB582 /* NSMutableArray+AMDQueue.m in Sources */,
 				80A0A56A19045D0C00E73AA2 /* AMDHashing.m in Sources */,
 				80477C3418D1320900B16692 /* AMDConsole.m in Sources */,
-				80477C3A18D1320900B16692 /* AMDNetwork.m in Sources */,
 				80477C3818D1320900B16692 /* AMDJSClass.m in Sources */,
 				80B3D37418FEBCE300DB0B4C /* AMDEXTSQLite.m in Sources */,
 				800FB74118DF588900AEB582 /* NSMutableArray+AMDStack.m in Sources */,
