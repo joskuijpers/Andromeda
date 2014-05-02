@@ -160,7 +160,7 @@
 	return 0;
 }
 
-- (AMDByteArray *)readBytes:(size_t)size
+- (L8ArrayBuffer *)readBytes:(size_t)size
 {
 	// read from buffer
 
@@ -171,7 +171,7 @@
 	return nil;
 }
 
-- (void)writeByteArray:(AMDByteArray *)byteArray
+- (void)writeBytes:(L8ArrayBuffer *)arrayBuffer
 {
 	// test space available
 

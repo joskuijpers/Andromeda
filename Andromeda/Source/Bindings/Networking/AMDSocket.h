@@ -23,9 +23,7 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "AMDJSClass.h"
-
-@class AMDByteArray;
+#import <L8Framework/L8.h>
 
 /**
  * @brief Network communication using a TCP socket: JavaScript exports.
@@ -40,12 +38,24 @@
 
 - (instancetype)init;
 
+/**
+ * Read a number of bytes from the stream.
+ *
+ * @param size Number of bytes.
+ * @return ArrayBuffer containing the data. The size of the buffer
+ * can be smaller than size, when no more bytes were available.
+ */
 L8_EXPORT_AS(read,
-- (AMDByteArray *)readBytes:(size_t)size
+- (L8ArrayBuffer *)readBytes:(size_t)size
 );
 
+/**
+ * Write data (ArrayBuffer) to the stream.
+ *
+ * @param data The data to write.
+ */
 L8_EXPORT_AS(write,
-- (void)writeByteArray:(AMDByteArray *)byteArray
+- (void)writeBytes:(L8ArrayBuffer *)data
 );
 
 /**
@@ -58,11 +68,24 @@ L8_EXPORT_AS(write,
 /**
  * @brief Network communication using a TCP socket.
  */
-@interface AMDSocket : NSObject <AMDSocket, AMDJSClass>
+@interface AMDSocket : NSObject <AMDSocket>
 
+/**
+ * Create a socket with given address and port.
+ *
+ * @param address The remote address.
+ * @param port The remote port.
+ * @return self
+ */
 - (instancetype)initWithAddress:(NSString *)address
 						   port:(uint16_t)port;
 
+/**
+ * Create a socket with a service.
+ *
+ * @param service The remote service.
+ * @return self
+ */
 - (instancetype)initWithService:(NSNetService *)service;
 
 @end
