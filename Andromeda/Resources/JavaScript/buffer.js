@@ -48,8 +48,7 @@ function Buffer(subject, encoding) {
 		var array = new ArrayBuffer(this.length);
 	} else if(util.isString(subject)) {
 		encoding = encoding || "utf8";
-		this.length = Buffer.byteLength(subject, encoding);
-		var array = abTools.arrayBufferFromString(subject,encoding,0,this.length);
+		var array = abTools.arrayBufferFromString(subject,encoding);
 	} else if(util.isArray(subject)) {
 		this.length = +subject.length > 0 ? Math.floor(+subject.length) : 0;
 
@@ -565,31 +564,3 @@ Buffer.concat = function(list, length) {
 };
 
 module.exports = Buffer;
-
-/**
- * Get the number of bytes in a string using the given encoding.
- *
- * @param {String} string - The string to get the length of.
- * @param {String} encoding - The encoding name.
- * @return {Number} The number of bytes in the string.
- */
-Buffer.byteLength = function(string, encoding) {
-	switch(encoding) {
-		case "ascii":
-		case "binary":
-		case "raw":
-		case "utf8":
-			return string.length;
-		case "utf16":
-		case "utf16le":
-		case "utf16be":
-			return string.length * 2;
-		case "hex":
-			return string.length >>> 1;
-		case "base64":
-			return 1; // Does not matter, as long it is not 0.
-		default:
-			break;
-	}
-	return undefined;
-};
