@@ -31,7 +31,15 @@ function objectToString(object) {
 }
 
 /**
- * Get whethet specified value is a boolean.
+ * Get whether specified value is an array.
+ *
+ * @param arg - The value.
+ * @return {Boolean} true if the argument is an array, false otherwise.
+ */
+exports.isArray = Array.isArray;
+
+/**
+ * Get whether specified value is a boolean.
  *
  * @param arg - The value.
  * @return {Boolean} true if the argument is a boolean, false otherwise.
@@ -41,7 +49,7 @@ exports.isBoolean = function (arg) {
 };
 
 /**
- * Get whethet specified value is null.
+ * Get whether specified value is null.
  *
  * @param arg - The value.
  * @return {Boolean} true if the argument is null, false otherwise.
@@ -51,7 +59,7 @@ exports.isNull = function (arg) {
 };
 
 /**
- * Get whethet specified value is null or undefined.
+ * Get whether specified value is null or undefined.
  *
  * @param arg - The value.
  * @return {Boolean} true if the argument is null or undefined, false otherwise.
@@ -61,7 +69,7 @@ exports.isNullOrUndefined = function (arg) {
 };
 
 /**
- * Get whethet specified value is a number.
+ * Get whether specified value is a number.
  *
  * @param arg - The value.
  * @return {Boolean} true if the argument is a number, false otherwise.
@@ -71,7 +79,7 @@ exports.isNumber = function (arg) {
 };
 
 /**
- * Get whethet specified value is a string.
+ * Get whether specified value is a string.
  *
  * @param arg - The value.
  * @return {Boolean} true if the argument is a string, false otherwise.
@@ -81,7 +89,7 @@ exports.isString = function (arg) {
 };
 
 /**
- * Get whethet specified value is undefined.
+ * Get whether specified value is undefined.
  *
  * @param arg - The value.
  * @return {Boolean} true if the argument is undefined, false otherwise.
@@ -91,7 +99,7 @@ exports.isUndefined = function (arg) {
 };
 
 /**
- * Get whethet specified value is a regular expression.
+ * Get whether specified value is a regular expression.
  *
  * @param arg - The value.
  * @return {Boolean} true if the argument is a regular expression, false otherwise.
@@ -101,7 +109,7 @@ exports.isRegExp = function (arg) {
 };
 
 /**
- * Get whethet specified value is an object.
+ * Get whether specified value is an object.
  *
  * @param arg - The value.
  * @return {Boolean} true if the argument is an object, false otherwise.
@@ -112,7 +120,7 @@ function isObject(arg) {
 exports.isObject = isObject;
 
 /**
- * Get whethet specified value is a date.
+ * Get whether specified value is a date.
  *
  * @param arg - The value.
  * @return {Boolean} true if the argument is a date, false otherwise.
@@ -122,7 +130,7 @@ exports.isDate = function (arg) {
 };
 
 /**
- * Get whethet specified value is an error.
+ * Get whether specified value is an error.
  *
  * @param arg - The value.
  * @return {Boolean} true if the argument is an error, false otherwise.
@@ -132,7 +140,7 @@ exports.isError = function (arg) {
 };
 
 /**
- * Get whethet specified value is a function.
+ * Get whether specified value is a function.
  *
  * @param arg - The value.
  * @return {Boolean} true if the argument is a function, false otherwise.
@@ -142,7 +150,7 @@ exports.isFunction = function (arg) {
 };
 
 /**
- * Get whethet specified value is a buffer.
+ * Get whether specified value is a buffer.
  *
  * @param arg - The value.
  * @return {Boolean} true if the argument is a buffer, false otherwise.
@@ -152,7 +160,7 @@ exports.isBuffer = function (arg) {
 };
 
 /**
- * Get whethet specified value is a symbol.
+ * Get whether specified value is a symbol.
  *
  * @param arg - The value.
  * @return {Boolean} true if the argument is a symbol, false otherwise.
@@ -162,7 +170,7 @@ exports.amd_isSymbol = function (arg) {
 };
 
 /**
- * Get whethet specified value is an ArrayBuffer.
+ * Get whether specified value is an ArrayBuffer.
  *
  * @param arg - The value.
  * @return {Boolean} true if the argument is an ArrayBuffer, false otherwise.

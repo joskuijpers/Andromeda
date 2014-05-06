@@ -40,15 +40,23 @@
 
 + (NSStringEncoding)stringEncodingForEncoding:(NSString *)encoding
 {
+	if([encoding isEqualToString:@"utf8"])
+		return NSUTF8StringEncoding;
 	if([encoding isEqualToString:@"utf16"])
 		return NSUTF16StringEncoding;
-	else if([encoding isEqualToString:@"utf16le"])
+	if([encoding isEqualToString:@"utf16le"])
 		return NSUTF16LittleEndianStringEncoding;
-	else if([encoding isEqualToString:@"utf16be"])
+	if([encoding isEqualToString:@"utf16be"])
 		return NSUTF16BigEndianStringEncoding;
-	else if([encoding isEqualToString:@"ascii"])
+	if([encoding isEqualToString:@"ascii"])
 		return NSASCIIStringEncoding;
-	return NSUTF8StringEncoding;
+	if([encoding isEqualToString:@"utf32"])
+		return NSUTF32StringEncoding;
+	if([encoding isEqualToString:@"utf32le"])
+		return NSUTF32LittleEndianStringEncoding;
+	if([encoding isEqualToString:@"utd32be"])
+		return NSUTF32BigEndianStringEncoding;
+	return 0;
 }
 
 #pragma mark - File System structure operations

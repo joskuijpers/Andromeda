@@ -127,4 +127,13 @@ L8_EXPORT_AS(writeFile,
  */
 @interface AMDFileSystem : NSObject <AMDFileSystem, AMDBinding>
 
+/**
+ * Get the Foundation encoding for a JavaScript textual name
+ * of the encoding.
+ *
+ * @param encoding Name of the encoding.
+ * @return The encoding, or 0 if no match.
+ */
++ (NSStringEncoding)stringEncodingForEncoding:(NSString *)encoding;
+
 @end

@@ -28,6 +28,8 @@
 		80477C4518D1321F00B16692 /* AMDResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 80477C4418D1321F00B16692 /* AMDResource.m */; };
 		8059FBEB18FF2C9D00FC66D8 /* AMDEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 8059FBEA18FF2C9D00FC66D8 /* AMDEngine.m */; };
 		8059FBEE18FF4D0400FC66D8 /* AMDVirtualMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = 8059FBED18FF4D0400FC66D8 /* AMDVirtualMachine.m */; };
+		80610DCE191974CD0011FEB7 /* AMDArrayBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 80610DCD191974CC0011FEB7 /* AMDArrayBuffer.m */; };
+		80610DD219198ADC0011FEB7 /* NSData+AMDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 80610DD119198ADC0011FEB7 /* NSData+AMDAdditions.m */; };
 		8068F4A318FD6A2A0082835E /* AMDGraphicsEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 8068F4A218FD6A2A0082835E /* AMDGraphicsEngine.m */; };
 		8068F4A518FDD56D0082835E /* simple_vertex_shader.vs in Resources */ = {isa = PBXBuildFile; fileRef = 8068F4A418FDD56D0082835E /* simple_vertex_shader.vs */; };
 		8068F4A718FDD57E0082835E /* simple_fragment_shader.fs in Resources */ = {isa = PBXBuildFile; fileRef = 8068F4A618FDD57E0082835E /* simple_fragment_shader.fs */; };
@@ -191,6 +193,10 @@
 		8059FBEA18FF2C9D00FC66D8 /* AMDEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDEngine.m; sourceTree = "<group>"; };
 		8059FBEC18FF4D0400FC66D8 /* AMDVirtualMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDVirtualMachine.h; sourceTree = "<group>"; };
 		8059FBED18FF4D0400FC66D8 /* AMDVirtualMachine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDVirtualMachine.m; sourceTree = "<group>"; };
+		80610DCC191974CC0011FEB7 /* AMDArrayBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDArrayBuffer.h; sourceTree = "<group>"; };
+		80610DCD191974CC0011FEB7 /* AMDArrayBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDArrayBuffer.m; sourceTree = "<group>"; };
+		80610DD019198ADC0011FEB7 /* NSData+AMDAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AMDAdditions.h"; sourceTree = "<group>"; };
+		80610DD119198ADC0011FEB7 /* NSData+AMDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AMDAdditions.m"; sourceTree = "<group>"; };
 		8068F4A118FD6A2A0082835E /* AMDGraphicsEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDGraphicsEngine.h; sourceTree = "<group>"; };
 		8068F4A218FD6A2A0082835E /* AMDGraphicsEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDGraphicsEngine.m; sourceTree = "<group>"; };
 		8068F4A418FDD56D0082835E /* simple_vertex_shader.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = simple_vertex_shader.vs; sourceTree = "<group>"; };
@@ -512,6 +518,15 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		80610DCF191974D70011FEB7 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				80610DCC191974CC0011FEB7 /* AMDArrayBuffer.h */,
+				80610DCD191974CC0011FEB7 /* AMDArrayBuffer.m */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		8086DC8918FC798A0084D743 /* Game */ = {
 			isa = PBXGroup;
 			children = (
@@ -528,6 +543,7 @@
 				800A5242190E9AD300B1F072 /* Engine */,
 				800A5241190E9AC500B1F072 /* File System */,
 				800A52491912769600B1F072 /* Networking */,
+				80610DCF191974D70011FEB7 /* Utilities */,
 			);
 			path = Bindings;
 			sourceTree = "<group>";
@@ -551,6 +567,8 @@
 				800FB73D18DF57A900AEB582 /* NSMutableArray+AMDQueue.m */,
 				800FB73F18DF588900AEB582 /* NSMutableArray+AMDStack.h */,
 				800FB74018DF588900AEB582 /* NSMutableArray+AMDStack.m */,
+				80610DD019198ADC0011FEB7 /* NSData+AMDAdditions.h */,
+				80610DD119198ADC0011FEB7 /* NSData+AMDAdditions.m */,
 			);
 			name = Categories;
 			path = Source/Categories;
@@ -990,6 +1008,7 @@
 				8086DC9218FC8EEC0084D743 /* AMDGame.m in Sources */,
 				800FB74418DF8D3400AEB582 /* AMDCoordinateUtilities.m in Sources */,
 				8068F4A318FD6A2A0082835E /* AMDGraphicsEngine.m in Sources */,
+				80610DD219198ADC0011FEB7 /* NSData+AMDAdditions.m in Sources */,
 				80477C3F18D1321500B16692 /* AMDAppDelegate.m in Sources */,
 				80A0A55D1904517C00E73AA2 /* AMDEventEmitter.m in Sources */,
 				80477C4518D1321F00B16692 /* AMDResource.m in Sources */,
@@ -1000,6 +1019,7 @@
 				80A3C76F18DA891B002EEF8C /* NSString+AMDHashing.m in Sources */,
 				8059FBEE18FF4D0400FC66D8 /* AMDVirtualMachine.m in Sources */,
 				80AAD8D818DE7C4C00805E3D /* AMDKeyboard.m in Sources */,
+				80610DCE191974CD0011FEB7 /* AMDArrayBuffer.m in Sources */,
 				80477BDC18D1313100B16692 /* main.m in Sources */,
 				80A3C77218DA8925002EEF8C /* NSData+AMDHashing.m in Sources */,
 				800FB73E18DF57A900AEB582 /* NSMutableArray+AMDQueue.m in Sources */,
