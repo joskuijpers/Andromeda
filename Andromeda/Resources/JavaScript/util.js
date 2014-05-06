@@ -31,64 +31,142 @@ function objectToString(object) {
 }
 
 /**
- * @section Instanceof functions.
+ * Get whethet specified value is a boolean.
+ *
+ * @param arg - The value.
+ * @return {Boolean} true if the argument is a boolean, false otherwise.
  */
-
-exports.isArray = Array.isArray;
-
 exports.isBoolean = function (arg) {
 	return typeof arg === "boolean";
 };
 
+/**
+ * Get whethet specified value is null.
+ *
+ * @param arg - The value.
+ * @return {Boolean} true if the argument is null, false otherwise.
+ */
 exports.isNull = function (arg) {
 	return arg === null;
 };
 
+/**
+ * Get whethet specified value is null or undefined.
+ *
+ * @param arg - The value.
+ * @return {Boolean} true if the argument is null or undefined, false otherwise.
+ */
 exports.isNullOrUndefined = function (arg) {
 	return arg == null;
 };
 
+/**
+ * Get whethet specified value is a number.
+ *
+ * @param arg - The value.
+ * @return {Boolean} true if the argument is a number, false otherwise.
+ */
 exports.isNumber = function (arg) {
 	return typeof arg === "number";
 };
 
+/**
+ * Get whethet specified value is a string.
+ *
+ * @param arg - The value.
+ * @return {Boolean} true if the argument is a string, false otherwise.
+ */
 exports.isString = function (arg) {
 	return typeof arg === "string";
 };
 
+/**
+ * Get whethet specified value is undefined.
+ *
+ * @param arg - The value.
+ * @return {Boolean} true if the argument is undefined, false otherwise.
+ */
 exports.isUndefined = function (arg) {
 	return arg === void 0;
 };
 
+/**
+ * Get whethet specified value is a regular expression.
+ *
+ * @param arg - The value.
+ * @return {Boolean} true if the argument is a regular expression, false otherwise.
+ */
 exports.isRegExp = function (arg) {
 	return isObject(arg) && objectToString(arg) === "[object RegExp]";
 };
 
+/**
+ * Get whethet specified value is an object.
+ *
+ * @param arg - The value.
+ * @return {Boolean} true if the argument is an object, false otherwise.
+ */
 function isObject(arg) {
 	return typeof arg === "object" && arg !== null;
 };
 exports.isObject = isObject;
 
+/**
+ * Get whethet specified value is a date.
+ *
+ * @param arg - The value.
+ * @return {Boolean} true if the argument is a date, false otherwise.
+ */
 exports.isDate = function (arg) {
 	return isObject(arg) && objectToString(arg) === "[object Date]";
 };
 
+/**
+ * Get whethet specified value is an error.
+ *
+ * @param arg - The value.
+ * @return {Boolean} true if the argument is an error, false otherwise.
+ */
 exports.isError = function (arg) {
 	return isObject(arg) && (objectToString(arg) === "[object Error]" || arg instanceof Error);
 };
 
+/**
+ * Get whethet specified value is a function.
+ *
+ * @param arg - The value.
+ * @return {Boolean} true if the argument is a function, false otherwise.
+ */
 exports.isFunction = function (arg) {
 	return typeof arg === "function";
 };
 
+/**
+ * Get whethet specified value is a buffer.
+ *
+ * @param arg - The value.
+ * @return {Boolean} true if the argument is a buffer, false otherwise.
+ */
 exports.isBuffer = function (arg) {
 	return arg instanceof Buffer;
 };
 
+/**
+ * Get whethet specified value is a symbol.
+ *
+ * @param arg - The value.
+ * @return {Boolean} true if the argument is a symbol, false otherwise.
+ */
 exports.amd_isSymbol = function (arg) {
 	return typeof arg == "symbol";
 };
 
+/**
+ * Get whethet specified value is an ArrayBuffer.
+ *
+ * @param arg - The value.
+ * @return {Boolean} true if the argument is an ArrayBuffer, false otherwise.
+ */
 exports.amd_isArrayBuffer = function (arg) {
 	return isObject(arg) && objectToString(arg) === "[object ArrayBuffer]";
 };
