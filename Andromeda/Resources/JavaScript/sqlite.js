@@ -23,6 +23,10 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/**
+ * @module sqlite
+ */
+
 exports.Query = function (database) {
 	this.database = database;
 }

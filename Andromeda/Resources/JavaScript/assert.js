@@ -25,6 +25,10 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/**
+ * @module assert
+ */
+
 var util = require("util");
 
 // 1. The assert module provides functions that throw AssertionError's

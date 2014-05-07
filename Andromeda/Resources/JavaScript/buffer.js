@@ -23,6 +23,10 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/**
+ * @module buffer
+ */
+
 var util = require("util");
 var abTools = engine.binding("arraybuffer");
 
