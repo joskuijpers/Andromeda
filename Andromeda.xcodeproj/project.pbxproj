@@ -30,6 +30,9 @@
 		8059FBEE18FF4D0400FC66D8 /* AMDVirtualMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = 8059FBED18FF4D0400FC66D8 /* AMDVirtualMachine.m */; };
 		80610DCE191974CD0011FEB7 /* AMDArrayBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 80610DCD191974CC0011FEB7 /* AMDArrayBuffer.m */; };
 		80610DD219198ADC0011FEB7 /* NSData+AMDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 80610DD119198ADC0011FEB7 /* NSData+AMDAdditions.m */; };
+		80610DD4191A64C60011FEB7 /* sound.js in Resources */ = {isa = PBXBuildFile; fileRef = 80610DD3191A64C40011FEB7 /* sound.js */; };
+		80610DD7191A651A0011FEB7 /* AMDSoundBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 80610DD6191A651A0011FEB7 /* AMDSoundBinding.m */; };
+		80610DE0191A6B840011FEB7 /* AMDSound.m in Sources */ = {isa = PBXBuildFile; fileRef = 80610DDF191A6B840011FEB7 /* AMDSound.m */; };
 		8068F4A318FD6A2A0082835E /* AMDGraphicsEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 8068F4A218FD6A2A0082835E /* AMDGraphicsEngine.m */; };
 		8068F4A518FDD56D0082835E /* simple_vertex_shader.vs in Resources */ = {isa = PBXBuildFile; fileRef = 8068F4A418FDD56D0082835E /* simple_vertex_shader.vs */; };
 		8068F4A718FDD57E0082835E /* simple_fragment_shader.fs in Resources */ = {isa = PBXBuildFile; fileRef = 8068F4A618FDD57E0082835E /* simple_fragment_shader.fs */; };
@@ -197,6 +200,11 @@
 		80610DCD191974CC0011FEB7 /* AMDArrayBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDArrayBuffer.m; sourceTree = "<group>"; };
 		80610DD019198ADC0011FEB7 /* NSData+AMDAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AMDAdditions.h"; sourceTree = "<group>"; };
 		80610DD119198ADC0011FEB7 /* NSData+AMDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AMDAdditions.m"; sourceTree = "<group>"; };
+		80610DD3191A64C40011FEB7 /* sound.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = sound.js; sourceTree = "<group>"; };
+		80610DD5191A651A0011FEB7 /* AMDSoundBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDSoundBinding.h; sourceTree = "<group>"; };
+		80610DD6191A651A0011FEB7 /* AMDSoundBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDSoundBinding.m; sourceTree = "<group>"; };
+		80610DDE191A6B840011FEB7 /* AMDSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDSound.h; sourceTree = "<group>"; };
+		80610DDF191A6B840011FEB7 /* AMDSound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDSound.m; sourceTree = "<group>"; };
 		8068F4A118FD6A2A0082835E /* AMDGraphicsEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMDGraphicsEngine.h; sourceTree = "<group>"; };
 		8068F4A218FD6A2A0082835E /* AMDGraphicsEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMDGraphicsEngine.m; sourceTree = "<group>"; };
 		8068F4A418FDD56D0082835E /* simple_vertex_shader.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = simple_vertex_shader.vs; sourceTree = "<group>"; };
@@ -527,6 +535,28 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		80610DD8191A651F0011FEB7 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				80610DDE191A6B840011FEB7 /* AMDSound.h */,
+				80610DDF191A6B840011FEB7 /* AMDSound.m */,
+				80610DD5191A651A0011FEB7 /* AMDSoundBinding.h */,
+				80610DD6191A651A0011FEB7 /* AMDSoundBinding.m */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
+		80610DDD191A6B600011FEB7 /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				80AAD8CA18DD1B9800805E3D /* AMDGraphicsView.h */,
+				80AAD8CB18DD1B9800805E3D /* AMDGraphicsView.m */,
+				8068F4A118FD6A2A0082835E /* AMDGraphicsEngine.h */,
+				8068F4A218FD6A2A0082835E /* AMDGraphicsEngine.m */,
+			);
+			name = Graphics;
+			sourceTree = "<group>";
+		};
 		8086DC8918FC798A0084D743 /* Game */ = {
 			isa = PBXGroup;
 			children = (
@@ -542,6 +572,7 @@
 				80A0A56519045BBD00E73AA2 /* AMDBinding.h */,
 				800A5242190E9AD300B1F072 /* Engine */,
 				800A5241190E9AC500B1F072 /* File System */,
+				80610DD8191A651F0011FEB7 /* Sound */,
 				800A52491912769600B1F072 /* Networking */,
 				80610DCF191974D70011FEB7 /* Utilities */,
 			);
@@ -577,10 +608,7 @@
 		80AAD8C718DD1B4100805E3D /* Engine */ = {
 			isa = PBXGroup;
 			children = (
-				80AAD8CA18DD1B9800805E3D /* AMDGraphicsView.h */,
-				80AAD8CB18DD1B9800805E3D /* AMDGraphicsView.m */,
-				8068F4A118FD6A2A0082835E /* AMDGraphicsEngine.h */,
-				8068F4A218FD6A2A0082835E /* AMDGraphicsEngine.m */,
+				80610DDD191A6B600011FEB7 /* Graphics */,
 			);
 			path = Engine;
 			sourceTree = "<group>";
@@ -645,6 +673,7 @@
 				80A0A5811906B64A00E73AA2 /* assert.js */,
 				80A0A5831906F68700E73AA2 /* test.js */,
 				800A51FB190E7F7000B1F072 /* game.js */,
+				80610DD3191A64C40011FEB7 /* sound.js */,
 			);
 			path = JavaScript;
 			sourceTree = "<group>";
@@ -920,6 +949,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80610DD4191A64C60011FEB7 /* sound.js in Resources */,
 				80477BDA18D1313100B16692 /* InfoPlist.strings in Resources */,
 				80477BE818D1313100B16692 /* Images.xcassets in Resources */,
 				80A0A5871907187E00E73AA2 /* assert_tests.js in Resources */,
@@ -997,6 +1027,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				80A3C77818DA8FDD002EEF8C /* AMDFileHashing.m in Sources */,
+				80610DD7191A651A0011FEB7 /* AMDSoundBinding.m in Sources */,
 				80477C2F18D1320900B16692 /* AMDBonjour.m in Sources */,
 				80477C3618D1320900B16692 /* AMDFileSystem.m in Sources */,
 				80AAD8E418DE8D4600805E3D /* AMDInputDevice.m in Sources */,
@@ -1004,6 +1035,7 @@
 				80477C3C18D1320900B16692 /* AMDSocket.m in Sources */,
 				80AAD8E118DE7C6900805E3D /* AMDInput.m in Sources */,
 				80AAD8DE18DE7C6000805E3D /* AMDGamepad.m in Sources */,
+				80610DE0191A6B840011FEB7 /* AMDSound.m in Sources */,
 				80AAD8DB18DE7C5500805E3D /* AMDMouse.m in Sources */,
 				8086DC9218FC8EEC0084D743 /* AMDGame.m in Sources */,
 				800FB74418DF8D3400AEB582 /* AMDCoordinateUtilities.m in Sources */,
